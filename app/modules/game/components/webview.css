@@ -1,0 +1,9 @@
+.webview {
+  border: dashed 2px #f00;
+}
+
+.webviewPanel {
+  border: dashed 1px #f00;
+  width: 800px;
+  height: 480px;
+}

@@ -5,7 +5,9 @@ import cx from 'classnames';
 
 import s from './styles.css';
 
+import WebView from './components/webview';
+
 export default ({ atom }: *) =>
   <div className={cx(s.game)}>
-    Game view
+    <WebView />
   </div>;

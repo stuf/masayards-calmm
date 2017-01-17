@@ -6,13 +6,13 @@ import Storage from 'atom.storage';
 import cx from 'classnames';
 
 import s from './styles.css';
-import Game from '../game';
-import AppUI from '../app-ui';
-
-import StatusBar from './components/status-bar';
 import stateSchema from './schema';
 
-const stateStorage = Storage({
+import Game from '../game';
+import AppUI from '../app-ui';
+import StatusBar from './components/status-bar';
+
+const stateStorage: * = Storage({
   key: 'masayards:state',
   value: stateSchema,
   Atom,
@@ -22,8 +22,7 @@ const stateStorage = Storage({
 
 stateStorage.log('State storage hit');
 
-// const state = U.atom(stateSchema);
-const state = stateStorage;
+const state: * = stateStorage;
 
 export default class App extends React.Component {
   render() {
