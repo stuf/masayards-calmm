@@ -7,6 +7,8 @@ import s from './styles.css';
 import Game from '../game';
 import AppUI from '../app-ui';
 
+import StatusBar from './components/status-bar';
+
 // Initialize state
 const initialState = {
   game: {
@@ -26,6 +28,7 @@ export default class App extends React.Component {
       <div className={cx(s.app)}>
         <Game atom={state} />
         <AppUI atom={state} />
+        <StatusBar atom={state} />
       </div>
     );
   }

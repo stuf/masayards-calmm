@@ -1,0 +1,19 @@
+.statusBar {
+  font-size: 0.9rem;
+  border: solid 1px #00f;
+  padding: 0.5rem;
+  display: flex;
+}
+
+.spacer {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.statusElement {
+  padding: 0 0.5rem;
+}
+
+.statusElement:last-child {
+  padding-right: 0;
+}
