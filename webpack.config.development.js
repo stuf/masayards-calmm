@@ -17,13 +17,21 @@ export default validate(merge(baseConfig, {
 
   devtool: 'inline-source-map',
 
-  entry: [
-    `webpack-hot-middleware/client?path=http://localhost:${port}/__webpack_hmr`,
-    'babel-polyfill',
-    './app/index'
-  ],
+  entry: {
+    vendor: [
+      `webpack-hot-middleware/client?path=http://localhost:${port}/__webpack_hmr`,
+      'babel-polyfill',
+      'react', 'react-dom',
+      'ramda', 'partial.lenses', 'karet', 'karet.util'
+    ],
+    bundle: [
+      `webpack-hot-middleware/client?path=http://localhost:${port}/__webpack_hmr`,
+      './app/index'
+    ]
+  },
 
   output: {
+    filename: '[name].js',
     publicPath: `http://localhost:${port}/dist/`
   },
 

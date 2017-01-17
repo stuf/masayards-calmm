@@ -1,0 +1,5 @@
+.appUi {
+  border: dashed 1px #f00;
+  flex-basis: 0;
+  flex-grow: 1;
+}
