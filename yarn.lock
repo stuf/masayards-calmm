@@ -730,7 +730,7 @@ babel-plugin-transform-class-constructor-call@^6.3.13:
     babel-runtime "^6.0.0"
     babel-template "^6.8.0"
 
-babel-plugin-transform-class-properties@^6.18.0, babel-plugin-transform-class-properties@^6.6.0:
+babel-plugin-transform-class-properties@^6.18.0, babel-plugin-transform-class-properties@^6.19.0, babel-plugin-transform-class-properties@^6.6.0:
   version "6.19.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-class-properties/-/babel-plugin-transform-class-properties-6.19.0.tgz#1274b349abaadc835164e2004f4a2444a2788d5f"
   dependencies:
@@ -3893,6 +3893,10 @@ indexof@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/indexof/-/indexof-0.0.1.tgz#82dc336d232b9062179d05ab3293a66059fd435d"
 
+infestines@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/infestines/-/infestines-0.4.0.tgz#e0fd67a062812c082f999f041807845d669d4583"
+
 inflight@^1.0.4:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/inflight/-/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
@@ -4349,6 +4353,47 @@ jsx-ast-utils@^1.0.0, jsx-ast-utils@^1.3.4:
   dependencies:
     acorn-jsx "^3.0.1"
     object-assign "^4.1.0"
+
+karet.util@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/karet.util/-/karet.util-0.9.0.tgz#cc01b2de8079b8e78ae87a4d55a8dccc9afbd99e"
+  dependencies:
+    infestines "^0.4.0"
+    karet "^0.2.5"
+    kefir "^3.7.0"
+    kefir.atom "^5.0.1"
+    kefir.combines "^4.0.0"
+    partial.lenses "^8.0.0"
+    ramda "^0.23.0"
+
+karet@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/karet/-/karet-0.2.5.tgz#6806fcfc259ce601b6912a2ff9b6634239c96c64"
+  dependencies:
+    infestines "^0.4.0"
+    kefir "^3.2.1"
+    react "^15.0.1"
+
+kefir.atom@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/kefir.atom/-/kefir.atom-5.0.1.tgz#a382b98f5733310d6b2cc1f0ca85561ca0de6cad"
+  dependencies:
+    infestines "^0.4.0"
+    kefir "^3.3.0"
+    partial.lenses "^8.0.0"
+
+kefir.combines@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/kefir.combines/-/kefir.combines-4.0.0.tgz#179fb1e26428c111827ee877c1e3292cd9b32aff"
+  dependencies:
+    infestines "^0.4.0"
+    kefir "^3.7.0"
+
+kefir@^3.2.1, kefir@^3.3.0, kefir@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/kefir/-/kefir-3.7.0.tgz#68686fc3532764395db2ade63dec1ee16aadcb1c"
+  dependencies:
+    symbol-observable "^1.0.1"
 
 kind-of@^3.0.2:
   version "3.1.0"
@@ -5299,6 +5344,12 @@ parseurl@~1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.1.tgz#c8ab8c9223ba34888aa64a297b28853bec18da56"
 
+partial.lenses@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/partial.lenses/-/partial.lenses-8.0.0.tgz#50f5e4c68b8172ec85c9a6b239f153727179b824"
+  dependencies:
+    infestines "^0.4.0"
+
 path-browserify@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/path-browserify/-/path-browserify-0.0.0.tgz#a0b870729aae214005b7d5032ec2cbbb0fb4451a"
@@ -5765,6 +5816,10 @@ ramda@^0.22.1:
   version "0.22.1"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.22.1.tgz#031da0c3df417c5b33c96234757eb37033f36a0e"
 
+ramda@^0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.23.0.tgz#ccd13fff73497a93974e3e86327bfd87bd6e8e2b"
+
 randomatic@^1.1.3:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/randomatic/-/randomatic-1.1.6.tgz#110dcabff397e9dcff7c0789ccc0a49adf1ec5bb"
@@ -5850,7 +5905,7 @@ react-transform-hmr@^1.0.3:
     global "^4.3.0"
     react-proxy "^1.1.7"
 
-react@^15.4.2:
+react@^15.0.1, react@^15.4.2:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
   dependencies:
@@ -6655,7 +6710,7 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-symbol-observable@^1.0.2:
+symbol-observable@^1.0.1, symbol-observable@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.4.tgz#29bf615d4aa7121bdd898b22d4b3f9bc4e2aa03d"
 

@@ -164,6 +164,12 @@
   "dependencies": {
     "electron-debug": "^1.1.0",
     "font-awesome": "^4.7.0",
+    "karet": "^0.2.5",
+    "karet.util": "^0.9.0",
+    "kefir": "^3.7.0",
+    "kefir.atom": "^5.0.1",
+    "kefir.combines": "^4.0.0",
+    "partial.lenses": "^8.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
