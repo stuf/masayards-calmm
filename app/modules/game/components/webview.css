@@ -2,7 +2,7 @@
   border: dashed 2px #f00;
 }
 
-.webviewPanel {
+webview {
   border: dashed 1px #f00;
   width: 800px;
   height: 480px;
