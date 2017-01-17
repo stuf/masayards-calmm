@@ -1,5 +1,6 @@
 [ignore]
 .*/node_modules/fbjs/.*
+.*/app/modules/app/schema.json
 .*/app/main.js
 .*/app/dist/.*
 .*/release/.*

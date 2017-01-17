@@ -1,6 +1,8 @@
 // @flow
 import React from 'karet';
 import * as U from 'karet.util';
+import Atom from 'kefir.atom';
+import Storage from 'atom.storage';
 import cx from 'classnames';
 
 import s from './styles.css';
@@ -8,19 +10,20 @@ import Game from '../game';
 import AppUI from '../app-ui';
 
 import StatusBar from './components/status-bar';
+import stateSchema from './schema';
 
-// Initialize state
-const initialState = {
-  game: {
-    connected: false,     // Are we "connected" to the API?
-    api: {}
-  },
-  application: {
-    network: 'offline'
-  }
-};
+const stateStorage = Storage({
+  key: 'masayards:state',
+  value: stateSchema,
+  Atom,
+  storage: localStorage,
+  debounce: 100
+});
 
-const state = U.atom(initialState);
+stateStorage.log('State storage hit');
+
+// const state = U.atom(stateSchema);
+const state = stateStorage;
 
 export default class App extends React.Component {
   render() {
