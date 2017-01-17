@@ -149,7 +149,6 @@
     "minimist": "^1.2.0",
     "mocha": "^3.2.0",
     "react-addons-test-utils": "^15.4.2",
-    "redux-logger": "^2.7.4",
     "sinon": "^1.17.7",
     "spectron": "^3.4.1",
     "style-loader": "^0.13.1",
@@ -162,6 +161,7 @@
     "webpack-validator": "^2.3.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "electron-debug": "^1.1.0",
     "font-awesome": "^4.7.0",
     "karet": "^0.2.5",
@@ -170,13 +170,9 @@
     "kefir.atom": "^5.0.1",
     "kefir.combines": "^4.0.0",
     "partial.lenses": "^8.0.0",
+    "ramda": "^0.23.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-redux": "^5.0.2",
-    "react-router": "^3.0.1",
-    "react-router-redux": "^4.0.7",
-    "redux": "^3.6.0",
-    "redux-thunk": "^2.1.0",
     "source-map-support": "^0.4.8"
   },
   "devEngines": {
