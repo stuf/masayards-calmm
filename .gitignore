@@ -43,4 +43,6 @@ dist
 main.js
 main.js.map
 
+lib/PepperFlashPlayer.plugin
+
 .idea
