@@ -7,7 +7,8 @@ import s from './styles.css';
 
 import WebView from './components/webview';
 
-export default ({ atom }: *) =>
+export default ({ atom, requestAtom = atom.view(['game', 'api']) }: *) =>
   <div className={cx(s.game)}>
-    <WebView />
+    {/* $FlowFixMe */}
+    <WebView requestAtom={requestAtom} />
   </div>;

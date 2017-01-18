@@ -1,0 +1,10 @@
+// @flow
+type WebSession = {};
+
+type WebContents = {
+  session: *
+};
+
+type WebViewElement = HTMLElement & {
+  getWebContents: () => *
+};
