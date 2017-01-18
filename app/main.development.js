@@ -2,11 +2,14 @@
  * @fileoverview
  *  This is the main process of the application, which spawns the renderer processes.
  *
- * @exitcode 16 uncaughtException - returned after the uncaughtException handler has run
+ * @exitcode 16 - after the uncaughtException handler has run
+ * @exitcode 17 - Pepper Flash Player plugin could not be found
  *
  * PS. Don't use flow here. Black magic.
  */
 import { app, BrowserWindow, Menu, shell } from 'electron';
+import fs from 'fs';
+import path from 'path';
 import logger from './logger';
 
 logger.info('Starting application');
@@ -14,6 +17,19 @@ logger.info('Starting application');
 let menu;
 let template;
 let mainWindow = null;
+
+// Load the Flash player plugin
+logger.info('Checking for Pepper Flash Player plugin');
+
+const libPath = path.resolve(__dirname, '..', 'lib');
+if (!fs.existsSync(path.join(libPath, 'PepperFlashPlayer.plugin'))) {
+  logger.error('Could not find the Pepper Flash Player plugin.');
+  process.exit(17);
+}
+
+logger.info('Pepper Flash Player plugin found. Adding command-line switches.');
+app.commandLine.appendSwitch('ppapi-flash-path', path.join(libPath, 'PepperFlashPlayer.plugin'));
+app.commandLine.appendSwitch('ppapi-flash-version', '24.0.0.20');
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support'); // eslint-disable-line
@@ -251,7 +267,8 @@ app.on('ready', async () => {
 
     menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
-  } else {
+  }
+  else {
     template = [{
       label: '&File',
       submenu: [{

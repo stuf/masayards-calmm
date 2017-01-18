@@ -1,14 +1,15 @@
 // @flow
 import React from 'karet';
 import * as U from 'karet.util';
+import * as L from 'partial.lenses';
 import cx from 'classnames';
 
 import s from './styles.css';
 
 import WebView from './components/webview';
 
-export default ({ atom, requestAtom = atom.view(['game', 'api']) }: *) =>
+export default ({ atom, gameDataState = atom.view('game') }: *) =>
   <div className={cx(s.game)}>
     {/* $FlowFixMe */}
-    <WebView requestAtom={requestAtom} />
+    <WebView gameState={gameDataState} />
   </div>;

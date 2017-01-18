@@ -7,8 +7,11 @@
 .*/git/.*
 
 [include]
+.*/app/**/*.js.flow
 
 [libs]
+node_modules/.flow-atom/
+flow-typed/
 
 [options]
 esproposal.class_static_fields=enable

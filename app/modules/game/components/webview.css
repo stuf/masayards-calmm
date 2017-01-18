@@ -1,9 +1,10 @@
 .webview {
-  border: dashed 2px #f00;
+  /*border: dashed 2px #f00;*/
 }
 
 webview {
-  border: dashed 1px #f00;
+  /*border: dashed 1px #f00;*/
   width: 800px;
   height: 480px;
+  overflow: hidden;
 }
