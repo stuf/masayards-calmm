@@ -1,4 +1,15 @@
+/**
+ * @fileoverview
+ *  This is the main process of the application, which spawns the renderer processes.
+ *
+ * @exitcode 16 uncaughtException - returned after the uncaughtException handler has run
+ *
+ * PS. Don't use flow here. Black magic.
+ */
 import { app, BrowserWindow, Menu, shell } from 'electron';
+import logger from './logger';
+
+logger.info('Starting application');
 
 let menu;
 let template;
@@ -40,6 +51,27 @@ const installExtensions = async () => {
   }
 };
 
+process.on('uncaughtException', err => {
+  logger.error('Process got an uncaught exception', { err });
+  logger.error('Logging environment information', {
+    config: process.config,
+    memoryUsage: process.memoryUsage(),
+    platform: process.platform,
+    release: process.release,
+    uptime: process.uptime(),
+    versions: process.versions
+  });
+  process.exit(16);
+});
+
+process.on('unhandledRejection', (reason, p) => {
+  logger.error('Process got an unhandled rejection', { reason, p });
+});
+
+process.on('warning', w => {
+  logger.warn('Process received warning', { name: w.name, message: w.message, stack: w.stack });
+});
+
 app.on('ready', async () => {
   await installExtensions();
 
@@ -58,6 +90,19 @@ app.on('ready', async () => {
 
   mainWindow.on('closed', () => {
     mainWindow = null;
+  });
+
+  // Handle logging failures and errors
+  mainWindow.webContents.on('crashed', (event, killed) => {
+    logger.error('Main window webContents crashed', { killed });
+  });
+
+  mainWindow.webContents.on('plugin-crashed', (event, name, version) => {
+    logger.error('Plug-in in main window webContents crashed', { name, version });
+  });
+
+  mainWindow.on('unresponsive', e => {
+    logger.warn('Main window unresponsive');
   });
 
   if (process.env.NODE_ENV === 'development') {
