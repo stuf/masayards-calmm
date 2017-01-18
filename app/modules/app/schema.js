@@ -7,7 +7,8 @@
 export type Schema = {
   game: {
     status: string,
-    api: *
+    api: *,
+    data: *
   },
   application: {
     network: string
@@ -24,9 +25,13 @@ const schema = {
      */
     status: 'disconnected',
     /**
+     * Incoming API data.
+     */
+    api: {},
+    /**
      * The game's state data.
      */
-    api: {}
+    data: {}
   },
   application: {
     network: 'offline'
