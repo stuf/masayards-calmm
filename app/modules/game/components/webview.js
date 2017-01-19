@@ -76,27 +76,27 @@ export default class GameView extends React.Component {
     const { session } = contents;
     const { webRequest } = session;
 
+    // Inject some styles into the loaded webview, so that everything not relevant to
+    // the game is hidden, and the game view is positioned to fill the view.
     contents.on('dom-ready', ev => {
       const injectCss = [
-        ['body { overflow: hidden; }'],
-        ['#spacing_top { display: none; }'],
-        ['#foot { display: none; }'],
-        ['#ntg-recommend { display: none; }'],
-        ['.area-naviapp { display: none; }'],
-        ['.dmm-gtnavi { display: none; }'],
-        [
-          '#game_frame {',
-          'border: solid 1px #f00 !important;',
-          'position: absolute;',
-          'left: 0;',
-          'top: -75px;',
-          'width: 800px;',
-          'height: 480px;',
-          'z-index: 9999;',
-          '}'
-        ]
+        'body { overflow: hidden; }',
+        '#spacing_top { display: none; }',
+        '#foot { display: none; }',
+        '#ntg-recommend { display: none; }',
+        '.area-naviapp { display: none; }',
+        '.dmm-gtnavi { display: none; }',
+        `#game_frame {
+          border: solid 1px #f00 !important;
+          position: absolute;
+          left: 0;
+          top: -75px;
+          width: 800px;
+          height: 480px;
+          z-index: 9999;
+        }`
       ];
-      contents.insertCSS(injectCss.map(line => line.join('')).join(''));
+      contents.insertCSS(injectCss.join(''));
     });
 
     // Mute the audio by default at start
@@ -128,20 +128,17 @@ export default class GameView extends React.Component {
 
         const requestId = params.requestId;
 
-        const ls = {
-          thisRequest: ['api', 'requests', requestId],
-          data: ['api', 'data']
-        };
-
         const context = {
           requestId,
           contents,
-          thisRequest: this.atom.view(ls.thisRequest),
-          data: this.atom.view(ls.data)
+          thisRequest: this.atom.view(['api', 'requests', requestId]),
+          data: this.atom.view(['api', 'data'])
         };
 
         const args = { event, method, params: intoJson(params) };
 
+        // Fine, we have a handler for this and some data to use.
+        // Perform some dark arts with it.
         handlerFn(context, args);
       });
     }
