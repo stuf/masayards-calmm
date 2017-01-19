@@ -25,7 +25,8 @@
     "package-win": "npm run build && build --win --x64",
     "package-linux": "npm run build && build --linux",
     "package-all": "npm run build && build -mwl",
-    "cleanup": "mop -v"
+    "cleanup": "mop -v",
+    "install-assets": "sh ./scripts/get-assets.sh"
   },
   "browserslist": "chrome 50",
   "build": {
@@ -169,11 +170,14 @@
     "kefir": "^3.7.0",
     "kefir.atom": "^5.0.1",
     "kefir.combines": "^4.0.0",
+    "material-colors": "^1.2.5",
+    "node-sass": "^4.3.0",
     "partial.lenses": "^8.0.0",
     "ramda": "^0.23.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "sanctuary": "^0.11.1",
+    "sass-loader": "^4.1.1",
     "source-map-support": "^0.4.8",
     "winston": "^2.3.0"
   },

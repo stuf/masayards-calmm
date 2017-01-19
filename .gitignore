@@ -46,3 +46,7 @@ main.js.map
 lib/PepperFlashPlayer.plugin
 
 .idea
+
+scratch/
+
+app/assets/icons
