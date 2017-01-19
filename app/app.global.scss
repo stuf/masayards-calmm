@@ -1,9 +1,10 @@
-@import "~font-awesome/css/font-awesome.css";
-@import "~bootstrap/dist/css/bootstrap.css";
+$font-family-sans-serif: "HK Grotesk", sans-serif;
+
+@import "./modules/styles/global";
+@import "~bootstrap/scss/bootstrap";
 
 body {
   height: 100vh;
-  font-family: "HK Grotesk", sans-serif;
   overflow-y: hidden;
 }
 
