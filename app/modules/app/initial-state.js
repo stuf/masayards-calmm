@@ -17,10 +17,24 @@ export type Schema = {
         data: *,
         postData: *
       } }
+    },
+    objects: {
+      ships: {},
+      equipment: {}
+    },
+    player: {
+      items: Array<*>,
+      resources: Array<*>,
+      profile: Array<*>,
+      docks: Array<*>,
+      fleets: Array<*>,
+      ships: Array<*>,
+      equipment: Array<*>
     }
   },
   application: {
-    networkStatus: string | NetworkState
+    networkStatus: string | NetworkState,
+    titleText?: string
   },
   config: {
     gameUrl: string
@@ -45,6 +59,25 @@ const schema = {
        * Data received from the API, as key-value pairs according to game path.
        */
       data: {}
+    },
+    /**
+     * Game-related non-player objects; ships, equipment, maps, nodes, etc.
+     */
+    objects: {
+      ships: {},
+      equipment: {}
+    },
+    /**
+     * Game-related player objects; profile, fleets, ships, etc.
+     */
+    player: {
+      items: [],
+      resources: [],
+      profile: [],
+      docks: [],
+      fleets: [],
+      ships: [],
+      equipment: []
     }
   },
   application: {

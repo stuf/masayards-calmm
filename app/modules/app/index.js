@@ -19,6 +19,7 @@ import initialState from './initial-state';
 import Game from '../game';
 import AppUI from '../app-ui';
 import StatusBar from './components/status-bar';
+import TitleBar from './components/title-bar';
 
 /**
  * Define main storage where to persist our data into.
@@ -68,12 +69,13 @@ const view = {
 };
 
 /**
- * Define our root application component
+ * Root application component
  */
 export default class App extends React.Component {
   render() {
     return (
       <div className={cx(css.app)}>
+        <TitleBar />
         <Game atom={view.gameIn(state)} />
         <AppUI atom={view.appUiIn(state)} />
         <StatusBar atom={view.statusBarIn(state)} />

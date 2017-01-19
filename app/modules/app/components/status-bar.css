@@ -10,10 +10,12 @@
   flex-grow: 1;
 }
 
-.statusElement {
+.statusElement,
+.counterElement {
   padding: 0 0.5rem;
 }
 
+.counterElement:last-child,
 .statusElement:last-child {
   padding-right: 0;
 }

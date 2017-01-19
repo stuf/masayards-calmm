@@ -27,35 +27,23 @@ export const networkEvent: { [key: string]: string } = {
 const apiDataPrefix: RegExp = /svdata=/;
 const pathPrefix: RegExp = /.*\/kcsapi/;
 
-const intoJson = R.compose(JSON.parse, JSON.stringify);
-
-const logError = (...args) => console.error('>> ERROR: ', ...args);
-const tryJsonParse = R.tryCatch(JSON.parse, logError);
-const removeTokenFrom = R.dissoc('api_token');
-
-const isGamePath = R.test(pathPrefix);
+// Define some basic utilities for handling data
 const parsePath = R.replace(pathPrefix, '');
-
-const unlessFalsy = R.unless(R.isNil);
-const inApiData = R.prop('api_data');
-const inBody = R.prop('body');
-const replacePrefix = R.replace(apiDataPrefix);
 
 const parseResultBody = R.compose(R.prop('api_data'),
                                   JSON.parse,
                                   R.replace(apiDataPrefix),
                                   R.prop('body'));
 
-const parseQueryString = R.compose(removeTokenFrom,
+const parseQueryString = R.compose(R.dissoc('api_token'),
                                    qs.parse,
-                                   unlessFalsy);
+                                   R.unless(R.isNil));
 
 // Export public-facing functions
 
 /**
- * @event REQUEST_WILL_BE_SENT
- *
  * Handler function for when the debugger sends a REQUEST_WILL_BE_SENT message.
+ * @event REQUEST_WILL_BE_SENT
  */
 export const requestWillBeSentFn =
   ({ thisRequest, requestId }: *, { event, method, params }: *) => {
@@ -72,9 +60,8 @@ export const requestWillBeSentFn =
   };
 
 /**
- * @event RESPONSE_RECEIVED
- *
  * Handler function for when the debugger sends a RESPONSE_RECEIVED message.
+ * @event RESPONSE_RECEIVED
  */
 export const responseReceivedFn =
   ({ thisRequest, requestId }: *, { event, method, params }: *) => {
@@ -91,12 +78,11 @@ export const responseReceivedFn =
   };
 
 /**
- * @event LOADING_FINISHED
- *
  * Fetch the response body and move it into the pool of API data to be processed.
+ * @event LOADING_FINISHED
  */
 export const loadingFinishedFn =
-  R.curry(({ thisRequest, data, contents, requestId }, { event, method, params }) => {
+  ({ thisRequest, data, contents, requestId }: *, { event, method, params }: *) => {
     const thisReq = thisRequest.get();
 
     // Since we already have all the data we need, we can safely remove this request
@@ -109,29 +95,29 @@ export const loadingFinishedFn =
 
     const url = thisReq.request.url;
 
-    console.log('>> Got a resulting object (rId: %s)', requestId, { thisReq });
-
     // Get the resulting request body from this request
     contents.debugger.sendCommand(networkEvent.GET_RESPONSE_BODY, { requestId },
       (err, result) => {
         const body = result.body;
+
+        // @todo Clean this up with something less imperative
         let b;
         if (body) {
           b = body.replace(apiDataPrefix, '');
           b = JSON.parse(b);
           b = R.prop('api_data', b);
         }
-        console.log({ b });
-        // const resultBody = parseResultBody(result);
+
         const postBody = parseQueryString(R.path(['params', 'request', 'postData'], thisReq));
-        const path = parsePath(url);
+        const path = R.replace(pathPrefix, '', url);
         const time = +(new Date());
 
         // Move the data from this request to the API data pool.
         // Subscribers from this pool can then process the data before it's passed into the UI.
-        data.modify(d => L.set(path, { time, data: b, postData: postBody }, d));
+        const newData = { time, data: b, postData: postBody };
+        data.modify(curData => L.set(path, newData, curData));
       });
-  });
+  };
 
 export const getHandler = R.cond([
   [R.equals(networkEvent.REQUEST_WILL_BE_SENT), R.always(requestWillBeSentFn)],

@@ -120,22 +120,20 @@ export default class GameView extends React.Component {
       }
 
       contents.debugger.on('message', (event, method, params) => {
-        const fn = getHandler(method);
+        const handlerFn = getHandler(method);
 
-        if (!fn) {
+        if (!handlerFn) {
           return;
         }
 
         const requestId = params.requestId;
-        const request = params.request;
-        const response = params.response;
 
         const ls = {
           thisRequest: ['api', 'requests', requestId],
           data: ['api', 'data']
         };
 
-        const ctx = {
+        const context = {
           requestId,
           contents,
           thisRequest: this.atom.view(ls.thisRequest),
@@ -144,7 +142,7 @@ export default class GameView extends React.Component {
 
         const args = { event, method, params: intoJson(params) };
 
-        fn(ctx, args);
+        handlerFn(context, args);
       });
     }
 
@@ -158,27 +156,12 @@ export default class GameView extends React.Component {
           cb(details);
           return;
         }
-        else if (this.gameSwfPrefix.test(details.url)) {
-          console.log('>> Found game SWF; %s', details.url);
-          contents.executeJavaScript(`window.onload = () => {
-            var els = document.querySelectorAll('body *');
-            for (var i of els) { i.style.border = 'solid 1px #f00'; } }`,
-            // #game_frame
-            (...args) =>
-              console.log('callback with args:', args));
-          contents.executeJavaScript('window.scrollTop = 100;');
+
+        if (R.test(this.gameUrl, details.url)) {
+          this.firstGameLoad = false;
+          console.log('Inject cookies into webview contents', contents, cookies);
+          contents.executeJavaScript(cookies.join('\n'));
         }
-
-        const { url } = intoJson(details);
-        console.log('got filtered URL in onBeforeRequest: ', details);
-        // const cancel = R.test(this.gameSwfPrefix, details.url);
-
-        this.firstGameLoad = false;
-        // webContents.loadURL(this.gameUrl);
-
-        // Inject region cookies when we load the game view
-        console.log('Inject cookies into webview contents', contents, cookies);
-        contents.executeJavaScript(cookies.join('\n'));
 
         cb(details);
       });
