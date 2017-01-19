@@ -7,7 +7,7 @@ import * as L from 'partial.lenses';
 import * as R from 'ramda';
 import cx from 'classnames';
 
-import s from './webview.css';
+import css from './webview.css';
 import { getHandler } from './handlers/network';
 import cookies from './_cookies';
 
@@ -16,12 +16,14 @@ const intoJson = R.compose(JSON.parse, JSON.stringify);
 /**
  * Provide a <GameView /> component that will handle piping data from the API to
  * the appropriate handlers.
+ *
+ * Due to the way how this needs to be implemented, we need to create a stateful
+ * component that uses some component lifecycle hooks for additional functionality.
  */
 export default class GameView extends React.Component {
   constructor(props: *) {
     super(props);
     this.atom = props.gameState;
-    this.atom.view(['api', 'requests']).log('GameView requests\t:');
     this.atom.view(['api', 'data']).log('GameView data\t\t:');
   }
 
@@ -87,10 +89,9 @@ export default class GameView extends React.Component {
         '.area-naviapp { display: none; }',
         '.dmm-gtnavi { display: none; }',
         `#game_frame {
-          border: solid 1px #f00 !important;
           position: absolute;
           left: 0;
-          top: -75px;
+          top: -78px;
           width: 800px;
           height: 480px;
           z-index: 9999;
@@ -102,8 +103,7 @@ export default class GameView extends React.Component {
     // Mute the audio by default at start
     contents.setAudioMuted(true);
 
-    console.log('view\t\t= %O', view);
-    console.log('contents\t= %O', contents);
+    console.log('webview=%O, contents=%O', view, contents);
 
     // @todo Replace disabling/detaching to an observable's lifecycle instead.
     Kefir.fromEvents(view, 'close').observe({
@@ -154,7 +154,7 @@ export default class GameView extends React.Component {
           return;
         }
 
-        if (R.test(this.gameUrl, details.url)) {
+        if (R.test(this.gameUrlRegex, details.url)) {
           this.firstGameLoad = false;
           console.log('Inject cookies into webview contents', contents, cookies);
           contents.executeJavaScript(cookies.join('\n'));
@@ -176,7 +176,7 @@ export default class GameView extends React.Component {
       src: this.gameUrl
     };
     return (
-      <div className={cx(s.webview)}>
+      <div className={cx(css.webview)}>
         <webview {...props} />
       </div>
     );

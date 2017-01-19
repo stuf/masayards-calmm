@@ -10,6 +10,9 @@ type NetworkState = 'offline' | 'online';
 export type Schema = {
   game: {
     status: string | GameStatus,
+    config: {
+      muteAudio: boolean
+    },
     api: {
       requests: { [requestId: string]: * },
       data: { [path: string]: {
@@ -19,8 +22,8 @@ export type Schema = {
       } }
     },
     objects: {
-      ships: {},
-      equipment: {}
+      ships: *,
+      equipment: *
     },
     player: {
       items: Array<*>,
@@ -50,6 +53,9 @@ const schema = {
      * Are we "connected" to the API, e.g. have we received any data successfully?
      */
     status: 'disconnected',
+    config: {
+      muteAudio: true
+    },
     api: {
       /**
        * Incoming API data.

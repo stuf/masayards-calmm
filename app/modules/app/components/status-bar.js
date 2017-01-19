@@ -10,9 +10,9 @@ const gameStatusIn = U.view('gameState');
 
 export default ({ atom }: *) =>
   <div className={cx(s.statusBar)}>
-    <div className={cx(s.counterElement)}>Ships: 0 / 300</div>
-    <div className={cx(s.counterElement)}>Equipment: 0 / 900</div>
+    <div className={cx(s.counterElement)}>Ships: <strong>0 / 300</strong></div>
+    <div className={cx(s.counterElement)}>Equipment: <strong>0 / 900</strong></div>
     <div className={cx(s.spacer)} />
-    <div className={cx(s.statusElement)}>Network: {networkStatusIn(atom)}</div>
-    <div className={cx(s.statusElement)}>Game: {gameStatusIn(atom)}</div>
+    <div className={cx(s.statusElement)}>Network: <strong>{networkStatusIn(atom)}</strong></div>
+    <div className={cx(s.statusElement)}>Game: <strong>{gameStatusIn(atom)}</strong></div>
   </div>;

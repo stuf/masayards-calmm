@@ -15,6 +15,7 @@
 import * as L from 'partial.lenses';
 import K, * as U from 'karet.util';
 import * as R from 'ramda';
+import * as S from 'sanctuary';
 import qs from 'querystring';
 
 export const networkEvent: { [key: string]: string } = {
@@ -100,13 +101,25 @@ export const loadingFinishedFn =
       (err, result) => {
         const body = result.body;
 
+        // Either this is right or then it goes all left...
+        // const b = S.Either.of(body);
+        // const bx = S.encaseEither(S.I, R.replace(apiDataPrefix, ''), body);
+        // const toJson = S.encaseEither(S.I, JSON.parse);
+        // bx.chain(toJson)
+        //   .chain(S.maybeToEither('No api_data key found'), S.get('api_data'));
+
         // @todo Clean this up with something less imperative
-        let b;
+        // @todo Replace with `either.left` and `either.right` implementation
+        let bd;
         if (body) {
-          b = body.replace(apiDataPrefix, '');
-          b = JSON.parse(b);
-          b = R.prop('api_data', b);
+          bd = body.replace(apiDataPrefix, '');
+          bd = JSON.parse(bd);
+          bd = R.prop('api_data', bd);
         }
+
+        const bf = R.compose(R.prop('api_data'), JSON.parse, R.replace(apiDataPrefix, ''));
+        const bfR = bf(body);
+        console.log({ bfR });
 
         const postBody = parseQueryString(R.path(['params', 'request', 'postData'], thisReq));
         const path = R.replace(pathPrefix, '', url);
@@ -114,7 +127,7 @@ export const loadingFinishedFn =
 
         // Move the data from this request to the API data pool.
         // Subscribers from this pool can then process the data before it's passed into the UI.
-        const newData = { time, data: b, postData: postBody };
+        const newData = { time, data: bd, postData: postBody };
         data.modify(curData => L.set(path, newData, curData));
       });
   };

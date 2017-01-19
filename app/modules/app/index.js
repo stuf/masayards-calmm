@@ -8,7 +8,7 @@
  */
 import React from 'karet';
 import Atom from 'kefir.atom';
-import Storage from 'atom.storage';
+import Storage, { expireNow } from 'atom.storage';
 import * as L from 'partial.lenses';
 import cx from 'classnames';
 
@@ -32,7 +32,8 @@ const stateStorage = Storage({
   value: initialState,
   Atom,
   storage: localStorage,
-  debounce: 5000
+  debounce: 5000,
+  time: 30 * 60 * 1000
 });
 
 const state = stateStorage;

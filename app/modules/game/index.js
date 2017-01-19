@@ -10,6 +10,5 @@ import WebView from './components/webview';
 
 export default ({ atom, gameDataState = atom.view('game') }: *) =>
   <div className={cx(s.game)}>
-    {/* $FlowFixMe */}
     <WebView gameState={gameDataState} />
   </div>;
