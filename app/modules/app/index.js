@@ -6,6 +6,7 @@
  *
  * @flow
  */
+import { ipcRenderer } from 'electron';
 import React from 'karet';
 import Atom from 'kefir.atom';
 import Storage, { expireNow } from 'atom.storage';
@@ -57,7 +58,8 @@ const states = {
   statusBar: L.pick({
     networkState: L.compose('application', 'networkStatus', L.define('offline')),
     gameState: L.compose('game', 'status', L.define('disconnected'))
-  })
+  }),
+  application: L.compose('application')
 };
 
 /**
@@ -66,8 +68,15 @@ const states = {
 const view = {
   gameIn: s => s.view(states.game),
   appUiIn: s => s.view(states.appUi),
-  statusBarIn: s => s.view(states.statusBar)
+  statusBarIn: s => s.view(states.statusBar),
+  applicationStateIn: s => s.view(states.application)
 };
+
+view.applicationStateIn(state).log();
+
+ipcRenderer.on('online-status-changed', (event, { status }) => {
+  view.applicationStateIn(state).modify(x => L.set('networkStatus', status, x));
+});
 
 /**
  * Root application component

@@ -7,7 +7,13 @@
  *
  * PS. Don't use flow here. Black magic.
  */
-import { app, BrowserWindow, Menu, shell } from 'electron';
+import {
+  app,
+  BrowserWindow,
+  Menu,
+  shell,
+  ipcMain
+} from 'electron';
 import fs from 'fs';
 import path from 'path';
 import logger from './logger';
@@ -17,6 +23,7 @@ logger.info('Starting application');
 let menu;
 let template;
 let mainWindow = null;
+let onlineStatusWindow = null;
 
 // Load the Flash player plugin
 logger.info('Checking for Pepper Flash Player plugin');
@@ -88,8 +95,21 @@ process.on('warning', w => {
   logger.warn('Process received warning', { name: w.name, message: w.message, stack: w.stack });
 });
 
+
+ipcMain.on('online-status-changed', (event, msg) => {
+  console.log('Online status changed: %s', msg);
+  const { status } = msg;
+  console.log('status =', status);
+  if (mainWindow && mainWindow.webContents) {
+    mainWindow.webContents.send('online-status-changed', { status });
+  }
+});
+
 app.on('ready', async () => {
   await installExtensions();
+
+  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false });
+  onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`);
 
   mainWindow = new BrowserWindow({
     show: false,
