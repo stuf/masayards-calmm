@@ -7,6 +7,13 @@
 type GameStatus = 'disconnected' | 'connected';
 type NetworkState = 'offline' | 'online';
 
+type ApiData = {
+  path?: string,
+  time: number,
+  data: *,
+  postData: *
+};
+
 export type Schema = {
   game: {
     status: string | GameStatus,
@@ -15,6 +22,7 @@ export type Schema = {
     },
     api: {
       requests: { [requestId: string]: * },
+      latest: ApiData,
       data: { [path: string]: {
         time: number,
         data: *,
@@ -61,6 +69,7 @@ const schema = {
        * Incoming API data.
        */
       requests: {},
+      latest: {},
       /**
        * Data received from the API, as key-value pairs according to game path.
        */

@@ -8,6 +8,17 @@
   padding: 0.25rem 0.5rem;
 }
 
+.spacer {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
 .groupLabel {
   font-weight: 500;
+}
+
+.toolbar {
+  display: flex;
+  // border: solid 1px #f00;
+  align-items: center;
 }

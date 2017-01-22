@@ -33,6 +33,14 @@ export const end = (...args: *[]) =>
 
 /**
  * Initialize the game state handler.
+ *
+ * @param state -
+ * @param apiStateLens -
+ *
+ * @example
+ * import { initialize } from './game-state';
+ *
+ * initialize(state.view())
  */
 export const initialize = (state: *, apiStateLens: *) => {
   // Attach handlers
@@ -40,5 +48,5 @@ export const initialize = (state: *, apiStateLens: *) => {
   invariant(apiStateLens, 'Observing state requires a lens to the API data stream');
 
   console.info('Initialize game state handler.');
-  state.view(apiStateLens).observe({ value, error, end });
+  return state.view(apiStateLens).observe({ value, error, end });
 };

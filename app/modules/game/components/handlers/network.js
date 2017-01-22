@@ -15,8 +15,15 @@
 import * as L from 'partial.lenses';
 import K, * as U from 'karet.util';
 import * as R from 'ramda';
-import * as S from 'sanctuary';
+import Atom from 'kefir.atom';
+// import * as S from 'sanctuary';
 import qs from 'querystring';
+import { create, env } from 'sanctuary';
+
+const checkTypes = false;
+const S = create({ checkTypes, env });
+
+const requestStore = Atom({});
 
 export const networkEvent: { [key: string]: string } = {
   REQUEST_WILL_BE_SENT: 'Network.requestWillBeSent',
@@ -25,8 +32,27 @@ export const networkEvent: { [key: string]: string } = {
   GET_RESPONSE_BODY: 'Network.getResponseBody'
 };
 
+// Test some monadic stuff
 const apiDataPrefix: RegExp = /svdata=/;
 const pathPrefix: RegExp = /.*\/kcsapi/;
+
+const prepareApiData = S.encase(R.replace(apiDataPrefix, ''));
+const getJson = S.parseJson(Object);
+const getData = S.get(Object, 'api_data');
+
+const getBodyData = body =>
+  S.Maybe.of(body)
+         .chain(prepareApiData)
+         .chain(getJson)
+         .chain(getData);
+
+const parseQS = S.encase(qs.parse);
+const removeToken = S.encase(R.dissoc('api_token'));
+
+const getPostBodyData = body =>
+  S.Maybe.of(body)
+         .chain(parseQS)
+         .chain(removeToken);
 
 // Define some basic utilities for handling data
 const parsePath = R.replace(pathPrefix, '');
@@ -83,7 +109,7 @@ export const responseReceivedFn =
  * @event LOADING_FINISHED
  */
 export const loadingFinishedFn =
-  ({ thisRequest, data, contents, requestId }: *, { event, method, params }: *) => {
+  ({ thisRequest, data, latest, contents, requestId }: *, { event, method, params }: *) => {
     const thisReq = thisRequest.get();
 
     // Since we already have all the data we need, we can safely remove this request
@@ -100,35 +126,42 @@ export const loadingFinishedFn =
     contents.debugger.sendCommand(networkEvent.GET_RESPONSE_BODY, { requestId },
       (err, result) => {
         const body = result.body;
+        const path = R.replace(pathPrefix, '', url);
+
+        console.groupCollapsed(path);
+        console.group('Monadic parse');
+        console.time('Monadic parse');
+        const mb = S.Maybe.of(body)
+                          .chain(prepareApiData)
+                          .chain(getJson)
+                          .chain(getData);
+        console.log('Result =>', S.fromMaybe({}, mb));
+        console.timeEnd('Monadic parse');
+        console.groupEnd();
 
         // Either this is right or then it goes all left...
-        // const b = S.Either.of(body);
-        // const bx = S.encaseEither(S.I, R.replace(apiDataPrefix, ''), body);
-        // const toJson = S.encaseEither(S.I, JSON.parse);
-        // bx.chain(toJson)
-        //   .chain(S.maybeToEither('No api_data key found'), S.get('api_data'));
-
         // @todo Clean this up with something less imperative
         // @todo Replace with `either.left` and `either.right` implementation
+        console.group('Vanilla parse');
+        console.time('Vanilla parse');
         let bd;
         if (body) {
           bd = body.replace(apiDataPrefix, '');
           bd = JSON.parse(bd);
           bd = R.prop('api_data', bd);
         }
-
-        const bf = R.compose(R.prop('api_data'), JSON.parse, R.replace(apiDataPrefix, ''));
-        const bfR = bf(body);
-        console.log({ bfR });
+        console.log('Vanilla =>', bd);
+        console.groupEnd();
+        console.timeEnd('Vanilla parse');
 
         const postBody = parseQueryString(R.path(['params', 'request', 'postData'], thisReq));
-        const path = R.replace(pathPrefix, '', url);
         const time = +(new Date());
-
+        console.groupEnd();
         // Move the data from this request to the API data pool.
         // Subscribers from this pool can then process the data before it's passed into the UI.
-        const newData = { time, data: bd, postData: postBody };
+        const newData = { time, data: mb, postData: postBody };
         data.modify(curData => L.set(path, newData, curData));
+        latest.modify(curData => L.set());
       });
   };
 

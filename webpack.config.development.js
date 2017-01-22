@@ -4,6 +4,7 @@
  * https://webpack.github.io/docs/hot-module-replacement-with-webpack.html
  */
 
+import path from 'path';
 import webpack from 'webpack';
 import validate from 'webpack-validator';
 import merge from 'webpack-merge';
@@ -27,6 +28,12 @@ export default validate(merge(baseConfig, {
     bundle: [
       `webpack-hot-middleware/client?path=http://localhost:${port}/__webpack_hmr`,
       './app/index'
+    ]
+  },
+
+  resolve: {
+    root: [
+      path.resolve('./app')
     ]
   },
 

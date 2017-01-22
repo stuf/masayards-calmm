@@ -1,5 +1,6 @@
 // @flow
 import React from 'karet';
+import cx from 'classnames';
 
-export default ({ name }: *) =>
-  <i className="material-icons md-dark">{name}</i>;
+export default ({ name, type = 'dark' }: *) =>
+  <i className={cx('material-icons', `md-${type}`)}>{name}</i>;

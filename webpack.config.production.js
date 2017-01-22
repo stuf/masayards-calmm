@@ -29,19 +29,44 @@ export default validate(merge(baseConfig, {
       // Extract all .global.css to style.css as is
       {
         test: /\.global\.css$/,
-        loader: ExtractTextPlugin.extract(
-          'style-loader',
-          'css-loader'
-        )
+        loader: ExtractTextPlugin.extract({
+          loader: [
+            'style-loader',
+            'css-loader'
+          ]
+        })
+      },
+      {
+        test: /\.global\.scss$/,
+        loaders: ExtractTextPlugin.extract({
+          loader: [
+            'style-loader',
+            'css-loader?sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+            'sass-loader?sourceMap&localIdentName=[name]__[local]___[hash:base64:5]'
+          ]
+        })
+      },
+      {
+        test: /^((?!\.global).)*\.scss$/,
+        loaders: ExtractTextPlugin.extract({
+          loader: [
+            'style-loader',
+            'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+            'sass-loader?sourceMap&localIdentName=[name]__[local]___[hash:base64:5]'
+          ]
+        })
+        // loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
       },
 
       // Pipe other styles through css modules and append to style.css
       {
         test: /^((?!\.global).)*\.css$/,
-        loader: ExtractTextPlugin.extract(
-          'style-loader',
-          'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
-        )
+        loader: ExtractTextPlugin.extract({
+          loader: [
+            'style-loader',
+            'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+          ]
+        })
       },
 
       // Fonts
