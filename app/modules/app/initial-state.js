@@ -4,6 +4,8 @@
  *
  * @flow
  */
+import { Map } from 'immutable';
+
 type GameStatus = 'disconnected' | 'connected';
 type NetworkState = 'offline' | 'online';
 
@@ -29,18 +31,12 @@ export type Schema = {
         postData: *
       } }
     },
-    objects: {
-      ships: *,
-      equipment: *
-    },
-    player: {
-      items: Array<*>,
-      resources: Array<*>,
-      profile: Array<*>,
-      docks: Array<*>,
-      fleets: Array<*>,
-      ships: Array<*>,
-      equipment: Array<*>
+    state: {
+      objects: {
+        ships: *,
+        equipment: *
+      },
+      player: *
     }
   },
   application: {
@@ -76,23 +72,18 @@ const schema = {
       data: {}
     },
     /**
-     * Game-related non-player objects; ships, equipment, maps, nodes, etc.
+     * Hold the processed game API data here
      */
-    objects: {
-      ships: {},
-      equipment: {}
-    },
-    /**
-     * Game-related player objects; profile, fleets, ships, etc.
-     */
-    player: {
-      items: [],
-      resources: [],
-      profile: [],
-      docks: [],
-      fleets: [],
-      ships: [],
-      equipment: []
+    state: {
+      objects: {
+        // Using `Map` for this will also require creating isomorphisms to use lenses.
+        ships: new Map()
+      },
+      player: {
+        name: null,
+        level: -1
+      },
+      resources: []
     }
   },
   application: {

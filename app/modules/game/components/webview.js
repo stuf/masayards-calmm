@@ -9,7 +9,7 @@ import cx from 'classnames';
 
 import css from './webview.css';
 import { getHandler } from './handlers/network';
-import * as gameState from './handlers/game-state';
+import { initializeObserver } from './handlers/game-state';
 import cookies from './_cookies';
 
 const intoJson = R.compose(JSON.parse, JSON.stringify);
@@ -25,9 +25,10 @@ export default class GameView extends React.Component {
   constructor(props: *) {
     super(props);
     this.atom = props.gameState;
-    // this.atom.view('status').log('Game status changed:');
-    // this.atom.view(['api', 'data']).log('GameView data\t\t:');
-    gameState.initialize(props.gameState, this.atom.view(['api', 'data']));
+
+    // Initialize observer for processing API data
+    initializeObserver(props.gameState);
+    this.atom.view('state').log();
   }
 
   componentDidMount() {
@@ -134,9 +135,10 @@ export default class GameView extends React.Component {
         const context = {
           requestId,
           contents,
+          game: this.atom,
           thisRequest: this.atom.view(['api', 'requests', requestId]),
           data: this.atom.view(['api', 'data']),
-          latest: this.atom.view(['api', 'latest'])
+          state: this.atom.view(['state'])
         };
 
         const args = { event, method, params: intoJson(params) };

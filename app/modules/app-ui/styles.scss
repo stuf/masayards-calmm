@@ -1,5 +1,32 @@
+.appUiWrap {
+  // border: dashed 2px #f00;
+}
+
 .appUi {
-  /*border: dashed 1px #f00;*/
+  display: flex;
+  flex-direction: column;
+  /*border: solid 1px #f00;*/
+  height: 100vh;
+  overflow: hidden;
+}
+
+// .appUiView {
+//   /*border: dashed 1px #f00;*/
+//   flex-basis: 0;
+//   flex-grow: 1;
+// }
+
+.uiCols {
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.uiMain {
+  width: 800px;
+}
+
+.uiSide {
   flex-basis: 0;
   flex-grow: 1;
 }

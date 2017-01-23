@@ -13,17 +13,14 @@ import Storage, { expireNow } from 'atom.storage';
 import K, * as L from 'partial.lenses';
 import * as U from 'karet.util';
 import * as R from 'ramda';
+import * as S from 'sanctuary';
 import cx from 'classnames';
 
-import css from './styles.css';
+// $FlowFixMe
+import css from './styles.scss';
 
 import initialState from './initial-state';
-import gameDataHandler from './data-handlers/game-data';
-
-import Game from '../game';
 import AppUI from '../app-ui';
-import StatusBar from './components/status-bar';
-import TitleBar from './components/title-bar';
 
 /**
  * Define main storage where to persist our data into.
@@ -82,14 +79,13 @@ ipcRenderer.on('online-status-changed', (event, { status }) => {
   view.applicationStateIn(state).modify(x => L.set('networkStatus', status, x));
 });
 
-gameDataHandler({ state });
-
 console.group('State debugging stuff');
 console.log('state              = %O', state);
 console.log('partial.lenses = L = %O', L);
 console.log('karet.util     = U = %O', U);
 console.log('ramda          = R = %O', R);
 console.log('kefir.combines = K = %O', K);
+console.log('sanctuary      = S = %O', S);
 console.groupEnd();
 
 /**
@@ -99,10 +95,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className={cx(css.app)}>
-        <TitleBar />
-        <Game atom={view.gameIn(state)} />
-        <AppUI atom={view.appUiIn(state)} />
-        <StatusBar atom={view.statusBarIn(state)} />
+        <AppUI atom={state} states={states} view={view} />
       </div>
     );
   }

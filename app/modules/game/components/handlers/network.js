@@ -1,3 +1,4 @@
+/* eslint no-underscore-dangle: 0 */
 /**
  * @fileoverview
  *  Defines the handlers which will take care of collecting request and response data
@@ -20,6 +21,8 @@ import Atom from 'kefir.atom';
 import qs from 'querystring';
 import { create, env } from 'sanctuary';
 
+import handleGameState from './game-state';
+
 const checkTypes = false;
 const S = create({ checkTypes, env });
 
@@ -38,33 +41,40 @@ const pathPrefix: RegExp = /.*\/kcsapi/;
 
 const prepareApiData = S.encase(R.replace(apiDataPrefix, ''));
 const getJson = S.parseJson(Object);
-const getData = S.get(Object, 'api_data');
+// const getData = S.get(Object, 'api_data');
 
+const isObjectEmpty = S.ifElse(R.isEmpty, S.Maybe.empty, S.Maybe.of);
+
+const getQS_ = R.path(['request', 'request', 'postData']);
+const getQS = S.encase(getQS_);
+const parseQS_ = qs.parse;
+const parseQS = S.encase(parseQS_);
+const removeToken = S.encase(R.dissoc('api_token'));
+
+const getUrl_ = R.path(['request', 'url']);
+const getUrl = S.encase(getUrl_);
+const parsePath_ = R.replace(pathPrefix, '');
+const parsePath = S.encase(parsePath_);
+
+// Parsing functions for retrieving request data
 const getBodyData = body =>
   S.Maybe.of(body)
          .chain(prepareApiData)
          .chain(getJson)
-         .chain(getData);
-
-const parseQS = S.encase(qs.parse);
-const removeToken = S.encase(R.dissoc('api_token'));
+         // .chain(getData)
+         .chain(isObjectEmpty);
 
 const getPostBodyData = body =>
   S.Maybe.of(body)
+         .chain(getQS)
          .chain(parseQS)
-         .chain(removeToken);
+         .chain(removeToken)
+         .chain(isObjectEmpty);
 
-// Define some basic utilities for handling data
-const parsePath = R.replace(pathPrefix, '');
-
-const parseResultBody = R.compose(R.prop('api_data'),
-                                  JSON.parse,
-                                  R.replace(apiDataPrefix),
-                                  R.prop('body'));
-
-const parseQueryString = R.compose(R.dissoc('api_token'),
-                                   qs.parse,
-                                   R.unless(R.isNil));
+const getPath = req =>
+  S.Maybe.of(req)
+         .chain(getUrl)
+         .chain(parsePath);
 
 // Export public-facing functions
 
@@ -109,7 +119,7 @@ export const responseReceivedFn =
  * @event LOADING_FINISHED
  */
 export const loadingFinishedFn =
-  ({ thisRequest, data, latest, contents, requestId }: *, { event, method, params }: *) => {
+  ({ thisRequest, game, contents, requestId }: *, { event, method, params }: *) => {
     const thisReq = thisRequest.get();
 
     // Since we already have all the data we need, we can safely remove this request
@@ -120,48 +130,24 @@ export const loadingFinishedFn =
       return;
     }
 
-    const url = thisReq.request.url;
+    const path = S.fromMaybe('', getPath(thisReq));
 
     // Get the resulting request body from this request
     contents.debugger.sendCommand(networkEvent.GET_RESPONSE_BODY, { requestId },
       (err, result) => {
-        const body = result.body;
-        const path = R.replace(pathPrefix, '', url);
-
-        console.groupCollapsed(path);
-        console.group('Monadic parse');
-        console.time('Monadic parse');
-        const mb = S.Maybe.of(body)
-                          .chain(prepareApiData)
-                          .chain(getJson)
-                          .chain(getData);
-        console.log('Result =>', S.fromMaybe({}, mb));
-        console.timeEnd('Monadic parse');
-        console.groupEnd();
-
-        // Either this is right or then it goes all left...
-        // @todo Clean this up with something less imperative
-        // @todo Replace with `either.left` and `either.right` implementation
-        console.group('Vanilla parse');
-        console.time('Vanilla parse');
-        let bd;
-        if (body) {
-          bd = body.replace(apiDataPrefix, '');
-          bd = JSON.parse(bd);
-          bd = R.prop('api_data', bd);
-        }
-        console.log('Vanilla =>', bd);
-        console.groupEnd();
-        console.timeEnd('Vanilla parse');
-
-        const postBody = parseQueryString(R.path(['params', 'request', 'postData'], thisReq));
+        console.group(path);
         const time = +(new Date());
+        const body = S.fromMaybe({}, getBodyData(result.body));
+        const postBody = S.fromMaybe({}, getPostBodyData(thisReq));
+        const newData = { time, body, postBody };
+
+        console.log('newData =', newData);
         console.groupEnd();
+
         // Move the data from this request to the API data pool.
         // Subscribers from this pool can then process the data before it's passed into the UI.
-        const newData = { time, data: mb, postData: postBody };
-        data.modify(curData => L.set(path, newData, curData));
-        latest.modify(curData => L.set());
+        game.view(['api', 'latest']).modify(() => ({ path, ...newData }));
+        game.view(['api', 'data']).modify(cur => L.set(path, newData, cur));
       });
   };
 
