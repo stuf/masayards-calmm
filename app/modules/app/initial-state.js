@@ -16,9 +16,19 @@ type ApiData = {
   postData: *
 };
 
+type GameModeEnum = 'idle' | 'in_sortie' | 'in_practice' | 'ship_critical';
+
+type GameMode = GameModeEnum | Array<GameModeEnum>;
+
 export type Schema = {
+  action?: {
+    type: string,
+    payload?: *,
+    error?: *
+  },
   game: {
     status: string | GameStatus,
+    gameWebviewRect?: *,
     config: {
       muteAudio: boolean
     },
@@ -32,11 +42,16 @@ export type Schema = {
       } }
     },
     state: {
-      objects: {
-        ships: *,
-        equipment: *
+      game: {
+        mode: string
       },
-      player: *
+      player: *,
+      ships?: *,
+      fleets?: *,
+      equipment?: *,
+      resources?: *,
+      constructionDocks?: *,
+      repairDocks?: *
     }
   },
   application: {
@@ -50,13 +65,15 @@ export type Schema = {
 
 const schema = {
   /**
-   * State relevant to the game's state itself
+   * State relevant to the game's state itself in relation to the API, and
+   * handling incoming data.
    */
   game: {
     /**
      * Are we "connected" to the API, e.g. have we received any data successfully?
      */
     status: 'disconnected',
+    gameWebviewRect: undefined,
     config: {
       muteAudio: true
     },
@@ -75,15 +92,25 @@ const schema = {
      * Hold the processed game API data here
      */
     state: {
-      objects: {
-        // Using `Map` for this will also require creating isomorphisms to use lenses.
-        ships: new Map()
+      /**
+       * Overview about the state of the game in relation to the player
+       */
+      game: {
+        /**
+         * Game mode active
+         */
+        mode: 'idle'
       },
       player: {
         name: null,
         level: -1
       },
-      resources: []
+      ships: [],
+      fleets: [],
+      equipment: [],
+      resources: [],
+      constructionDocks: [],
+      repairDocks: []
     }
   },
   application: {

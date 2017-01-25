@@ -1,4 +1,19 @@
 .sidebar {
   border: solid 1px #f00;
   overflow: scroll;
+  height: 100vh;
+}
+
+.label,
+.value {
+  border: dashed 1px #f00;
+}
+
+.label {
+  font-weight: bold;
+  // border: dashed 1px #f00;
+}
+
+.value {
+  padding: 6px;
 }

@@ -3,19 +3,42 @@
  * @fileoverview
  *  Process incoming API data for use in the application.
  *
+ * @todo
  * @flow
  */
-import K, * as U from 'karet.util';
-import * as R from 'ramda';
+import { Map } from 'immutable';
+import R, {
+  find, whereEq, map, complement, isNil, append, curry, reduce, head, compose, when, apply, has, prop, is, sortBy
+} from 'ramda';
+import * as U from 'karet.util';
 import * as L from 'partial.lenses';
-import * as S from 'sanctuary';
+import type { Monoid } from 'flow-static-land/lib/Monoid';
 
-import { materials } from './_collections';
-import { basicProfile } from './_objects';
-import { normalizeMaterialList } from './_normalizers';
+import {
+  basicProfileIn,
+  materialsIn,
+  fleetsIn,
+  repairDocks
+} from './_templates';
 
-const sortById = R.sortBy(R.prop('api_id'));
-const headWhenArray = R.when(R.is(Array), R.head);
+type EventArgs = { path: string, body: *, postBody: * };
+type Atom = *;
+type EventHandler = (args: EventArgs, atom: Atom) => void;
+type EventHandlerMap = { [path: string]: EventHandler };
+type CallHandler = (atom: Atom) => (req: EventArgs) => void;
+
+const headWhenArray = when(is(Array), head);
+
+// State merging monoid
+const MergeState: Monoid<*> = {
+  empty: () => ({}),
+  concat: (a, b) => ({ ...a, ...b })
+};
+
+const getShips =
+  compose(map(headWhenArray),
+          sortBy(prop('api_id')),
+          L.get);
 
 // Define views
 const view = {
@@ -23,54 +46,30 @@ const view = {
   stateIn: U.view('state')
 };
 
-const apiView = {
-  basic: {
-    profileIn: U.view(['api_data', 'api_basic', L.pick(basicProfile)])
-  }
-};
-
 /**
  * Event handler map
- *
- * @todo Rewrite view lenses to work in a unified manner, e.g.
- *       not be separate views.
  */
-const handlers = {
-  '/api_port/port': ({ path, body, postBody }, atom) => {
-    const state = atom.view('state');
-
-    const getPlayer = L.get(['api_data', 'api_basic', L.pick(basicProfile)]);
-    const getFleets = L.get(['api_data', 'api_deck_port']);
-    const getResources = L.get(['api_data', 'api_material']);
-    const getShips = R.compose(R.map(headWhenArray), R.groupBy(R.prop('api_id')), L.get);
-
-    state.view('player').modify(cs =>
-      L.set(L.identity, getPlayer(body), cs));
-
-    state.view('resources').modify(cs =>
-      L.set(L.identity, getResources(body), cs));
-
-    state.view('fleets').modify(cs =>
-      L.set(L.identity, getFleets(body), cs));
-
-    state.view('ships').modify(cs =>
-      L.set(L.identity, getShips([
-        'api_data',
-        'api_ship',
-        L.normalize(R.sortBy(R.prop('api_id')))
-      ], body), cs));
-  },
-  // '/api_get_member/material': () => {},
-  // '/api_get_member/questlist': () => {}
+const handlers: EventHandlerMap = {
+  '/api_port/port': ({ path, body, postBody }, atom) =>
+    atom.view('state').modify(() =>
+      L.merge(MergeState, L.elems, [
+        { player: L.get([basicProfileIn('api_basic')], body) },
+        { resources: L.collect([materialsIn('api_material')], body) },
+        { fleets: L.collect([fleetsIn('api_deck_port')], body) },
+        { ships: getShips(['api_ship', L.normalize(sortBy(prop('api_id')))], body) }
+      ]))
 };
 
-const handleEvent = atom => x => {
-  const state = view.stateIn(atom);
-  const { path, time, body, postBody } = x;
-  console.log('game state got value:', x);
+const handleEvent: CallHandler = atom => req => {
+  const { path } = req;
+  const f = prop(path, handlers);
+  const xs = [req, atom];
 
-  if (R.has(path, handlers)) {
-    R.apply(R.prop(path, handlers), [x, atom]);
+  if (f) {
+    console.groupCollapsed('Calling function with xs = ', xs);
+    console.log('Should call: f(...xs) where f =', f, ', xs =', xs);
+    console.groupEnd();
+    f(...xs);
   }
 };
 

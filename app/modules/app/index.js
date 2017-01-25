@@ -6,7 +6,7 @@
  *
  * @flow
  */
-import { ipcRenderer } from 'electron';
+import { ipcRenderer, remote } from 'electron';
 import React from 'karet';
 import Atom from 'kefir.atom';
 import Storage, { expireNow } from 'atom.storage';
@@ -60,20 +60,27 @@ const states = {
     networkState: L.compose('application', 'networkStatus', L.define('offline')),
     gameState: L.compose('game', 'status', L.define('disconnected'))
   }),
-  application: L.compose('application')
+  application: L.compose('application'),
+  action: 'action'
 };
 
 /**
  * Specify views for the root components in the application
  */
 const view = {
-  gameIn: s => s.view(states.game),
-  appUiIn: s => s.view(states.appUi),
-  statusBarIn: s => s.view(states.statusBar),
-  applicationStateIn: s => s.view(states.application)
+  gameIn: U.view(states.game),
+  appUiIn: U.view(states.appUi),
+  statusBarIn: U.view(states.statusBar),
+  applicationStateIn: U.view(states.application),
+  actionIn: U.view(states.action)
 };
 
 view.applicationStateIn(state).log();
+
+view.actionIn(state)
+    .observe(val => {
+      console.log('action observed =>', val);
+    });
 
 ipcRenderer.on('online-status-changed', (event, { status }) => {
   view.applicationStateIn(state).modify(x => L.set('networkStatus', status, x));
@@ -84,9 +91,18 @@ console.log('state              = %O', state);
 console.log('partial.lenses = L = %O', L);
 console.log('karet.util     = U = %O', U);
 console.log('ramda          = R = %O', R);
-console.log('kefir.combines = K = %O', K);
+console.log('kefir.combines = K = ', K);
 console.log('sanctuary      = S = %O', S);
 console.groupEnd();
+
+try {
+  // Make sure there isn't a lingering request in the store from last time.
+  view.gameIn(state).modify(x =>
+    L.remove(['api', L.log(), 'latest', L.required({})], x));
+}
+catch (e) {
+  console.warn('Something went wrong while trying to purge last active state');
+}
 
 /**
  * Root application component

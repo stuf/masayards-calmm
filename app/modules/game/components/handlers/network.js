@@ -21,7 +21,7 @@ import Atom from 'kefir.atom';
 import qs from 'querystring';
 import { create, env } from 'sanctuary';
 
-import handleGameState from './game-state';
+// import handleGameState from './game-state';
 
 const checkTypes = false;
 const S = create({ checkTypes, env });
@@ -41,7 +41,10 @@ const pathPrefix: RegExp = /.*\/kcsapi/;
 
 const prepareApiData = S.encase(R.replace(apiDataPrefix, ''));
 const getJson = S.parseJson(Object);
-// const getData = S.get(Object, 'api_data');
+const getDataObj = S.get(Object, 'api_data');
+const getDataArray = S.get(Array, 'api_data');
+const getDataCond = S.is(Array, S.prop('api_data'));
+const getData = S.ifElse(getDataCond, getDataArray, getDataObj);
 
 const isObjectEmpty = S.ifElse(R.isEmpty, S.Maybe.empty, S.Maybe.of);
 
@@ -56,14 +59,26 @@ const getUrl = S.encase(getUrl_);
 const parsePath_ = R.replace(pathPrefix, '');
 const parsePath = S.encase(parsePath_);
 
+type BasicObject = { [key: string]: * };
+type ApiData = BasicObject | Array<BasicObject>;
+
 // Parsing functions for retrieving request data
-const getBodyData = body =>
+// @todo Make test spec
+export const getBodyData = (body: string): ApiData =>
   S.Maybe.of(body)
          .chain(prepareApiData)
          .chain(getJson)
-         // .chain(getData)
          .chain(isObjectEmpty);
 
+// @todo Make test spec
+export const getBodyData_ = (body: string): ApiData =>
+  S.Maybe.of(body)
+         .chain(prepareApiData)
+         .chain(getJson)
+         .chain(getData)
+         .chain(isObjectEmpty);
+
+// @todo Make test spec
 const getPostBodyData = body =>
   S.Maybe.of(body)
          .chain(getQS)
@@ -84,6 +99,7 @@ const getPath = req =>
  */
 export const requestWillBeSentFn =
   ({ thisRequest, requestId }: *, { event, method, params }: *) => {
+    // @todo Replace me with something pointfree
     const url = R.path(['request', 'url'], params);
     if (!url || !pathPrefix.test(url)) {
       return;
@@ -102,6 +118,7 @@ export const requestWillBeSentFn =
  */
 export const responseReceivedFn =
   ({ thisRequest, requestId }: *, { event, method, params }: *) => {
+    // @todo Replace me with something pointfree
     const url = R.path(['response', 'url'], params);
     if (!url || !pathPrefix.test(url)) {
       return;
@@ -126,6 +143,7 @@ export const loadingFinishedFn =
     // from the request pool.
     thisRequest.remove();
 
+    // @todo Replace me with something pointfree
     if (!thisReq) {
       return;
     }
@@ -137,7 +155,7 @@ export const loadingFinishedFn =
       (err, result) => {
         console.group(path);
         const time = +(new Date());
-        const body = S.fromMaybe({}, getBodyData(result.body));
+        const body = L.get('api_data', S.fromMaybe({}, getBodyData(result.body)));
         const postBody = S.fromMaybe({}, getPostBodyData(thisReq));
         const newData = { time, body, postBody };
 

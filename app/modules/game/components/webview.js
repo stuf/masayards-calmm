@@ -29,11 +29,15 @@ export default class GameView extends React.Component {
     // Initialize observer for processing API data
     initializeObserver(props.gameState);
     this.atom.view('state').log();
+    this.atom.view('gameWebviewRect').log('gameWebviewRect');
   }
 
   componentDidMount() {
     console.log('GameView component mounted.');
     this.gameView.addEventListener('dom-ready', this.webViewEventHandler);
+    this.atom
+        .view('gameWebviewRect')
+        .modify(() => this.gameView.getBoundingClientRect());
   }
 
   componentWillUnmount() {
