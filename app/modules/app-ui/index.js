@@ -46,35 +46,3 @@ export default class AppUI extends React.Component {
     );
   }
 }
-
-export const as = ({ atom }: *) =>
-  <div className={cx(css.appUi)}>
-    <div className={cx(css.body)}>
-      <div className={cx(css.toolbar)}>
-        <div className={cx(css.spacer)}>spacer</div>
-        <div className="btn-group">
-          <button className="btn btn-primary btn-icon" title="Toggle audio">
-            Mute
-          </button>
-        </div>
-      </div>
-      <div className="row">
-        <div className="form-group pl-3 pr-2">
-          <div className={cx(css.groupLabel)}>
-            Storage
-          </div>
-          <div className="btn-group">
-            <button className="btn btn-secondary">Debug</button>
-            <button className="btn btn-danger">Expire</button>
-          </div>
-        </div>
-        <div className="form-group pl-2 pr-2">
-          <div className={cx(css.groupLabel)}>State</div>
-          <div className="btn-group">
-            <button className="btn btn-secondary">Debug</button>
-            <button className="btn btn-danger">Reset</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>;
