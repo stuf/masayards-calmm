@@ -6,7 +6,7 @@
  * @flow
  */
 import * as L from 'partial.lenses';
-import R from 'ramda';
+import * as R from 'ramda';
 import { chooseNormalizer } from './_normalizers';
 
 // Objects
