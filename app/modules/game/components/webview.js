@@ -178,7 +178,6 @@ export default class GameView extends React.Component {
   render() {
     const props = {
       is: true,
-      preload: './webview-preload.js',
       ref: c => { this.gameView = c; },
       nodeintegration: true,
       plugins: true,
