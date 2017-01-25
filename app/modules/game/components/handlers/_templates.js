@@ -140,14 +140,6 @@ export const repairDock = {
  */
 export const repairDocks = [L.elems, L.pick(repairDock)];
 
-/**
- * @path /api_port/port
- */
-export const basicProfileBranch = {};
-
-// @todo Is this even useful?
-export const getWithRoot = (root: * = L.identity, ...rest: *[]) => [root, ...rest];
-
 export default {
   materialTypes,
   materials,
