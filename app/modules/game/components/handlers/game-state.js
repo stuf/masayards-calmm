@@ -1,4 +1,4 @@
-/* eslint camelcase: 0, no-underscore-dangle: 0 */
+/* eslint camelcase: 0, no-underscore-dangle: 0, import/prefer-default-export: 0 */
 /**
  * @fileoverview
  *  Process incoming API data for use in the application.
@@ -73,5 +73,3 @@ const handleEvent: CallHandler = atom => req => {
 export const initializeObserver = (atom: *) =>
   view.latestIn(atom)
       .observe(handleEvent(atom));
-
-export const dummy = 0;

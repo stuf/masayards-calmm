@@ -22,7 +22,7 @@ export const recipe = L.pick({
  * Describe a dictionary of the different material/resource types that exist.
  */
 export const materialTypes = R.fromPairs([
-  R.pair(0, '__zero'),
+  R.pair(0, '__zero'),  // @todo Redundant, use nothing instead
   R.pair(1, 'fuel'),
   R.pair(2, 'ammo'),
   R.pair(3, 'steel'),
