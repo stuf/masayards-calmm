@@ -9,24 +9,22 @@
  *       Then it can be appropriately handled for with an observer and necessary data
  *       moved into the active data pool.
  *
+ *        - This should probably be done?
+ *
  * @todo Clean me, I'm dirty! Please!
  *
  * @flow
  */
 import * as L from 'partial.lenses';
-import K, * as U from 'karet.util';
 import * as R from 'ramda';
-import Atom from 'kefir.atom';
-// import * as S from 'sanctuary';
 import qs from 'querystring';
 import { create, env } from 'sanctuary';
 
-// import handleGameState from './game-state';
-
+/**
+ * @todo process.env.NODE_ENV pls
+ */
 const checkTypes = false;
 const S = create({ checkTypes, env });
-
-const requestStore = Atom({});
 
 export const networkEvent: { [key: string]: string } = {
   REQUEST_WILL_BE_SENT: 'Network.requestWillBeSent',
@@ -35,10 +33,10 @@ export const networkEvent: { [key: string]: string } = {
   GET_RESPONSE_BODY: 'Network.getResponseBody'
 };
 
-// Test some monadic stuff
 const apiDataPrefix: RegExp = /svdata=/;
 const pathPrefix: RegExp = /.*\/kcsapi/;
 
+// Test some monadic stuff
 const prepareApiData = S.encase(R.replace(apiDataPrefix, ''));
 const getJson = S.parseJson(Object);
 const getDataObj = S.get(Object, 'api_data');
@@ -169,6 +167,9 @@ export const loadingFinishedFn =
       });
   };
 
+/**
+ * Define behavior for the different network events that should be captured.
+ */
 export const getHandler = R.cond([
   [R.equals(networkEvent.REQUEST_WILL_BE_SENT), R.always(requestWillBeSentFn)],
   [R.equals(networkEvent.RESPONSE_RECEIVED), R.always(responseReceivedFn)],
