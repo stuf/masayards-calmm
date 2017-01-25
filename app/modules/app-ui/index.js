@@ -1,9 +1,10 @@
-// @flow
-import path from 'path';
-import { remote } from 'electron';
+/**
+ * @fileoverview
+ *  Provide an entry point component for the main UI in the application.
+ *
+ * @flow
+ */
 import React from 'karet';
-import * as U from 'karet.util';
-import * as R from 'ramda';
 import cx from 'classnames';
 
 // $FlowFixMe

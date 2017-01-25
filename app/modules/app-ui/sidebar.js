@@ -11,12 +11,18 @@ import css from './sidebar.scss';
 const resourcesIn = U.view(['game', 'state', 'resources']);
 const profileIn = U.view(['game', 'state', 'player']);
 
+/**
+ * @todo Extract me into the UI component libs
+ */
 const Pair = ({ text, value }: *) =>
   <div>
     <div className={cx(css.label)}>{text}</div>
     <div className={cx(css.value)}>{value}</div>
   </div>;
 
+/**
+ * @todo Extract me into the UI component libs
+ */
 const Generic = ({ test }: *) =>
   <section>
     <Pair text="Derping" value="Herping" />
