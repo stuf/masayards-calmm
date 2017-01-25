@@ -4,19 +4,9 @@
  *
  * @flow
  */
-import { cond, inc, is, map, prop, always, compose, replace, toPairs, fromPairs, head, identity, T } from 'ramda';
+import { cond, inc, is, prop, always, compose, head, identity, T } from 'ramda';
 import * as L from 'partial.lenses';
 import { materialTypes as mats } from './_templates';
-
-type Tuple<A, B> = [A, B];
-
-type NormalizeTuple<A, B> = (pair: Tuple<A, B>) => Tuple<A, B>;
-
-const normalizePairFromApi: NormalizeTuple<string, *> = ([k, v]) =>
-  [replace(/^api_/, '', k), v];
-
-export const normalizeObjectKeys =
-  compose(fromPairs, map(normalizePairFromApi), toPairs);
 
 // Normalizer functions for elements describing resource state
 

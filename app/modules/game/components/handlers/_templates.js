@@ -9,14 +9,6 @@ import * as L from 'partial.lenses';
 import R from 'ramda';
 import { chooseNormalizer } from './_normalizers';
 
-type Traversable = *;
-type Applicative = *;
-type Optic = *;
-
-type Traversal =
-  (f: Applicative) => Traversable | // Curried/partial
-  (f: Applicative, g: *) => *;    // Uncurried
-
 // Objects
 
 export const recipe = L.pick({

@@ -3,22 +3,16 @@
  * @fileoverview
  *  Process incoming API data for use in the application.
  *
- * @todo
  * @flow
  */
-import { Map } from 'immutable';
-import R, {
-  find, whereEq, map, complement, isNil, append, curry, reduce, head, compose, when, apply, has, prop, is, sortBy
-} from 'ramda';
+import * as R from 'ramda';
 import * as U from 'karet.util';
 import * as L from 'partial.lenses';
-import type { Monoid } from 'flow-static-land/lib/Monoid';
 
 import {
   basicProfileIn,
   materialsIn,
-  fleetsIn,
-  repairDocks
+  fleetsIn
 } from './_templates';
 
 type EventArgs = { path: string, body: *, postBody: * };
@@ -27,18 +21,18 @@ type EventHandler = (args: EventArgs, atom: Atom) => void;
 type EventHandlerMap = { [path: string]: EventHandler };
 type CallHandler = (atom: Atom) => (req: EventArgs) => void;
 
-const headWhenArray = when(is(Array), head);
+const headWhenArray = R.when(R.is(Array), R.head);
 
 // State merging monoid
-const MergeState: Monoid<*> = {
+const MergeState = {
   empty: () => ({}),
   concat: (a, b) => ({ ...a, ...b })
 };
 
 const getShips =
-  compose(map(headWhenArray),
-          sortBy(prop('api_id')),
-          L.get);
+  R.compose(R.map(headWhenArray),
+            R.sortBy(R.prop('api_id')),
+            L.get);
 
 // Define views
 const view = {
@@ -56,13 +50,16 @@ const handlers: EventHandlerMap = {
         { player: L.get([basicProfileIn('api_basic')], body) },
         { resources: L.collect([materialsIn('api_material')], body) },
         { fleets: L.collect([fleetsIn('api_deck_port')], body) },
-        { ships: getShips(['api_ship', L.normalize(sortBy(prop('api_id')))], body) }
+        { ships: getShips(['api_ship', L.normalize(R.sortBy(R.prop('api_id')))], body) }
       ]))
 };
 
+/**
+ * @todo Rewrite me, this hurts my eyes.
+ */
 const handleEvent: CallHandler = atom => req => {
   const { path } = req;
-  const f = prop(path, handlers);
+  const f = R.prop(path, handlers);
   const xs = [req, atom];
 
   if (f) {
