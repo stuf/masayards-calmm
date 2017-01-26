@@ -4,6 +4,8 @@
 Attempt at creating a sane(r) Kancolle viewer client by using [Calmm](https://github.com/calmm-js/documentation) as inspiration,
 and using a minimal React stack to avoid a huge mess of boilerplate code.
 
+![Screenshot](assets/screenshot.png)
+
 ## To-do
  
  * Enable VS Code debugger integration with main and renderer process
