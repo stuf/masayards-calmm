@@ -12,7 +12,11 @@ import * as L from 'partial.lenses';
 import {
   basicProfileIn,
   materialsIn,
-  fleetsIn
+  shipsIn,
+  fleetsIn,
+  equipmentIn,
+  constructionDocksIn,
+  itemsIn
 } from './_templates';
 
 type EventArgs = { path: string, body: *, postBody: * };
@@ -44,13 +48,20 @@ const view = {
  * Event handler map
  */
 const handlers: EventHandlerMap = {
+  '/api_get_member/require_info': ({ path, body, postBody }, atom) =>
+    atom.view('state').modify(() =>
+      L.merge(MergeState, L.elems, [
+        { equipment: L.collect(equipmentIn('api_slot_item'), body) },
+        { constructionDocks: L.collect(constructionDocksIn('api_kdock'), body) },
+        { items: L.collect(itemsIn('api_useitem'), body) }
+      ])),
   '/api_port/port': ({ path, body, postBody }, atom) =>
     atom.view('state').modify(() =>
       L.merge(MergeState, L.elems, [
-        { player: L.get([basicProfileIn('api_basic')], body) },
-        { resources: L.collect([materialsIn('api_material')], body) },
-        { fleets: L.collect([fleetsIn('api_deck_port')], body) },
-        { ships: getShips(['api_ship', L.normalize(R.sortBy(R.prop('api_id')))], body) }
+        { player: L.get(basicProfileIn('api_basic'), body) },
+        { resources: L.collect(materialsIn('api_material'), body) },
+        { fleets: L.collect(fleetsIn('api_deck_port'), body) },
+        { ships: L.collect(shipsIn('api_ship'), body) }
       ]))
 };
 

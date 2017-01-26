@@ -91,7 +91,9 @@ const schema = {
       /** Player profile */
       player: {
         name: '(null)',
-        level: -1
+        level: -1,
+        maxShips: -1,
+        maxEquipment: -1
       },
       ships: [],
       fleets: [],

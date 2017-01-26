@@ -15,7 +15,8 @@ export const recipe = L.pick({
   fuel: 'api_item1',
   ammo: 'api_item2',
   steel: 'api_item3',
-  bauxite: 'api_item4'
+  bauxite: 'api_item4',
+  constructionMaterials: 'api_item5'
 });
 
 /**
@@ -101,6 +102,29 @@ export const messageLog = L.pick({
   message: 'api_message'
 });
 
+// Equipment
+
+export const equipment = {
+  id: 'api_id',
+  equipmentId: 'api_slotitem_id',
+  locked: ['api_locked', L.normalize(R.equals(1))],
+  level: 'api_level',
+  alv: 'api_alv'
+};
+
+export const equipmentIn = (root: *) => [root, equipment];
+
+// Ships
+
+export const ship = {
+  id: 'api_id'
+};
+
+export const shipIn = (root: *) => [root, ship];
+
+export const ships = [L.elems, L.pick(ship)];
+
+export const shipsIn = (root: *) => [root, ships];
 
 // Fleets
 
@@ -122,6 +146,19 @@ export const fleetsIn = (root: *) => [root, fleets];
 
 // Docks
 
+export const constructionDock = {
+  id: 'api_id',
+  state: 'api_state',
+  createdShipId: 'api_created_ship_id',
+  completionTime: 'api_complete_time',
+  completionTimeString: 'api_complete_time_str',
+  recipe
+};
+
+export const constructionDocks = [L.elems, L.pick(constructionDock)];
+
+export const constructionDocksIn = (root: *) => [root, constructionDocks];
+
 /**
  * Single repair dock lens template
  * @todo Normalize repair dock states (maybe Symbols?)
@@ -140,11 +177,48 @@ export const repairDock = {
  */
 export const repairDocks = [L.elems, L.pick(repairDock)];
 
+// Items
+
+export const item = {
+  id: 'api_id',
+  type: L.normalize(n => n),
+  value: 'api_value'
+};
+
+export const items = [L.elems, L.pick(item)];
+
+export const itemsIn = (root: *) => [root, items];
+
+// Furniture
+
+export const furniture = {
+  id: 'api_id',
+  type: 'api_furniture_type',
+  furnitureNumber: 'api_furniture_no',
+  furnitureId: 'api_furniture_id'
+};
+
+export const furnitureList = [L.elems, L.pick(furniture)];
+
+export const furnitureListIn = (root: *) => [root, furnitureList];
+
 export default {
   materialTypes,
   materials,
+  materialsIn,
+  equipment,
+  equipmentIn,
+  fleet,
+  fleets,
+  fleetsIn,
+  constructionDock,
+  constructionDocks,
+  constructionDocksIn,
   repairDock,
   repairDocks,
+  furniture,
+  furnitureList,
+  furnitureListIn,
   basicProfile,
   messageLog
 };
