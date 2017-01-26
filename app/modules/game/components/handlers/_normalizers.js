@@ -4,9 +4,9 @@
  *
  * @flow
  */
-import { cond, inc, is, prop, always, compose, head, identity, T } from 'ramda';
+import * as R from 'ramda';
 import * as L from 'partial.lenses';
-import { materialTypes as mats } from './_templates';
+import { materialTypeList as mats } from './_templates';
 
 // Normalizer functions for elements describing resource state
 
@@ -14,8 +14,8 @@ import { materialTypes as mats } from './_templates';
  * Transformation function for a list of numbers describing a resource state
  */
 export const numberNormalizer = (n: number, i: number) => ({
-  id: inc(i),
-  type: prop(inc(i), mats),
+  id: R.add(1, i),
+  type: mats.get(i),
   value: n
 });
 
@@ -24,17 +24,17 @@ export const numberNormalizer = (n: number, i: number) => ({
  */
 export const objectNormalizer = ({ api_id, api_value }: { api_id: number, api_value: number }) => ({
   id: api_id,
-  type: prop(api_id, mats),
+  type: mats.get(api_id),
   value: api_value
 });
 
 /**
  * Simple conditional checker for deciding on which normalizing function to use
  */
-export const decideNormalizer = cond([
-  [is(Number), always(numberNormalizer)],
-  [is(Object), always(objectNormalizer)],
-  [T, always(identity)]
+export const decideNormalizer = R.cond([
+  [R.is(Number), R.always(numberNormalizer)],
+  [R.is(Object), R.always(objectNormalizer)],
+  [R.T, R.always(R.identity)]
 ]);
 
 const normalizerLens = n => [L.define([]), L.elems, L.normalize(n)];
@@ -46,8 +46,8 @@ const normalizerLens = n => [L.define([]), L.elems, L.normalize(n)];
  * If the the type is something that we don't know how to handle, it will return
  * its identity instead.
  */
-export const chooseNormalizer = compose(
+export const chooseNormalizer = R.compose(
   normalizerLens,
   decideNormalizer,
-  head
+  R.head
 );

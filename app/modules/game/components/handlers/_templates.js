@@ -5,6 +5,7 @@
  *
  * @flow
  */
+import { List } from 'immutable';
 import * as L from 'partial.lenses';
 import * as R from 'ramda';
 import { chooseNormalizer } from './_normalizers';
@@ -20,19 +21,20 @@ export const recipe = L.pick({
 });
 
 /**
- * Describe a dictionary of the different material/resource types that exist.
+ * List of resources available in the game.
+ * Index can be taken from the resource type's ID.
  */
-export const materialTypes = R.fromPairs([
-  R.pair(0, '__zero'),  // @todo Redundant, use nothing instead
-  R.pair(1, 'fuel'),
-  R.pair(2, 'ammo'),
-  R.pair(3, 'steel'),
-  R.pair(4, 'bauxite'),
-  R.pair(5, 'buckets'),
-  R.pair(6, 'constructionMaterials'),
-  R.pair(7, 'flamethrowers'),
-  R.pair(8, 'modernization')
-]);
+export const materialTypeList: List<string> = List(
+  undefined,
+  'fuel',
+  'ammo',
+  'steel',
+  'bauxite',
+  'instantRepair',
+  'constructionMaterials',
+  'instantConstruction',
+  'modernizationMaterials'
+);
 
 // Templates
 
@@ -56,7 +58,7 @@ export const materials = L.choose(chooseNormalizer);
 export const materialsIn = (root: *) => [root, materials];
 
 /**
- * Basic player profile lens template
+ * Optic template for handling a basic player profile
  */
 export const basicProfileTemplate = {
   id: 'api_member_id',
@@ -74,7 +76,7 @@ export const basicProfileTemplate = {
     completion: 'api_tutorial_progress'
   }),
   maxShips: 'api_max_chara',
-  maxEquiment: 'api_max_slotitem',
+  maxEquipment: 'api_max_slotitem',
   maxFurniture: 'api_max_kagu',
   furniture: 'api_furniture',
   fleets: 'api_count_deck',
@@ -203,7 +205,7 @@ export const furnitureList = [L.elems, L.pick(furniture)];
 export const furnitureListIn = (root: *) => [root, furnitureList];
 
 export default {
-  materialTypes,
+  materialTypeList,
   materials,
   materialsIn,
   equipment,
