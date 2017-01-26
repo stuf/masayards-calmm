@@ -28,29 +28,47 @@ export type Schema = {
    * handling incoming data.
    */
   game: {
-    /** Are we "connected" to the API, e.g. have we received any data successfully? */
+    /**
+     * Are we "connected" to the API, e.g. have we received any data successfully?
+     */
     status: string | GameStatus,
-    /** Holds a `ClientRect` for the location of the game's webview element  */
-    gameWebviewRect?: *,
+    /**
+     * Holds a `ClientRect` for the location of the game's webview element
+     */
+    gameWebviewRect?: ClientRect,
     config: {
       muteAudio: boolean
     },
     api: {
-      /** Map for storing in-progress requests, using the request ID as key  */
+      /**
+       * Map for storing in-progress requests, using the request ID as key
+       */
       requests: { [requestId: string]: * },
-      /** Latest  */
+      /**
+       * Latest
+       */
       latest: ApiData,
-      /** Data received from the API, as key-value pairs according to game path. */
+      /**
+       * Data received from the API, as key-value pairs according to game path.
+       */
       data: { [path: string]: ApiData }
     },
-    /** Hold the processed game API data here */
+    /**
+     * Hold the processed game API data here
+     */
     state: {
-      /** Overview about the state of the game in relation to the player */
+      /**
+       * Overview about the state of the game in relation to the player
+       */
       game: {
-        /** What are we currently doing? */
+        /**
+         * What are we currently doing?
+         */
         mode: GameMode
       },
-      /** Player profile */
+      /**
+       * Player profile
+       */
       player: *,
       ships?: *,
       fleets?: *,
