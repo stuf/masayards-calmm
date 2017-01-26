@@ -23,21 +23,34 @@ type GameMode = GameModeEnum | Array<GameModeEnum>;
  */
 export type Schema = {
   action?: Action,
+  /**
+   * State relevant to the game's state itself in relation to the API, and
+   * handling incoming data.
+   */
   game: {
+    /** Are we "connected" to the API, e.g. have we received any data successfully? */
     status: string | GameStatus,
+    /** Holds a `ClientRect` for the location of the game's webview element  */
     gameWebviewRect?: *,
     config: {
       muteAudio: boolean
     },
     api: {
+      /** Map for storing in-progress requests, using the request ID as key  */
       requests: { [requestId: string]: * },
+      /** Latest  */
       latest: ApiData,
+      /** Data received from the API, as key-value pairs according to game path. */
       data: { [path: string]: ApiData }
     },
+    /** Hold the processed game API data here */
     state: {
+      /** Overview about the state of the game in relation to the player */
       game: {
+        /** What are we currently doing? */
         mode: GameMode
       },
+      /** Player profile */
       player: *,
       ships?: *,
       fleets?: *,
@@ -61,34 +74,20 @@ export type Schema = {
  * @todo Make sure to define the dependent state lenses to conform to a guaranteed minimal structure
  */
 const schema = {
-  /**
-   * State relevant to the game's state itself in relation to the API, and
-   * handling incoming data.
-   */
   game: {
-    /** Are we "connected" to the API, e.g. have we received any data successfully? */
     status: 'disconnected',
-    /** Holds a `ClientRect` for the location of the game's webview element  */
-    gameWebviewRect: undefined,
     config: {
       muteAudio: true
     },
     api: {
-      /** Map for storing in-progress requests, using the request ID as key  */
       requests: {},
-      /** Latest  */
       latest: {},
-      /** Data received from the API, as key-value pairs according to game path. */
       data: {}
     },
-    /** Hold the processed game API data here */
     state: {
-      /** Overview about the state of the game in relation to the player */
       game: {
-        /** What are we currently doing? */
         mode: 'idle'
       },
-      /** Player profile */
       player: {
         name: '(null)',
         level: -1,
