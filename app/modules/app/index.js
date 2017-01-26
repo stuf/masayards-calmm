@@ -15,7 +15,7 @@
 import { ipcRenderer, remote } from 'electron';
 import React from 'karet';
 import Atom from 'kefir.atom';
-import Storage, { expireNow } from 'atom.storage';
+import Storage from 'atom.storage';
 import K, * as L from 'partial.lenses';
 import * as U from 'karet.util';
 import * as R from 'ramda';
