@@ -4,28 +4,25 @@
  *
  * @flow
  */
-import { Map } from 'immutable';
-
 type GameStatus = 'disconnected' | 'connected';
 type NetworkState = 'offline' | 'online';
 
 type ApiData = {
   path?: string,
   time: number,
-  data: *,
-  postData: *
+  body: *,
+  postBody: *
 };
 
+type Action = { type: string, payload?: *, error?: * };
 type GameModeEnum = 'idle' | 'in_sortie' | 'in_practice' | 'ship_critical';
-
 type GameMode = GameModeEnum | Array<GameModeEnum>;
 
+/**
+ * @todo Figure out some cleaner way to do this
+ */
 export type Schema = {
-  action?: {
-    type: string,
-    payload?: *,
-    error?: *
-  },
+  action?: Action,
   game: {
     status: string | GameStatus,
     gameWebviewRect?: *,
@@ -35,15 +32,11 @@ export type Schema = {
     api: {
       requests: { [requestId: string]: * },
       latest: ApiData,
-      data: { [path: string]: {
-        time: number,
-        data: *,
-        postData: *
-      } }
+      data: { [path: string]: ApiData }
     },
     state: {
       game: {
-        mode: string
+        mode: GameMode
       },
       player: *,
       ships?: *,
@@ -63,46 +56,41 @@ export type Schema = {
   }
 };
 
+/**
+ * @todo Look into alternatives on defining the required minimal state
+ * @todo Make sure to define the dependent state lenses to conform to a guaranteed minimal structure
+ */
 const schema = {
   /**
    * State relevant to the game's state itself in relation to the API, and
    * handling incoming data.
    */
   game: {
-    /**
-     * Are we "connected" to the API, e.g. have we received any data successfully?
-     */
+    /** Are we "connected" to the API, e.g. have we received any data successfully? */
     status: 'disconnected',
+    /** Holds a `ClientRect` for the location of the game's webview element  */
     gameWebviewRect: undefined,
     config: {
       muteAudio: true
     },
     api: {
-      /**
-       * Incoming API data.
-       */
+      /** Map for storing in-progress requests, using the request ID as key  */
       requests: {},
+      /** Latest  */
       latest: {},
-      /**
-       * Data received from the API, as key-value pairs according to game path.
-       */
+      /** Data received from the API, as key-value pairs according to game path. */
       data: {}
     },
-    /**
-     * Hold the processed game API data here
-     */
+    /** Hold the processed game API data here */
     state: {
-      /**
-       * Overview about the state of the game in relation to the player
-       */
+      /** Overview about the state of the game in relation to the player */
       game: {
-        /**
-         * Game mode active
-         */
+        /** What are we currently doing? */
         mode: 'idle'
       },
+      /** Player profile */
       player: {
-        name: null,
+        name: '(null)',
         level: -1
       },
       ships: [],
@@ -113,9 +101,11 @@ const schema = {
       repairDocks: []
     }
   },
+  /** Application-specific state */
   application: {
     network: 'offline'
   },
+  /** Application configuration */
   config: {
     gameUrl: 'http://www.dmm.com/netgame/social/-/gadgets/=/app_id=854854/'
   }
