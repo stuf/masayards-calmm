@@ -54,3 +54,6 @@ script:
   - npm run build
   - npm run test-e2e
   - npm run package
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
