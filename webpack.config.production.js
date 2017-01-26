@@ -38,7 +38,7 @@ export default validate(merge(baseConfig, {
       },
       {
         test: /\.global\.scss$/,
-        loaders: ExtractTextPlugin.extract({
+        loader: ExtractTextPlugin.extract({
           loader: [
             'style-loader',
             'css-loader?sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
@@ -48,7 +48,7 @@ export default validate(merge(baseConfig, {
       },
       {
         test: /^((?!\.global).)*\.scss$/,
-        loaders: ExtractTextPlugin.extract({
+        loader: ExtractTextPlugin.extract({
           loader: [
             'style-loader',
             'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
