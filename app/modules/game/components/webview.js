@@ -1,5 +1,13 @@
 /* eslint brace-style: 0, array-bracket-spacing: 0 */
-// @flow
+/**
+ * @fileoverview
+ *  Application logic for the game's webview component
+ *
+ * @flow
+ *
+ * @todo Initial version done, now clean this one up.
+ * @todo Clean up event handlers to work with Observers for simpler sub/unsub
+ */
 import React from 'karet';
 import Kefir from 'kefir';
 import Atom from 'kefir.atom';
@@ -29,7 +37,6 @@ export default class GameView extends React.Component {
     // Initialize observer for processing API data
     initializeObserver(props.gameState);
     this.atom.view('state').log();
-    this.atom.view('gameWebviewRect').log('gameWebviewRect');
   }
 
   componentDidMount() {
@@ -117,13 +124,8 @@ export default class GameView extends React.Component {
     });
 
     if (!this.debuggerAttached) {
-      try {
-        contents.debugger.attach('1.1');
-        this.debuggerAttached = true;
-      }
-      catch (err) {
-        console.log('could not attach debugger', err);
-      }
+      contents.debugger.attach('1.1');
+      this.debuggerAttached = true;
 
       contents.debugger.on('message', (event, method, params) => {
         const handlerFn = getHandler(method);
