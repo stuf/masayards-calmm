@@ -4,6 +4,12 @@
  *  The state will be provided through `kefir.atom` and persisting state through
  *  `atom.storage` (see `calmm` for additional information).
  *
+ *  Most of the stuff that relates to how the state is created (and stored), along
+ *  with the rest of the "back-end" stuff will be relocated to reside outside of the
+ *  UI itself.
+ *
+ *  See `modules/app-ui` for the application front-end.
+ *
  * @flow
  */
 import { ipcRenderer, remote } from 'electron';
@@ -64,9 +70,7 @@ const states = {
   action: 'action'
 };
 
-/**
- * Specify views for the root components in the application
- */
+/** Specify views for the root components in the application */
 const view = {
   gameIn: U.view(states.game),
   appUiIn: U.view(states.appUi),
@@ -75,12 +79,7 @@ const view = {
   actionIn: U.view(states.action)
 };
 
-view.applicationStateIn(state).log();
-
-view.actionIn(state)
-    .observe(val => {
-      console.log('action observed =>', val);
-    });
+view.applicationStateIn(state).log('Application state change');
 
 ipcRenderer.on('online-status-changed', (event, { status }) => {
   view.applicationStateIn(state).modify(x => L.set('networkStatus', status, x));
@@ -95,6 +94,7 @@ console.log('kefir.combines = K = ', K);
 console.log('sanctuary      = S = %O', S);
 console.groupEnd();
 
+// @todo Clean me up
 try {
   // Make sure there isn't a lingering request in the store from last time.
   view.gameIn(state).modify(x =>

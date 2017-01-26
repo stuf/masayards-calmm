@@ -88,7 +88,7 @@ export default class GameView extends React.Component {
 
     // Inject some styles into the loaded webview, so that everything not relevant to
     // the game is hidden, and the game view is positioned to fill the view.
-    contents.on('dom-ready', ev => {
+    contents.on('dom-ready', () => {
       const injectCss = [
         'body { overflow: hidden; }',
         '#spacing_top { display: none; }',
@@ -108,14 +108,12 @@ export default class GameView extends React.Component {
       contents.insertCSS(injectCss.join(''));
     });
 
-    // Mute the audio by default at start
+    // Mute the audio by default at start, make this settable
     contents.setAudioMuted(true);
-
-    console.log('webview=%O, contents=%O', view, contents);
 
     // @todo Replace disabling/detaching to an observable's lifecycle instead.
     Kefir.fromEvents(view, 'close').observe({
-      value: ev => contents.debugger.sendCommand('Network.disable')
+      value: () => contents.debugger.sendCommand('Network.disable')
     });
 
     if (!this.debuggerAttached) {
@@ -184,6 +182,7 @@ export default class GameView extends React.Component {
       partition: 'persist:masayards',
       src: this.gameUrl
     };
+
     return (
       <div className={cx(css.webview)}>
         <webview {...props} />
