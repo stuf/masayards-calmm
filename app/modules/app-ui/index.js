@@ -41,7 +41,7 @@ export default class AppUI extends React.Component {
               <Sidebar atom={view.appUiIn(atom)} />
             </div>
           </div>
-          <StatusBar atom={view.statusBarIn(atom)} />
+          <StatusBar atom={atom} />
         </div>
       </div>
     );

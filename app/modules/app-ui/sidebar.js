@@ -31,7 +31,7 @@ const Generic = ({ test }: *) =>
 export default ({ atom }: *) =>
   <aside className={cx(css.sidebar)}>
     {/* Player profile information */}
-    <Generic karet-lift test={profileIn(atom)} />
+    {/* <Generic karet-lift test={profileIn(atom)} /> */}
     {K(resourcesIn(atom),
       U.map(r =>
         <div key={r.id}>{r.type} → {JSON.stringify(r.value)}</div>))}

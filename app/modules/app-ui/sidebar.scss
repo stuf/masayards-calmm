@@ -1,12 +1,13 @@
 .sidebar {
-  border: solid 1px #f00;
+  // border: solid 1px #f00;
   overflow: scroll;
   height: 100vh;
+  padding: 0.5rem;
 }
 
 .label,
 .value {
-  border: dashed 1px #f00;
+  // border: dashed 1px #f00;
 }
 
 .label {
