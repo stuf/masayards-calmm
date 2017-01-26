@@ -1,4 +1,7 @@
 
+[![Build Status](https://travis-ci.org/stuf/masayards-calmm.svg?branch=master)](https://travis-ci.org/stuf/masayards-calmm)
+[![codecov](https://codecov.io/gh/stuf/masayards-calmm/branch/master/graph/badge.svg)](https://codecov.io/gh/stuf/masayards-calmm)
+
 # Masayards (Calmm)
 
 Attempt at creating a sane(r) Kancolle viewer client by using [Calmm](https://github.com/calmm-js/documentation) as inspiration,
