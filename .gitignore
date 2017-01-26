@@ -50,3 +50,5 @@ lib/PepperFlashPlayer.plugin
 scratch/
 
 app/assets/icons
+
+.nyc_output

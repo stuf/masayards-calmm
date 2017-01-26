@@ -9,7 +9,7 @@
     "test-all": "npm run lint && npm run flow && npm run test && npm run build",
     "test-watch": "npm test -- --watch",
     "test-e2e": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 mocha --require ./test/setup.js ./test/e2e.js",
-    "coverage": "nyc report --reporter=lcov > coverage.lcov && codecov -f coverage.lcov",
+    "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov",
     "lint": "eslint --cache --ignore-path .gitignore --format=node_modules/eslint-formatter-pretty app test *.js",
     "lint-fix": "npm run lint -- --fix",
     "hot-server": "cross-env NODE_ENV=development node --max_old_space_size=2096 -r babel-register server.js",
