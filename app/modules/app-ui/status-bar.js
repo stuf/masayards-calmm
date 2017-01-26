@@ -9,6 +9,8 @@ import s from './status-bar.css';
 
 const networkStatusIn = U.view('networkState');
 const gameStatusIn = U.view('gameState');
+
+// @todo Put these two together into one view instead
 const shipCountIn = U.view(['game', 'state', L.pick({
   count: ['ships', L.define([]), L.normalize(R.length)],
   maxCount: ['player', 'maxShips']
