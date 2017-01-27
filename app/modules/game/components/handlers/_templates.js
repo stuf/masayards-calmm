@@ -3,6 +3,7 @@
  *  Partial lens templates and branching objects.
  *  Also includes some other template stuff.
  *
+ * @todo Rearrange this a bit to fit into the concept of 'meta' nicer
  * @flow
  */
 import { List } from 'immutable';
@@ -24,8 +25,8 @@ export const recipe = L.pick({
  * List of resources available in the game.
  * Index can be taken from the resource type's ID.
  */
-export const materialTypeList: List<string> = List(
-  undefined,
+export const materialTypeList: Array<string> = [
+  'index zero',
   'fuel',
   'ammo',
   'steel',
@@ -34,7 +35,7 @@ export const materialTypeList: List<string> = List(
   'constructionMaterials',
   'instantConstruction',
   'modernizationMaterials'
-);
+];
 
 // Templates
 
@@ -123,8 +124,6 @@ export const equipmentListIn = (root: *) => [root, equipmentList];
 export const ship = {
   id: 'api_id'
 };
-
-export const shipIn = (root: *) => [root, ship];
 
 export const ships = [L.elems, L.pick(ship)];
 

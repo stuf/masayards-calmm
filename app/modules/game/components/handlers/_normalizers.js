@@ -1,6 +1,6 @@
 /**
  * @fileoverview
- *  Define a set of functionals that will be used for normalizing the API data.
+ *  Define a set of functions that will be used for normalizing the API data.
  *
  * @flow
  */
@@ -13,18 +13,18 @@ import { materialTypeList as mats } from './_templates';
 /**
  * Transformation function for a list of numbers describing a resource state
  */
-export const numberNormalizer = (n: number, i: number) => ({
+export const numberArrayNormalizer = (n: number, i: number) => ({
   id: R.add(1, i),
-  type: mats.get(i),
+  type: mats[R.add(1, i)],
   value: n
 });
 
 /**
  * Transformation function for a list of objects describing a resource state
  */
-export const objectNormalizer = ({ api_id, api_value }: { api_id: number, api_value: number }) => ({
+export const objectArrayNormalizer = ({ api_id, api_value }: { api_id: number, api_value: number }) => ({
   id: api_id,
-  type: mats.get(api_id),
+  type: mats[api_id],
   value: api_value
 });
 
@@ -32,8 +32,8 @@ export const objectNormalizer = ({ api_id, api_value }: { api_id: number, api_va
  * Simple conditional checker for deciding on which normalizing function to use
  */
 export const decideNormalizer = R.cond([
-  [R.is(Number), R.always(numberNormalizer)],
-  [R.is(Object), R.always(objectNormalizer)],
+  [R.is(Number), R.always(numberArrayNormalizer)],
+  [R.is(Object), R.always(objectArrayNormalizer)],
   [R.T, R.always(R.identity)]
 ]);
 

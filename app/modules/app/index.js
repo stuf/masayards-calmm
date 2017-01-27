@@ -72,10 +72,10 @@ const states = {
   }),
   appUi: L.pick({ game: 'game' }),
   statusBar: L.pick({
-    networkState: L.compose('application', 'networkStatus', L.define('offline')),
-    gameState: L.compose('game', 'status', L.define('disconnected'))
+    networkState: ['application', 'networkStatus', L.define('offline')],
+    gameState: ['game', 'status', L.define('disconnected')]
   }),
-  application: L.compose('application'),
+  application: 'application',
   action: 'action'
 };
 
@@ -94,15 +94,8 @@ ipcRenderer.on('online-status-changed', (event, { status }) => {
   view.applicationStateIn(state).modify(x => L.set('networkStatus', status, x));
 });
 
-// @todo Clean me up
-try {
-  // Make sure there isn't a lingering request in the store from last time.
-  view.gameIn(state).modify(x =>
-    L.remove(['api', L.log(), 'latest', L.required({})], x));
-}
-catch (e) {
-  console.warn('Something went wrong while trying to purge last active state');
-}
+// Remove any data has might not have been cleaned up in the last session
+view.gameIn(state).view(['api', 'latest', L.required({})]).remove();
 
 /**
  * Root application component
