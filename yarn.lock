@@ -4517,33 +4517,33 @@ jsx-ast-utils@^1.0.0, jsx-ast-utils@^1.3.4:
     acorn-jsx "^3.0.1"
     object-assign "^4.1.0"
 
-karet.util@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/karet.util/-/karet.util-0.9.0.tgz#cc01b2de8079b8e78ae87a4d55a8dccc9afbd99e"
+karet.util@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/karet.util/-/karet.util-0.9.1.tgz#212fbae38ab47ece54802fd7b093e3342e80cbe6"
   dependencies:
     infestines "^0.4.0"
     karet "^0.2.5"
     kefir "^3.7.0"
     kefir.atom "^5.0.1"
     kefir.combines "^4.0.0"
-    partial.lenses "^8.0.0"
+    partial.lenses ">=8.0.0 <10.0.0"
     ramda "^0.23.0"
 
-karet@^0.2.5:
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/karet/-/karet-0.2.5.tgz#6806fcfc259ce601b6912a2ff9b6634239c96c64"
+karet@^0.2.5, karet@^0.2.7:
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/karet/-/karet-0.2.7.tgz#64203b2419767237c70c74e6dde4420d4e370f44"
   dependencies:
     infestines "^0.4.0"
     kefir "^3.2.1"
     react "^15.0.1"
 
-kefir.atom@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/kefir.atom/-/kefir.atom-5.0.1.tgz#a382b98f5733310d6b2cc1f0ca85561ca0de6cad"
+kefir.atom@^5.0.1, kefir.atom@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/kefir.atom/-/kefir.atom-5.2.1.tgz#03fd53cfa6f3283118b00353aff305bf5a0a8cea"
   dependencies:
     infestines "^0.4.0"
     kefir "^3.3.0"
-    partial.lenses "^8.0.0"
+    partial.lenses ">=8.0.0 <10.0.0"
 
 kefir.combines@^4.0.0:
   version "4.0.0"
@@ -4552,7 +4552,13 @@ kefir.combines@^4.0.0:
     infestines "^0.4.0"
     kefir "^3.7.0"
 
-kefir@^3.2.1, kefir@^3.3.0, kefir@^3.7.0:
+kefir@^3.2.1, kefir@^3.3.0, kefir@^3.7.1:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/kefir/-/kefir-3.7.1.tgz#e77f56feeec46f4a2ee2997e5c3226e904877b5b"
+  dependencies:
+    symbol-observable "^1.0.1"
+
+kefir@^3.7.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/kefir/-/kefir-3.7.0.tgz#68686fc3532764395db2ade63dec1ee16aadcb1c"
   dependencies:
@@ -5604,9 +5610,9 @@ parseurl@~1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.1.tgz#c8ab8c9223ba34888aa64a297b28853bec18da56"
 
-partial.lenses@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/partial.lenses/-/partial.lenses-8.0.0.tgz#50f5e4c68b8172ec85c9a6b239f153727179b824"
+"partial.lenses@>=8.0.0 <10.0.0", partial.lenses@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/partial.lenses/-/partial.lenses-9.0.1.tgz#ed0c945d613293b9a8f2c3cb5bb151e5bd400a12"
   dependencies:
     infestines "^0.4.0"
 
@@ -6745,6 +6751,12 @@ source-map-resolve@^0.3.0:
     source-map-url "~0.3.0"
     urix "~0.1.0"
 
+source-map-support@^0.4.10:
+  version "0.4.10"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.10.tgz#d7b19038040a14c0837a18e630a196453952b378"
+  dependencies:
+    source-map "^0.5.3"
+
 source-map-support@^0.4.2, source-map-support@^0.4.8:
   version "0.4.8"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.8.tgz#4871918d8a3af07289182e974e32844327b2e98b"
@@ -7612,9 +7624,9 @@ window-size@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.2.0.tgz#b4315bb4214a3d7058ebeee892e13fa24d98b075"
 
-winston@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/winston/-/winston-2.3.0.tgz#207faaab6fccf3fe493743dd2b03dbafc7ceb78c"
+winston@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/winston/-/winston-2.3.1.tgz#0b48420d978c01804cf0230b648861598225a119"
   dependencies:
     async "~1.0.0"
     colors "1.0.x"
