@@ -14,7 +14,7 @@ import {
   materialsIn,
   shipsIn,
   fleetsIn,
-  equipmentIn,
+  equipmentListIn,
   constructionDocksIn,
   itemsIn
 } from './_templates';
@@ -24,19 +24,6 @@ type Atom = *;
 type EventHandler = (args: EventArgs, atom: Atom) => void;
 type EventHandlerMap = { [path: string]: EventHandler };
 type CallHandler = (atom: Atom) => (req: EventArgs) => void;
-
-const headWhenArray = R.when(R.is(Array), R.head);
-
-// State merging monoid
-const MergeState = {
-  empty: () => ({}),
-  concat: (a, b) => ({ ...a, ...b })
-};
-
-const getShips =
-  R.compose(R.map(headWhenArray),
-            R.sortBy(R.prop('api_id')),
-            L.get);
 
 // Define views
 const view = {
@@ -48,21 +35,23 @@ const view = {
  * Event handler map
  */
 const handlers: EventHandlerMap = {
-  '/api_get_member/require_info': ({ path, body, postBody }, atom) =>
-    atom.view('state').modify(() =>
-      L.merge(MergeState, L.elems, [
-        { equipment: L.collect(equipmentIn('api_slot_item'), body) },
-        { constructionDocks: L.collect(constructionDocksIn('api_kdock'), body) },
-        { items: L.collect(itemsIn('api_useitem'), body) }
-      ])),
-  '/api_port/port': ({ path, body, postBody }, atom) =>
-    atom.view('state').modify(() =>
-      L.merge(MergeState, L.elems, [
-        { player: L.get(basicProfileIn('api_basic'), body) },
-        { resources: L.collect(materialsIn('api_material'), body) },
-        { fleets: L.collect(fleetsIn('api_deck_port'), body) },
-        { ships: L.collect(shipsIn('api_ship'), body) }
-      ]))
+  '/api_get_member/require_info': ({ path, body, postBody } = {}, atom) =>
+    atom.view('state')
+        .modify(
+          L.set(L.props('equipment', 'constructionDocks', 'items'), {
+            equipment: L.collect(equipmentListIn('api_slot_item'), body),
+            constructionDocks: L.collect(constructionDocksIn('api_kdock'), body),
+            items: L.collect(itemsIn('api_useitem'), body)
+          })),
+  '/api_port/port': ({ path, body, postBody } = {}, atom) =>
+    atom.view('state')
+        .modify(
+          L.set(L.props('player', 'resources', 'fleets', 'ships'), {
+            player: L.get(basicProfileIn('api_basic'), body),
+            resources: L.collect(materialsIn('api_material'), body),
+            fleets: L.collect(fleetsIn('api_deck_port'), body),
+            ships: L.collect(shipsIn('api_ship'), body)
+          }))
 };
 
 /**

@@ -45,6 +45,15 @@ const stateStorage = Storage({
 
 const state = stateStorage;
 
+if (process.env.NODE_ENV === 'development') {
+  window.state = state;
+  window.L = L;
+  window.U = U;
+  window.R = R;
+  window.K = K;
+  window.S = S;
+}
+
 // @todo Relocate the following to their appropriate locations
 /**
  * Define some basic lenses to propagate the desired state.
@@ -84,15 +93,6 @@ view.applicationStateIn(state).log('Application state change');
 ipcRenderer.on('online-status-changed', (event, { status }) => {
   view.applicationStateIn(state).modify(x => L.set('networkStatus', status, x));
 });
-
-console.group('State debugging stuff');
-console.log('state              = %O', state);
-console.log('partial.lenses = L = %O', L);
-console.log('karet.util     = U = %O', U);
-console.log('ramda          = R = %O', R);
-console.log('kefir.combines = K = ', K);
-console.log('sanctuary      = S = %O', S);
-console.groupEnd();
 
 // @todo Clean me up
 try {

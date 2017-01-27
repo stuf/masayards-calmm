@@ -114,7 +114,9 @@ export const equipment = {
   alv: 'api_alv'
 };
 
-export const equipmentIn = (root: *) => [root, equipment];
+export const equipmentList = [L.elems, L.pick(equipment)];
+
+export const equipmentListIn = (root: *) => [root, equipmentList];
 
 // Ships
 
@@ -209,7 +211,7 @@ export default {
   materials,
   materialsIn,
   equipment,
-  equipmentIn,
+  equipmentListIn,
   fleet,
   fleets,
   fleetsIn,
