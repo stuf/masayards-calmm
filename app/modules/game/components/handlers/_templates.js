@@ -52,11 +52,6 @@ export const materialTypeList: Array<string> = [
 export const materials = L.choose(chooseNormalizer);
 
 /**
- * Composed parametric lens for getting the material status.
- */
-export const materialsIn = (root: *) => [root, materials];
-
-/**
  * Optic template for handling a basic player profile
  */
 export const basicProfileTemplate = {
@@ -113,8 +108,6 @@ export const equipment = {
 
 export const equipmentList = [L.elems, L.pick(equipment)];
 
-export const equipmentListIn = (root: *) => [root, equipmentList];
-
 // Ships
 
 export const ship = {
@@ -156,8 +149,6 @@ export const ship = {
 
 export const ships = [L.elems, L.pick(ship)];
 
-export const shipsIn = (root: *) => [root, ships];
-
 // Fleets
 
 export const fleet = {
@@ -169,11 +160,7 @@ export const fleet = {
   ships: 'api_ship'
 };
 
-export const pickFleet = L.pick(fleet);
-
 export const fleets = [L.elems, L.pick(fleet)];
-
-export const fleetsIn = (root: *) => [root, fleets];
 
 
 // Docks
@@ -188,8 +175,6 @@ export const constructionDock = {
 };
 
 export const constructionDocks = [L.elems, L.pick(constructionDock)];
-
-export const constructionDocksIn = (root: *) => [root, constructionDocks];
 
 /**
  * Single repair dock lens template
@@ -219,8 +204,6 @@ export const item = {
 
 export const items = [L.elems, L.pick(item)];
 
-export const itemsIn = (root: *) => [root, items];
-
 // Furniture
 
 export const furniture = {
@@ -232,12 +215,9 @@ export const furniture = {
 
 export const furnitureList = [L.elems, L.pick(furniture)];
 
-export const furnitureListIn = (root: *) => [root, furnitureList];
-
 export default {
   materialTypeList,
   materials,
-  materialsIn,
   equipment,
   ship,
   ships,
