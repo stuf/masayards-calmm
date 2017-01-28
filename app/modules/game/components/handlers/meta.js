@@ -15,7 +15,7 @@ import {
   constructionDock,
   repairDock,
   basicProfile,
-  quests,
+  quest,
   questList
 } from './_templates';
 
@@ -144,11 +144,11 @@ export const repairDocksIn = RepairDocks.data.repairDocksIn;
 
 export const Quests = {
   template: {
-    quests,
+    quest,
     questList
   },
   data: {
-    quests: (root: * = L.identity) => [root, L.elems, L.pick(Quests.template.quests)],
+    quests: (root: * = L.identity) => [root, L.elems, L.pick(Quests.template.quest)],
     questList: (root: * = L.identity) => [root, L.pick(Quests.template.questList)]
   }
 };

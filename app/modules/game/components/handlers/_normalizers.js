@@ -6,16 +6,19 @@
  */
 import * as R from 'ramda';
 import * as L from 'partial.lenses';
-import { materialTypeList as mats } from './_templates';
+import {
+  materialTypeList as mats,
+  QuestState,
+  QuestProgress,
+  QuestCategory
+} from './_templates';
 
 // Missions/expeditions
 export const Simple = {
-  asBool: (x: *) => R.equals(1),
-  asPair: (a: *, b: *) => [a, b]
+  asBool: (x: *) => R.equals(1)
 };
 
 export const asBool = L.normalize(Simple.asBool);
-export const asPair = L.normalize(Simple.asPair);
 
 /**
  * In what way do we want to "pre-normalize" data from the API _before_ it's
@@ -30,6 +33,14 @@ export const Events: { [event: string]: * } = {
 
 export const Expeditions = {
   normalizer: (a: *) => ({ state: a[0], missionId: a[1], completionTime: a[2] })
+};
+
+// Normalizer for quest states
+
+export const Quests = {
+  questStateNormalizer: (id: number) => QuestState.get(id),
+  questProgressNormalizer: (id: number) => QuestProgress.get(id),
+  questCategoryNormalizer: (id: number) => QuestCategory.get(id)
 };
 
 // Normalizer functions for elements describing resource state

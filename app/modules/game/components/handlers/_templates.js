@@ -6,6 +6,7 @@
  *
  * @flow
  */
+import { Map } from 'immutable';
 import * as L from 'partial.lenses';
 import * as R from 'ramda';
 import * as N from './_normalizers';
@@ -120,6 +121,7 @@ export const ship = {
   morale: 'api_cond',
   fuel: 'api_fuel',
   ammo: 'api_bull',
+  // @todo
   hp: [L.props('api_nowhp', 'api_maxhp'), L.normalize(R.values)],
   slots: L.pick({
     count: 'api_slotnum',
@@ -216,16 +218,40 @@ export const furniture = {
 export const furnitureList = [L.elems, L.pick(furniture)];
 
 // Quests
+export const QuestState = Map([
+  [0, null],
+  [1, 'INCOMPLETE'],
+  [2, 'IN_PROGRESS'],
+  [3, 'COMPLETE']
+]);
+
+export const QuestProgress = Map([
+  [0, 0],
+  [1, 0.5],
+  [2, 0.8],
+  [3, 1]
+]);
+
+export const QuestCategory = Map([
+  [0, null],
+  [1, 'first'],
+  [2, 'second'],
+  [3, 'third'],
+  [4, 'fourth'],
+  [5, 'fifth'],
+  [6, 'sixth'],
+  [7, 'seventh']
+]);
 
 export const quest = {
-  id: 'api_id',
+  id: 'api_no',
   type: 'api_type',
   category: 'api_category',
-  state: 'api_state',
+  state: ['api_state', L.normalize(N.Quests.questStateNormalizer)],
   title: 'api_title',
   detail: 'api_detail',
   reward: 'api_reward',
-  progress: 'api_progress'
+  progress: ['api_progress_flag', L.normalize(N.Quests.questProgressNormalizer)]
 };
 
 export const quests = [L.elems, L.pick(quest)];

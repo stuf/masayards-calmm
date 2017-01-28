@@ -1,6 +1,1 @@
-
-describe('Game', () => {
-  describe('Handlers', () => {
-
-  });
-});
+import { expect } from 'chai';

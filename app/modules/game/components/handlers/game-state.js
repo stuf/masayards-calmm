@@ -45,6 +45,11 @@ const handlers: EventHandlerMap = {
   '/api_get_member/deck': ({ path, body } = {}, atom) =>
     atom.view('state').modify(L.set('fleets', L.collect(M.fleetsIn(L.identity), body))),
 
+  '/api_get_member/material': ({ path, body } = {}, atom) =>
+    atom.view('state')
+        .modify(
+          L.set('resources', L.collect(M.materialsIn(L.identity), body))),
+
   /**
    * Gets the basic state of the player's "consumables"; construction docks,
    * usable items and equipment list.
@@ -62,7 +67,7 @@ const handlers: EventHandlerMap = {
   /**
    * Gets the individual quest items, as well as the quest list view.
    */
-  '/api_get_member/questlist': ({ path, body }, atom) =>
+  '/api_get_member/questlist': ({ path, body } = {}, atom) =>
     atom.view('state')
         .modify(
           L.set(
@@ -71,13 +76,17 @@ const handlers: EventHandlerMap = {
               questList: L.get(M.questListIn(L.identity), body)
             })),
 
-  '/api_req_mission/start': ({ path, body, postBody }, atom) =>
+  '/api_req_quest/start': ({ path, postBody } = {}, atom) =>
     atom.view('state')
-        .modify(
-          L.set([
-            'fleets',
-            M.findIn(postBody, 'id', 'api_deck_id')
-          ])),
+        .modify(L.set(['quests', L.index(M.basic.asNumber())])),
+
+  // '/api_req_mission/start': ({ path, body, postBody }, atom) =>
+  //  atom.view('state')
+  //      .modify(
+  //        L.set([
+  //          'fleets',
+  //          M.findIn(postBody, 'id', 'api_deck_id')
+  //        ])),
   /**
    * Gets the basic state of the player's profile and relevant data,
    * including fleets, resources and fleets.
