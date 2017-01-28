@@ -5,6 +5,7 @@
  * @flow
  */
 import * as L from 'partial.lenses';
+import * as R from 'ramda';
 import {
   ship,
   item,
@@ -13,8 +14,19 @@ import {
   materials,
   constructionDock,
   repairDock,
-  basicProfile
+  basicProfile,
+  quests,
+  questList
 } from './_templates';
+
+export const basic = {
+  asNumber: (x: *) => parseInt(x, 10)
+};
+
+// Convenience tools
+const findInM = (src: *, srcProp: string, prop: string) => R.propEq(prop, basic.asNumber(R.prop(srcProp, src)));
+
+export const findIn = (src: *, srcProp: string, prop: string) => L.find(findInM(src, srcProp, prop));
 
 /**
  * Player basic profile
@@ -127,6 +139,22 @@ export const RepairDocks = {
  * @type {Function}
  */
 export const repairDocksIn = RepairDocks.data.repairDocksIn;
+
+// Quests
+
+export const Quests = {
+  template: {
+    quests,
+    questList
+  },
+  data: {
+    quests: (root: * = L.identity) => [root, L.elems, L.pick(Quests.template.quests)],
+    questList: (root: * = L.identity) => [root, L.pick(Quests.template.questList)]
+  }
+};
+
+export const questsIn = Quests.data.quests;
+export const questListIn = Quests.data.questList;
 
 export const BaseData = {
   baseDataIn: (root: * = L.identity) => [root, 'baseData']

@@ -14,15 +14,23 @@ export const Simple = {
   asPair: (a: *, b: *) => [a, b]
 };
 
-export const N = {
-  asBool: L.normalize(Simple.asBool),
-  asPair: L.normalize(Simple.asPair)
+export const asBool = L.normalize(Simple.asBool);
+export const asPair = L.normalize(Simple.asPair);
+
+/**
+ * In what way do we want to "pre-normalize" data from the API _before_ it's
+ * consumed in the handling function?
+ *
+ * A common use case where this becomes handy is ensuring that some values should
+ * be handled as numbers, but they're passed in as strings.
+ */
+export const Events: { [event: string]: * } = {
+  '/api_req_mission/start': ''
 };
 
 export const Expeditions = {
-  normalizer: (a: *) => ({ state: a[0], missionId: a[1], completionTime: a[2]})
+  normalizer: (a: *) => ({ state: a[0], missionId: a[1], completionTime: a[2] })
 };
-
 
 // Normalizer functions for elements describing resource state
 

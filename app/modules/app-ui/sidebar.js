@@ -6,7 +6,7 @@ import * as R from 'ramda';
 import cx from 'classnames';
 
 // $FlowFixMe
-import css from './sidebar.scss';
+import css from './sidebar.scss'; // eslint-disable-line flowtype-errors/show-errors
 
 import * as C from './controls';
 

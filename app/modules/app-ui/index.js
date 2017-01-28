@@ -3,12 +3,13 @@
  *  Provide an entry point component for the main UI in the application.
  *
  * @flow
+ * @todo Look into replacing classes with stateless components (we have our state atom)
  */
 import React from 'karet';
 import cx from 'classnames';
 
 // $FlowFixMe
-import css from './styles.scss';
+import css from './styles.scss'; // eslint-disable-line flowtype-errors/show-errors
 
 import Game from '../game';
 

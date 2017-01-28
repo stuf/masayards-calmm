@@ -8,7 +8,7 @@
  */
 import * as L from 'partial.lenses';
 import * as R from 'ramda';
-import { chooseNormalizer, Expeditions, N } from './_normalizers';
+import * as N from './_normalizers';
 
 // Objects
 
@@ -49,7 +49,7 @@ export const materialTypeList: Array<string> = [
  * will return a lens of `L.normalize` with the appropriate transformation function for the elements
  * for the list.
  */
-export const materials = L.choose(chooseNormalizer);
+export const materials = L.choose(N.chooseNormalizer);
 
 /**
  * Optic template for handling a basic player profile
@@ -155,7 +155,7 @@ export const fleet = {
   id: 'api_id',
   name: 'api_name',
   nameId: 'api_name_id',
-  mission: ['api_mission', L.normalize(Expeditions.normalizer)],
+  mission: ['api_mission', L.normalize(N.Expeditions.normalizer)],
   flagship: 'api_flagship',
   ships: 'api_ship'
 };
@@ -171,7 +171,7 @@ export const constructionDock = {
   createdShipId: 'api_created_ship_id',
   completionTime: 'api_complete_time',
   completionTimeString: 'api_complete_time_str',
-  recipe
+  recipe: L.pick(recipe)
 };
 
 export const constructionDocks = [L.elems, L.pick(constructionDock)];
@@ -198,7 +198,7 @@ export const repairDocks = [L.elems, L.pick(repairDock)];
 
 export const item = {
   id: 'api_id',
-  type: L.normalize(n => n),
+  type: L.normalize(R.identity),
   value: 'api_value'
 };
 
@@ -215,6 +215,30 @@ export const furniture = {
 
 export const furnitureList = [L.elems, L.pick(furniture)];
 
+// Quests
+
+export const quest = {
+  id: 'api_id',
+  type: 'api_type',
+  category: 'api_category',
+  state: 'api_state',
+  title: 'api_title',
+  detail: 'api_detail',
+  reward: 'api_reward',
+  progress: 'api_progress'
+};
+
+export const quests = [L.elems, L.pick(quest)];
+
+// Quest list (the view, not a list of quests)
+export const questList = {
+  count: 'api_count',
+  currentPage: 'api_disp_page',
+  execCount: 'api_exec_count',
+  execType: 'api_exec_type',
+  pageCount: 'api_page_count'
+};
+
 export default {
   materialTypeList,
   materials,
@@ -230,5 +254,8 @@ export default {
   furniture,
   furnitureList,
   basicProfile,
-  messageLog
+  messageLog,
+  quest,
+  quests,
+  questList
 };

@@ -23,7 +23,7 @@ import * as S from 'sanctuary';
 import cx from 'classnames';
 
 // $FlowFixMe
-import css from './styles.scss';
+import css from './styles.scss'; // eslint-disable-line flowtype-errors/show-errors
 
 import initialState from './initial-state';
 import AppUI from '../app-ui';

@@ -8,7 +8,7 @@ import React from 'karet';
 import cx from 'classnames';
 
 // $FlowFixMe
-import css from './main-view.scss';
+import css from './main-view.scss'; // eslint-disable-line flowtype-errors/show-errors
 
 export default ({ atom }: *) =>
   <div className={cx(css.mainView)}>

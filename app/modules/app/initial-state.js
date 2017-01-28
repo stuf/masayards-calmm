@@ -35,6 +35,10 @@ export type Schema = {
     /**
      * Holds a `ClientRect` for the location of the game's webview element
      */
+    gameView?: {
+      viewRect?: ClientRect,
+      webview?: *
+    },
     gameWebviewRect?: ClientRect,
     config: {
       muteAudio: boolean
@@ -66,6 +70,10 @@ export type Schema = {
          */
         mode: GameMode
       },
+      baseData: {
+        ships: *,
+        equipment: *
+      },
       /**
        * Player profile
        */
@@ -94,6 +102,7 @@ export type Schema = {
 const schema = {
   game: {
     status: 'disconnected',
+    gameView: {},
     config: {
       muteAudio: true
     },
@@ -106,12 +115,7 @@ const schema = {
       game: {
         mode: 'idle'
       },
-      player: {
-        name: '(null)',
-        level: -1,
-        maxShips: -1,
-        maxEquipment: -1
-      },
+      player: {},
       ships: [],
       fleets: [],
       equipment: [],
