@@ -16,6 +16,7 @@ and using a minimal React stack to avoid a huge mess of boilerplate code.
    * `L.define` and `L.required` to the rescure, FYI
  * Clean up network event handling code
  * Improve type definition docs
+ * Migrate out of using (S)CSS modules
 
 ## Known issues
 
