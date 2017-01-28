@@ -10,7 +10,6 @@
  */
 import React from 'karet';
 import Kefir from 'kefir';
-import Atom from 'kefir.atom';
 import * as L from 'partial.lenses';
 import * as R from 'ramda';
 import cx from 'classnames';
@@ -28,6 +27,8 @@ const intoJson = R.compose(JSON.parse, JSON.stringify);
  *
  * Due to the way how this needs to be implemented, we need to create a stateful
  * component that uses some component lifecycle hooks for additional functionality.
+ *
+ * @todo Figure out if this could be done in a more convenient way without all this horrible kludge.
  */
 export default class GameView extends React.Component {
   constructor(props: *) {
@@ -67,19 +68,8 @@ export default class GameView extends React.Component {
   atom: *;
 
   // Configuration
-  apiDataPrefix: RegExp = /svdata=/;
-  pathPrefix: RegExp = /.*\/kcsapi/;
-  gameSwfPrefix: RegExp = /kcs\/mainD2/;
   gameUrl: string = 'http://www.dmm.com/netgame/social/-/gadgets/=/app_id=854854/';
   gameUrlRegex: RegExp = new RegExp(this.gameUrl.replace(/\//g, '\/')); // eslint-disable-line no-useless-escape
-  urlFilters: Array<string> = [
-    this.gameUrl
-  ];
-
-  attachDebugger = (attach: *) => {
-    attach();
-    this.debuggerAttached = true;
-  }
 
   lenses: * = {
     responseUrl: ['response', 'url'],

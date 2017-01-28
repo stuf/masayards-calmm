@@ -23,6 +23,7 @@ import { create, env } from 'sanctuary';
 /**
  * @todo process.env.NODE_ENV pls
  */
+// const checkTypes = process.env.NODE_ENV === 'development';
 const checkTypes = false;
 const S = create({ checkTypes, env });
 
@@ -41,7 +42,7 @@ const prepareApiData = S.encase(R.replace(apiDataPrefix, ''));
 const getJson = S.parseJson(Object);
 const getDataObj = S.get(Object, 'api_data');
 const getDataArray = S.get(Array, 'api_data');
-const getDataCond = S.is(Array, S.prop('api_data'));
+const getDataCond = S.is(Array);
 const getData = S.ifElse(getDataCond, getDataArray, getDataObj);
 
 const isObjectEmpty = S.ifElse(R.isEmpty, S.Maybe.empty, S.Maybe.of);
@@ -151,12 +152,14 @@ export const loadingFinishedFn =
     // Get the resulting request body from this request
     contents.debugger.sendCommand(networkEvent.GET_RESPONSE_BODY, { requestId },
       (err, result) => {
-        console.group(path);
+        console.groupCollapsed(path);
+        console.time('Time spent');
         const time = +(new Date());
         const body = L.get('api_data', S.fromMaybe({}, getBodyData(result.body)));
         const postBody = S.fromMaybe({}, getPostBodyData(thisReq));
         const newData = { time, body, postBody };
 
+        console.timeEnd('Time spent');
         console.log('newData =', newData);
         console.groupEnd();
 

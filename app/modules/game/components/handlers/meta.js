@@ -92,7 +92,7 @@ export const shipsIn = Ships.data.shipsIn;
  */
 export const Fleets = {
   template: fleet,
-  data: { fleetsIn: (root: * = L.identity) => [root, L.elems, L.pick(Ships.template)] }
+  data: { fleetsIn: (root: * = L.identity) => [root, L.elems, L.pick(Fleets.template)] }
 };
 
 /**
@@ -127,3 +127,7 @@ export const RepairDocks = {
  * @type {Function}
  */
 export const repairDocksIn = RepairDocks.data.repairDocksIn;
+
+export const BaseData = {
+  baseDataIn: (root: * = L.identity) => [root, 'baseData']
+};

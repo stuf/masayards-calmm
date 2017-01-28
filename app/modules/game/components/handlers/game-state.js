@@ -77,9 +77,9 @@ const handleEvent: CallHandler = atom => req => {
   const xs = [req, atom];
 
   if (f) {
-    console.groupCollapsed('Calling function with xs = ', xs);
-    console.log('Should call: f(...xs) where f =', f, ', xs =', xs);
-    console.groupEnd();
+    // console.groupCollapsed('Calling function with xs = ', xs);
+    // console.log('Should call: f(...xs) where f =', f, ', xs =', xs);
+    // console.groupEnd();
     f(...xs);
   }
 };

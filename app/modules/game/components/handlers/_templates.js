@@ -2,31 +2,29 @@
  * @fileoverview
  *  Partial lens templates and branching objects.
  *  Also includes some other template stuff.
+ * @todo Extract field names somewhere, since a lot of them are abbreviated transliterations
  *
- * @todo Rearrange this a bit to fit into the concept of 'meta' nicer
  * @flow
  */
-import { List } from 'immutable';
 import * as L from 'partial.lenses';
 import * as R from 'ramda';
-import { chooseNormalizer } from './_normalizers';
+import { chooseNormalizer, Expeditions, N } from './_normalizers';
 
 // Objects
 
-export const recipe = L.pick({
+export const recipe = {
   fuel: 'api_item1',
   ammo: 'api_item2',
   steel: 'api_item3',
   bauxite: 'api_item4',
   constructionMaterials: 'api_item5'
-});
+};
 
 /**
  * List of resources available in the game.
- * Index can be taken from the resource type's ID.
+ * The correct material can be retrieved by `material.id - 1`.
  */
 export const materialTypeList: Array<string> = [
-  'index zero',
   'fuel',
   'ammo',
   'steel',
@@ -70,10 +68,10 @@ export const basicProfileTemplate = {
   coins: 'api_fcoin',
   medals: 'api_medal',
   flags: L.pick({
-    lscIsUnlocked: ['api_large_dock', L.normalize(R.equals(1))]
+    lscIsUnlocked: ['api_large_dock', L.valueOr(0), N.asBool]
   }),
   tutorial: L.pick({
-    isCompleted: ['api_tutorial', L.normalize(R.equals(0))],
+    isCompleted: ['api_tutorial', L.valueOr(0), N.asBool],
     completion: 'api_tutorial_progress'
   }),
   maxShips: 'api_max_chara',
@@ -92,8 +90,6 @@ export const basicProfileTemplate = {
 };
 
 export const basicProfile = L.pick(basicProfileTemplate);
-
-export const basicProfileIn = (root: *) => [root, basicProfile];
 
 /**
  * Message log lens template
@@ -122,7 +118,40 @@ export const equipmentListIn = (root: *) => [root, equipmentList];
 // Ships
 
 export const ship = {
-  id: 'api_id'
+  id: 'api_id',
+  sortId: 'api_sortno',
+  shipId: 'api_ship_id',
+  experience: 'api_exp',
+  level: 'api_lv',
+  stars: 'api_stars',
+  morale: 'api_cond',
+  fuel: 'api_fuel',
+  ammo: 'api_bull',
+  hp: [L.props('api_nowhp', 'api_maxhp'), L.normalize(R.values)],
+  slots: L.pick({
+    count: 'api_slotnum',
+    equipment: 'api_slot'
+  }),
+  repair: L.pick({
+    cost: 'api_ndock_item',
+    time: 'api_ndock_time'
+  }),
+  stats: L.pick({
+    evasion: 'api_kaihi',
+    torpedo: 'api_raisou',
+    endurance: 'api_taik',
+    antiAir: 'api_taiku',
+    antiSub: 'api_taisen',
+    armorBase: 'api_souk',
+    armor: 'api_soukou',
+    losBase: 'api_saku',
+    los: 'api_sakuteki',
+    luck: 'api_lucky'
+  }),
+  flags: L.pick({
+    locked: ['api_locked', L.valueOr(0), N.asBool],
+    slotItemLocked: ['api_locked_equip', L.valueOr(0), N.asBool]
+  })
 };
 
 export const ships = [L.elems, L.pick(ship)];
@@ -135,7 +164,7 @@ export const fleet = {
   id: 'api_id',
   name: 'api_name',
   nameId: 'api_name_id',
-  mission: 'api_mission',
+  mission: ['api_mission', L.normalize(Expeditions.normalizer)],
   flagship: 'api_flagship',
   ships: 'api_ship'
 };
@@ -172,7 +201,7 @@ export const repairDock = {
   shipId: 'api_ship_id',
   completionTime: 'api_complete_time',
   completionTimeString: 'api_complete_time_str',
-  recipe
+  recipe: L.pick(recipe)
 };
 
 /**
@@ -210,18 +239,16 @@ export default {
   materials,
   materialsIn,
   equipment,
-  equipmentListIn,
+  ship,
+  ships,
   fleet,
   fleets,
-  fleetsIn,
   constructionDock,
   constructionDocks,
-  constructionDocksIn,
   repairDock,
   repairDocks,
   furniture,
   furnitureList,
-  furnitureListIn,
   basicProfile,
   messageLog
 };
