@@ -8,31 +8,13 @@ import cx from 'classnames';
 // $FlowFixMe
 import css from './sidebar.scss';
 
+import * as C from './controls';
+
 const resourcesIn = U.view(['game', 'state', 'resources']);
 const profileIn = U.view(['game', 'state', 'player']);
 
-/**
- * @todo Extract me into the UI component libs
- */
-const Pair = ({ text, value }: *) =>
-  <div>
-    <div className={cx(css.label)}>{text}</div>
-    <div className={cx(css.value)}>{value}</div>
-  </div>;
-
-/**
- * @todo Extract me into the UI component libs
- */
-const Generic = ({ test }: *) =>
-  <section>
-    <Pair text="Derping" value="Herping" />
-  </section>;
-
 export default ({ atom }: *) =>
   <aside className={cx(css.sidebar)}>
-    {/* Player profile information */}
-    {/* <Generic karet-lift test={profileIn(atom)} /> */}
     {K(resourcesIn(atom),
-      U.map(r =>
-        <div key={r.id}>{r.type} → {JSON.stringify(r.value)}</div>))}
+      U.map(r => <C.KeyValueField name={r.type} value={r.value} />))}
   </aside>;
