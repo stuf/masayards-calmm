@@ -31,8 +31,7 @@ export const Ship = ({ ship, hp = Ships.hpIn(ship) }: *) =>
 export const Fleet = ({
   fleet,
   ships,
-  fleetShips = U.view(['ships', L.define([])], fleet),
-  filteredShips = M.Fleet.shipsFrom(fleetShips, ships)
+  filteredShips = M.Fleet.shipsFrom(U.view(['shipIds', L.define([])], fleet), ships)
 }: *) =>
   <section className={cx('col', css.fleet)} style={{ width: '25%' }}>
     <div className={cx(css.fleetHeading)}>{M.Fleet.nameIn(fleet)}</div>

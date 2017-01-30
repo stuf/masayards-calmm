@@ -1,8 +1,6 @@
 // @flow
 import React from 'karet';
 import K, * as U from 'karet.util';
-import * as L from 'partial.lenses';
-import * as R from 'ramda';
 import cx from 'classnames';
 
 import css from './sidebar.css';
@@ -10,7 +8,6 @@ import css from './sidebar.css';
 import * as C from './controls';
 
 const resourcesIn = U.view(['game', 'state', 'resources']);
-const profileIn = U.view(['game', 'state', 'player']);
 
 export default ({ atom }: *) =>
   <aside className={cx(css.sidebar)}>

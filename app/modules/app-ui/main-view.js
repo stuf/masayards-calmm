@@ -14,24 +14,23 @@ import * as C from './controls';
 
 const stateIn = U.view(['game', 'state']);
 const fleetsIn = U.view(['fleets', L.define([])]);
-const shipsIn = U.view(['ships', L.define([])]);
+const shipIdsIn = U.view(['ships', L.define([])]);
 
 const componentStateIn = U.view(L.pick({
   fleets: ['fleets', L.define([])],
   ships: ['ships', L.define([])]
 }));
 
-// @todo Make use of the K combinator to only get relevant ship objects
 export default ({
   atom,
   state = stateIn(atom),
   fleets = fleetsIn(state),
-  ships = shipsIn(state),
+  shipIds = shipIdsIn(state),
   cs = componentStateIn(state)
 }: *) =>
   <div className={cx(css.mainView)}>
     <div className="row">
       {U.seq(fleets, U.indices, U.mapCached(i =>
-        <C.Fleet karet-lift key={`fleet-${i}`} fleet={U.view(i, fleets)} ships={ships} />))}
+        <C.Fleet karet-lift key={`fleet-${i}`} fleet={U.view(i, fleets)} shipIds={shipIds} />))}
     </div>
   </div>;
