@@ -10,10 +10,6 @@ This is an attempt at creating a Kancolle viewer client by using the [Calmm.js](
 
 I believe this is a fitting and maybe a little bit unusual of a test case for creating an Electron-based application. There's a whole lot of data that comes from a pretty inconsistent API, so being able to use partial lenses for ensuring that the data is normalized into something usable.
 
-Using [atoms](https://github.com/calmm-js/kefir.atom) and [lenses](https://github.com/calmm-js/partial.lenses), we are able to decompose the application state for use in simple components that don't have to have any knowledge of the world around them. Less boilerplate code with having ditched Redux in this project, maybe we can concentrate on doing stuff, rather than creating actions and reducers. Let's not have to manage that state by hand, shall we?
-
-As a side-note, I did some quick comparisons to an earlier Redux version that was working with immutable data structures and selectors for avoiding unnecessary work—and the improvement can be measured in _orders of magnitude_. Benchmarks need to be done, though, to pull up exact figures.
-
 ## Highlights
 
 ### Game API handling
