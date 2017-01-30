@@ -5,8 +5,7 @@ import * as L from 'partial.lenses';
 import * as R from 'ramda';
 import cx from 'classnames';
 
-// $FlowFixMe
-import css from './sidebar.scss'; // eslint-disable-line flowtype-errors/show-errors
+import css from './sidebar.css';
 
 import * as C from './controls';
 
@@ -15,6 +14,8 @@ const profileIn = U.view(['game', 'state', 'player']);
 
 export default ({ atom }: *) =>
   <aside className={cx(css.sidebar)}>
-    {K(resourcesIn(atom),
-      U.map(r => <C.KeyValueField name={r.type} value={r.value} />))}
+    <section className={cx(css.sidebarResources)}>
+      {K(resourcesIn(atom),
+        U.map(r => <C.KeyValueField name={r.type} value={r.value} />))}
+    </section>
   </aside>;

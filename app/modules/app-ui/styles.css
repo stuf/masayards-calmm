@@ -1,5 +1,5 @@
 .appUiWrap {
-  // border: dashed 2px #f00;
+  /*border: dashed 2px #f00;*/
 }
 
 .appUi {
@@ -9,12 +9,6 @@
   height: 100vh;
   overflow: hidden;
 }
-
-// .appUiView {
-//   /*border: dashed 1px #f00;*/
-//   flex-basis: 0;
-//   flex-grow: 1;
-// }
 
 .uiCols {
   display: flex;
@@ -46,6 +40,6 @@
 
 .toolbar {
   display: flex;
-  // border: solid 1px #f00;
+  /*border: solid 1px #f00;*/
   align-items: center;
 }

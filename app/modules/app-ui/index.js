@@ -8,8 +8,7 @@
 import React from 'karet';
 import cx from 'classnames';
 
-// $FlowFixMe
-import css from './styles.scss'; // eslint-disable-line flowtype-errors/show-errors
+import css from './styles.css';
 
 import Game from '../game';
 

@@ -78,7 +78,7 @@ const handlers: EventHandlerMap = {
 
   '/api_req_quest/start': ({ path, postBody } = {}, atom) =>
     atom.view('state')
-        .modify(L.set(['quests', L.index(M.basic.asNumber())])),
+        .modify(L.set(['quests', M.basic.asNumber()])),
 
   // '/api_req_mission/start': ({ path, body, postBody }, atom) =>
   //  atom.view('state')

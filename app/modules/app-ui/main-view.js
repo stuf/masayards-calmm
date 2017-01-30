@@ -6,17 +6,32 @@
  */
 import React from 'karet';
 import cx from 'classnames';
+import K, * as U from 'karet.util';
+import * as L from 'partial.lenses';
 
-// $FlowFixMe
-import css from './main-view.scss'; // eslint-disable-line flowtype-errors/show-errors
+import css from './main-view.css';
+import * as C from './controls';
 
-export default ({ atom }: *) =>
+const stateIn = U.view(['game', 'state']);
+const fleetsIn = U.view(['fleets', L.define([])]);
+const shipsIn = U.view(['ships', L.define([])]);
+
+const componentStateIn = U.view(L.pick({
+  fleets: ['fleets', L.define([])],
+  ships: ['ships', L.define([])]
+}));
+
+// @todo Make use of the K combinator to only get relevant ship objects
+export default ({
+  atom,
+  state = stateIn(atom),
+  fleets = fleetsIn(state),
+  ships = shipsIn(state),
+  cs = componentStateIn(state)
+}: *) =>
   <div className={cx(css.mainView)}>
-    <h5>Fleet overview</h5>
     <div className="row">
-      <div className={cx(css.col, 'col')}>Fleet #1</div>
-      <div className={cx(css.col, 'col')}>Fleet #2</div>
-      <div className={cx(css.col, 'col')}>Fleet #3</div>
-      <div className={cx(css.col, 'col')}>Fleet #4</div>
+      {U.seq(fleets, U.indices, U.mapCached(i =>
+        <C.Fleet karet-lift key={`fleet-${i}`} fleet={U.view(i, fleets)} ships={ships} />))}
     </div>
   </div>;
