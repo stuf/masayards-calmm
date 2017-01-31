@@ -30,7 +30,7 @@ const handlers: EventHandlerMap = {
   /**
    * Gets the initial game data on start
    */
-  '/api_start2': ({ path, body } = {}, atom) =>
+  '/api_start2': ({ path, body }: EventArgs = {}, atom: Atom) =>
     atom.view(['state', 'baseData'])
         .modify(
           L.set(
@@ -42,7 +42,7 @@ const handlers: EventHandlerMap = {
   /**
    * Gets the new state of the player fleets
    */
-  '/api_get_member/deck': ({ path, body } = {}, atom) =>
+  '/api_get_member/deck': ({ path, body }: EventArgs = {}, atom: Atom) =>
     atom.view('state').modify(L.set('fleets', L.collect(M.fleetsIn(L.identity), body))),
 
   '/api_get_member/material': ({ path, body } = {}, atom) =>
@@ -54,7 +54,7 @@ const handlers: EventHandlerMap = {
    * Gets the basic state of the player's "consumables"; construction docks,
    * usable items and equipment list.
    */
-  '/api_get_member/require_info': ({ path, body } = {}, atom) =>
+  '/api_get_member/require_info': ({ path, body }: EventArgs = {}, atom: Atom) =>
     atom.view('state')
         .modify(
           L.set(
@@ -67,7 +67,7 @@ const handlers: EventHandlerMap = {
   /**
    * Gets the individual quest items, as well as the quest list view.
    */
-  '/api_get_member/questlist': ({ path, body } = {}, atom) =>
+  '/api_get_member/questlist': ({ path, body }: EventArgs = {}, atom: Atom) =>
     atom.view('state')
         .modify(
           L.set(
@@ -76,9 +76,9 @@ const handlers: EventHandlerMap = {
               questList: L.get(M.questListIn(L.identity), body)
             })),
 
-  '/api_req_quest/start': ({ path, postBody } = {}, atom) =>
-    atom.view('state')
-        .modify(L.set(['quests', M.basic.asNumber()])),
+  // '/api_req_quest/start': ({ path, postBody }: EventArgs = {}, atom: Atom) =>
+  //   atom.view('state')
+  //       .modify(L.set(['quests', M.basic.asNumber()])),
 
   // '/api_req_mission/start': ({ path, body, postBody }, atom) =>
   //  atom.view('state')
@@ -91,7 +91,7 @@ const handlers: EventHandlerMap = {
    * Gets the basic state of the player's profile and relevant data,
    * including fleets, resources and fleets.
    */
-  '/api_port/port': ({ path, body }, atom) =>
+  '/api_port/port': ({ path, body }: EventArgs = {}, atom: Atom) =>
     atom.view('state')
         .modify(
           L.set(
