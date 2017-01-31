@@ -9,7 +9,6 @@ import cx from 'classnames';
 import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 
-import css from './main-view.css';
 import * as C from './controls';
 
 const stateIn = U.view(['game', 'state']);

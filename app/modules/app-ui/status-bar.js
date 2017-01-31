@@ -5,7 +5,7 @@ import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 import cx from 'classnames';
 
-import s from './status-bar.css';
+import css from './status-bar.css';
 
 const networkStatusIn = U.view('networkState');
 const gameStatusIn = U.view('gameState');
@@ -21,22 +21,22 @@ const equipmentCountIn = U.view(['game', 'state', L.pick({
 })]);
 
 export default ({ atom, ships = shipCountIn(atom), equipment = equipmentCountIn(atom) }: *) =>
-  <div className={cx(s.statusBar)}>
-    <div className={cx(s.counterElement)}>
+  <div className={cx(css.statusBar)}>
+    <div className={cx(css.counterElement)}>
       Ships: <strong>
         {ships.view('count')}
         {' / '}
         {ships.view('maxCount')}
       </strong>
     </div>
-    <div className={cx(s.counterElement)}>
+    <div className={cx(css.counterElement)}>
       Equipment: <strong>
         {equipment.view('count')}
         {' / '}
         {equipment.view('maxCount')}
       </strong>
     </div>
-    <div className={cx(s.spacer)} />
-    <div className={cx(s.statusElement)}>Network: <strong>{networkStatusIn(atom)}</strong></div>
-    <div className={cx(s.statusElement)}>Game: <strong>{gameStatusIn(atom)}</strong></div>
+    <div className={cx(css.spacer)} />
+    <div className={cx(css.statusElement)}>Network: <strong>{networkStatusIn(atom)}</strong></div>
+    <div className={cx(css.statusElement)}>Game: <strong>{gameStatusIn(atom)}</strong></div>
   </div>;

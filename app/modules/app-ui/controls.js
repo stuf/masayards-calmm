@@ -9,8 +9,6 @@ import * as L from 'partial.lenses';
 import * as R from 'ramda';
 import * as M from './meta';
 
-import css from './controls.css';
-
 const Ships = {
   idIn: U.view('id'),
   hpIn: U.view('hp'),
