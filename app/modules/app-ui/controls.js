@@ -21,15 +21,15 @@ export const Ship = ({ ship, className, hp = U.view('hp', ship) }) =>
   <article className={cx(className)}>
     <div>{U.view('id', ship)}</div>
     <div className="ui small progress">
-      <div className="bar" style={{ width: M.Basic.percentageIn(hp) }} />
+      <div className="bar" />
       <div className="label">{U.join(' / ', hp)}</div>
     </div>
   </article>;
 
-export const Fleet = ({ fleet, ships, shipIds = U.view('shipIds', fleet), className }) =>
+export const Fleet = ({ fleet, ships, shipIds = M.Fleet.shipIdsIn(fleet), className }) =>
   <article className={cx(className)}>
-    <div>{U.view('name', fleet)}</div>
-    <div>{M.Fleet.mapState(M.Fleet.stateIn(fleet))}</div>
+    <div className="name">{U.view('name', fleet)}</div>
+    <div className="state">{M.Fleet.mapState(M.Fleet.stateIn(fleet))}</div>
     <div className="ui relaxed divided list">
       {U.seq(shipIds,
         U.map(id =>

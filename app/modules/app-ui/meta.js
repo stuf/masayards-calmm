@@ -12,6 +12,7 @@ export const Basic = {
 
 export const Fleet = {
   nameIn: U.view('name'),
+  shipIdsIn: U.view(['shipIds', L.define([])]),
   stateIn: U.view(['mission', L.define({}), 'state', L.valueOr(0)]),
   missionIdIn: U.view(['mission', 'missionId', L.valueOr(0)]),
   mapState: U.cond([
