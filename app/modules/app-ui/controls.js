@@ -16,7 +16,7 @@ const Ships = {
 };
 
 export const Ship = ({ ship, className, hp = U.view('hp', ship) }) =>
-  <article className={cx(className)}>
+  <article className={cx(className, 'ship')}>
     <div>{U.view('id', ship)}</div>
     <div className="ui small progress">
       <div className="bar" />

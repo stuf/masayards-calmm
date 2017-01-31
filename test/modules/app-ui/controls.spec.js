@@ -22,7 +22,22 @@ const render = vdom => {
   return cheerio.load(html).root();
 };
 
-describe('UI', () => {
+const view = {
+  fleetsIn: U.view('fleets'),
+  shipsIn: U.view('ships')
+};
+
+describe('App UI Controls', () => {
+  describe('<Ship />', () => {
+    const { state } = setup();
+    const ships = view.shipsIn(state);
+
+    it('should display a Ship component', () => {
+      const wrapper = render(<C.Ship ship={U.view(L.index(0), ships)} />);
+      expect(wrapper.find('.ship')).to.have.length(1);
+    });
+  });
+
   describe('<Fleet />', () => {
     const { state } = setup();
     const fleets = U.view('fleets', state);
