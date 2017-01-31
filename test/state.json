@@ -12652,7 +12652,7 @@
         "completionTime": 0
       },
       "flagship": "0",
-      "ships": [
+      "shipIds": [
         138,
         685,
         33,
@@ -12669,7 +12669,7 @@
         "completionTime": 1485715056733
       },
       "flagship": "0",
-      "ships": [
+      "shipIds": [
         161,
         3818,
         1797,
@@ -12681,12 +12681,12 @@
       "name": "Exp 37",
       "nameId": "156220120",
       "mission": {
-        "state": 1,
+        "state": 2,
         "missionId": 5,
         "completionTime": 1485715178896
       },
       "flagship": "0",
-      "ships": [
+      "shipIds": [
         3983,
         6924,
         4099,
@@ -12698,12 +12698,12 @@
       "name": "Exp 37",
       "nameId": "156220120",
       "mission": {
-        "state": 1,
+        "state": 3,
         "missionId": 38,
         "completionTime": 1485722195383
       },
       "flagship": "0",
-      "ships": [
+      "shipIds": [
         167,
         223,
         94,
