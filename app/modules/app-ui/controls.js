@@ -1,12 +1,12 @@
-/* eslint no-confusing-arrow: 0, no-nested-ternary: 0 */
+/* eslint no-confusing-arrow: 0, no-nested-ternary: 0, react/prop-types: 0 */
 /**
  * @overview
- * @flow
  */
 import cx from 'classnames';
 import React from 'karet';
 import K, * as U from 'karet.util';
 import * as L from 'partial.lenses';
+import * as R from 'ramda';
 import * as M from './meta';
 
 import css from './controls.css';
@@ -17,34 +17,26 @@ const Ships = {
   moraleIn: U.view('morale')
 };
 
-export const Ship = ({ ship, hp = Ships.hpIn(ship) }: *) =>
-  <article className={css.ship}>
-    <div className={cx(css.shipId)}>{Ships.idIn(ship)}</div>
-    <div className="progress">
-      <div className={cx(css.shipHp, 'progress-bar')} style={{ width: M.Basic.percentage(...hp) }} />
-    </div>
-    <div className={cx(css.shipMeta)}>
-      Morale: {Ships.moraleIn(ship)}
+export const Ship = ({ ship, className, hp = U.view('hp', ship) }) =>
+  <article className={cx(className)}>
+    <div>{U.view('id', ship)}</div>
+    <div className="ui small progress">
+      <div className="bar" style={{ width: M.Basic.percentageIn(hp) }} />
+      <div className="label">{U.join(' / ', hp)}</div>
     </div>
   </article>;
 
-export const Fleet = ({
-  fleet,
-  ships,
-  filteredShips = M.Fleet.shipsFrom(U.view(['shipIds', L.define([])], fleet), ships)
-}: *) =>
-  <section className={cx('col', css.fleet)} style={{ width: '25%' }}>
-    <div className={cx(css.fleetHeading)}>{M.Fleet.nameIn(fleet)}</div>
-    <div>
-      {K(M.Fleet.stateIn(fleet), M.Fleet.mapState)}
+export const Fleet = ({ fleet, ships, shipIds = U.view('shipIds', fleet), className }) =>
+  <article className={cx(className)}>
+    <div>{U.view('name', fleet)}</div>
+    <div>{M.Fleet.mapState(M.Fleet.stateIn(fleet))}</div>
+    <div className="ui relaxed divided list">
+      {U.seq(shipIds,
+        U.map(id =>
+          <Ship key={id}
+                ship={U.view(M.Fleet.findShipBy(id), ships)}
+                className="item" />))}
     </div>
-    {K(filteredShips, U.map(x => <Ship key={x.id} ship={x} />))}
-  </section>;
+  </article>;
 
-export const KeyValueField = ({ name, value }: *) =>
-  <div className={cx(css.kvField)}>
-    <div className={cx(css.kvName)}>{name}</div>
-    <div className={cx(css.kvValue)}>{value}</div>
-  </div>;
-
-export default { Ship, Fleet, KeyValueField };
+export default { Ship, Fleet };

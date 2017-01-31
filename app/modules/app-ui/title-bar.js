@@ -7,13 +7,9 @@ import css from './title-bar.css';
 export default ({ text = 'Masayards Calmm' }: *) =>
   <header className={cx(css.titleBar)}>
     <div className={cx(css.controls, 'btn-toolbar')}>
-      <div className="btn-group btn-group-sm mr-2">
-        <button disabled className="btn btn-secondary">Screenshot</button>
-      </div>
-      <div className={cx('btn-group btn-group-sm')}>
-        <button disabled className="btn btn-secondary">Reset</button>
-        <button disabled className="btn btn-secondary">Settings</button>
-      </div>
+      <button className="ui tiny inverted button">Screenshot</button>
+      <button className="ui tiny inverted button">Reset</button>
+      <button className="ui tiny inverted button">Settings</button>
     </div>
     <div className={cx(css.titleText)}>{text}</div>
   </header>;
