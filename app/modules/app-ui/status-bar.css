@@ -1,0 +1,22 @@
+.statusBar {
+  font-size: 0.9rem;
+  background-color: #CFD8DC;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 0.5rem;
+  display: flex;
+}
+
+.spacer {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.statusElement,
+.counterElement {
+  padding: 0 0.5rem;
+}
+
+/*.counterElement:last-child,
+.statusElement:last-child {
+  padding-right: 0;
+}*/

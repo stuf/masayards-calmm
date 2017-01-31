@@ -1,0 +1,15 @@
+{
+  "name": "masayards-calmm",
+  "productName": "masayards-calmm",
+  "version": "1.0.0",
+  "description": "Masayards",
+  "main": "./main.js",
+  "author": {
+    "name": "Stefan Rimaila",
+    "email": "stefan@rimaila.fi",
+    "url": "https://github.com/stuf"
+  },
+  "license": "MIT",
+  "dependencies": {
+  }
+}
