@@ -4480,7 +4480,7 @@ joi@9.0.0-0:
     moment "2.x.x"
     topo "2.x.x"
 
-jquery@>=1.9.1:
+jquery@>=1.9.1, jquery@x.*:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.1.1.tgz#347c1c21c7e004115e0a4da32cece041fad3c8a3"
 
@@ -6692,6 +6692,12 @@ sass-loader@^4.1.1:
 sax@^1.1.4, sax@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.1.tgz#7b8e656190b228e81a66aea748480d828cd2d37a"
+
+semantic-ui-css@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/semantic-ui-css/-/semantic-ui-css-2.2.4.tgz#e886e6e55e2a16874bd5de49c25f26cd2eb720b7"
+  dependencies:
+    jquery x.*
 
 semver-diff@^2.0.0:
   version "2.1.0"
