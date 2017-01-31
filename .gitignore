@@ -12,6 +12,8 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+coverage.lcov
+.nyc_output
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -28,6 +30,10 @@ build/Release
 node_modules
 app/node_modules
 
+# Jetbrains
+*.iml
+.idea
+
 # OSX
 .DS_Store
 
@@ -39,16 +45,12 @@ app/bundle.js
 app/bundle.js.map
 app/style.css
 app/style.css.map
+app/assets/icons
 dist
 main.js
 main.js.map
 
+# Flash plugin
 lib/PepperFlashPlayer.plugin
 
-.idea
-
 scratch/
-
-app/assets/icons
-
-.nyc_output
