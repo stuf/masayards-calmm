@@ -25,4 +25,7 @@ export const Fleet = {
     U.view([L.define([]), L.filter(ship => ids.includes(ship.id))], ships))
 };
 
-export const Ships = {};
+export const Ship = {
+  hpIn: U.view(['hp', L.define([])]),
+  idIn: U.view('id')
+};

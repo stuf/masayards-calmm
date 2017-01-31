@@ -11,16 +11,16 @@ import * as M from './meta';
 
 const Ships = {
   idIn: U.view('id'),
-  hpIn: U.view('hp'),
+  hpIn: U.view(['hp', L.define([])]),
   moraleIn: U.view('morale')
 };
 
-export const Ship = ({ ship, className, hp = U.view('hp', ship) }) =>
+export const Ship = ({ ship, className }) =>
   <article className={cx(className, 'ship')}>
-    <div>{U.view('id', ship)}</div>
+    <div>{M.Ship.idIn(ship)}</div>
     <div className="ui small progress">
       <div className="bar" />
-      <div className="label">{U.join(' / ', hp)}</div>
+      <div className="label">{U.join(' / ', M.Ship.hpIn(ship))}</div>
     </div>
   </article>;
 
