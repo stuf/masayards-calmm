@@ -16,6 +16,7 @@ import {
 } from 'electron';
 import fs from 'fs';
 import path from 'path';
+import plist from 'plist';
 import logger from './logger';
 
 logger.info('Starting application');
@@ -28,15 +29,20 @@ let onlineStatusWindow = null;
 // Load the Flash player plugin
 logger.info('Checking for Pepper Flash Player plugin');
 
-const libPath = path.resolve(__dirname, '..', 'lib');
-if (!fs.existsSync(path.join(libPath, 'PepperFlashPlayer.plugin'))) {
+const libPath = path.resolve(__dirname, 'lib');
+const pluginPath = path.resolve(libPath, 'PepperFlashPlayer.plugin');
+const plistPath = path.resolve(pluginPath, 'Contents', 'Info.plist');
+if (!fs.existsSync(pluginPath)) {
   logger.error('Could not find the Pepper Flash Player plugin.');
   process.exit(17);
 }
 
 logger.info('Pepper Flash Player plugin found. Adding command-line switches.');
-app.commandLine.appendSwitch('ppapi-flash-path', path.join(libPath, 'PepperFlashPlayer.plugin'));
-app.commandLine.appendSwitch('ppapi-flash-version', '24.0.0.20');
+logger.info('Figuring out Pepper Flash Player version');
+const { CFBundleVersion } = plist.parse(fs.readFileSync(plistPath, 'utf8'));
+logger.info(`Plugin version is ${CFBundleVersion}`);
+app.commandLine.appendSwitch('ppapi-flash-path', pluginPath);
+app.commandLine.appendSwitch('ppapi-flash-version', CFBundleVersion);
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support'); // eslint-disable-line
