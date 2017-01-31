@@ -2,7 +2,7 @@ import * as L from 'partial.lenses';
 import * as R from 'ramda';
 import { expect } from 'chai';
 
-import stateData from './state.json';
+import stateData from '../state.json';
 
 describe('Game State', () => {
   describe('Ships', () => {
