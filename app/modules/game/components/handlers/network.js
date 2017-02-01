@@ -98,7 +98,6 @@ const getPath = req =>
  */
 export const requestWillBeSentFn =
   ({ thisRequest, requestId }: *, { event, method, params }: *) => {
-    // @todo Replace me with something pointfree
     const url = R.path(['request', 'url'], params);
     if (!url || !pathPrefix.test(url)) {
       return;
@@ -117,7 +116,6 @@ export const requestWillBeSentFn =
  */
 export const responseReceivedFn =
   ({ thisRequest, requestId }: *, { event, method, params }: *) => {
-    // @todo Replace me with something pointfree
     const url = R.path(['response', 'url'], params);
     if (!url || !pathPrefix.test(url)) {
       return;
@@ -165,10 +163,10 @@ export const loadingFinishedFn =
 
         // Move the data from this request to the API data pool.
         // Subscribers from this pool can then process the data before it's passed into the UI.
-        game.view(['api', 'latest']).modify(() => ({ path, ...newData }));
+        game.view(['api', 'latest']).set({ path, ...newData });
 
         // @todo This is for dev purposes for collecting incoming data, will be removed
-        game.view(['api', 'data']).modify(cur => L.set(path, newData, cur));
+        game.view(['api', 'data']).modify(L.set(path, newData));
       });
   };
 

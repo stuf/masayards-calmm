@@ -17,12 +17,6 @@ type EventHandler = (args: EventArgs, atom: Atom) => void;
 type EventHandlerMap = { [path: string]: EventHandler };
 type CallHandler = (atom: Atom) => (req: EventArgs) => void;
 
-// Define views
-const view = {
-  latestIn: U.view(['api', 'latest']),
-  stateIn: U.view('state')
-};
-
 /**
  * Event handler map
  */
@@ -30,51 +24,51 @@ const handlers: EventHandlerMap = {
   /**
    * Gets the initial game data on start
    */
-  '/api_start2': ({ path, body }: EventArgs = {}, atom: Atom) =>
-    atom.view(['state', 'baseData'])
-        .modify(
-          L.set(
-            L.props('ships', 'equipment'), {
-              ships: L.collect(M.shipsIn('api_mst_ship'), body),
-              equipment: L.collect(M.equipmentIn('api_mst_slotitem'), body)
-            })),
+  '/api_start2': ({ path, body }: EventArgs = {}, state: Atom) =>
+    state.modify(
+      L.set(['baseData', L.props('ships', 'equipment')], {
+        ships: L.collect(M.shipsIn('api_mst_ship'), body),
+        equipment: L.collect(M.equipmentIn('api_mst_slotitem'), body)
+      })),
 
   /**
    * Gets the new state of the player fleets
    */
-  '/api_get_member/deck': ({ path, body }: EventArgs = {}, atom: Atom) =>
-    atom.view('state').modify(L.set('fleets', L.collect(M.fleetsIn(L.identity), body))),
+  '/api_get_member/deck': ({ path, body }: EventArgs = {}, state: Atom) =>
+    state.modify(L.set('fleets', L.collect(M.fleetsIn(L.identity), body))),
 
-  '/api_get_member/material': ({ path, body } = {}, atom) =>
-    atom.view('state')
-        .modify(
-          L.set('resources', L.collect(M.materialsIn(L.identity), body))),
+  /**
+   * Gets the ship decks' statuses that are participating in the sortie
+   */
+  '/api_get_member/ship_deck': ({ path, body }: EventArgs = {}, state: Atom) => state,
+
+  '/api_get_member/material': ({ path, body }: EventArgs = {}, state: Atom) =>
+    state.modify(
+      L.set('resources', L.collect(M.materialsIn(L.identity), body))),
 
   /**
    * Gets the basic state of the player's "consumables"; construction docks,
    * usable items and equipment list.
    */
-  '/api_get_member/require_info': ({ path, body }: EventArgs = {}, atom: Atom) =>
-    atom.view('state')
-        .modify(
-          L.set(
-            L.props('equipment', 'constructionDocks', 'items'), {
-              equipment: L.collect(M.equipmentIn('api_slot_item'), body),
-              constructionDocks: L.collect(M.constructionDocksIn('api_kdock'), body),
-              items: L.collect(M.itemsIn('api_useitem'), body)
-            })),
+  '/api_get_member/require_info': ({ path, body }: EventArgs = {}, state: Atom) =>
+    state.modify(
+      L.set(
+        L.props('equipment', 'constructionDocks', 'items'), {
+          equipment: L.collect(M.equipmentIn('api_slot_item'), body),
+          constructionDocks: L.collect(M.constructionDocksIn('api_kdock'), body),
+          items: L.collect(M.itemsIn('api_useitem'), body)
+        })),
 
   /**
    * Gets the individual quest items, as well as the quest list view.
    */
-  '/api_get_member/questlist': ({ path, body }: EventArgs = {}, atom: Atom) =>
-    atom.view('state')
-        .modify(
-          L.set(
-            L.props('quests', 'questList'), {
-              quests: L.collect(M.questsIn('api_list'), body),
-              questList: L.get(M.questListIn(L.identity), body)
-            })),
+  '/api_get_member/questlist': ({ path, body }: EventArgs = {}, state: Atom) =>
+    state.modify(
+      L.set(
+        L.props('quests', 'questList'), {
+          quests: L.collect(M.questsIn('api_list'), body),
+          questList: L.get(M.questListIn(L.identity), body)
+        })),
 
   // '/api_req_quest/start': ({ path, postBody }: EventArgs = {}, atom: Atom) =>
   //   atom.view('state')
@@ -91,16 +85,15 @@ const handlers: EventHandlerMap = {
    * Gets the basic state of the player's profile and relevant data,
    * including fleets, resources and fleets.
    */
-  '/api_port/port': ({ path, body }: EventArgs = {}, atom: Atom) =>
-    atom.view('state')
-        .modify(
-          L.set(
-            L.props('player', 'resources', 'fleets', 'ships'), {
-              player: L.get(M.basicProfileIn('api_basic'), body),
-              resources: L.collect(M.materialsIn('api_material'), body),
-              fleets: L.collect(M.fleetsIn('api_deck_port'), body),
-              ships: L.collect(M.shipsIn('api_ship'), body)
-            }))
+  '/api_port/port': ({ path, body }: EventArgs = {}, state: Atom) =>
+    state.modify(
+      L.set(
+        L.props('player', 'resources', 'fleets', 'ships'), {
+          player: L.get(M.basicProfileIn('api_basic'), body),
+          resources: L.collect(M.materialsIn('api_material'), body),
+          fleets: L.collect(M.fleetsIn('api_deck_port'), body),
+          ships: L.collect(M.shipsIn('api_ship'), body)
+        }))
 };
 
 /**
@@ -119,6 +112,9 @@ const handleEvent: CallHandler = atom => req => {
   }
 };
 
+const latestIn = U.view('latest');
+const stateIn = U.view('state');
+
+// Expose core handling functionality
 export const initializeObserver = (atom: *) =>
-  view.latestIn(atom)
-      .observe(handleEvent(atom));
+  latestIn(atom).observe(handleEvent(stateIn(atom)));

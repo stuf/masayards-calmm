@@ -12,6 +12,7 @@ import React from 'karet';
 import Kefir from 'kefir';
 import * as L from 'partial.lenses';
 import * as R from 'ramda';
+import * as U from 'karet.util';
 import cx from 'classnames';
 
 import css from './webview.css';
@@ -21,6 +22,11 @@ import cookies from './_cookies';
 
 const intoJson = R.compose(JSON.parse, JSON.stringify);
 
+const observerViewIn = U.view(L.pick({
+  state: 'state',
+  latest: ['api', 'latest']
+}));
+
 /**
  * Provide a <GameView /> component that will handle piping data from the API to
  * the appropriate handlers.
@@ -28,24 +34,27 @@ const intoJson = R.compose(JSON.parse, JSON.stringify);
  * Due to the way how this needs to be implemented, we need to create a stateful
  * component that uses some component lifecycle hooks for additional functionality.
  *
- * @todo Figure out if this could be done in a more convenient way without all this horrible kludge.
+ * @todo Rewrite into a simple stateless component
  */
 export default class GameView extends React.Component {
   constructor(props: *) {
     super(props);
+    const view = observerViewIn(props.gameState);
     this.atom = props.gameState;
 
     // Initialize observer for processing API data
-    initializeObserver(props.gameState);
-    this.atom.view('state').log();
+    initializeObserver(view);
+
+    // For debugging purposes; show game state for each change
+    if (process.env.NODE_ENV === 'development') {
+      U.view('state', view).log();
+    }
   }
 
   componentDidMount() {
     console.log('GameView component mounted.');
     this.gameView.addEventListener('dom-ready', this.webViewEventHandler);
-    this.atom
-        .view('gameWebviewRect')
-        .modify(() => this.gameView.getBoundingClientRect());
+    // this.atom.set({ gameWebviewRect: this.gameView.getBoundingClientRect() });
   }
 
   componentWillUnmount() {
@@ -132,7 +141,7 @@ export default class GameView extends React.Component {
           game: this.atom,
           thisRequest: this.atom.view(['api', 'requests', requestId]),
           data: this.atom.view(['api', 'data']),
-          state: this.atom.view(['state'])
+          state: this.atom.view('state')
         };
 
         const args = { event, method, params: intoJson(params) };
