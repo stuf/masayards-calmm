@@ -15,6 +15,7 @@ type GetMemberEvent = '/api_get_member/deck'
 
 // Declare common types used in the API data
 
+// Player data
 declare type kcsapi$Deck = {
   api_flagship: string,
   api_id: number,
