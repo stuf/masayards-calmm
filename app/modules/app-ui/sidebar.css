@@ -1,14 +1,4 @@
 .sidebar {
   overflow: scroll;
   height: 100vh;
-  padding: 0.5rem;
-}
-
-.sidebarResources {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.sidebarResources > div {
-  width: 50%;
 }

@@ -7,18 +7,20 @@ import css from './sidebar.css';
 
 const resourcesIn = U.view(['game', 'state', 'resources']);
 
+const Resource = ({ type, value }: { type: string, value: number }) =>
+  <div className="item">
+    <div className="ui right floated label">
+      {value}
+    </div>
+    <div className="content">{type}</div>
+  </div>;
+
 export default ({ atom }: *) =>
   <aside className={cx(css.sidebar)}>
-    <section className={cx(css.sidebarResources)}>
-      <div className="ui one column grid" style={{ margin: 0, padding: '0.25rem' }}>
+    <section>
+      <div className="ui middle aligned divided relaxed list" style={{ margin: 0, padding: '0.25rem' }}>
         {U.seq(resourcesIn(atom),
-          U.map(r =>
-            <div className="ui column" style={{ padding: '0.5rem' }}>
-              <div className="ui label">
-                <div>{r.value}</div>
-                <div className="label">{r.type}</div>
-              </div>
-            </div>))}
+          U.map(r => <Resource type={r.type} value={r.value} />))}
       </div>
     </section>
   </aside>;
