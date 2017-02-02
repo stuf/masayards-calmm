@@ -54,7 +54,6 @@ export default class GameView extends React.Component {
   componentDidMount() {
     console.log('GameView component mounted.');
     this.gameView.addEventListener('dom-ready', this.webViewEventHandler);
-    // this.atom.set({ gameWebviewRect: this.gameView.getBoundingClientRect() });
   }
 
   componentWillUnmount() {

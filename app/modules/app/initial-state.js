@@ -88,7 +88,9 @@ export type Schema = {
   },
   application: {
     networkStatus: string | NetworkState,
-    titleText?: string
+    titleText?: string,
+    debuggerAttached: boolean,
+    firstGameLoad: boolean
   },
   config: {
     gameUrl: string
@@ -126,7 +128,9 @@ const schema = {
   },
   /** Application-specific state */
   application: {
-    network: 'offline'
+    network: 'offline',
+    debuggerAttached: false,
+    firstGameLoad: true
   },
   /** Application configuration */
   config: {

@@ -31,14 +31,14 @@ export default class AppUI extends React.Component {
     return (
       <div className={cx(css.appUiWrap)}>
         <div className={cx(css.appUi)}>
-          <TitleBar />
+          <TitleBar atom={atom} />
           <div className={cx(css.uiCols)}>
             <div className={cx(css.uiMain)}>
-              <Game atom={view.gameIn(atom)} />
-              <MainView atom={view.appUiIn(atom)} />
+              <Game atom={atom} />
+              <MainView atom={atom} />
             </div>
             <div className={cx(css.uiSide)}>
-              <Sidebar atom={view.appUiIn(atom)} />
+              <Sidebar atom={atom} />
             </div>
           </div>
           <StatusBar atom={atom} />
@@ -46,4 +46,4 @@ export default class AppUI extends React.Component {
       </div>
     );
   }
-}
+};

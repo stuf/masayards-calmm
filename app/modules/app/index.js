@@ -24,14 +24,14 @@ import cx from 'classnames';
 
 import css from './styles.css';
 
+import * as M from './meta';
 import initialState from './initial-state';
 import AppUI from '../app-ui';
 
 /**
  * Define main storage where to persist our data into.
  *
- * @todo Maybe separate game API data storage from this, as it might end up
- *       taking some more space. `Molecule` to the rescue?
+ * @todo Maybe separate game API data storage from this, as it might end up taking some more space. `Molecule` to the rescue?
  */
 const stateStorage = Storage({
   key: 'masayards:state',
@@ -46,7 +46,9 @@ const state = stateStorage;
 
 if (process.env.NODE_ENV === 'development') {
   window.state = state;
+  // noinspection JSAnnotator
   window.L = L;
+  // noinspection JSAnnotator
   window.U = U;
   window.R = R;
   window.K = K;
@@ -56,13 +58,6 @@ if (process.env.NODE_ENV === 'development') {
 // @todo Relocate the following to their appropriate locations
 /**
  * Define some basic lenses to propagate the desired state.
- *
- * NOTE: Using `L.prop` and `L.compose` here for the root lenses just
- * for the sake of clarity. Otherwise the following should be considered:
- * ```
- *                           L.prop('foo') === 'foo'
- * L.compose(L.prop('foo'), L.prop('bar')) === ['foo', 'bar']
- * ```
  */
 const states = {
   game: L.pick({
@@ -89,12 +84,11 @@ const view = {
 
 view.applicationStateIn(state).log('Application state change');
 
-ipcRenderer.on('online-status-changed', (event, { status }) => {
-  view.applicationStateIn(state).modify(x => L.set('networkStatus', status, x));
-});
+// Ensure any state that should be clean at startup is just that
+M.resetAppToInitial(state);
 
-// Remove any data has might not have been cleaned up in the last session
-view.gameIn(state).view(['api', 'latest', L.required({})]).remove();
+ipcRenderer.on('online-status-changed', (event, { status }) =>
+  M.setGameState(state, status));
 
 /**
  * Root application component
