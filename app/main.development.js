@@ -17,6 +17,7 @@ import {
 import fs from 'fs';
 import path from 'path';
 import plist from 'plist';
+
 import logger from './logger';
 
 logger.info('Starting application');

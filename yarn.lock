@@ -1156,11 +1156,11 @@ babel-plugin-transform-remove-undefined@^0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-remove-undefined/-/babel-plugin-transform-remove-undefined-0.0.4.tgz#cc75be04b9bbd7bb2005272cc160b4d08692d77c"
 
-babel-plugin-transform-runtime@^6.15.0:
-  version "6.15.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-runtime/-/babel-plugin-transform-runtime-6.15.0.tgz#3d75b4d949ad81af157570273846fb59aeb0d57c"
+babel-plugin-transform-runtime@^6.22.0:
+  version "6.22.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-runtime/-/babel-plugin-transform-runtime-6.22.0.tgz#10968d760bbf6517243081eec778e10fa828551c"
   dependencies:
-    babel-runtime "^6.9.0"
+    babel-runtime "^6.22.0"
 
 babel-plugin-transform-simplify-comparison-operators@^6.8.1:
   version "6.8.1"
@@ -3027,14 +3027,12 @@ eslint-plugin-compat@^1.0.1:
     browserslist "^1.6.0"
     requireindex "^1.1.0"
 
-eslint-plugin-flowtype-errors@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype-errors/-/eslint-plugin-flowtype-errors-2.0.3.tgz#a2d9b02e2fd5d89482150f22f2f3074ae0ab2898"
+eslint-plugin-flowtype-errors@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype-errors/-/eslint-plugin-flowtype-errors-3.0.0.tgz#94ff6281d0661f66e62e5db534ae6aa6cbdba2d0"
   dependencies:
-    babel-plugin-transform-runtime "^6.15.0"
-    q "^1.4.1"
-    ramda "^0.22.1"
-    shelljs "^0.7.5"
+    babel-plugin-transform-runtime "^6.22.0"
+    shelljs "^0.7.6"
     slash "^1.0.0"
 
 eslint-plugin-flowtype@^2.30.0:
@@ -6140,7 +6138,7 @@ punycode@^1.2.4, punycode@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
 
-q@^1.1.2, q@^1.4.1, q@~1.4.1:
+q@^1.1.2, q@~1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.4.1.tgz#55705bcd93c5f3673530c2c2cbc0c2b3addc286e"
 
@@ -6774,7 +6772,7 @@ shelljs@0.7.0:
     interpret "^1.0.0"
     rechoir "^0.6.2"
 
-shelljs@^0.7.0, shelljs@^0.7.5:
+shelljs@^0.7.0, shelljs@^0.7.5, shelljs@^0.7.6:
   version "0.7.6"
   resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.7.6.tgz#379cccfb56b91c8601e4793356eb5382924de9ad"
   dependencies:
