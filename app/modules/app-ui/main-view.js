@@ -10,6 +10,7 @@ import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 
 import * as C from './controls';
+import * as M from './meta';
 
 const stateIn = U.view(['game', 'state']);
 const fleetsIn = U.view(['fleets', L.define([])]);
@@ -22,9 +23,11 @@ export default ({
   ships = shipsIn(state)
 }: *) =>
   <div className="">
+    Fleets
     <div className="ui equal width grid">
       {U.seq(fleets,
         U.indices,
+        U.head,
         U.mapCached(i =>
           <C.Fleet fleet={U.view(i, fleets)}
                    ships={ships}

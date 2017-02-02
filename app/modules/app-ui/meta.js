@@ -11,6 +11,7 @@ export const Basic = {
 };
 
 export const Fleet = {
+  fleetInRange: (start, end) => U.view(['fleets', L.slice(start, end)]),
   nameIn: U.view('name'),
   shipIdsIn: U.view(['shipIds', L.define([])]),
   stateIn: U.view(['mission', L.define({}), 'state', L.valueOr(0)]),
@@ -23,6 +24,10 @@ export const Fleet = {
   findShipBy: id => L.find(R.whereEq({ id })),
   shipsFrom: R.curry((ids, ships) =>
     U.view([L.define([]), L.filter(ship => ids.includes(ship.id))], ships))
+};
+
+export const Ships = {
+  listIn: ['ships', L.define([])]
 };
 
 export const Ship = {

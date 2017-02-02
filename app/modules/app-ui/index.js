@@ -46,4 +46,4 @@ export default class AppUI extends React.Component {
       </div>
     );
   }
-};
+}

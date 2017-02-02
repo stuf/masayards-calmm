@@ -18,10 +18,7 @@ const Ships = {
 export const Ship = ({ ship, className }) =>
   <article className={cx(className, 'ship')}>
     <div>{M.Ship.idIn(ship)}</div>
-    <div className="ui small progress">
-      <div className="bar" />
-      <div className="label">{U.join(' / ', M.Ship.hpIn(ship))}</div>
-    </div>
+    <div>{U.join(' / ', M.Ship.hpIn(ship))}</div>
   </article>;
 
 export const Fleet = ({ fleet, ships, shipIds = M.Fleet.shipIdsIn(fleet), className }) =>

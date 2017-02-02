@@ -31,7 +31,8 @@ import AppUI from '../app-ui';
 /**
  * Define main storage where to persist our data into.
  *
- * @todo Maybe separate game API data storage from this, as it might end up taking some more space. `Molecule` to the rescue?
+ * @todo Maybe separate game API data storage from this, as it might end up taking some more space. `Molecule` to the
+ *   rescue?
  */
 const stateStorage = Storage({
   key: 'masayards:state',
@@ -87,12 +88,9 @@ view.applicationStateIn(state).log('Application state change');
 // Ensure any state that should be clean at startup is just that
 M.resetAppToInitial(state);
 
-ipcRenderer.on('online-status-changed', (event, { status }) =>
-  M.setGameState(state, status));
+ipcRenderer.on('online-status-changed',
+  (event, { status }) => M.setGameState(state, status));
 
-/**
- * Root application component
- */
 export default class App extends React.Component {
   render() {
     return (

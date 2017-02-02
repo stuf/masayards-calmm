@@ -3,8 +3,6 @@ import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 import type { EventObjects } from './types';
 
-export const toDebugger = (fn: *, args: *) => fn(args);
-
 export const Events: EventMeta = {
   getEventObjects: e => {
     const view = e.target;
