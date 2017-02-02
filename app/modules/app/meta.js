@@ -14,5 +14,3 @@ export const State = {
 export const resetAppToInitial = (state: *) => state.modify(L.remove(State.initialValues));
 
 export const setGameState = (state: *, gameState: *) => state.modify(L.set(State.gameStatus), gameState);
-
-export const dummy = 0;

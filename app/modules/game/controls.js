@@ -4,7 +4,7 @@ import * as U from 'karet.util';
 import Kefir from 'kefir';
 
 import * as M from './meta';
-import { getEventObjects, eventHandler } from './_event-handlers';
+import { eventHandler } from './_event-handlers';
 
 export const dummy = 0;
 

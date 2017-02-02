@@ -5,7 +5,7 @@ import * as R from 'ramda';
 import Kefir from 'kefir';
 import Atom from 'kefir.atom';
 
-import type { MessageHandler, HandlerState } from './types';
+import type { MessageHandler, HandlerState, WebContents } from './types';
 import * as M from './meta';
 import { cookies, styles } from './_injectables';
 import { getHandler } from './_network-handlers';
@@ -25,9 +25,10 @@ export const messageHandler: MessageHandler = (atom, event, method, params) => {
 
 export const eventHandler = (atom: *) => (e: *) => {
   const { view, contents, session, webRequest } = M.Events.getEventObjects(e);
-  Kefir.fromEvents(view, 'close').observe(M.toDebugger(contents.debugger, 'Network.disable'));
+  Kefir.fromEvents(view, 'close').observe(
+    R.always(R.apply(contents.debugger, ['Network.disable'])));
 
-  contents.on('ready', () => contents.injectCSS(styles.join('')));
+  contents.on('ready', R.always(R.apply(contents.injectCss, [styles.join('')])));
 
   // @todo Look into using U.seq+U.lift or some other method for doing this
   const hs: HandlerState = atom.get();
