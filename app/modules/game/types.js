@@ -8,6 +8,8 @@ export type EventObjects = {
 
 export type MessageHandler = (atom: *, event: *, method: string, params: { [key: string]: * }) => void;
 
+export type EventHandler = (atom: *) => (e: *) => void;
+
 export type HandlerState = {
   debuggerAttached: boolean,
   firstGameLoad: boolean,

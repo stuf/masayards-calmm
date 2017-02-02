@@ -1,16 +1,16 @@
 // @flow
-import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 import * as R from 'ramda';
 import Kefir from 'kefir';
-import Atom from 'kefir.atom';
 
-import type { MessageHandler, HandlerState, WebContents } from './types';
+import type {
+  MessageHandler, HandlerState, EventHandler, WebContents
+} from './types';
 import * as M from './meta';
 import { cookies, styles } from './_injectables';
 import { getHandler } from './_network-handlers';
 
-const debuggerProtocol = '1.1';
+const debuggerProtocol: string = '1.1';
 const gameUrl: string = 'http://www.dmm.com/netgame/social/-/gadgets/=/app_id=854854/';
 const gameUrlRegex: RegExp = new RegExp(gameUrl.replace(/\//g, '\/')); // eslint-disable-line no-useless-escape
 
@@ -23,7 +23,7 @@ export const messageHandler: MessageHandler = (atom, event, method, params) => {
   }
 };
 
-export const eventHandler = (atom: *) => (e: *) => {
+export const eventHandler: EventHandler = (atom: *) => (e: *) => {
   const { view, contents, session, webRequest } = M.Events.getEventObjects(e);
   Kefir.fromEvents(view, 'close').observe(
     R.always(R.apply(contents.debugger, ['Network.disable'])));
