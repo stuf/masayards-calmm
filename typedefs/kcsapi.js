@@ -15,6 +15,83 @@ type GetMemberEvent = '/api_get_member/deck'
 
 // Declare common types used in the API data
 
+// Base ship type
+declare type kcsapi$BaseShip = {
+  api_afterbull: number,
+  api_afterfuel: number,
+  api_afterlv: number,
+  api_aftershipid: string,
+  api_backs: number,
+  api_broken: Tuple4<number, number, number, number>,
+  api_buildtime: number,
+  api_bull_max: number,
+  api_fuel_max: number,
+  api_getmes: string,
+  api_houg: Tuple<number, number>,
+  api_id: number,
+  api_leng: number,
+  api_luck: Tuple<number, number>,
+  api_maxeq: Array<number>,
+  api_name: string,
+  api_powup: Tuple4<number, number, number, number>,
+  api_raig: Tuple<number, number>,
+  api_slot_num: number,
+  api_soku: number,
+  api_sortno: number,
+  api_souk: Tuple<number, number>,
+  api_stype: number,
+  api_taik: Tuple<number, number>,
+  api_tyku: Tuple<number, number>,
+  api_voicef: number,
+  api_yomi: string
+};
+
+// Base equipment
+declare type kcsapi$BaseEquipment = {
+  api_atap: number,
+  api_bakk: number,
+  api_baku: number,
+  api_broken: Tuple4<number, number, number, number>,
+  api_houg: number,
+  api_houk: number,
+  api_houm: number,
+  api_id: number,
+  api_info: string,
+  api_leng: number,
+  api_luck: number,
+  api_name: string,
+  api_raig: number,
+  api_raik: number,
+  api_raim: number,
+  api_rare: number,
+  api_sakb: number,
+  api_saku: number,
+  api_soku: number,
+  api_sortno: number,
+  api_souk: number,
+  api_taik: number,
+  api_tais: number,
+  api_tyku: number,
+  api_type: Array<number>,
+  api_usebull: string
+};
+
+// Base ship type
+declare type kcsapi$BaseShipType = {
+  api_equip_type: { [key: string]: number },
+  api_id: number,
+  api_kcnt: number,
+  api_name: string,
+  api_scnt: number,
+  api_sortno: number
+};
+
+declare type kcsapi$BaseMapArea = {
+  api_id: number,
+  api_name: string,
+  api_type: number
+};
+
 // Player data
 declare type kcsapi$Deck = {
   api_flagship: string,
