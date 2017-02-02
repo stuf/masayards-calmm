@@ -47,10 +47,15 @@ describe('App UI Controls', () => {
 
     it('should contain the correct number of Ships', () => {
       const wrapper1 = render(<C.Fleet fleet={fleetAtIndex(0)} ships={ships} />);
-      expect(wrapper1.find('.item')).to.have.length(4);
+      expect(wrapper1.find('.ship')).to.have.length(4);
 
       const wrapper4 = render(<C.Fleet fleet={fleetAtIndex(3)} ships={ships} />);
-      expect(wrapper4.find('.item')).to.have.length(6);
+      expect(wrapper4.find('.ship')).to.have.length(6);
+    });
+
+    it('should contain the Fleet\'s name', () => {
+      const wrapper = render(<C.Fleet fleet={fleetAtIndex(0)} ships={ships} />);
+      expect(wrapper.find('.name').text()).to.equal('Anti-Bus');
     });
 
     it('should display the Fleet\'s correct state (idle/on expedition/returned)', () => {

@@ -27,7 +27,7 @@ export const FleetShipList = ({ shipIds, ships, className }) =>
 
 export const Fleet = ({ fleet, ships, className }) =>
   <article>
-    <div>{U.view('name', fleet)}</div>
-    <div>{M.Fleet.mapState(M.Fleet.stateIn(fleet))}</div>
+    <div className="name">{U.view('name', fleet)}</div>
+    <div className="state">{M.Fleet.mapState(M.Fleet.stateIn(fleet))}</div>
     <FleetShipList shipIds={M.Fleet.shipIdsIn(fleet)} ships={ships} Ship={Ship} className={cx(className)} />
   </article>;
