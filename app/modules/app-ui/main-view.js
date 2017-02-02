@@ -5,32 +5,36 @@
  * @flow
  */
 import React from 'karet';
-import cx from 'classnames';
 import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 
 import * as C from './controls';
 import * as M from './meta';
 
-const stateIn = U.view(['game', 'state']);
-const fleetsIn = U.view(['fleets', L.define([])]);
-const shipsIn = U.view(['ships', L.define([])]);
+const stateIn = ['game', 'state'];
+const fleetsIn = (state, x = 0, y = 1) => U.view([stateIn, 'fleets', L.slice(x, y), L.define([])], state);
+const shipsIn = U.view([stateIn, 'ships', L.define([])]);
 
-export default ({
-  atom,
-  state = stateIn(atom),
-  fleets = fleetsIn(state),
-  ships = shipsIn(state)
-}: *) =>
-  <div className="">
-    Fleets
-    <div className="ui equal width grid">
-      {U.seq(fleets,
-        U.indices,
-        U.head,
-        U.mapCached(i =>
-          <C.Fleet fleet={U.view(i, fleets)}
-                   ships={ships}
-                   className="column" />))}
+export default ({ atom, fleets = fleetsIn(atom), player = M.Player.profileIn(atom) }: *) =>
+  <div className="ui grid">
+    <div className="ui four wide column">
+      <div className="ui card">
+        <div className="content">
+          <div className="header">
+            {U.view('name', player)}
+          </div>
+          <div className="meta">level {U.view('level', player)}</div>
+        </div>
+      </div>
+    </div>
+    <div className="ui twelve wide column">
+      <div className="ui row">
+        {U.seq(fleets,
+          U.indices,
+          U.mapCached(i =>
+            <C.Fleet key={i} fleet={U.view(i, fleets)}
+                     ships={shipsIn(atom)}
+                     className="ui three column divided grid" />))}
+      </div>
     </div>
   </div>;

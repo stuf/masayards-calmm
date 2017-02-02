@@ -1,7 +1,7 @@
 /**
  * @overview
  */
-import K, * as U from 'karet.util';
+import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 import * as R from 'ramda';
 
@@ -26,11 +26,15 @@ export const Fleet = {
     U.view([L.define([]), L.filter(ship => ids.includes(ship.id))], ships))
 };
 
-export const Ships = {
-  listIn: ['ships', L.define([])]
-};
-
 export const Ship = {
   hpIn: U.view(['hp', L.define([])]),
   idIn: U.view('id')
+};
+
+export const Player = {
+  profileIn: U.view(['game', 'state', 'player'])
+};
+
+export const Quests = {
+  activeQuestsIn: U.view(['quests'])
 };

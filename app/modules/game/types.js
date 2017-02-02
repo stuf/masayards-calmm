@@ -39,5 +39,5 @@ export type WebSession = {
 };
 
 export type WebRequest = {
-  onBeforeRequest: (fn: (details: *, cb: *) => void) => void;
+  onBeforeRequest: (fn: (details: *, cb: *) => void) => void
 };

@@ -15,7 +15,7 @@ import {
 
 // Missions/expeditions
 export const Simple = {
-  asBool: (x: *) => R.equals(1)
+  asBool: R.equals(1)
 };
 
 export const asBool = L.normalize(Simple.asBool);

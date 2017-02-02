@@ -6,7 +6,6 @@ import cx from 'classnames';
 
 import css from './sidebar.css';
 import * as C from './controls';
-import * as M from './meta';
 
 const resourcesIn = U.view(['game', 'state', 'resources']);
 
@@ -30,13 +29,12 @@ export default ({
         {U.seq(resourcesIn(atom),
           U.map(r => <Resource type={r.type} value={r.value} />))}
       </div>
-      <div className="ui middle aligned divided relaxed list">
-        {U.seq(
-          fleets,
-          U.map(fleet =>
-            <C.Fleet fleet={fleet}
-                     ships={ships}
-                     className="item" />))}
-      </div>
+      {U.seq(
+        fleets,
+        U.indices,
+        U.map(i =>
+          <C.Fleet fleet={U.view(i, fleets)}
+                   ships={ships}
+                   className="ui divided list" />))}
     </section>
   </aside>;

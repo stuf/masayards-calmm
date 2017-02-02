@@ -12,7 +12,7 @@
  *
  * @flow
  */
-import { ipcRenderer, remote } from 'electron';
+import { ipcRenderer } from 'electron';
 import React from 'karet';
 import Atom from 'kefir.atom';
 import Storage from 'atom.storage';

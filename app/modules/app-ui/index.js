@@ -26,7 +26,7 @@ export default class AppUI extends React.Component {
   }
 
   render() {
-    const { view, atom, states } = this;
+    const { atom } = this;
 
     return (
       <div className={cx(css.appUiWrap)}>
