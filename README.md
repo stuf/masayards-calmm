@@ -6,7 +6,7 @@
 
 This is an attempt at creating a Kancolle viewer client by using the [Calmm.js](https://github.com/calmm-js/documentation) philosophy.
 
-![Screenshot](assets/screenshot.png)
+![Screenshot](assets/screenshot.jpg)
 
 I believe this is a fitting and maybe a little bit unusual of a test case for creating an Electron-based application. There's a whole lot of data that comes from a pretty inconsistent API, so being able to use partial lenses for ensuring that the data is normalized into something usable.
 
