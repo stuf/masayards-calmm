@@ -123,7 +123,13 @@ const schema = {
       equipment: [],
       resources: [],
       constructionDocks: [],
-      repairDocks: []
+      repairDocks: [],
+      baseData: {
+        ships: [],
+        equipment: [],
+        mapAreas: [],
+        mapInfo: []
+      }
     }
   },
   /** Application-specific state */

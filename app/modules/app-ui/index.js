@@ -28,7 +28,7 @@ const AppUIContent = ({ atom }: *) =>
       </div>
     </div>
 
-    <div style={{ marginTop: '40px' }}>
+    <div style={{ marginTop: '40px', height: '480px' }}>
       <div className="ui grid">
         <div className="twelve wide column">
           <Game atom={atom} />
@@ -39,9 +39,7 @@ const AppUIContent = ({ atom }: *) =>
       </div>
     </div>
 
-    <div className="ui container">
-      <MainView atom={atom} />
-    </div>
+    <MainView atom={atom} />
 
     <StatusBar atom={atom} className="ui bottom fixed inverted menu" style={{ ...draggableStyles }} />
   </div>;
@@ -51,7 +49,7 @@ const AppUIContent = ({ atom }: *) =>
  * without this.
  * @todo Figure out if this is required or if there is an alternative workaround
  */
-export class AppUI extends React.Component {
+class AppUI extends React.Component {
   constructor(props: *) {
     super(props);
     this.atom = props.atom;

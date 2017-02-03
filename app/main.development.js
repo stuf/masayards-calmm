@@ -104,9 +104,9 @@ process.on('warning', w => {
 
 
 ipcMain.on('online-status-changed', (event, msg) => {
-  console.log('Online status changed: %s', msg);
+  logger.info('Online status changed: %s', msg);
   const { status } = msg;
-  console.log('status =', status);
+  logger.info('status =', status);
   if (mainWindow && mainWindow.webContents) {
     mainWindow.webContents.send('online-status-changed', { status });
   }
