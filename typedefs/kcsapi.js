@@ -15,9 +15,29 @@ type GetMemberEvent = '/api_get_member/deck'
 
 // Declare common types used in the API data
 
-/**
- * Base ship type
- */
+// Map area
+declare type kcsapi$MapArea = {
+  api_id: number,
+  api_name: string,
+  api_type: number
+};
+
+// Map info
+declare type kcsapi$MapInfo = {
+  api_id: number,
+  api_infotext: string,
+  api_item: Array<number>,
+  api_level: number,
+  api_maparea_id: number,
+  api_max_maphp: *,
+  api_name: string,
+  api_no: number,
+  api_opetext: string,
+  api_required_defeat_count?: number,
+  api_sally_flag: Tuple<number, number>
+};
+
+// Base ship type
 declare type kcsapi$BaseShip = {
   api_afterbull: number,
   api_afterfuel: number,
