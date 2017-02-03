@@ -1,3 +1,4 @@
+/* eslint-disable no-confusing-arrow */
 /**
  * @fileoverview
  *  Provide an entry point component for the main UI in the application.
@@ -6,44 +7,62 @@
  * @todo Look into replacing classes with stateless components (we have our state atom)
  */
 import React from 'karet';
-import cx from 'classnames';
-
-import css from './styles.css';
 
 import Game from '../game';
-
-import TitleBar from './title-bar';
 import Sidebar from './sidebar';
 import MainView from './main-view';
-import StatusBar from './status-bar';
+import StatusBar from './components/status-bar';
 
-export default class AppUI extends React.Component {
+const draggableStyles = {
+  WebkitAppRegion: 'drag',
+  WebkitUserSelect: 'none'
+};
+
+const AppUIContent = ({ atom }: *) =>
+  <div className="ui content">
+    <div className="ui top fixed inverted menu"
+         style={{ ...draggableStyles, paddingLeft: '60px' }}>
+      <div className="header item">Masayards Calmm</div>
+      <div className="right menu">
+        <a href="#gotohere" className="item">Settings</a>
+      </div>
+    </div>
+
+    <div style={{ marginTop: '40px' }}>
+      <div className="ui grid">
+        <div className="twelve wide column">
+          <Game atom={atom} />
+        </div>
+        <div className="four wide column">
+          <Sidebar atom={atom} />
+        </div>
+      </div>
+    </div>
+
+    <div className="ui container">
+      <MainView atom={atom} />
+    </div>
+
+    <StatusBar atom={atom} className="ui bottom fixed inverted menu" style={{ ...draggableStyles }} />
+  </div>;
+
+/**
+ * Define a stateful component if we're developing; HMR doesn't work properly
+ * without this.
+ * @todo Figure out if this is required or if there is an alternative workaround
+ */
+export class AppUI extends React.Component {
   constructor(props: *) {
     super(props);
     this.atom = props.atom;
-    this.states = props.states;
-    this.view = props.view;
   }
 
   render() {
-    const { atom } = this;
-
-    return (
-      <div className={cx(css.appUiWrap)}>
-        <div className={cx(css.appUi)}>
-          <TitleBar atom={atom} />
-          <div className={cx(css.uiCols)}>
-            <div className={cx(css.uiMain)}>
-              <Game atom={atom} />
-              <MainView atom={atom} />
-            </div>
-            <div className={cx(css.uiSide)}>
-              <Sidebar atom={atom} />
-            </div>
-          </div>
-          <StatusBar atom={atom} />
-        </div>
-      </div>
-    );
+    return <AppUIContent atom={this.atom} />;
   }
 }
+
+export default ({ ...props }: *) =>
+  <div>
+    {process.env.NODE_ENV === 'development' ? <AppUI {...props} /> : <AppUIContent {...props} />}
+  </div>;

@@ -15,7 +15,9 @@ type GetMemberEvent = '/api_get_member/deck'
 
 // Declare common types used in the API data
 
-// Base ship type
+/**
+ * Base ship type
+ */
 declare type kcsapi$BaseShip = {
   api_afterbull: number,
   api_afterfuel: number,
@@ -44,6 +46,13 @@ declare type kcsapi$BaseShip = {
   api_tyku: Tuple<number, number>,
   api_voicef: number,
   api_yomi: string
+};
+
+// Base equipment type
+declare type kcsapi$BaseEquipmentType = {
+  api_id: number,
+  api_name: string,
+  api_show_fig: number
 };
 
 // Base equipment

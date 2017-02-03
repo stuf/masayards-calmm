@@ -12,6 +12,7 @@
  *
  * @flow
  */
+
 import { ipcRenderer } from 'electron';
 import React from 'karet';
 import Atom from 'kefir.atom';
@@ -57,9 +58,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // @todo Relocate the following to their appropriate locations
-/**
- * Define some basic lenses to propagate the desired state.
- */
+// Define some basic lenses to propagate the desired state.
 const states = {
   game: L.pick({
     game: 'game',
@@ -74,7 +73,7 @@ const states = {
   action: 'action'
 };
 
-/** Specify views for the root components in the application */
+// Specify views for the root components in the application
 const view = {
   gameIn: U.view(states.game),
   appUiIn: U.view(states.appUi),

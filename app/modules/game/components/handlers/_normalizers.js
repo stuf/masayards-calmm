@@ -15,7 +15,8 @@ import {
 
 // Missions/expeditions
 export const Simple = {
-  asBool: R.equals(1)
+  asBool: R.equals(1),
+  normalizeLinebreaks: R.replace(/<br ?\/?>/g, '\n')
 };
 
 export const asBool = L.normalize(Simple.asBool);

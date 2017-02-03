@@ -110,7 +110,6 @@ export const equipment = {
 export const equipmentList = [L.elems, L.pick(equipment)];
 
 // Ships
-
 export const ship = {
   id: 'api_id',
   sortId: 'api_sortno',
@@ -263,6 +262,27 @@ export const questList = {
   execCount: 'api_exec_count',
   execType: 'api_exec_type',
   pageCount: 'api_page_count'
+};
+
+export const baseShip = {
+  id: 'api_id',
+  sortId: 'api_sortno',
+  remodelLevel: 'api_afterlv',
+  remodelResultId: 'api_aftershipid',
+  remodelCost: L.pick({
+    ammo: 'api_afterbull',
+    fuel: 'api_afterfuel'
+  }),
+  rarity: 'api_backs',
+  name: 'api_name',
+  message: ['api_getmes', L.normalize(N.Simple.normalizeLinebreaks)],
+  stats: L.pick({
+    antiAir: 'api_tyku',
+    torpedo: 'api_raig',
+    range: 'api_leng',
+    speed: 'api_soku',
+    luck: 'api_luck'
+  })
 };
 
 export default {

@@ -34,7 +34,7 @@ export default ({ atom, fleets = fleetsIn(atom), player = M.Player.profileIn(ato
           U.mapCached(i =>
             <C.Fleet key={i} fleet={U.view(i, fleets)}
                      ships={shipsIn(atom)}
-                     className="ui three column divided grid" />))}
+                     className="ui three column grid" />))}
       </div>
     </div>
   </div>;

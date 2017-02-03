@@ -18,6 +18,9 @@ export const Ship = ({ ship }) =>
     <div>{U.join(' / ', M.Ship.hpIn(ship))}</div>
   </article>;
 
+/**
+ * @todo Extract usage of `Fleet.findShipBy` out from here
+ */
 export const FleetShipList = ({ shipIds, ships, className }) =>
   <div className={className}>
     {U.seq(shipIds,
@@ -26,8 +29,11 @@ export const FleetShipList = ({ shipIds, ships, className }) =>
   </div>;
 
 export const Fleet = ({ fleet, ships, className }) =>
-  <article>
-    <div className="name">{U.view('name', fleet)}</div>
+  <article className="ui content">
+    <div className="name header">{U.view('name', fleet)}</div>
     <div className="state">{M.Fleet.mapState(M.Fleet.stateIn(fleet))}</div>
-    <FleetShipList shipIds={M.Fleet.shipIdsIn(fleet)} ships={ships} Ship={Ship} className={cx(className)} />
+
+    <FleetShipList shipIds={M.Fleet.shipIdsIn(fleet)}
+                   ships={ships}
+                   className={cx(className)} />
   </article>;

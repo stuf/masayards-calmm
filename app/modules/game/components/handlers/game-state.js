@@ -4,6 +4,7 @@
  *  Process incoming API data for use in the application.
  *
  * @flow
+ * @module modules/game/game-state
  */
 import * as R from 'ramda';
 import * as U from 'karet.util';
