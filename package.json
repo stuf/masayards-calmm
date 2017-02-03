@@ -27,7 +27,8 @@
     "package-linux": "npm run build && build --linux",
     "package-all": "npm run build && build -mwl",
     "cleanup": "mop -v",
-    "install-assets": "sh ./scripts/get-assets.sh"
+    "install-assets": "sh ./scripts/get-assets.sh",
+    "push": "npm run lint && git push"
   },
   "browserslist": "chrome 50",
   "build": {
