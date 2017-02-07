@@ -9,8 +9,8 @@
 import React from 'karet';
 
 import Game from '../game';
-import Sidebar from './sidebar';
-import MainView from './main-view';
+import Sidebar from './components/sidebar';
+import MainView from './components/main-view';
 import StatusBar from './components/status-bar';
 
 const draggableStyles = {
@@ -28,7 +28,7 @@ const AppUIContent = ({ atom }: *) =>
       </div>
     </div>
 
-    <div style={{ marginTop: '40px', height: '480px' }}>
+    <div style={{ marginTop: '40px', height: '495px' }}>
       <div className="ui grid">
         <div className="twelve wide column">
           <Game atom={atom} />
@@ -47,7 +47,7 @@ const AppUIContent = ({ atom }: *) =>
 /**
  * Define a stateful component if we're developing; HMR doesn't work properly
  * without this.
- * @todo Figure out if this is required or if there is an alternative workaround
+ * @todo Investigate: Figure out if this is required or if there is an alternative workaround (HMR)
  */
 class AppUI extends React.Component {
   constructor(props: *) {

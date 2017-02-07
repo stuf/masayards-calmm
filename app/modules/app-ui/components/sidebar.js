@@ -2,10 +2,6 @@
 import React from 'karet';
 import * as U from 'karet.util';
 import * as L from 'partial.lenses';
-import cx from 'classnames';
-
-import css from './sidebar.css';
-import * as C from './controls';
 
 const resourcesIn = U.view(['game', 'state', 'resources', L.slice(0, 4)]);
 
@@ -17,14 +13,17 @@ const Resource = ({ type, value }: { type: string, value: number }) =>
     <div className="content">{type}</div>
   </div>;
 
+const SidebarStyle = {
+  height: '100vh',
+  overflow: 'scroll'
+};
+
 export default ({
   atom,
-  state = U.view(['game', 'state'], atom),
-  fleets = U.view(['fleets', L.slice(1, undefined)], state),
-  ships = U.view('ships', state)
+  state = U.view(['game', 'state'], atom)
 }: *) =>
   <div>
-    <aside className={cx(css.sidebar, 'ui grid')}>
+    <aside className="ui grid" style={SidebarStyle}>
       <div className="row">
         <section className="column">
           <div className="ui card">
@@ -41,13 +40,4 @@ export default ({
         </section>
       </div>
     </aside>
-    <div>
-      {U.seq(
-        fleets,
-        U.indices,
-        U.map(i =>
-          <C.Fleet fleet={U.view(i, fleets)}
-                  ships={ships}
-                  className="ui divided list" />))}
-    </div>
   </div>;
