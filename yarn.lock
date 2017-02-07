@@ -3424,9 +3424,9 @@ flow-bin@^0.38.0:
   version "0.38.0"
   resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.38.0.tgz#3ae096d401c969cc8b5798253fb82381e2d0237a"
 
-flow-static-land@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/flow-static-land/-/flow-static-land-0.2.4.tgz#b49378ebd8575ccd4538faca5554204764043241"
+flow-static-land@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/flow-static-land/-/flow-static-land-0.2.5.tgz#592a6f5c126c5622166fe2e2632b17a0e3b7faec"
 
 flow-typed@^2.0.0:
   version "2.0.0"
@@ -5697,9 +5697,15 @@ parseurl@~1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.1.tgz#c8ab8c9223ba34888aa64a297b28853bec18da56"
 
-"partial.lenses@>=8.0.0 <10.0.0", partial.lenses@^9.0.3:
+"partial.lenses@>=8.0.0 <10.0.0":
   version "9.0.3"
   resolved "https://registry.yarnpkg.com/partial.lenses/-/partial.lenses-9.0.3.tgz#1a3227498647e2a3894c608a788298347aa7b9dd"
+  dependencies:
+    infestines "^0.4.1"
+
+partial.lenses@^9.1.1:
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/partial.lenses/-/partial.lenses-9.1.1.tgz#899a839f98345ff87795fb051c6953c1d5926325"
   dependencies:
     infestines "^0.4.1"
 

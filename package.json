@@ -50,6 +50,10 @@
         }
       ]
     },
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    },
     "files": [
       "dist/",
       "node_modules/",
@@ -68,10 +72,6 @@
         "AppImage"
       ]
     }
-  },
-  "directories": {
-    "buildResources": "resources",
-    "output": "release"
   },
   "bin": {
     "electron": "./node_modules/.bin/electron"
@@ -171,7 +171,7 @@
     "bootstrap": "4.0.0-alpha.6",
     "classnames": "^2.2.5",
     "electron-debug": "^1.1.0",
-    "flow-static-land": "^0.2.4",
+    "flow-static-land": "^0.2.5",
     "font-awesome": "^4.7.0",
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
@@ -183,7 +183,7 @@
     "material-colors": "^1.2.5",
     "node-sass": "^4.4.0",
     "node-slug": "^0.0.2",
-    "partial.lenses": "^9.0.3",
+    "partial.lenses": "^9.1.1",
     "ramda": "^0.23.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

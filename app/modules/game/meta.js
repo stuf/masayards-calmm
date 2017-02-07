@@ -1,10 +1,11 @@
 // @flow
 import * as U from 'karet.util';
 import * as L from 'partial.lenses';
-import type { EventObjects } from './types';
+import * as R from 'ramda';
+import qs from 'querystring';
 
-export const Events: EventMeta = {
-  getEventObjects: e => {
+export const Events = {
+  getEventObjects: (e: *) => {
     const view = e.target;
     const contents = view.getWebContents();
     const { session } = contents;
@@ -13,17 +14,28 @@ export const Events: EventMeta = {
   }
 };
 
-export const Webview: WebviewMeta = {
+export const Handler = {
+  requestWithId: (id: *) => ['requests', id],
+  requestTemplate: (type: *) => [L.pick({ requestId: 'requestId', [type]: type })]
+};
+
+const apiDataPrefix: RegExp = /svdata=/;
+const pathPrefix: RegExp = /.*\/kcsapi/;
+
+export const Network = {
+  views: {
+    latestIn: U.view('latest'),
+    requestIn: (id: *, atom: *) => U.view(['requests', id], atom)
+  },
+  getPath: R.compose(R.replace(pathPrefix, ''), R.path(['request', 'url'])),
+  getBody: R.compose(R.prop('api_data'), JSON.parse, R.replace(apiDataPrefix, ''), R.prop('body')),
+  getPostBody: R.compose(R.dissoc('api_token'), qs.parse, R.path(['request', 'postBody']))
+};
+
+export const Webview = {
   observerViewIn: U.view(L.pick({
     state: 'state',
-    latest: ['api', 'latest']
+    latest: ['api', 'latest'],
+    requests: ['api', 'requests']
   }))
-};
-
-export type EventMeta = {
-  getEventObjects: (e: *) => EventObjects
-};
-
-export type WebviewMeta = {
-  observerViewIn: *
 };
