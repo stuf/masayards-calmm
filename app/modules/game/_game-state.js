@@ -1,4 +1,4 @@
-/* eslint camelcase: 0, no-underscore-dangle: 0, import/prefer-default-export: 0 */
+/* eslint camelcase: 0, import/prefer-default-export: 0 */
 // @flow
 import * as R from 'ramda';
 import * as U from 'karet.util';
@@ -10,7 +10,6 @@ const handlers = {
 };
 
 const handleNextEvent = atom => req => {
-  console.log('handleNextEvent', req, atom);
   const { path } = req;
   const f = R.prop(path, handlers);
   const xs = [req, atom];
@@ -26,8 +25,4 @@ const handleNextEvent = atom => req => {
 const latestIn = U.view('latest');
 
 // Expose handler for use with webview
-export const initializeObserver = (atom: *) => {
-  console.log('initialize observer for atom', atom);
-  latestIn(atom).observe(handleNextEvent(atom));
-};
-
+export const initializeObserver = (atom: *) => latestIn(atom).observe(handleNextEvent(atom));
