@@ -1,18 +1,102 @@
-// @flow
+/**
+ * @fileoverview
+ *  Debugger network event handlers used for monitoring incoming processable API data
+ *
+ * @flow
+ */
 import * as R from 'ramda';
+import * as L from 'partial.lenses';
 
-export const networkEvent: { [key: string]: string } = {
+import * as M from './meta';
+
+type NetworkEventMethod =
+  | 'Network.requestWillBeSent'
+  | 'Network.responseReceived'
+  | 'Network.loadingFinished'
+  | 'Network.getResponseBody';
+
+export const networkEvent: { [key: string]: NetworkEventMethod } = {
   REQUEST_WILL_BE_SENT: 'Network.requestWillBeSent',
   RESPONSE_RECEIVED: 'Network.responseReceived',
   LOADING_FINISHED: 'Network.loadingFinished',
   GET_RESPONSE_BODY: 'Network.getResponseBody'
 };
 
-const requestWillBeSent = ({ handlerState, requestId, event, method, params }: *) => {};
+const apiDataPrefix: RegExp = /svdata=/;
+const pathPrefix: RegExp = /.*\/kcsapi/;
 
-const responseReceived = ({ handlerState, requestId, event, method, params }: *) => {};
+const getPath = R.path(['request', 'url']);
+const parsePath = R.replace(pathPrefix, '');
+const computePath = R.compose(parsePath, getPath);
 
-const loadingFinished = ({ handlerState, requestId, event, method, params }: *) => {};
+const reqTempl = type => L.pick({ requestId: 'requestId', [type]: type });
+
+const requestWillBeSent = ({ handlerState, requestId, event, method, params }: *) => {
+  const url = R.path(['request', 'url'], params);
+  if (!pathPrefix.test(url)) {
+    return;
+  }
+
+  console.log('requestWillBeSent', { handlerState, requestId, event, method, params });
+
+  M.Network
+   .views
+   .requestIn(requestId, handlerState)
+   .modify(
+     L.set(M.Handler.requestTemplate('request'), {
+       requestId,
+       request: params.request
+     }));
+};
+
+const responseReceived = ({ handlerState, requestId, event, method, params }: *) => {
+  const url = R.path(['response', 'url'], params);
+  if (!pathPrefix.test(url)) {
+    return;
+  }
+
+  console.log('responseReceived', { handlerState, requestId, event, method, params });
+  M.Network
+   .views
+   .requestIn(requestId, handlerState)
+   .modify(
+     L.set(M.Handler.requestTemplate('response'), {
+       requestId,
+       response: params.response
+     }));
+};
+
+const loadingFinished = ({ handlerState, contents, requestId, event, method, params }: *) => {
+  const reqView = M.Network.views.requestIn(requestId, handlerState);
+  const req = reqView.get();
+  if (!req) {
+    return;
+  }
+
+  reqView.remove();
+
+  // console.log('loadingFinished', { handlerState, requestId, event, method, params });
+  // const path = computePath(req);
+  const path = M.Network.getPath(req);
+
+  contents.debugger.sendCommand(networkEvent.GET_RESPONSE_BODY, { requestId },
+    (err, result) => {
+      console.group(path);
+      console.time('Time spent (inner)');
+
+      const ts = +(new Date());
+      const body = M.Network.getBody(result);
+      const postBody = M.Network.getPostBody(req);
+      const data = { path, ts, body, postBody };
+
+      console.timeEnd('Time spent (inner)');
+      console.log('data =', data);
+
+      M.Network.views.latestIn(handlerState).set(data);
+
+      console.groupEnd();
+    });
+};
 
 export const getHandler = R.cond([
   [R.equals(networkEvent.REQUEST_WILL_BE_SENT), R.always(requestWillBeSent)],
