@@ -12,7 +12,6 @@
  *
  * @flow
  */
-
 import { ipcRenderer } from 'electron';
 import React from 'karet';
 import Atom from 'kefir.atom';
@@ -31,9 +30,6 @@ import AppUI from '../app-ui';
 
 /**
  * Define main storage where to persist our data into.
- *
- * @todo Maybe separate game API data storage from this, as it might end up taking some more space. `Molecule` to the
- *   rescue?
  */
 const stateStorage = Storage({
   key: 'masayards:state',
@@ -57,45 +53,26 @@ if (process.env.NODE_ENV === 'development') {
   window.S = S;
 }
 
-// @todo Relocate the following to their appropriate locations
-// Define some basic lenses to propagate the desired state.
-const states = {
-  game: L.pick({
-    game: 'game',
-    config: ['config', 'gameUrl']
-  }),
-  appUi: L.pick({ game: 'game' }),
-  statusBar: L.pick({
-    networkState: ['application', 'networkStatus', L.define('offline')],
-    gameState: ['game', 'status', L.define('disconnected')]
-  }),
-  application: 'application',
-  action: 'action'
-};
-
-// Specify views for the root components in the application
-const view = {
-  gameIn: U.view(states.game),
-  appUiIn: U.view(states.appUi),
-  statusBarIn: U.view(states.statusBar),
-  applicationStateIn: U.view(states.application),
-  actionIn: U.view(states.action)
-};
-
-view.applicationStateIn(state).log('Application state change');
-
 // Ensure any state that should be clean at startup is just that
 M.resetAppToInitial(state);
 
 ipcRenderer.on('online-status-changed',
   (event, { status }) => M.setGameState(state, status));
 
-export default class App extends React.Component {
+const AppStateless = () =>
+  <div className={cx(css.app)}>
+    <AppUI atom={state} />
+  </div>;
+
+// We'll have to use a stateful React component in case we're in `NODE_ENV === 'development'`,
+// otherwise stateless components are just fine.
+class AppStateful extends React.Component {
   render() {
-    return (
-      <div className={cx(css.app)}>
-        <AppUI atom={state} states={states} view={view} />
-      </div>
-    );
+    return <AppStateless />;
   }
 }
+
+const AppComponent = process.env.NODE_ENV === 'development' ? AppStateful : AppStateless;
+
+export default AppComponent;
+

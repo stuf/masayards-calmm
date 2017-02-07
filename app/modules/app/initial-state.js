@@ -99,7 +99,6 @@ export type Schema = {
 
 /**
  * @todo Look into alternatives on defining the required minimal state
- * @todo Make sure to define the dependent state lenses to conform to a guaranteed minimal structure
  */
 const schema = {
   game: {
@@ -124,6 +123,8 @@ const schema = {
       resources: [],
       constructionDocks: [],
       repairDocks: [],
+      questList: [],
+      questState: {},
       baseData: {
         ships: [],
         equipment: [],
