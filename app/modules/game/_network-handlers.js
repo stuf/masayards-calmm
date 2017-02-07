@@ -22,14 +22,7 @@ export const networkEvent: { [key: string]: NetworkEventMethod } = {
   GET_RESPONSE_BODY: 'Network.getResponseBody'
 };
 
-const apiDataPrefix: RegExp = /svdata=/;
 const pathPrefix: RegExp = /.*\/kcsapi/;
-
-const getPath = R.path(['request', 'url']);
-const parsePath = R.replace(pathPrefix, '');
-const computePath = R.compose(parsePath, getPath);
-
-const reqTempl = type => L.pick({ requestId: 'requestId', [type]: type });
 
 const requestWillBeSent = ({ handlerState, requestId, event, method, params }: *) => {
   const url = R.path(['request', 'url'], params);
