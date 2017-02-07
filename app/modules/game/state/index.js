@@ -1,4 +1,9 @@
-// @flow
+/**
+ * @fileoverview
+ *  This is effectively a reducer for keeping the game's state up to date
+ *
+ * @flow
+ */
 import * as L from 'partial.lenses';
 
 import * as M from './meta';

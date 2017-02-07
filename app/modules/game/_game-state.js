@@ -19,13 +19,15 @@ const handleNextEvent = atom => req => {
   }
 };
 
-const latestIn = U.view(['api', 'latest', L.define({ path: ''})]);
+const latestIn = U.view(['api', 'latest', L.define({ path: '' })]);
 const stateIn = U.view('state');
 
-// Expose handler for use with webview
-export const initializeObserver = (atom: *) => {
-  const latest = latestIn(atom);
-  atom.log('GLOBAL (game state)');
-  return latest.observe(handleNextEvent(stateIn(atom)));
-};
+/**
+ * Initializes an observer that will call the appropriate handlers for
+ * incoming API data.
+ *
+ * @todo Investigate: Could `.scan` be used instead of `.observe` here?
+ */
+export const initializeObserver = (atom: *) =>
+  latestIn(atom).observe(handleNextEvent(stateIn(atom)));
 
