@@ -55,7 +55,7 @@ export const materials = L.choose(N.chooseNormalizer);
 /**
  * Optic template for handling a basic player profile
  */
-export const basicProfileTemplate = {
+export const basicProfile = {
   id: 'api_member_id',
   name: 'api_nickname',
   level: 'api_level',
@@ -63,20 +63,20 @@ export const basicProfileTemplate = {
   rank: 'api_rank',
   coins: 'api_fcoin',
   medals: 'api_medal',
-  flags: L.pick({
-    lscIsUnlocked: ['api_large_dock', L.valueOr(0), N.asBool]
-  }),
-  tutorial: L.pick({
-    isCompleted: ['api_tutorial', L.valueOr(0), N.asBool],
+  flags: [L.required({}), L.pick({
+    lscIsUnlocked: ['api_large_dock', L.define(0), N.asBool]
+  })],
+  tutorial: [L.required({}), L.pick({
+    isCompleted: ['api_tutorial', L.define(0), N.asBool],
     completion: 'api_tutorial_progress'
-  }),
-  maxShips: 'api_max_chara',
-  maxEquipment: 'api_max_slotitem',
-  maxFurniture: 'api_max_kagu',
-  furniture: 'api_furniture',
-  fleets: 'api_count_deck',
-  constructionDocks: 'api_count_kdock',
-  reparationDocks: 'api_count_ndock',
+  })],
+  maxShips: ['api_max_chara', L.define(-1)],
+  maxEquipment: ['api_max_slotitem', L.define(-1)],
+  maxFurniture: ['api_max_kagu', L.define(-1)],
+  furniture: ['api_furniture', L.required([])],
+  fleets: ['api_count_deck', L.required([])],
+  constructionDocks: ['api_count_kdock', L.required([])],
+  reparationDocks: ['api_count_ndock', L.required([])],
   sortiesWon: 'api_st_win',
   sortiesLost: 'api_st_lost',
   missionsDone: 'api_ms_count',
@@ -84,8 +84,6 @@ export const basicProfileTemplate = {
   pvpsWon: 'api_pt_win',
   pvpsLost: 'api_pt_lose',
 };
-
-export const basicProfile = L.pick(basicProfileTemplate);
 
 /**
  * Message log lens template
@@ -106,8 +104,6 @@ export const equipment = {
   level: 'api_level',
   alv: 'api_alv'
 };
-
-export const equipmentList = [L.elems, L.pick(equipment)];
 
 // Ships
 export const ship = {
@@ -130,7 +126,7 @@ export const ship = {
     cost: 'api_ndock_item',
     time: 'api_ndock_time'
   }),
-  stats: L.pick({
+  stats: [L.required({}), L.pick({
     evasion: 'api_kaihi',
     torpedo: 'api_raisou',
     endurance: 'api_taik',
@@ -141,11 +137,11 @@ export const ship = {
     losBase: 'api_saku',
     los: 'api_sakuteki',
     luck: 'api_lucky'
-  }),
-  flags: L.pick({
+  })],
+  flags: [L.required({}), L.pick({
     locked: ['api_locked', L.valueOr(0), N.asBool],
     slotItemLocked: ['api_locked_equip', L.valueOr(0), N.asBool]
-  })
+  })]
 };
 
 export const ships = [L.elems, L.pick(ship)];

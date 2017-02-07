@@ -24,18 +24,22 @@ const pathPrefix: RegExp = /.*\/kcsapi/;
 
 export const Network = {
   views: {
-    latestIn: U.view('latest'),
-    requestIn: (id: *, atom: *) => U.view(['requests', id], atom)
+    latestIn: U.view(['api', 'latest']),
+    requestIn: (id: *, atom: *) => U.view(['api', 'requests', id], atom)
   },
   getPath: R.compose(R.replace(pathPrefix, ''), R.path(['request', 'url'])),
   getBody: R.compose(R.prop('api_data'), JSON.parse, R.replace(apiDataPrefix, ''), R.prop('body')),
   getPostBody: R.compose(R.dissoc('api_token'), qs.parse, R.path(['request', 'postBody']))
 };
 
-export const Webview = {
-  observerViewIn: U.view(L.pick({
-    state: 'state',
-    latest: ['api', 'latest'],
-    requests: ['api', 'requests']
-  }))
+export const Views = {
+  gameIn: U.view('game')
 };
+
+// export const Webview = {
+//  observerViewIn: U.view(L.pick({
+//    state: 'state',
+//    latest: ['api', 'latest'],
+//    requests: ['api', 'requests']
+//  }))
+// };

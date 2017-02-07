@@ -4,7 +4,6 @@ import * as L from 'partial.lenses';
 import * as M from './meta';
 
 type EventArgs = { path: string, body: *, postBody: * };
-type EventHandler = (args: EventArgs, atom: *) => void;
 
 /**
  * Event handler map
@@ -59,17 +58,6 @@ export default {
           questState: L.get(M.Quests.in(L.identity), body)
         })),
 
-  // '/api_req_quest/start': ({ path, postBody }: EventArgs = {}, atom: Atom) =>
-  //   atom.view('state')
-  //       .modify(L.set(['quests', M.basic.asNumber()])),
-
-  // '/api_req_mission/start': ({ path, body, postBody }, atom) =>
-  //  atom.view('state')
-  //      .modify(
-  //        L.set([
-  //          'fleets',
-  //          M.findIn(postBody, 'id', 'api_deck_id')
-  //        ])),
   /**
    * Gets the basic state of the player's profile and relevant data,
    * including fleets, resources and fleets.

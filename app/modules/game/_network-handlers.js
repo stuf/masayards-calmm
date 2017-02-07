@@ -24,13 +24,11 @@ export const networkEvent: { [key: string]: NetworkEventMethod } = {
 
 const pathPrefix: RegExp = /.*\/kcsapi/;
 
-const requestWillBeSent = ({ handlerState, requestId, event, method, params }: *) => {
+const requestWillBeSent = ({ handlerState, requestId, params }: *) => {
   const url = R.path(['request', 'url'], params);
   if (!pathPrefix.test(url)) {
     return;
   }
-
-  console.log('requestWillBeSent', { handlerState, requestId, event, method, params });
 
   M.Network
    .views
@@ -42,13 +40,12 @@ const requestWillBeSent = ({ handlerState, requestId, event, method, params }: *
      }));
 };
 
-const responseReceived = ({ handlerState, requestId, event, method, params }: *) => {
+const responseReceived = ({ handlerState, requestId, params }: *) => {
   const url = R.path(['response', 'url'], params);
   if (!pathPrefix.test(url)) {
     return;
   }
 
-  console.log('responseReceived', { handlerState, requestId, event, method, params });
   M.Network
    .views
    .requestIn(requestId, handlerState)
@@ -59,7 +56,7 @@ const responseReceived = ({ handlerState, requestId, event, method, params }: *)
      }));
 };
 
-const loadingFinished = ({ handlerState, contents, requestId, event, method, params }: *) => {
+const loadingFinished = ({ handlerState, contents, requestId }: *) => {
   const reqView = M.Network.views.requestIn(requestId, handlerState);
   const req = reqView.get();
   if (!req) {
@@ -68,8 +65,6 @@ const loadingFinished = ({ handlerState, contents, requestId, event, method, par
 
   reqView.remove();
 
-  // console.log('loadingFinished', { handlerState, requestId, event, method, params });
-  // const path = computePath(req);
   const path = M.Network.getPath(req);
 
   contents.debugger.sendCommand(networkEvent.GET_RESPONSE_BODY, { requestId },
@@ -85,7 +80,9 @@ const loadingFinished = ({ handlerState, contents, requestId, event, method, par
       console.timeEnd('Time spent (inner)');
       console.log('data =', data);
 
-      M.Network.views.latestIn(handlerState).set(data);
+      const latest = M.Network.views.latestIn(handlerState);
+
+      latest.set(data);
 
       console.groupEnd();
     });

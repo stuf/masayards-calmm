@@ -1,3 +1,4 @@
+/* eslint import/prefer-default-export: 0 */
 // @flow
 import React from 'karet';
 
@@ -5,15 +6,17 @@ import * as M from './meta';
 import { eventHandler } from './_event-handlers';
 import { initializeObserver } from './_game-state';
 
-export const dummy = 0;
-
 export const WebView = ({ atom }: *) => {
-  const view = M.Webview.observerViewIn(atom);
-  initializeObserver(view);
-
   function ref(didMount) {
+    let observer;
+
     if (didMount) {
-      didMount.addEventListener('dom-ready', eventHandler(view));
+      didMount.addEventListener('dom-ready', eventHandler(atom));
+      observer = initializeObserver(atom);
+    }
+
+    if (observer && !didMount) {
+      observer.unsubscribe();
     }
   }
 
@@ -29,5 +32,3 @@ export const WebView = ({ atom }: *) => {
 
   return <webview {...props} />;
 };
-
-export default { WebView };

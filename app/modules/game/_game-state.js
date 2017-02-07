@@ -2,12 +2,9 @@
 // @flow
 import * as R from 'ramda';
 import * as U from 'karet.util';
+import * as L from 'partial.lenses';
 
-const handlers = {
-  '/api_start2': (args) => {
-    console.log('api_start2 with args =', args);
-  }
-};
+import handlers from './state/index';
 
 const handleNextEvent = atom => req => {
   const { path } = req;
@@ -22,7 +19,13 @@ const handleNextEvent = atom => req => {
   }
 };
 
-const latestIn = U.view('latest');
+const latestIn = U.view(['api', 'latest', L.define({ path: ''})]);
+const stateIn = U.view('state');
 
 // Expose handler for use with webview
-export const initializeObserver = (atom: *) => latestIn(atom).observe(handleNextEvent(atom));
+export const initializeObserver = (atom: *) => {
+  const latest = latestIn(atom);
+  atom.log('GLOBAL (game state)');
+  return latest.observe(handleNextEvent(stateIn(atom)));
+};
+

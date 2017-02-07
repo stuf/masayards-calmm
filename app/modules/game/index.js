@@ -4,7 +4,7 @@ import { view } from 'karet.util';
 
 import * as C from './controls';
 
-export default ({ atom, gameDataState = view('game', atom) }: *) =>
+export default ({ atom, gameAtom = view('game', atom) }: *) =>
   <div style={{ height: '480px' }}>
-    <C.WebView atom={atom} />
+    <C.WebView atom={gameAtom} />
   </div>;
