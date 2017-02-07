@@ -1,5 +1,6 @@
 
-[![Build Status](https://travis-ci.org/stuf/masayards-calmm.svg?branch=master)](https://travis-ci.org/stuf/masayards-calmm)
+[![Travis Build Status](https://travis-ci.org/stuf/masayards-calmm.svg?branch=master)](https://travis-ci.org/stuf/masayards-calmm)
+[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/fo49nj630413db07?svg=true)](https://ci.appveyor.com/project/stuf/masayards-calmm)
 [![codecov](https://codecov.io/gh/stuf/masayards-calmm/branch/master/graph/badge.svg)](https://codecov.io/gh/stuf/masayards-calmm)
 
 # Masayards (Calmm)
