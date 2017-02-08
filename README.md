@@ -15,9 +15,14 @@ I believe this is a fitting and maybe a little bit unusual of a test case for cr
 
 ### Game API handling
 
-Game API data handling is done in [`game-state.js`](app/modules/game/components/handlers/game-state.js), which will look up the handler action to be called, based on the API path.
+Game API data handling is done in [`game/state/index.js`][game state handler], which will look up the handler action to be called, based on the API path.
 
- * The API data is transformed through defining [a set of templates](app/modules/game/components/handlers/_templates.js) and some common [functions for normalizing the data](app/modules/game/components/handlers/_normalizers.js), used in conjunction with [`partial.lenses`](https://github.com/calmm-js/partial.lenses). Most, if not all, transformation of the received API data is done through these.
+ * The API data is transformed through defining [a set of templates][API data templates] and some common [functions for normalizing the data][API data normalizers], used in conjunction with [`partial.lenses`][partial.lenses]. Most, if not all, transformation of the received API data is done through these.
+
+[game state handler]: app/modules/game/state/index.js
+[API data templates]: app/modules/game/state/_templates.js
+[API data normalizers]: app/modules/game/state/_normalizers.js
+[partial.lenses]: https://github.com/calmm-js/partial.lenses
 
 ---
 
@@ -40,7 +45,10 @@ Some less important things also include:
 
 The things under "_less important_" aren't necessary critical for making a functional application, but which will be the "sprinkle on top".
 
-If you have input on these things, [hit me up on Twitter](https://twitter.com/piparkaq) or [create an issue](issues/) of your thoughts.
+If you have input on these things, [hit me up on Twitter][@piparkaq] or [create an issue][issues] of your thoughts.
+
+[@piparkaq]: https://twitter.com/piparkaq
+[issues]: issues/
 
 ---
 
