@@ -19,10 +19,10 @@ export const KeyValueLabel = ({ key, value, ...props }: *) =>
 export const Duration = ({ until, interval = 1000, prefix, suffix, ...props }: *) =>
   <div {...props}>
     {prefix}
-    {tick(interval).map(() =>
+    {process.env.NODE_ENV !== 'test' ? tick(interval).map(() =>
       U.seq(timeDelta(until),
         U.clamp(0, Infinity),
         U.divide(U.__, 1000),
-        U.floor))} seconds left
+        U.floor)) : 0} seconds left
     {suffix}
   </div>;
