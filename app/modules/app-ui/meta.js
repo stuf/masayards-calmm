@@ -6,8 +6,6 @@ import K, * as U from 'karet.util';
 import * as L from 'partial.lenses';
 import * as R from 'ramda';
 
-const interval = Kefir.interval(500).toProperty(() => {});
-
 export const Basic = {
   percentage: U.compose(U.multiply(100), U.apply(U.divide)),
   percentageIn: x => U.lift(Basic.percentage, x),
@@ -34,6 +32,11 @@ export const Fleet = {
   missionTimeLeftIn: fleet =>
     K(Basic.interval(500), U.view(['mission', 'completionTime'], fleet),
       (i, t) => U.clamp(0, Infinity, t - +(new Date()))),
+  Mission: {
+    timeLeft: fleet =>
+      K(Basic.interval(500), U.view(['mission', 'completionTime'], fleet),
+        (i, t) => U.clamp(0, Infinity, t - +(new Date())))
+  },
   shipsFrom: R.curry((ids, ships) =>
     U.view([L.define([]), L.filter(ship => ids.includes(ship.id))], ships))
 };
