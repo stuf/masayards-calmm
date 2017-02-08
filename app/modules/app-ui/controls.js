@@ -32,6 +32,7 @@ export const Fleet = ({ fleet, ships, className }) =>
   <article className="ui content">
     <div className="name header">{U.view('name', fleet)}</div>
     <div className="state">{M.Fleet.mapState(M.Fleet.stateIn(fleet))}</div>
+    <div className="timeleft">{M.Fleet.missionTimeLeftIn(fleet)}</div>
 
     <FleetShipList shipIds={M.Fleet.shipIdsIn(fleet)}
                    ships={ships}

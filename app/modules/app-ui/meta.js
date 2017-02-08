@@ -1,15 +1,24 @@
 /**
  * @overview
  */
-import * as U from 'karet.util';
+import Kefir from 'kefir';
+import K, * as U from 'karet.util';
 import * as L from 'partial.lenses';
 import * as R from 'ramda';
 
+const interval = Kefir.interval(500).toProperty(() => {});
+
 export const Basic = {
   percentage: U.compose(U.multiply(100), U.apply(U.divide)),
-  percentageIn: x => U.lift(Basic.percentage, x)
+  percentageIn: x => U.lift(Basic.percentage, x),
+  interval: t => Kefir.interval(t).toProperty(() => {})
 };
 
+export const Views = {
+  gameStateIn: U.view(['game', 'state'])
+};
+
+// @todo Rewrite this monster
 export const Fleet = {
   fleetInRange: (start, end) => U.view(['fleets', L.slice(start, end)]),
   nameIn: U.view('name'),
@@ -22,6 +31,9 @@ export const Fleet = {
     [U.equals(2), U.always('returned')]
   ]),
   findShipBy: id => L.find(R.whereEq({ id })),
+  missionTimeLeftIn: fleet =>
+    K(Basic.interval(500), U.view(['mission', 'completionTime'], fleet),
+      (i, t) => U.clamp(0, Infinity, t - +(new Date()))),
   shipsFrom: R.curry((ids, ships) =>
     U.view([L.define([]), L.filter(ship => ids.includes(ship.id))], ships))
 };

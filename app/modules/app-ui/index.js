@@ -12,6 +12,7 @@ import Game from '../game';
 import Sidebar from './components/sidebar';
 import MainView from './components/main-view';
 import StatusBar from './components/status-bar';
+import * as M from './meta';
 
 const draggableStyles = {
   WebkitAppRegion: 'drag',
@@ -39,7 +40,7 @@ const AppUIContent = ({ atom }: *) =>
       </div>
     </div>
 
-    <MainView atom={atom} />
+    <MainView atom={M.Views.gameStateIn(atom)} />
 
     <StatusBar atom={atom} className="ui bottom fixed inverted menu" style={{ ...draggableStyles }} />
   </div>;
