@@ -4,7 +4,9 @@ import * as L from 'partial.lenses';
 import * as R from 'ramda';
 import Kefir from 'kefir';
 
-export const interval = t => Kefir.interval(t).toProperty(() => {});
+export const interval = t => Kefir.interval(t).toProperty(R.identity);
+
+export const timeDelta = t => t - +(new Date());
 
 export const Mission = {
   mapState: U.cond([
@@ -19,9 +21,9 @@ export const Fleet = {
     timeLeftIn: U.view(['mission', 'completionTime', L.define(0)]),
     stateIn: fleet =>
       Mission.mapState(U.view(['mission', L.define({}), 'state', L.define(0)], fleet)),
-    secondsLeft: fleet =>
+    secondsLeftIn: fleet =>
       U.seq(Fleet.Mission.timeLeftIn(fleet),
-        s => interval(500).map(() => U.clamp(0, Infinity, (s - +(new Date())))))
+        s => interval(500).map(() => U.clamp(0, Infinity, timeDelta(s))))
   },
   findShipBy: id => L.find(R.whereEq({ id })),
   shipIdsIn: U.view(['shipIds', L.define([])])

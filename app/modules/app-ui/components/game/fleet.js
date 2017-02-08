@@ -13,7 +13,7 @@ export default ({ fleet, ships, className }: *) =>
     <div className="name header">{U.view('name', fleet)}</div>
     <div className="state">{M.Fleet.Mission.stateIn(fleet)}</div>
     <div className="timeleft">
-      <Duration seconds={M.Fleet.Mission.secondsLeft(fleet)} />
+      <Duration until={M.Fleet.Mission.timeLeftIn(fleet)} />
     </div>
 
     <FleetShipList shipIds={M.Fleet.shipIdsIn(fleet)}
