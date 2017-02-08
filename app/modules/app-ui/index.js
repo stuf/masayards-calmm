@@ -31,7 +31,7 @@ const AppUIContent = ({ atom }: *) =>
     <div style={{ marginTop: '40px', height: '495px' }}>
       <div className="ui grid">
         <div className="twelve wide column">
-          {/* <Game atom={atom} />*/}
+          <Game atom={atom} />
         </div>
         <div className="four wide column">
           <Sidebar atom={atom} />
