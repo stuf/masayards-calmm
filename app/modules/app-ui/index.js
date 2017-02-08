@@ -4,7 +4,6 @@
  *  Provide an entry point component for the main UI in the application.
  *
  * @flow
- * @todo Look into replacing classes with stateless components (we have our state atom)
  */
 import React from 'karet';
 
@@ -32,7 +31,7 @@ const AppUIContent = ({ atom }: *) =>
     <div style={{ marginTop: '40px', height: '495px' }}>
       <div className="ui grid">
         <div className="twelve wide column">
-          <Game atom={atom} />
+          {/* <Game atom={atom} />*/}
         </div>
         <div className="four wide column">
           <Sidebar atom={atom} />
@@ -40,7 +39,7 @@ const AppUIContent = ({ atom }: *) =>
       </div>
     </div>
 
-    <MainView atom={M.Views.gameStateIn(atom)} />
+    <MainView state={M.Views.gameStateIn(atom)} />
 
     <StatusBar atom={atom} className="ui bottom fixed inverted menu" style={{ ...draggableStyles }} />
   </div>;

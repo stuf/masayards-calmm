@@ -8,8 +8,7 @@ import Atom from 'kefir.atom';
 import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 
-import * as C from '../../../app/modules/app-ui/controls';
-import * as M from '../../../app/modules/app-ui/meta';
+import * as C from '../../../app/modules/app-ui/components/game';
 import stateData from '../../state.json';
 
 function setup() {
