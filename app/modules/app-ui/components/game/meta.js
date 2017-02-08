@@ -1,4 +1,5 @@
-import K, * as U from 'karet.util';
+/* eslint-disable no-underscore-dangle */
+import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 import * as R from 'ramda';
 import Kefir from 'kefir';
@@ -15,11 +16,12 @@ export const Mission = {
 
 export const Fleet = {
   Mission: {
+    timeLeftIn: U.view(['mission', 'completionTime', L.define(0)]),
     stateIn: fleet =>
       Mission.mapState(U.view(['mission', L.define({}), 'state', L.define(0)], fleet)),
-    timeLeftIn: fleet =>
-      K(interval(500), U.view(['mission', 'completionTime'], fleet),
-        (i, t) => U.clamp(0, Infinity, t - +(new Date())))
+    secondsLeft: fleet =>
+      U.seq(Fleet.Mission.timeLeftIn(fleet),
+        s => interval(500).map(() => U.clamp(0, Infinity, (s - +(new Date())))))
   },
   findShipBy: id => L.find(R.whereEq({ id })),
   shipIdsIn: U.view(['shipIds', L.define([])])

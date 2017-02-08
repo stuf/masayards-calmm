@@ -27,7 +27,7 @@ export const WebView = ({ atom }: *) => {
     plugins: true,
     partition: 'persist:masayards',
     src: 'http://www.dmm.com/netgame/social/-/gadgets/=/app_id=854854/',
-    style: { height: '480px', width: '800px', border: 'solid 1px #f00' }
+    style: { height: '480px', width: '800px' }
   };
 
   return <webview {...props} />;
