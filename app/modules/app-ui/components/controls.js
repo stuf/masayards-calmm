@@ -10,17 +10,19 @@ import * as U from 'karet.util';
 import * as R from 'ramda';
 import Kefir from 'kefir';
 
-const interval = t => Kefir.interval(t).toProperty(R.identity);
-const timeDelta = t => t - +(new Date());
+const tick = (t: number) => Kefir.interval(t).toProperty(R.identity);
+const timeDelta = (t: number): number => t - +(new Date());
 
 export const KeyValueLabel = ({ key, value, ...props }: *) =>
   <div {...props}>{key}: {value}</div>;
 
-export const Duration = ({ until, recalcInterval = 500 }: *) =>
-  <div>
-    {interval(1000).map(() =>
+export const Duration = ({ until, interval = 1000, prefix, suffix, ...props }: *) =>
+  <div {...props}>
+    {prefix}
+    {tick(interval).map(() =>
       U.seq(timeDelta(until),
         U.clamp(0, Infinity),
         U.divide(U.__, 1000),
         U.floor))} seconds left
+    {suffix}
   </div>;
