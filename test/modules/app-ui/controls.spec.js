@@ -6,4 +6,4 @@ import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 
 import { setup, render } from '../setup';
-import * as C from '../../../app/modules/app-ui/components/index';
+import * as C from '../../../app/modules/app-ui/components';
