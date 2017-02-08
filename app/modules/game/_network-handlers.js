@@ -72,10 +72,12 @@ const loadingFinished = ({ handlerState, contents, requestId }: *) => {
       console.group(path);
       console.time('Time spent (inner)');
 
-      const ts = +(new Date());
-      const body = M.Network.getBody(result);
-      const postBody = M.Network.getPostBody(req);
-      const data = { path, ts, body, postBody };
+      const data = {
+        path,
+        ts: +(new Date()),
+        body: M.Network.getBody(result),
+        postBody: M.Network.getPostBody(req)
+      };
 
       console.timeEnd('Time spent (inner)');
       console.log('data =', data);
