@@ -35,11 +35,3 @@ export const Network = {
 export const Views = {
   gameIn: U.view('game')
 };
-
-// export const Webview = {
-//  observerViewIn: U.view(L.pick({
-//    state: 'state',
-//    latest: ['api', 'latest'],
-//    requests: ['api', 'requests']
-//  }))
-// };

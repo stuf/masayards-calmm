@@ -2,7 +2,6 @@
 // @flow
 import React from 'karet';
 import * as U from 'karet.util';
-import moment from 'moment';
 
 import * as M from './meta';
 import { Duration } from '../controls';

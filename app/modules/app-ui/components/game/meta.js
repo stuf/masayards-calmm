@@ -20,10 +20,7 @@ export const Fleet = {
   Mission: {
     timeLeftIn: U.view(['mission', 'completionTime', L.define(0)]),
     stateIn: fleet =>
-      Mission.mapState(U.view(['mission', L.define({}), 'state', L.define(0)], fleet)),
-    secondsLeftIn: fleet =>
-      U.seq(Fleet.Mission.timeLeftIn(fleet),
-        s => interval(500).map(() => U.clamp(0, Infinity, timeDelta(s))))
+      Mission.mapState(U.view(['mission', L.define({}), 'state', L.define(0)], fleet))
   },
   findShipBy: id => L.find(R.whereEq({ id })),
   shipIdsIn: U.view(['shipIds', L.define([])])
