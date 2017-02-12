@@ -33,13 +33,9 @@ export type Schema = {
      */
     status: string | GameStatus,
     /**
-     * Holds a `ClientRect` for the location of the game's webview element
+     * Holds a reference to the game's `webview`
      */
-    gameView?: {
-      viewRect?: ClientRect,
-      webview?: *
-    },
-    gameWebviewRect?: ClientRect,
+    webview: *,
     config: {
       muteAudio: boolean
     },
@@ -70,27 +66,37 @@ export type Schema = {
          */
         mode: GameMode
       },
-      baseData: {
-        ships: *,
-        equipment: *
+      lookup: {
+        ships: {
+          base: {},
+          player: {}
+        },
+        equipment: {
+          base: {},
+          player: {}
+        }
       },
       /**
        * Player profile
        */
       player: *,
-      ships?: *,
-      fleets?: *,
-      equipment?: *,
+      ships?: {
+        base?: {},
+        player?: {}
+      },
+      fleets?: {},
+      equipment?: {
+        base?: {},
+        player?: {}
+      },
       resources?: *,
-      constructionDocks?: *,
-      repairDocks?: *
+      constructionDocks?: {},
+      repairDocks?: {}
     }
   },
   application: {
     networkStatus: string | NetworkState,
-    titleText?: string,
-    debuggerAttached: boolean,
-    firstGameLoad: boolean
+    titleText?: string
   },
   config: {
     gameUrl: string
@@ -103,7 +109,7 @@ export type Schema = {
 const schema = {
   game: {
     status: 'disconnected',
-    gameView: {},
+    webview: {},
     config: {
       muteAudio: true
     },
@@ -135,9 +141,7 @@ const schema = {
   },
   /** Application-specific state */
   application: {
-    network: 'offline',
-    debuggerAttached: false,
-    firstGameLoad: true
+    network: 'offline'
   },
   /** Application configuration */
   config: {

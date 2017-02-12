@@ -8,14 +8,13 @@
  *  with the rest of the "back-end" stuff will be relocated to reside outside of the
  *  UI itself.
  *
- *  See `modules/app-ui` for the application front-end.
+ *   - See `modules/app-ui` for the application front-end.
+ *   - See `modules/game` for embedding the game and data hooks
  *
  * @flow
  */
 import { ipcRenderer } from 'electron';
 import React from 'karet';
-import Atom from 'kefir.atom';
-import Storage from 'atom.storage';
 import * as L from 'partial.lenses';
 import K, * as U from 'karet.util';
 import * as R from 'ramda';
@@ -25,22 +24,8 @@ import cx from 'classnames';
 import css from './styles.css';
 
 import * as M from './meta';
-import initialState from './initial-state';
+import state from './_storage';
 import AppUI from '../app-ui';
-
-/**
- * Define main storage where to persist our data into.
- */
-const stateStorage = Storage({
-  key: 'masayards:state',
-  value: initialState,
-  Atom,
-  storage: localStorage,
-  debounce: 5000,
-  time: 30 * 60 * 1000
-});
-
-const state = stateStorage;
 
 if (process.env.NODE_ENV === 'development') {
   window.state = state;
