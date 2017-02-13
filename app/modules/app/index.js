@@ -18,7 +18,6 @@ import React from 'karet';
 import * as L from 'partial.lenses';
 import K, * as U from 'karet.util';
 import * as R from 'ramda';
-import * as S from 'sanctuary';
 import cx from 'classnames';
 
 import css from './styles.css';
@@ -29,13 +28,10 @@ import AppUI from '../app-ui';
 
 if (process.env.NODE_ENV === 'development') {
   window.state = state;
-  // noinspection JSAnnotator
   window.L = L;
-  // noinspection JSAnnotator
   window.U = U;
   window.R = R;
   window.K = K;
-  window.S = S;
 }
 
 // Ensure any state that should be clean at startup is just that

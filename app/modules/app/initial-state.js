@@ -122,18 +122,22 @@ const schema = {
       game: {
         mode: 'idle'
       },
+      ships: {
+        base: {},
+        player: {}
+      },
+      equipment: {
+        base: {},
+        player: {}
+      },
       player: {},
-      ships: [],
-      fleets: [],
-      equipment: [],
-      resources: [],
-      constructionDocks: [],
-      repairDocks: [],
-      questList: [],
+      fleets: {},
+      resources: {},
+      constructionDocks: {},
+      repairDocks: {},
+      questList: {},
       questState: {},
       baseData: {
-        ships: [],
-        equipment: [],
         mapAreas: [],
         mapInfo: []
       }

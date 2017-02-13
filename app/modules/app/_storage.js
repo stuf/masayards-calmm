@@ -1,4 +1,3 @@
-// @flow
 import Atom from 'kefir.atom';
 import Storage from 'atom.storage';
 import initialState from './initial-state';
