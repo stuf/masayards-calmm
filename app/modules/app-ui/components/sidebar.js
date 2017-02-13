@@ -33,6 +33,7 @@ export default ({
             <div className="content">
               <div className="ui middle aligned divided relaxed list" style={{ margin: 0, padding: '0.25rem' }}>
                 {U.seq(resourcesIn(atom),
+                  U.values,
                   U.map(r => <Resource type={r.type} value={r.value} />))}
               </div>
             </div>

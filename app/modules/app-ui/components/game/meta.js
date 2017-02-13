@@ -1,12 +1,7 @@
 /* eslint-disable no-underscore-dangle */
-import * as U from 'karet.util';
+import K, * as U from 'karet.util';
 import * as L from 'partial.lenses';
 import * as R from 'ramda';
-import Kefir from 'kefir';
-
-export const interval = t => Kefir.interval(t).toProperty(R.identity);
-
-export const timeDelta = t => t - +(new Date());
 
 export const Mission = {
   mapState: U.cond([
@@ -27,6 +22,15 @@ export const Fleet = {
 };
 
 export const Ship = {
+  concat: {
+    empty: s => s,
+    concat: (s1, s2) => ({ ...s1, ...s2 })
+  },
   idIn: U.view('id'),
-  hpIn: U.view(['hp', L.define([0, 0])])
+  hpIn: U.view(['hp', L.define([0, 0])]),
+  in: id => U.view(['ships', `${id}`]) // @todo Isos ftw?
+};
+
+export const BaseShip = {
+  in: id => U.view(['baseData', 'ships', `${id}`])
 };

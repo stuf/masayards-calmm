@@ -11,6 +11,7 @@ import Game from '../game';
 import Sidebar from './components/sidebar';
 import MainView from './components/main-view';
 import StatusBar from './components/status-bar';
+import TopMenu from './components/top-menu';
 import * as M from './meta';
 
 const draggableStyles = {
@@ -23,9 +24,7 @@ const AppUIContent = ({ atom }: *) =>
     <div className="ui top fixed inverted menu"
          style={{ ...draggableStyles, paddingLeft: '60px' }}>
       <div className="header item">Masayards Calmm</div>
-      <div className="right menu">
-        <a href="#gotohere" className="item">Settings</a>
-      </div>
+      <TopMenu className="right menu" />
     </div>
 
     <div style={{ marginTop: '40px', height: '495px' }}>

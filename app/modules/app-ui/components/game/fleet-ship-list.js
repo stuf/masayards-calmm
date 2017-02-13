@@ -7,7 +7,9 @@ import Ship from './ship';
 
 export default ({ shipIds, ships, className }: *) =>
   <div className={U.join(' ', [className])}>
-    {U.seq(shipIds,
-      U.map(id =>
-        <Ship key={id} ship={U.view(M.Fleet.findShipBy(id), ships)} />))}
+    {/*{U.seq(ships,*/}
+      {/*U.map(s =>*/}
+        {/*<Ship key={s.id}*/}
+              {/*ship={s}*/}
+              {/*className="item" />))}*/}
   </div>;
