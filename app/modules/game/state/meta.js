@@ -1,14 +1,36 @@
+/* eslint-disable no-confusing-arrow */
 // @flow
 import * as L from 'partial.lenses';
 import * as R from 'ramda';
+import * as U from 'karet.util';
 
 import * as T from './_templates';
 
 const pickIn = R.curryN(2, (template: *, root: *) => [root, L.elems, L.pick(template)]);
 
+const lookupIn = ['lookup', L.define({})];
+const baseDataLookupIn = [lookupIn, 'baseData', L.required({})];
+
+const lookupKindIn = U.curry((t, p) => [p, L.define({}), t]);
+
+export const Lookups = {
+  BaseData: {
+    ships: lookupKindIn('base', 'ships'),
+    equipment: lookupKindIn('base', 'equipment')
+  },
+  PlayerData: {
+    ships: lookupKindIn('player', 'ships'),
+    equipment: lookupKindIn('player', 'equipment')
+  }
+};
+
 export const Master = {
-  Ships: { in: pickIn(T.baseShip) },
-  Equipment: { in: pickIn(T.equipment) }
+  Ships: {
+    in: pickIn(T.baseShip)
+  },
+  Equipment: {
+    in: pickIn(T.equipment)
+  }
 };
 
 export const Player = {
@@ -24,8 +46,19 @@ export const Quests = {
   listIn: (root: *) => [root, L.pick(T.quest)]
 };
 
-export const Ships = { in: pickIn(T.ship) };
+export const Ships = {
+  in: pickIn(T.ship)
+};
 
 export const Equipment = { in: pickIn(T.equipment) };
 
 export const Fleets = { in: pickIn(T.fleet) };
+
+export const StateData = {
+  '/api_port/port': L.pick({
+    player: 'player',
+    resources: 'resources',
+    fleets: 'fleets',
+    ships: ['ships', 'player']
+  })
+};
