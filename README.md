@@ -5,45 +5,29 @@
 
 # Masayards (Calmm)
 
-This is an attempt at creating a Kancolle viewer client by using the [Calmm.js](https://github.com/calmm-js/documentation) philosophy.
+A Kancolle (艦隊これくしょん) viewer client created with [Electron](https://electron.atom.io) and [Calmm](https://github.com/calmm-js).
 
 ![Screenshot](assets/screenshot-v2.png)
 
-I believe this is a fitting and maybe a little bit unusual of a test case for creating an Electron-based application. There's a whole lot of data that comes from a pretty inconsistent API, so being able to use partial lenses for ensuring that the data is normalized into something usable.
+I believe this is a fitting and maybe a little bit unusual of a test case for creating an Electron-based application. There's a whole lot of data that comes from a pretty inconsistent API. Joy!
 
-## Highlights
+## Development
 
-### Game API handling
+Check out the [`docs`][documentation] folder for documentation on the application, API reference, how the API life cycle is handled, how the UI is structured and more.
 
-Game API data handling is done in [`game/state/index.js`][game state handler], which will look up the handler action to be called, based on the API path.
+[documentation]: docs/
 
- * The API data is transformed through defining [a set of templates][API data templates] and some common [functions for normalizing the data][API data normalizers], used in conjunction with [`partial.lenses`][partial.lenses]. Most, if not all, transformation of the received API data is done through these.
+### Requirements
 
-[game state handler]: app/modules/game/state/index.js
-[API data templates]: app/modules/game/state/_templates.js
-[API data normalizers]: app/modules/game/state/_normalizers.js
-[partial.lenses]: https://github.com/calmm-js/partial.lenses
+ * [`yarn`][yarnpkg]
+
+[yarnpkg]: https://yarnpkg.com
+
+```
+yarn install && yarn run dev
+```
 
 ---
-
-## Plans / roadmap
-
-Important problems to tackle:
-
- * Improve handling of data to conform to the initial state spec
-   * `L.define` and `L.required` to the rescure, FYI
- * Clean up network event handling code
- * Migrate out of using (S)CSS modules
- * Figure out how to manage and contain effectful UI actions (take a screenshot, muting game audio, export data, etc.)
-
-Some less important things also include:
-
- * Stop using (S)CSS modules for styles
- * Create a base set of UI styles for use
- * UI customization
- * Configuration views
-
-The things under "_less important_" aren't necessary critical for making a functional application, but which will be the "sprinkle on top".
 
 If you have input on these things, [hit me up on Twitter][@piparkaq] or [create an issue][issues] of your thoughts.
 
@@ -55,7 +39,9 @@ If you have input on these things, [hit me up on Twitter][@piparkaq] or [create 
 ## Known issues
 
  * **OSX** - placing the main window in a screen with a different pixel density may cause blurriness in the game.
+ * Packaging the app does not include the `PepperFlashPlugin` required for the app function correctly (used in the `webview`), which results in the application terminating right after startup.
 
 ## Acknowledgements
 
- * Thanks to chentsulin's excellent [electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate) for a nice base to build an Electron application on.
+ * [Vesa Karvonen](https://github.com/polytypic) for excellent and insightful input and suggestions on practices.
+ * chentsulin's excellent [electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate) for a nice base to build an Electron application on.

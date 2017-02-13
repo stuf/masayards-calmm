@@ -1,7 +1,7 @@
 {
   "name": "masayards-calmm",
   "productName": "MasayardsCalmm",
-  "version": "0.10.0",
+  "version": "0.3.0",
   "description": "",
   "main": "main.js",
   "scripts": {
