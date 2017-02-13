@@ -5,7 +5,8 @@
  *
  * @flow
  */
-import React from 'karet';
+import React, { fromKefir } from 'karet';
+import { ift } from 'karet.util';
 
 import Game from '../game';
 import Sidebar from './components/sidebar';
@@ -19,6 +20,8 @@ const draggableStyles = {
   WebkitUserSelect: 'none'
 };
 
+const displayWebview = !(process.env.NODE_ENV === 'development' && process.env.MY_HIDE_GAME_WEBVIEW === '1');
+
 const AppUIContent = ({ atom }: *) =>
   <div className="ui content">
     <div className="ui top fixed inverted menu"
@@ -30,7 +33,7 @@ const AppUIContent = ({ atom }: *) =>
     <div style={{ marginTop: '40px', height: '495px' }}>
       <div className="ui grid">
         <div className="twelve wide column">
-          <Game atom={atom} />
+          {ift(displayWebview, <Game atom={atom} />)}
         </div>
         <div className="four wide column">
           <Sidebar atom={atom} />
