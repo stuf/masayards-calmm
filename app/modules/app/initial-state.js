@@ -67,14 +67,8 @@ export type Schema = {
         mode: GameMode
       },
       lookup: {
-        ships: {
-          base: {},
-          player: {}
-        },
-        equipment: {
-          base: {},
-          player: {}
-        }
+        ships: {},
+        equipment: {}
       },
       /**
        * Player profile
