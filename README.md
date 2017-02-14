@@ -29,7 +29,7 @@ yarn install && yarn run dev
 
 ---
 
-If you have input on these things, [hit me up on Twitter][@piparkaq] or [create an issue][issues] of your thoughts.
+Ideas? Suggestions? Pictures of cats? [Hit me up on Twitter][@piparkaq] or [create an issue][issues] of your thoughts.
 
 [@piparkaq]: https://twitter.com/piparkaq
 [issues]: issues/
