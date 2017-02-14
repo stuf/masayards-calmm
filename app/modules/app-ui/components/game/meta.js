@@ -11,24 +11,56 @@ export const Mission = {
   ])
 };
 
+// Fleets
+
+const fleetViewFor = id => ({
+  lookup: 'lookup',
+  ships: 'ships',
+  fleet: ['fleets', id]
+});
+
 export const Fleet = {
   Mission: {
     timeLeftIn: U.view(['mission', 'completionTime', L.define(0)]),
     stateIn: fleet =>
       Mission.mapState(U.view(['mission', L.define({}), 'state', L.define(0)], fleet))
   },
+  /**
+   * @deprecated
+   */
   findShipBy: id => L.find(R.whereEq({ id })),
-  shipIdsIn: U.view(['shipIds', L.define([])])
+
+
+  // Views for displaying fleet entities
+
+  idIn: U.view('id'),
+  entitiesIn: U.view('fleets'),
+  // Subview for a single fleet
+  viewIn: U.curryN(2, (k, atom) => U.view(L.pick(fleetViewFor(`${k}`)), atom)),
+  keyIn: U.view('nameId'),
+  shipIdsIn: U.view(['fleet', 'shipIds', L.define([])])
 };
 
+// Ships
+
 export const Ship = {
-  concat: {
-    empty: s => s,
-    concat: (s1, s2) => ({ ...s1, ...s2 })
-  },
-  idIn: U.view('id'),
-  hpIn: U.view(['hp', L.define([0, 0])]),
-  in: id => U.view(['ships', `${id}`]) // @todo Isos ftw?
+  idIn: U.view(['player', 'id']),
+  hpIn: U.view(['player', 'hp', L.define([0, 0])]),
+  in: id => U.view(['ships', `${id}`]), // @todo Isos ftw?
+
+  combView: L.pick({
+    lookup: ['lookup', 'ships'],
+    player: ['ships', 'player'],
+    base: ['ships', 'base']
+  }),
+  combChooseL: id => L.choose(x => {
+    const baseId = L.get(['lookup', `${id}`], x);
+    return L.pick({
+      base: ['base', `${baseId}`],
+      player: ['player', `${id}`]
+    });
+  }),
+  getCombined: U.curryN(2, (state, id) => U.view([Ship.combView, Ship.combChooseL(id)], state))
 };
 
 export const BaseShip = {

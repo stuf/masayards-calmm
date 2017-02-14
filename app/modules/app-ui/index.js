@@ -5,8 +5,8 @@
  *
  * @flow
  */
-import React, { fromKefir } from 'karet';
-import { ift } from 'karet.util';
+import React from 'karet';
+import { ift, ifte } from 'karet.util';
 
 import Game from '../game';
 import Sidebar from './components/sidebar';
@@ -33,7 +33,7 @@ const AppUIContent = ({ atom }: *) =>
     <div style={{ marginTop: '40px', height: '495px' }}>
       <div className="ui grid">
         <div className="twelve wide column">
-          {ift(displayWebview, <Game atom={atom} />)}
+          {ift(displayWebview, <Game state={atom} />)}
         </div>
         <div className="four wide column">
           <Sidebar atom={atom} />
@@ -41,7 +41,7 @@ const AppUIContent = ({ atom }: *) =>
       </div>
     </div>
 
-    <MainView state={M.Views.gameStateIn(atom)} />
+    <MainView atom={M.Views.gameStateIn(atom)} />
 
     <StatusBar atom={atom} className="ui bottom fixed inverted menu" style={{ ...draggableStyles }} />
   </div>;
@@ -64,5 +64,5 @@ class AppUI extends React.Component {
 
 export default ({ ...props }: *) =>
   <div>
-    {process.env.NODE_ENV === 'development' ? <AppUI {...props} /> : <AppUIContent {...props} />}
+    {ifte(process.env.NODE_ENV === 'development', <AppUI {...props} />, <AppUIContent {...props} />)}
   </div>;

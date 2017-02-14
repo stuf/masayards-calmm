@@ -1,16 +1,20 @@
 /* eslint-disable no-underscore-dangle */
 // @flow
 import React from 'karet';
-import * as L from 'partial.lenses';
-import K, * as U from 'karet.util';
-import * as R from 'ramda';
+import * as U from 'karet.util';
 
 import * as M from './meta';
 import { Duration } from '../controls';
 import FleetShipList from './fleet-ship-list';
 
-export default ({ fleet, ships, className }: *) =>
-  <article className={className}>
+export default ({
+  view,
+  fleet = U.view('fleet', view),
+  getCombined = M.Ship.getCombined(view),
+  shipIds = M.Fleet.shipIdsIn(view),
+  ...props
+}: *) =>
+  <article {...props}>
     <div className="item">
       <div className="content">
         <div className="name header">{U.view('name', fleet)}</div>
@@ -21,7 +25,6 @@ export default ({ fleet, ships, className }: *) =>
       </div>
     </div>
 
-    <FleetShipList shipIds={M.Fleet.shipIdsIn(fleet)}
-                   ships={ships}
+    <FleetShipList ships={U.map(getCombined, shipIds)}
                    className="ui divided items" />
   </article>;

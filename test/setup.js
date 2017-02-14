@@ -1,3 +1,4 @@
+/* eslint-disable no-multi-assign */
 import { jsdom } from 'jsdom';
 
 global.document = jsdom('<!doctype html><html><body></body></html>');

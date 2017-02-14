@@ -12,12 +12,6 @@ import * as M from './meta';
 
 const idProp = R.prop('id');
 
-// @todo Rewrite me into meta
-const getLUT = (xs, a, b) =>
-  U.seq(xs,
-    R.map(R.props([a, b])),
-    R.fromPairs);
-
 type EventArgs = { path: string, body: *, postBody: * };
 
 /**
@@ -33,8 +27,8 @@ export default {
         ships: ['ships', 'base'],
         equipment: ['equipment', 'base']
       }), {
-        ships: R.indexBy(idProp, L.collect(M.Master.Ships.in('api_mst_ship'), body)),
-        equipment: R.indexBy(idProp, L.collect(M.Master.Equipment.in('api_mst_slotitem'), body)),
+        ships: M.collectWithIndex(M.Master.Ships.in('api_mst_ship'), body),
+        equipment: M.collectWithIndex(M.Master.Equipment.in('api_mst_slotitem'), body)
       })),
 
   /**
@@ -61,18 +55,30 @@ export default {
    */
   '/api_get_member/require_info': ({ path, body }: EventArgs = {}, state: *) => {
     const equipment = L.collect(M.Equipment.in('api_slot_item'), body);
+    const constructionDocks = L.collect(M.Player.ConstructionDocks.in('api_kdock'), body);
 
     state.modify(
       L.set(L.pick({
-        equipment: ['equipment', 'player'],
-        equipmentLUT: ['lookup', 'equipment', 'player'],
-        constructionDocks: 'constructionDocks',
+        equipment: L.pick({
+          entities: ['equipment', 'player'],
+          lookup: ['lookup', 'equipment', 'player'],
+          count: ['count', 'equipment', L.index(0)]
+        }),
+        constructionDocks: L.pick({
+          entities: 'constructionDocks',
+          count: ['count', 'constructionDocks']
+        }),
         items: 'items',
       }), {
-        equipment: R.indexBy(idProp, equipment),
-        equipmentLUT: getLUT(equipment, 'id', 'equipmentId'),
-        constructionDocks: R.indexBy(idProp,
-          L.collect(M.Player.ConstructionDocks.in('api_kdock'), body)),
+        equipment: {
+          entities: R.indexBy(idProp, equipment),
+          lookup: M.getLUT(equipment, 'id', 'equipmentId'),
+          count: R.length(equipment)
+        },
+        constructionDocks: {
+          entities: R.indexBy(idProp, constructionDocks),
+          count: R.length(constructionDocks)
+        },
         items: R.indexBy(idProp, L.collect(M.Player.Items.in('api_useitem'), body)),
       }));
   },
@@ -94,20 +100,42 @@ export default {
    */
   '/api_port/port': ({ path, body }: EventArgs = {}, state: *) => {
     const ships = L.collect(M.Ships.in('api_ship'), body);
+    const player = L.get(M.Player.Profile.in('api_basic'), body);
+    const shipCount = R.pair(R.length(ships), R.prop('maxShips', player));
 
+    // @todo See if this could be rearranged a little bit
+    // Maybe a `.seq` that sets a simpler part of the structure on each step?
     state.modify(
       L.set(L.pick({
         player: 'player',
         resources: 'resources',
         fleets: 'fleets',
-        ships: ['ships', 'player'],
-        shipLUT: ['lookup', 'ships', 'player']
+        ships: L.pick({
+          entities: ['ships', 'player'],
+          lookup: ['lookup', 'ships'],
+          count: ['count', 'ships']
+        }),
+        equipment: L.pick({
+          max: ['count', 'equipment', L.index(1)]
+        }),
+        furniture: L.pick({
+          max: ['count', 'furniture', L.index(1)]
+        })
       }), {
-        player: L.get(M.Player.Profile.in('api_basic'), body),
+        player: R.omit(['maxShips', 'maxEquipment', 'maxFurniture'], player),
         resources: R.indexBy(idProp, L.collect(M.Player.Materials.in('api_material'), body)),
         fleets: R.indexBy(idProp, L.collect(M.Fleets.in('api_deck_port'), body)),
-        ships: R.indexBy(idProp, ships),
-        shipLUT: getLUT(ships, 'id', 'shipId')
+        ships: {
+          entities: R.indexBy(idProp, ships),
+          lookup: M.getLUT(ships, 'id', 'shipId'),
+          count: shipCount
+        },
+        equipment: {
+          max: R.prop('maxEquipment', player)
+        },
+        furniture: {
+          max: R.prop('maxFurniture', player)
+        }
       }));
   }
 };

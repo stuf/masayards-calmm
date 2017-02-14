@@ -1,4 +1,5 @@
 // @flow
+import { Map } from 'immutable';
 import * as R from 'ramda';
 import Kefir from 'kefir';
 
@@ -18,37 +19,53 @@ type Fn3 = (a: *, b: *, c: *) => *;
 type Fn4 = (a: *, b: *, c: *, d: *) => *;
 type Fn5 = (a: *, b: *, c: *, d: *, e: *) => *;
 
+type CurriedFn2 =
+  | Fn2
+  | (a: *) => Fn1;
+
+type CurriedFn3 =
+  | Fn3
+  | (a: *) => CurriedFn2
+  | (a: *, b: *) => Fn1;
+
+type CurriedFn4 =
+  | Fn4
+  | (a: *) => CurriedFn3
+  | (a: *, b: *) => CurriedFn2
+  | (a: *, b: *, c: *) => Fn1;
+
 type CurriedFn5 =
   | Fn5
-  | (a: *) => Fn4
-  | (a: *, b: *) => Fn3
-  | (a: *, b: *, c: *) => Fn2
+  | (a: *) => CurriedFn4
+  | (a: *, b: *) => CurriedFn3
+  | (a: *, b: *, c: *) => CurriedFn2
   | (a: *, b: *, c: *, d: *) => Fn1;
 
 /**
  * Network event message handler
  * @todo Rethink in case debugger effect handling could be done in some other way
  */
-export const messageHandler: CurriedFn5 = R.curry((atom: *, contents: *, event: *, method: string, params: CovariantObject<string, *>) => {
-  const fn = getHandler(method);
-  const requestId = params.requestId;
+export const messageHandler: CurriedFn5 =
+  R.curry((atom: *, contents: *, event: *, method: string, params: CovariantObject<string, *>) => {
+    const fn = getHandler(method);
+    const requestId = params.requestId;
 
-  if (!fn) {
-    return;
-  }
+    if (!fn) {
+      return;
+    }
 
-  fn({ handlerState: atom, contents, requestId, event, method, params });
-});
+    fn({ handlerState: atom, contents, requestId, event, method, params });
+  });
 
 // Network event handler
 
 /**
  * Network event handler state
  */
-const handlerState = {
+let handlerState = Map({
   debuggerAttached: false,
   firstGameLoad: true
-};
+});
 
 export const eventHandler = (atom: *) => (e: *) => {
   const { view, contents, session, webRequest } = M.Events.getEventObjects(e);
@@ -58,19 +75,19 @@ export const eventHandler = (atom: *) => (e: *) => {
 
   contents.on('dom-ready', () => contents.insertCSS(styles.join('')));
 
-  if (!handlerState.debuggerAttached) {
+  if (!handlerState.get('debuggerAttached')) {
     contents.debugger.attach(debuggerProtocol);
-    handlerState.debuggerAttached = true;
+    handlerState = handlerState.set('debuggerAttached', true);
 
     contents.debugger.on('message', messageHandler(atom, contents));
   }
 
-  if (handlerState.firstGameLoad) {
+  if (handlerState.get('firstGameLoad')) {
     webRequest.onBeforeRequest((details, cb) => {
       if (R.test(gameUrlRegex, details.url)) {
         console.log('Inject cookies into webview contents.');
         contents.executeJavaScript(cookies.join('\n'));
-        handlerState.firstGameLoad = false;
+        handlerState = handlerState.set('firstGameLoad', false);
       }
 
       cb(details);
