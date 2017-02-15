@@ -4,7 +4,11 @@ import cx from 'classnames';
 
 import css from './title-bar.css';
 
-export default ({ text = 'Masayards Calmm' }: *) =>
+type Props = {
+  text: string
+};
+
+export default ({ text = 'Masayards Calmm' }: Props) =>
   <header className={cx(css.titleBar)}>
     <div className={cx(css.controls, 'btn-toolbar')}>
       <button className="ui tiny inverted button">Screenshot</button>

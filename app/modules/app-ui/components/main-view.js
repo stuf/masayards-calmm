@@ -5,9 +5,11 @@ import * as U from 'karet.util';
 import Fleet from './game/fleet';
 import { Fleet as FleetM } from './game/meta';
 
-const idIn = U.view('id');
+type Props = {
+  atom: * // Game state
+};
 
-export default ({ atom }: *) =>
+export default ({ atom }: Props) =>
   <div style={{ padding: '0 0.5rem' }}>
     <div className="ui top attached segment">
       <div className="ui four column grid">

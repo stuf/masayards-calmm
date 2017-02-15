@@ -45,15 +45,4 @@ const AppStateless = () =>
     <AppUI atom={state} />
   </div>;
 
-// We'll have to use a stateful React component in case we're in `NODE_ENV === 'development'`,
-// otherwise stateless components are just fine.
-class AppStateful extends React.Component {
-  render() {
-    return <AppStateless />;
-  }
-}
-
-const AppComponent = process.env.NODE_ENV === 'development' ? AppStateful : AppStateless;
-
-export default AppComponent;
-
+export default AppStateless;

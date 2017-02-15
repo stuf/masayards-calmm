@@ -35,15 +35,16 @@ const pluginPath = path.resolve(libPath, 'PepperFlashPlayer.plugin');
 const plistPath = path.resolve(pluginPath, 'Contents', 'Info.plist');
 if (!fs.existsSync(pluginPath)) {
   logger.error('Could not find the Pepper Flash Player plugin.');
-  process.exit(17);
+  // process.exit(17);
 }
-
-logger.info('Pepper Flash Player plugin found. Adding command-line switches.');
-logger.info('Figuring out Pepper Flash Player version');
-const { CFBundleVersion } = plist.parse(fs.readFileSync(plistPath, 'utf8'));
-logger.info(`Plugin version is ${CFBundleVersion}`);
-app.commandLine.appendSwitch('ppapi-flash-path', pluginPath);
-app.commandLine.appendSwitch('ppapi-flash-version', CFBundleVersion);
+else {
+  logger.info('Pepper Flash Player plugin found. Adding command-line switches.');
+  logger.info('Figuring out Pepper Flash Player version');
+  const { CFBundleVersion } = plist.parse(fs.readFileSync(plistPath, 'utf8'));
+  logger.info(`Plugin version is ${CFBundleVersion}`);
+  app.commandLine.appendSwitch('ppapi-flash-path', pluginPath);
+  app.commandLine.appendSwitch('ppapi-flash-version', CFBundleVersion);
+}
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support'); // eslint-disable-line
@@ -121,7 +122,7 @@ app.on('ready', async () => {
   mainWindow = new BrowserWindow({
     show: false,
     width: 1050,
-    height: 800,
+    height: 970,
     titleBarStyle: 'hidden-inset'
   });
 

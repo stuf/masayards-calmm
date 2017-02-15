@@ -4,7 +4,12 @@ import * as U from 'karet.util';
 
 import * as M from './meta';
 
-export default ({ atom, state = M.stateIn(atom), ...props }: *) =>
+type Props = {
+  atom: *,
+  state?: *
+};
+
+export default ({ atom, state = M.stateIn(atom), ...props }: Props) =>
   <div {...props}>
     <div className="item header">{U.view(['player', 'name'], state)}</div>
     <div className="item">Level: {U.view(['player', 'level'], state)}</div>

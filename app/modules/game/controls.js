@@ -6,7 +6,11 @@ import * as M from './meta';
 import { eventHandler } from './_event-handlers';
 import { initializeObserver } from './_game-state';
 
-export const WebView = ({ atom }: *) => {
+type WebViewProps = {
+  atom: *
+};
+
+export const WebView = ({ atom }: WebViewProps) => {
   function ref(didMount) {
     let observer;
 

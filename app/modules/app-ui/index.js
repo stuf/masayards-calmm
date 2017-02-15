@@ -22,18 +22,22 @@ const draggableStyles = {
 
 const displayWebview = !(process.env.NODE_ENV === 'development' && process.env.MY_HIDE_GAME_WEBVIEW === '1');
 
-const AppUIContent = ({ atom }: *) =>
+type Props = {
+  atom: *
+};
+
+const AppUIContent = ({ atom }: Props) =>
   <div className="ui content">
     <div className="ui top fixed inverted menu"
          style={{ ...draggableStyles, paddingLeft: '60px' }}>
       <div className="header item">Masayards Calmm</div>
-      <TopMenu className="right menu" />
+      <TopMenu atom={atom} className="right menu" />
     </div>
 
     <div style={{ marginTop: '40px', height: '495px' }}>
       <div className="ui grid">
         <div className="twelve wide column">
-          {ift(displayWebview, <Game state={atom} />)}
+          {ift(displayWebview, <Game atom={atom} />)}
         </div>
         <div className="four wide column">
           <Sidebar atom={atom} />

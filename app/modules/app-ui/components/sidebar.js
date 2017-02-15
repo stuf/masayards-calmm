@@ -5,7 +5,12 @@ import * as L from 'partial.lenses';
 
 const resourcesIn = U.view(['game', 'state', 'resources', L.slice(0, 4)]);
 
-const Resource = ({ type, value }: { type: string, value: number }) =>
+type ResourceProps = {
+  type: string,
+  value: number
+};
+
+const Resource = ({ type, value }: ResourceProps) =>
   <div className="item">
     <div className="ui right floated label">
       {value}
@@ -18,10 +23,12 @@ const SidebarStyle = {
   overflow: 'scroll'
 };
 
-export default ({
-  atom,
-  state = U.view(['game', 'state'], atom)
-}: *) =>
+type Props = {
+  atom: *,
+  state?: *
+};
+
+export default ({ atom, state = U.view(['game', 'state'], atom) }: Props) =>
   <div>
     <aside className="ui grid" style={SidebarStyle}>
       <div className="row">

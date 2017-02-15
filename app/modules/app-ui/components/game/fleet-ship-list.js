@@ -5,7 +5,11 @@ import * as U from 'karet.util';
 import * as M from './meta';
 import Ship from './ship';
 
-export default ({ ships, ...props }: *) =>
+type Props = {
+  ships: *
+};
+
+export default ({ ships, ...props }: Props) =>
   <div {...props}>
     {U.seq(ships,
       U.map(s =>
