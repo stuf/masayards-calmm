@@ -61,6 +61,7 @@ export const Equipment = { in: pickIn(T.equipment) };
 
 export const Fleets = { in: pickIn(T.fleet) };
 
+// @todo Redundant?
 export const StateData = {
   '/api_port/port': L.pick({
     player: 'player',

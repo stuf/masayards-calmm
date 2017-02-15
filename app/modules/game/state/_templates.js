@@ -154,7 +154,7 @@ export const fleet = {
   nameId: 'api_name_id',
   mission: ['api_mission', L.normalize(N.Expeditions.normalizer)],
   flagship: 'api_flagship',
-  shipIds: ['api_ship', L.filter(x => x !== -1)]
+  shipIds: ['api_ship', L.filter(id => id !== -1)]
 };
 
 export const fleets = [L.elems, L.pick(fleet)];

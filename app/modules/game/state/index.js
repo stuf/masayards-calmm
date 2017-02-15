@@ -9,15 +9,24 @@ import * as L from 'partial.lenses';
 import * as R from 'ramda';
 
 import * as M from './meta';
+import * as T from './_templates';
 
 const idProp = R.prop('id');
 
+const lenses = {
+  fleets: 'fleets',
+  fleet: id => ['fleets', `${id}`]
+};
+
 type EventArgs = { path: string, body: *, postBody: * };
 
-/**
- * Event handler map
- */
-export default {
+type EventFn = (args: EventArgs, state: *) => void;
+
+type EventHandlers = { [path: string]: EventFn };
+
+// Event handler map
+
+const handlers: EventHandlers = {
   /**
    * Gets the initial game data on start
    */
@@ -34,20 +43,31 @@ export default {
   /**
    * Gets the new state of the player fleets
    */
-  '/api_get_member/deck': ({ path, body }: EventArgs = {}, state: *) =>
-    state.modify(
-      L.set('fleets',
-        R.indexBy(idProp, L.collect(M.Fleets.in(L.identity), body)))),
+  '/api_get_member/deck': ({ path, body }: EventArgs = {}, state: *) => {
+    const fleets = L.collect(T.fleets, body);
+
+    state.modify(L.set('fleets', R.indexBy(idProp, fleets)));
+  },
+
+  /**
+   * Load fleet preset
+   */
+  '/api_req_hensei/preset_select': ({ path, body }: EventArgs = {}, state: *) => {
+    const fleet = L.get(L.pick(T.fleet), body);
+
+    state.modify(L.set(lenses.fleet(fleet.id), fleet));
+  },
 
   /**
    * Gets the ship decks' statuses that are participating in the sortie
    */
   '/api_get_member/ship_deck': ({ path, body }: EventArgs = {}, state: *) => state,
 
-  '/api_get_member/material': ({ path, body }: EventArgs = {}, state: *) =>
+  '/api_get_member/material': ({ path, body }: EventArgs = {}, state: *) => {
     state.modify(
       L.set('resources',
-        L.collect(M.Player.Materials.in(L.identity), body))),
+        L.collect(M.Player.Materials.in(L.identity), body)));
+  },
 
   /**
    * Gets the basic state of the player's "consumables"; construction docks,
@@ -139,3 +159,5 @@ export default {
       }));
   }
 };
+
+export default handlers;
