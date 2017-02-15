@@ -6,10 +6,11 @@ import * as R from 'ramda';
 import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 
-import { Fleet, Ship } from '../../../app/modules/app-ui/components/game/index';
+import { Fleet, Ship, Resource, ResourceList } from '../../../app/modules/app-ui/components/game/index';
 import {
   Fleet as FleetM,
-  Ship as ShipM
+  Ship as ShipM,
+  Resources as ResourcesM
 } from '../../../app/modules/app-ui/components/game/meta';
 import { setup, render } from '../setup';
 

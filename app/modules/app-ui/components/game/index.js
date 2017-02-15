@@ -1,6 +1,8 @@
 import Fleet from './fleet';
 import FleetShipList from './fleet-ship-list';
 import Ship from './ship';
+import Resource from './resource';
+import ResourceList from './resource-list';
 import Meta from './meta';
 
-export { Fleet, FleetShipList, Ship, Meta };
+export { Fleet, FleetShipList, Ship, Meta, Resource, ResourceList };

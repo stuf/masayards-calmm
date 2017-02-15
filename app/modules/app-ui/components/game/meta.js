@@ -20,6 +20,8 @@ const fleetViewFor = id => ({
 });
 
 export const Fleet = {
+  missionStateIn: fleet =>
+    Mission.mapState(U.view(['mission', 'state', L.define(0)], fleet)),
   Mission: {
     timeLeftIn: U.view(['mission', 'completionTime', L.define(0)]),
     stateIn: fleet =>
@@ -34,6 +36,7 @@ export const Fleet = {
   // Views for displaying fleet entities
 
   idIn: U.view('id'),
+  nameIn: U.view('name'),
   entitiesIn: U.view('fleets'),
   // Subview for a single fleet
   viewIn: U.curryN(2, (k, atom) => U.view(L.pick(fleetViewFor(`${k}`)), atom)),
@@ -63,6 +66,9 @@ export const Ship = {
   getCombined: U.curryN(2, (state, id) => U.view([Ship.combView, Ship.combChooseL(id)], state))
 };
 
-export const BaseShip = {
-  in: id => U.view(['baseData', 'ships', `${id}`])
+// Materials / resources
+
+export const Resources = {
+  resourceStateIn: U.view(['resources']),
+  resourcesIn: U.compose(U.values, U.view(['resources']))
 };

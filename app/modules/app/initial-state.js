@@ -83,7 +83,7 @@ export type Schema = {
         base?: {},
         player?: {}
       },
-      resources?: *,
+      resources?: { [id: string]: * },
       constructionDocks?: {},
       repairDocks?: {}
     }
