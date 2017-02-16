@@ -2,7 +2,7 @@
 import React from 'karet';
 import * as U from 'karet.util';
 
-import { Resources as ResourcesM } from './meta';
+// import { Resources as ResourcesM } from './meta';
 
 type Props = {
   view: *

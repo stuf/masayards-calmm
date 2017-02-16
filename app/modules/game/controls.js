@@ -2,7 +2,6 @@
 // @flow
 import React from 'karet';
 
-import * as M from './meta';
 import { eventHandler } from './_event-handlers';
 import { initializeObserver } from './_game-state';
 

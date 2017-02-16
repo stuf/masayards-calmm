@@ -7,7 +7,6 @@
  */
 import React from 'karet';
 import * as U from 'karet.util';
-import * as R from 'ramda';
 import * as M from './meta';
 
 const isTestEnv = process.env.NODE_ENV === 'test';

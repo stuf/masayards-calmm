@@ -1,7 +1,6 @@
 // @flow
 import React from 'karet';
 import * as U from 'karet.util';
-import * as L from 'partial.lenses';
 
 import ResourceList from './game/resource-list';
 import { Resources as ResourcesM } from './game/meta';

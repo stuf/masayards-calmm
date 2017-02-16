@@ -68,7 +68,7 @@ let handlerState = Map({
 });
 
 export const eventHandler = (atom: *) => (e: *) => {
-  const { view, contents, session, webRequest } = M.Events.getEventObjects(e);
+  const { view, contents, /* session,*/ webRequest } = M.Events.getEventObjects(e);
 
   Kefir.fromEvents(view, 'close').observe(() =>
     contents.debugger.sendCommand('Network.disable'));

@@ -1,11 +1,9 @@
 import { expect } from 'chai';
 import React from 'karet';
 
-import * as U from 'karet.util';
 import * as R from 'ramda';
-import * as L from 'partial.lenses';
 
-import { setup, render } from '../setup';
+import { /* setup,*/ render } from '../setup';
 import ProgressBar from '../../../app/modules/app-ui/components/ui/progress-bar';
 
 describe('App UI Components', () => {
