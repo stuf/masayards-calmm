@@ -17,28 +17,39 @@ import { setup, render } from '../setup';
 type Tuple<A, B> = [A, B];
 type TupleList<A, B> = Array<Tuple<A, B>>;
 
-describe('App UI Controls', () => {
+describe('Game UI Components', () => {
+  let state;
+  beforeEach(() => {
+    const s = setup();
+    state = s.state;
+  });
+
   describe('<Ship />', () => {
-    const { state } = setup();
+    const ids: TupleList<number, string> =
+      [
+        [1, '吹雪'],
+        [161, 'Верный']
+      ];
 
     it('should display a Ship component', () => {
-      const ids: TupleList<number, string> =
-        [
-          [1, '吹雪'],
-          [161, 'Верный']
-        ];
-
       const checkContains = ([id, name]) =>
         expect(render(<Ship ship={ShipM.getCombined(state, id)} />).find('.ship .name').text())
           .to.contain(name);
 
       R.forEach(checkContains, ids);
     });
+
+    it('should indicate critical health', () => {
+    });
+
+    it('should indicate morale', () => {
+    });
+
+    it('should indicate low supplies', () => {
+    });
   });
 
   describe('<Fleet />', () => {
-    const { state } = setup();
-
     const fleetWithId = i => FleetM.viewIn(i, state);
 
     it('should contain the correct number of Ships', () => {
@@ -76,4 +87,9 @@ describe('App UI Controls', () => {
       R.forEach(checkEq, states);
     });
   });
+
+  describe('<Resource />', () => {
+  });
+
+  describe('<ResourceList />', () => {});
 });
