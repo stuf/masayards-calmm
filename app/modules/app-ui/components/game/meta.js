@@ -48,7 +48,7 @@ export const Fleet = {
 
 export const Ship = {
   idIn: U.view(['player', 'id']),
-  hpIn: U.view(['player', 'hp', L.define([0, 0])]),
+  healthIn: U.view(['player', 'hp', L.define([0, 0])]),
   in: id => U.view(['ships', `${id}`]), // @todo Isos ftw?
 
   combView: L.pick({
@@ -72,3 +72,5 @@ export const Resources = {
   resourceStateIn: U.view(['resources']),
   resourcesIn: U.compose(U.values, U.view(['resources']))
 };
+
+

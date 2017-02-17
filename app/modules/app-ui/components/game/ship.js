@@ -21,31 +21,27 @@ const moraleIn = U.view(['player', 'morale']);
 
 const getPercent = U.compose(U.floor, U.multiply(100), U.divide);
 
-const getHealthState = p => {
-  switch (getPercent(p)) {
-    case p <= 25:
-      return 'red';
-    case (p > 25 && p <= 50):
-      return 'orange';
-    case (p > 50 && p <= 75):
-      return 'yellow';
-    default:
-      return 'green';
-  }
-};
+const mapHealthState = U.cond([
+  [U.and(U.gt(75), U.lte(100)), U.always('green')],
+  [U.and(U.gt(50), U.lte(75)), U.always('yellow')],
+  [U.and(U.gt(25), U.lte(50)), U.always('orange')],
+  [U.lte(25), U.always('red')],
+]);
+
+const getHealthState = U.compose(mapHealthState, U.apply(getPercent), healthIn);
 
 export default ({ ship, className }: Props) =>
   <article className={U.join(' ', ['ship', className])}
            style={{ padding: '0.5rem 0' }}>
     <div className="middle aligned content">
       <div className="ui left floated circular blue inverted segment"
-           style={{ padding: '1em', marginBottom: 0 }}>
+           style={{ padding: '0.9em', marginBottom: 0, fontSize: '0.6em' }}>
         {levelIn(ship)}
       </div>
       <div className="header name">{nameIn(ship)}</div>
       <div className={cx(getHealthState(healthIn(ship)))}>
-        <ProgressBar value={healthIn(ship)}
-                     text={U.always(lText)} />
+        <ProgressBar value={U.apply(getPercent, healthIn(ship))} text={U.always(lText)}
+                     label="HP" size="tiny" color={getHealthState(ship)} />
       </div>
       <div className="meta">{moraleIn(ship)}</div>
     </div>

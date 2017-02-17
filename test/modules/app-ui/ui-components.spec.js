@@ -19,11 +19,14 @@ describe('App UI Components', () => {
 
     it('should display a minimal progress bar', () => {
       const checkProgress = v => {
+        const [fst, snd] = v;
         const wrapper =
-          render(<ProgressBar value={v} />).find('.bar');
+          render(<ProgressBar value={v} />);
 
-        expect(wrapper.attr('data-progress')).to.equal(`${v[0]}`);
-        expect(wrapper.find('.progress').css('width')).to.equal(`${v[0]}%`);
+        const bar = wrapper.find('.bar');
+
+        expect(bar.attr('data-progress')).to.equal(`${fst}`);
+        expect(bar.css('width')).to.equal(`${fst}%`);
       };
 
       R.forEach(checkProgress, values);
@@ -44,9 +47,9 @@ describe('App UI Components', () => {
     });
 
     it('should display a label for the progress bar', () => {
-      const checkComponent = ([v1, v2]) => {
+      const checkComponent = v => {
         const wrapper =
-          render(<ProgressBar value={[v1, v2]}
+          render(<ProgressBar value={v}
                               showProgress
                               label="Progress bar label" />);
 

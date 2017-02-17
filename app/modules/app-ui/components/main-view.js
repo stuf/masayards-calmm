@@ -16,7 +16,8 @@ export default ({ atom }: Props) =>
         {U.seq(FleetM.entitiesIn(atom),
           U.values,
           U.map(f =>
-            <Fleet key={f.nameId}
+            <Fleet className="column"
+                   key={f.nameId}
                    view={FleetM.viewIn(f.id, atom)} />))}
       </div>
     </div>

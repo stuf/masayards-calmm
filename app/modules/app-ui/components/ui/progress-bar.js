@@ -1,34 +1,39 @@
+/* eslint-disable no-confusing-arrow */
 // @flow
 import React from 'karet';
-import { ift, isNil, compose, divide, multiply, head, last, floor } from 'karet.util';
+import * as U from 'karet.util';
+// import { lift1, always, ift, isNil, compose, divide, multiply, head, last, floor } from 'karet.util';
 
 type Props = {
-  value: [number, number],
+  // value: [number, number],
+  value: *,
   showProgress?: boolean,
+  color?: *,
   label?: string,
-  text?: *
+  size?: 'tiny' | 'small' | 'standard' | 'large' | 'big',
+  text?: *,
+  percent?: *
 };
 
 // Wrap text function invocation to properly fit with optional type of `text`.
 // flow can't into understand `U.ift`, so working around it in this case like this,
 // while preserving static typing.
-const getText = (text, value) => {
-  const t = text;
-  if (t) {
-    return t(value);
-  }
-  return null;
-};
+const getText = (fn, value) => fn ? fn(value) : null;
 
-const getPercent = compose(floor, multiply(100), divide);
+const getPercent = U.compose(U.floor, U.multiply(100), U.divide);
 
-const getValue = value => getPercent(head(value), last(value));
+const getValue = value => U.defaultTo(0, getPercent(U.head(value), U.last(value)));
 
-export default ({ value, label, text, showProgress = true }: Props) =>
-  <div className="ui">
-    <div className="bar" data-progress={getValue(value)}>
-      <div className="progress"
-           style={{ width: `${getValue(value)}%` }}>{(!isNil(text) && showProgress) ? getText(text, value) : null}</div>
+const cx = U.compose(U.join(' '), U.reject(U.isNil), U.flatten);
+
+export default ({ value, color, size, label, text, showProgress = true, percent = getValue(value) }: Props) =>
+  <div className={cx(['ui', size, color, 'progress'])}>
+    <div className="bar"
+         data-progress={percent}
+         style={{ width: `${percent}%` }}>
+      <div className="progress">
+        {getText(text, value)}
+      </div>
     </div>
-    {ift(label, <div className="label">{label}</div>)}
+    {U.ift(label, <div className="label">{label}</div>)}
   </div>;
