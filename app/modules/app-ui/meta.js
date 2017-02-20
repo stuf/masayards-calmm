@@ -14,7 +14,8 @@ export const Basic = {
 
 export const Views = {
   gameIn: U.view('game'),
-  gameStateIn: U.view(['game', 'state'])
+  gameStateIn: U.view(['game', 'state']),
+  effectIn: U.view('effect')
 };
 
 // @todo Rewrite this monster

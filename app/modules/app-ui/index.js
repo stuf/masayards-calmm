@@ -13,6 +13,7 @@ import Sidebar from './components/sidebar';
 import MainView from './components/main-view';
 import StatusBar from './components/status-bar';
 import * as M from './meta';
+import init, * as Eff from './effects';
 
 const draggableStyles = {
   WebkitAppRegion: 'drag',
@@ -33,6 +34,8 @@ const AppUIContent = ({ atom }: Props) =>
         <div className="item__trafficlight-spacer" />
         <a className="item__button active" href="#game">Game</a>
         <div className="item__spacer" />
+        <a className="item__button" href="#item-list">Equipment</a>
+        <a className="item__button" href="#ship-list">Ships</a>
         <a className="item__button" href="#settings">Settings</a>
       </nav>
     </div>
@@ -45,7 +48,8 @@ const AppUIContent = ({ atom }: Props) =>
           </div>
 
           <div className="dataview__body">
-            <MainView atom={M.Views.gameStateIn(atom)} />
+            <MainView state={M.Views.gameStateIn(atom)}
+                      dispatch={Eff.dispatchEff(M.Views.effectIn(atom))} />
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ type ApiData = {
   postBody: *
 };
 
-type Action = { type: string, payload?: *, error?: * };
+type Effect = { type: string, payload?: *, error?: * };
 type GameModeEnum = 'idle' | 'in_sortie' | 'in_practice' | 'ship_critical';
 type GameMode = GameModeEnum | Array<GameModeEnum>;
 
@@ -22,7 +22,7 @@ type GameMode = GameModeEnum | Array<GameModeEnum>;
  * @todo Figure out some cleaner way to do this
  */
 export type Schema = {
-  action?: Action,
+  effect?: Effect,
   /**
    * State relevant to the game's state itself in relation to the API, and
    * handling incoming data.

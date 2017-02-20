@@ -57,6 +57,19 @@ const handlers: EventHandlers = {
     state.modify(L.set(lenses.fleet(fleet.id), fleet));
   },
 
+  '/api_req_hokyu/charge': ({ path, body }: EventArgs = {}, state: *) => {
+    const resources = R.indexBy(idProp, L.collect(M.Player.Materials.in('api_material'), body));
+    const ships = R.indexBy(idProp, L.collect(M.Ships.in('api_ship'), body));
+
+    state.modify(
+      L.set(
+        L.pick({
+          resources: ['resources', L.props(R.keys(resources))],
+          shipEntities: ['ships', 'player', L.props(R.keys(ships))]
+        }),
+        { resources, ships }));
+  },
+
   /**
    * Gets the ship decks' statuses that are participating in the sortie
    */

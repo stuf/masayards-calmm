@@ -37,6 +37,8 @@ M.resetAppToInitial(state);
 ipcRenderer.on('online-status-changed',
   (event, { status }) => M.setGameState(state, status));
 
+state.view('effect').log('effect:');
+
 const AppStateless = () =>
   <div className="root">
     <AppUI atom={state} />

@@ -1,13 +1,10 @@
 // @flow
 import React from 'karet';
 import * as U from 'karet.util';
+import * as L from 'partial.lenses';
 
 import Fleet from './game/fleet';
 import { Fleet as FleetM } from './game/meta';
-
-type Props = {
-  atom: * // Game state
-};
 
 const mainFleetIn = (atom, fs = FleetM.entitiesIn(atom)) =>
   U.seq(fs,
@@ -28,7 +25,17 @@ const restFleetsIn = (atom, fs = FleetM.entitiesIn(atom)) =>
         {f.name}
       </li>));
 
-export default ({ atom }: Props) =>
+const effScreenshot = () => {
+  console.log('effScreenshot');
+  return { type: 'EFF_SCREENSHOT' };
+};
+
+type Props = {
+  state: *, // Game state,
+  dispatch: *
+};
+
+export default ({ state, dispatch }: Props) =>
   <div className="sectioned">
     <div className="sectioned__row">
       <div className="sectioned__col toolbar__container-col">
@@ -38,14 +45,14 @@ export default ({ atom }: Props) =>
           <button disabled>Practice</button>
           <button disabled>Maintenance</button>
           <div className="toolbar__spacer" />
-          <button>Screenshot</button>
+          <button onClick={() => dispatch(effScreenshot())}>Screenshot</button>
         </div>
       </div>
     </div>
     <div className="sectioned__row">
       <div className="sectioned__col">
         <div className="data">
-          {mainFleetIn(atom)}
+          {mainFleetIn(state)}
         </div>
       </div>
 
@@ -55,7 +62,7 @@ export default ({ atom }: Props) =>
           <div className="header">Fleets</div>
           <div className="body">
             <ul className="unstyled relaxed">
-              {restFleetsIn(atom)}
+              {restFleetsIn(state)}
             </ul>
           </div>
         </div>

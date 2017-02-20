@@ -3,6 +3,7 @@ import * as L from 'partial.lenses';
 
 export const State = {
   initialValues: L.pick({
+    effect: 'effect',
     latest: ['game', 'api', 'latest', L.required({})],
     debuggerAttached: ['application', 'debuggerAttached', L.required(false)],
     firstGameLoad: ['application', 'firstGameLoad', L.required(true)]
