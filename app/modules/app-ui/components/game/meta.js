@@ -72,5 +72,3 @@ export const Resources = {
   resourceStateIn: U.view(['resources']),
   resourcesIn: U.compose(U.values, U.view(['resources']))
 };
-
-
