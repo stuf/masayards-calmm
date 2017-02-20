@@ -5,7 +5,7 @@ import * as R from 'ramda';
 
 export const capitalize = s => R.join('', [R.toUpper(R.head(s)), R.tail(s)]);
 
-export const showCurMax = (key, state) => U.seq(U.view(['count', key, L.define([])], state), U.join('/'));
+export const showCurMax = (key, state) => U.seq(U.view(['count', key, L.define([])], state), U.join(' / '));
 
 export const stateIn = U.view(['game', 'state']);
 

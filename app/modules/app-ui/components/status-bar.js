@@ -9,15 +9,15 @@ type Props = {
   state?: *
 };
 
-export default ({ atom, state = M.stateIn(atom), ...props }: Props) =>
-  <div {...props}>
-    <div className="item header">{U.view(['player', 'name'], state)}</div>
-    <div className="item">Level: {U.view(['player', 'level'], state)}</div>
-    <div className="item">Ships: {M.showCurMax('ships', state)}</div>
-    <div className="item">Equipment: {M.showCurMax('equipment', state)}</div>
+export default ({ atom, state = M.stateIn(atom) }: Props) =>
+  <div className="bottom__section">
+    <div className="section__element"><strong>{U.view(['player', 'name'], state)}</strong></div>
+    <div className="section__element">Level: <strong>{U.view(['player', 'level'], state)}</strong></div>
+    <div className="section__element">Ships: <strong>{M.showCurMax('ships', state)}</strong></div>
+    <div className="section__element">Equipment: <strong>{M.showCurMax('equipment', state)}</strong></div>
 
-    <div className="right menu">
-      <div className="item">Network: {U.view(['application', 'network'], atom)}</div>
-      <div className="item">Game status: {U.view(['game', 'status'], atom)}</div>
-    </div>
+    <div className="section__spacer" />
+
+    <div className="section__element">Network: <strong>{U.view(['application', 'network'], atom)}</strong></div>
+    <div className="section__element">Game status: <strong>{U.view(['game', 'status'], atom)}</strong></div>
   </div>;

@@ -31,6 +31,18 @@ const restFleetsIn = (atom, fs = FleetM.entitiesIn(atom)) =>
 export default ({ atom }: Props) =>
   <div className="sectioned">
     <div className="sectioned__row">
+      <div className="sectioned__col toolbar__container-col">
+        <div className="toolbar">
+          <button disabled>Overview</button>
+          <button disabled>Sortie</button>
+          <button disabled>Practice</button>
+          <button disabled>Maintenance</button>
+          <div className="toolbar__spacer" />
+          <button>Screenshot</button>
+        </div>
+      </div>
+    </div>
+    <div className="sectioned__row">
       <div className="sectioned__col">
         <div className="data">
           {mainFleetIn(atom)}
@@ -44,18 +56,6 @@ export default ({ atom }: Props) =>
           <div className="body">
             <ul className="unstyled relaxed">
               {restFleetsIn(atom)}
-            </ul>
-          </div>
-        </div>
-
-        <div className="data">
-          <div className="header">Repairs</div>
-          <div className="body">
-            <ul className="unstyled relaxed">
-              <li>Dock 1</li>
-              <li>Dock 2</li>
-              <li>Dock 3</li>
-              <li>Dock 4</li>
             </ul>
           </div>
         </div>

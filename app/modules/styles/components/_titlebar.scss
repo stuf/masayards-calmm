@@ -1,0 +1,38 @@
+@import '../variables';
+
+.titlebar__bar {
+  display: flex;
+  flex: 1;
+
+  // Spacing for the OSX "traffic lights"
+  .item__trafficlight-spacer {
+    width: 5rem;
+  }
+
+  .item__button {
+    color: $secondary-text-color;
+    font-size: 0.875rem;
+    text-decoration: none;
+    line-height: 2.2rem;
+    padding: 0 0.75rem;
+    cursor: pointer;
+
+    &.active,
+    &:hover {
+      color: $primary-text-color;
+    }
+
+    &.active {
+      border-bottom: solid 3px $primary-text-color;
+      margin-bottom: -3px;
+    }
+  }
+
+  .item__spacer {
+    flex: 1;
+  }
+}
+
+.mainview__top {
+  display: flex;
+}

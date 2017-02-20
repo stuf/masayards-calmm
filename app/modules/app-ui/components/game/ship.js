@@ -8,8 +8,7 @@ import * as L from 'partial.lenses';
 import ProgressBar from '../ui/progress-bar';
 
 type Props = {
-  ship: *,
-  className?: string
+  ship: *
 };
 
 const lText = ([x, y]) => `${x} / ${y}`;
@@ -30,9 +29,7 @@ const mapHealthState = U.cond([
 
 const getHealthState = U.compose(mapHealthState, U.apply(getPercent), healthIn);
 
-const getClasses = (...xs) => U.join(' ', xs);
-
-export default ({ ship, className }: Props) =>
+export default ({ ship }: Props) =>
   <li className="ship">
     <div className="row">
       <div className="ship--name">{nameIn(ship)}</div>

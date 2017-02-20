@@ -29,9 +29,11 @@ const AppUIContent = ({ atom }: Props) =>
   <div className="mainview">
     <div className="mainview__top"
          style={{ ...draggableStyles }}>
-      <nav className="topmenu">
-        <a className="topmenu__item active" href="#game">Game</a>
-        <a className="topmenu__item" href="#settings">Settings</a>
+      <nav className="titlebar__bar">
+        <div className="item__trafficlight-spacer" />
+        <a className="item__button active" href="#game">Game</a>
+        <div className="item__spacer" />
+        <a className="item__button" href="#settings">Settings</a>
       </nav>
     </div>
 
@@ -45,14 +47,17 @@ const AppUIContent = ({ atom }: Props) =>
           <div className="dataview__body">
             <MainView atom={M.Views.gameStateIn(atom)} />
           </div>
-
-          {/* <StatusBar atom={atom} className="ui bottom fixed inverted menu" style={{ ...draggableStyles }} /> */}
         </div>
       </div>
 
       <div className="view__sidebar">
         <Sidebar atom={atom} />
       </div>
+    </div>
+
+    <div className="mainview__bottom"
+         style={{ ...draggableStyles }}>
+      <StatusBar atom={atom} />
     </div>
   </div>;
 

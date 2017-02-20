@@ -1,0 +1,37 @@
+@import '../variables';
+
+/*
+.topmenu {
+  & { padding-left: 5rem; }
+
+  &,
+  &--right {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &--right {
+    float: right;
+  }
+}
+
+.topmenu__item {
+  color: $secondary-text-color;
+  font-size: 0.875rem;
+  text-decoration: none;
+  line-height: 2.2rem;
+  padding: 0 0.75rem;
+  cursor: pointer;
+
+  &.active,
+  &:hover {
+    color: $primary-text-color;
+  }
+
+  &.active {
+    border-bottom: solid 3px $primary-text-color;
+    margin-bottom: -3px;
+  }
+}
+*/

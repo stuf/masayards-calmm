@@ -13,16 +13,17 @@
   }
 }
 
-.mainview__top {
+.mainview__top,
+.mainview__bottom {
   height: 2.5rem;
-  border-bottom: $primary-border;
+}
 
-  > nav {
-    height: 100%;
-    padding-left: 5rem;
-    display: flex;
-    align-items: center;
-  }
+.mainview__top {
+  border-bottom: $primary-border;
+}
+
+.mainview__bottom {
+  border-top: $primary-border;
 }
 
 // Display data
@@ -45,10 +46,13 @@
 }
 
 .sectioned {
-
   &__row {
     display: flex;
     flex-direction: row;
+
+    & + & {
+      border-top: $primary-border;
+    }
   }
 
   &__col {

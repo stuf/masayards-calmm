@@ -1,0 +1,17 @@
+@import '../variables';
+
+.bottom__section {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: $footer-font-size;
+}
+
+.section__element {
+  padding: 0 $base-pad;
+}
+
+.section__spacer {
+  flex: 1;
+}
