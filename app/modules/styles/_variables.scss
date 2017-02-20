@@ -1,6 +1,7 @@
 @import '~material-colors/dist/colors';
 
 $base-pad: 0.625rem;
+$base-radius: 0.25rem;
 
 $button-base-pad: $base-pad;
 $button-pad: ($button-base-pad * 0.666) $button-base-pad;
@@ -19,9 +20,10 @@ $secondary-text-color: rgba(0, 0, 0, 0.54);
 $hint-text-color: rgba(0, 0, 0, 0.38);
 $divider-color: rgba(0, 0, 0, 0.12);
 
-$primary-button-color: #0288D1;
+$primary-button-color: rgba(0, 0, 0, 0.06);
+$primary-button-hover-color: transparentize($primary-button-color, 0.03);
 $primary-button-border-color: darken($primary-button-color, 10%);
-$primary-button-text-color: #fff;
+$primary-button-text-color: $secondary-text-color;
 
 $background-color: #fff;
 $secondary-bg-color: #fff;
