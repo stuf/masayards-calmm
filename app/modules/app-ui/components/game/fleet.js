@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 // @flow
-import React from 'karet';
-import * as U from 'karet.util';
+import React, { fromKefir } from 'karet';
+import K, * as U from 'karet.util';
 
 import {
   Fleet as FleetM,
@@ -9,19 +9,22 @@ import {
 } from './meta';
 import { Duration } from '../controls';
 import FleetShipList from './fleet-ship-list';
+import Ship from './ship';
 
 type Props = {
   view: *,
   fleet?: *,
   getCombined?: *,
-  shipIds?: *
+  shipIds?: *,
+  ships?: *
 };
 
 export default ({
   view,
   fleet = U.view('fleet', view),
-  getCombined = ShipM.getCombined(view),
   shipIds = FleetM.shipIdsIn(view),
+  getCombined = ShipM.getCombined(view),
+  ships = U.map(getCombined, shipIds),
   ...props
 }: Props) =>
   <article {...props}>
@@ -33,8 +36,12 @@ export default ({
           {/* <Duration until={M.Fleet.Mission.timeLeftIn(fleet)} /> */}
         </div>
       </div>
+      <ul className="ship-list">
+        {U.seq(ships,
+          U.indices,
+          U.mapCached(i =>
+            fromKefir(K(U.view(i, ships), s =>
+              <Ship key={s.shipId} ship={s} />))))}
+      </ul>
     </div>
-
-    <FleetShipList ships={U.mapCached(getCombined, shipIds)}
-                   className="fleet-ship-list ui divided items" />
   </article>;

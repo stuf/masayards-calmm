@@ -1,0 +1,116 @@
+@import 'normalize';
+@import 'main-view';
+@import 'variables';
+@import 'kvf';
+@import 'data';
+@import 'ship';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background-color;
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.view {
+  display: flex;
+  height: 100vh;
+}
+
+.view__main {
+  // border: solid 1px $primary-border-color;
+  flex: 1;
+}
+
+.view__sidebar {
+  border-left: $primary-border;
+  width: 20rem;
+}
+
+.mainview {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.mainview__top {
+  height: 3rem;
+  border-bottom: $primary-border;
+
+  > nav {
+    height: 100%;
+    padding-left: 5rem;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.mainview__body {
+  // border-top: solid 2px $primary-border-color;
+  overflow-y: auto;
+  flex: 1;
+}
+
+// Topmenu
+.topmenu {}
+
+.topmenu__item {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.875rem;
+  text-decoration: none;
+  line-height: 2.7rem;
+  padding: 0 0.75rem;
+
+  &.active,
+  &:hover {
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  &.active {
+    border-bottom: solid 3px rgba(0, 0, 0, 0.87);
+    margin-bottom: -3px;
+  }
+}
+
+.webview__body {
+  background-color: #f0f0f0;
+  padding: 0.625rem;
+  border-bottom: $primary-border;
+}
+
+// Webview dummy
+.webview__dummy {
+  width: 800px;
+  height: 480px;
+  border: solid 2px #f00;
+  background-color: #fff;
+}
+
+// Display data
+.dataview__body {
+  padding: $base-pad;
+}
+
+// Sidebar
+.view__sidebar {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.sidebar__section {
+  padding: $base-pad;
+
+  .header {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  & + & {
+    border-top: $primary-border;
+  }
+}

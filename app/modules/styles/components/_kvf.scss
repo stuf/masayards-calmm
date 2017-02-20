@@ -1,0 +1,23 @@
+@import '../variables';
+
+// kvf - key-value -field
+.kvf {
+  // border: solid 1px #f00;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-transform: uppercase;
+
+  &--key {
+    font-size: 0.825rem;
+  }
+
+  &--value {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  & + & {
+    margin-top: $base-pad;
+  }
+}

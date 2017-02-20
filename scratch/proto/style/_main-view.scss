@@ -1,0 +1,20 @@
+@import 'variables';
+
+$ship-item-width: (100% / 3);
+
+.ship-list {
+  // border: solid 1px #f00;
+}
+
+ul.ship-list {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+
+  > li {
+    border: dashed 1px #f00;
+    width: $ship-item-width;
+    padding: $base-pad;
+  }
+}

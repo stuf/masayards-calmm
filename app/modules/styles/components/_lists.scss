@@ -1,0 +1,18 @@
+@import '../variables';
+
+ul {
+  &.unstyled {
+    padding: 0;
+    list-style: none;
+  }
+
+  &.relaxed {
+    ol, li {
+      padding-top: $base-pad;
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+  }
+}

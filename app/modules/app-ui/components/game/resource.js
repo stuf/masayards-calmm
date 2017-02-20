@@ -10,6 +10,10 @@ type Props = {
 
 export default ({ view, ...props }: Props) =>
   <div {...props}>
-    <div>{U.view('type', view)}</div>
-    <div>{U.view('value', view)}</div>
+    <div className="right floated content">
+      <div className="ui label">
+        {U.view('value', view)}
+      </div>
+    </div>
+    {U.view('type', view)}
   </div>;

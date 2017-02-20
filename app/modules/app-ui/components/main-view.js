@@ -9,28 +9,56 @@ type Props = {
   atom: * // Game state
 };
 
-export default ({ atom }: Props) =>
-  <div style={{ padding: '0 0.5rem' }}>
-    <div className="ui top attached segment">
-      <div className="ui four column grid">
-        {U.seq(FleetM.entitiesIn(atom),
-          U.values,
-          U.map(f =>
-            <Fleet className="column"
-                   key={f.nameId}
-                   view={FleetM.viewIn(f.id, atom)} />))}
-      </div>
-    </div>
-    <div className="ui bottom attached tabular menu">
-      <a href="#main" className="active item">Main</a>
-      <a href="#quests" className="item">Quests</a>
-      <a href="#fleets" className="item">Fleets</a>
+const mainFleetIn = (atom, fs = FleetM.entitiesIn(atom)) =>
+  U.seq(fs,
+    U.values,
+    U.slice(0, 1),
+    U.map(f =>
+      <Fleet className="column"
+             key={f.nameId}
+             view={FleetM.viewIn(f.id, atom)} />));
 
-      <div className="right menu">
-        <a href="#screenshot" className="item">
-          <i className="photo icon" />
-          Screenshot
-        </a>
+const restFleetsIn = (atom, fs = FleetM.entitiesIn(atom)) =>
+  U.seq(fs,
+    U.values,
+    U.slice(1, Infinity),
+    U.map(f =>
+      <li>
+        <div style={{ float: 'right', fontSize: '0.625rem' }}>{FleetM.missionStateIn(f)}</div>
+        {f.name}
+      </li>));
+
+export default ({ atom }: Props) =>
+  <div className="sectioned">
+    <div className="sectioned__row">
+      <div className="sectioned__col">
+        <div className="data">
+          {mainFleetIn(atom)}
+        </div>
+      </div>
+
+      <div className="sectioned__col"
+           style={{ width: '35%' }}>
+        <div className="data">
+          <div className="header">Fleets</div>
+          <div className="body">
+            <ul className="unstyled relaxed">
+              {restFleetsIn(atom)}
+            </ul>
+          </div>
+        </div>
+
+        <div className="data">
+          <div className="header">Repairs</div>
+          <div className="body">
+            <ul className="unstyled relaxed">
+              <li>Dock 1</li>
+              <li>Dock 2</li>
+              <li>Dock 3</li>
+              <li>Dock 4</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>;

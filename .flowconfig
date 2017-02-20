@@ -7,7 +7,7 @@
 .*/git/.*
 
 [include]
-.*/app/**/*.js.flow
+.*/*.js.flow
 
 [libs]
 node_modules/.flow-atom/

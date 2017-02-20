@@ -1,0 +1,9 @@
+@import '../variables';
+
+.data {
+  > .header {
+    font-size: $section-header-font-size;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+}

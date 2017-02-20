@@ -33,7 +33,7 @@ describe('Game UI Components', () => {
 
     it('should display a Ship component', () => {
       const checkContains = ([id, name]) =>
-        expect(render(<Ship ship={ShipM.getCombined(state, id)} />).find('.ship .name').text())
+        expect(render(<Ship ship={ShipM.getCombined(state, id)} />).find('.ship--name').text())
           .to.contain(name);
 
       R.forEach(checkContains, ids);

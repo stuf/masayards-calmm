@@ -1,0 +1,15 @@
+@import '../variables';
+
+.sidebar__section {
+  padding: $base-pad;
+
+  .header {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  & + & {
+    border-top: $primary-border;
+  }
+}

@@ -1,0 +1,21 @@
+// Topmenu
+.topmenu {}
+
+.topmenu__item {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.875rem;
+  text-decoration: none;
+  line-height: 2.2rem;
+  padding: 0 0.75rem;
+
+  &.active,
+  &:hover {
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  &.active {
+    border-bottom: solid 3px rgba(0, 0, 0, 0.87);
+    margin-bottom: -3px;
+  }
+}
+

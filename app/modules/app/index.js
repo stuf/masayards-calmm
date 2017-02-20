@@ -18,9 +18,6 @@ import React from 'karet';
 import * as L from 'partial.lenses';
 import K, * as U from 'karet.util';
 import * as R from 'ramda';
-import cx from 'classnames';
-
-import css from './styles.css';
 
 import * as M from './meta';
 import state from './_storage';
@@ -41,7 +38,7 @@ ipcRenderer.on('online-status-changed',
   (event, { status }) => M.setGameState(state, status));
 
 const AppStateless = () =>
-  <div className={cx(css.app)}>
+  <div className="root">
     <AppUI atom={state} />
   </div>;
 

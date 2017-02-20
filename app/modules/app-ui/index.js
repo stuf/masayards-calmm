@@ -12,7 +12,6 @@ import Game from '../game';
 import Sidebar from './components/sidebar';
 import MainView from './components/main-view';
 import StatusBar from './components/status-bar';
-import TopMenu from './components/top-menu';
 import * as M from './meta';
 
 const draggableStyles = {
@@ -27,27 +26,34 @@ type Props = {
 };
 
 const AppUIContent = ({ atom }: Props) =>
-  <div className="ui content">
-    <div className="ui top fixed inverted menu"
-         style={{ ...draggableStyles, paddingLeft: '60px' }}>
-      <div className="header item">Masayards Calmm</div>
-      <TopMenu atom={atom} className="right menu" />
+  <div className="mainview">
+    <div className="mainview__top"
+         style={{ ...draggableStyles }}>
+      <nav className="topmenu">
+        <a className="topmenu__item active" href="#game">Game</a>
+        <a className="topmenu__item" href="#settings">Settings</a>
+      </nav>
     </div>
 
-    <div style={{ marginTop: '40px', height: '495px' }}>
-      <div className="ui grid">
-        <div className="twelve wide column">
-          {ift(displayWebview, <Game atom={atom} />)}
-        </div>
-        <div className="four wide column">
-          <Sidebar atom={atom} />
+    <div className="view">
+      <div className="view__main">
+        <div className="mainview__body">
+          <div className="webview__body">
+            {ifte(displayWebview, <Game atom={atom} />, <div className="webview__dummy" />)}
+          </div>
+
+          <div className="dataview__body">
+            <MainView atom={M.Views.gameStateIn(atom)} />
+          </div>
+
+          {/* <StatusBar atom={atom} className="ui bottom fixed inverted menu" style={{ ...draggableStyles }} /> */}
         </div>
       </div>
+
+      <div className="view__sidebar">
+        <Sidebar atom={atom} />
+      </div>
     </div>
-
-    <MainView atom={M.Views.gameStateIn(atom)} />
-
-    <StatusBar atom={atom} className="ui bottom fixed inverted menu" style={{ ...draggableStyles }} />
   </div>;
 
 /**

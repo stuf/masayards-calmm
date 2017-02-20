@@ -30,19 +30,18 @@ const mapHealthState = U.cond([
 
 const getHealthState = U.compose(mapHealthState, U.apply(getPercent), healthIn);
 
+const getClasses = (...xs) => U.join(' ', xs);
+
 export default ({ ship, className }: Props) =>
-  <article className={U.join(' ', ['ship', className])}
-           style={{ padding: '0.5rem 0' }}>
-    <div className="middle aligned content">
-      <div className="ui left floated circular blue inverted segment"
-           style={{ padding: '0.9em', marginBottom: 0, fontSize: '0.6em' }}>
-        {levelIn(ship)}
-      </div>
-      <div className="header name">{nameIn(ship)}</div>
-      <div className={cx(getHealthState(healthIn(ship)))}>
-        <ProgressBar value={U.apply(getPercent, healthIn(ship))} text={U.always(lText)}
-                     label="HP" size="tiny" color={getHealthState(ship)} />
-      </div>
-      <div className="meta">{moraleIn(ship)}</div>
+  <li className="ship">
+    <div className="row">
+      <div className="ship--name">{nameIn(ship)}</div>
+      <div className="ship--morale">★ {moraleIn(ship)}</div>
     </div>
-  </article>;
+    <div className="row">
+      <div className="ship--level">{levelIn(ship)}</div>
+      <div className="ship--health">
+        <div className="bar" style={{ width: `${getHealthState(ship)}%` }} />
+      </div>
+    </div>
+  </li>;

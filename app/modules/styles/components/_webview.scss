@@ -1,0 +1,15 @@
+@import '../variables';
+
+.webview__body {
+  background-color: #f0f0f0;
+  padding: 0.625rem;
+  border-bottom: $primary-border;
+}
+
+// Webview dummy
+.webview__dummy {
+  width: 800px;
+  height: 480px;
+  border: solid 2px #f00;
+  background-color: #fff;
+}
