@@ -2,6 +2,7 @@
 
 .sidebar__section {
   padding: $base-pad;
+  font-size: $font-size-small;
 
   .header {
     font-size: 0.75rem;
@@ -12,4 +13,25 @@
   & + & {
     border-top: $primary-border;
   }
+
+  > .body {
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.dock-list {}
+
+.dock-list__item {
+  display: flex;
+}
+
+.dock-list__name {
+  width: (100% / 4);
+}
+
+.dock-list__progress {
+  border: solid 1px #f00;
+  flex: 1;
 }

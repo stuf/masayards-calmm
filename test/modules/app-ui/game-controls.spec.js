@@ -6,11 +6,10 @@ import * as R from 'ramda';
 import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 
-import { Fleet, Ship, Resource, ResourceList } from '../../../app/modules/app-ui/components/game/index';
+import { Fleet, Ship } from '../../../app/modules/app-ui/components/game';
 import {
   Fleet as FleetM,
-  Ship as ShipM,
-  Resources as ResourcesM
+  Ship as ShipM
 } from '../../../app/modules/app-ui/components/game/meta';
 import { setup, render } from '../setup';
 
@@ -87,9 +86,4 @@ describe('Game UI Components', () => {
       R.forEach(checkEq, states);
     });
   });
-
-  describe('<Resource />', () => {
-  });
-
-  describe('<ResourceList />', () => {});
 });

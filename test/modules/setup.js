@@ -4,10 +4,12 @@ import ReactDOM from 'react-dom/server';
 import cheerio from 'cheerio';
 
 import stateData from '../state.json';
+import stateMock from '../state-mock.json';
 
 export const setup = () => {
   const state = Atom(stateData);
-  return { state };
+  const full = Atom(stateMock);
+  return { state, full };
 };
 
 export const render = vdom => {

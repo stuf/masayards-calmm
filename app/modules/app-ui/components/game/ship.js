@@ -5,7 +5,7 @@ import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 
 // import * as M from './meta';
-import ProgressBar from '../ui/progress-bar';
+import Progress from '../ui/progress';
 
 type Props = {
   ship: *
@@ -37,8 +37,6 @@ export default ({ ship }: Props) =>
     </div>
     <div className="row">
       <div className="ship--level">{levelIn(ship)}</div>
-      <div className="ship--health">
-        <div className="bar" style={{ width: `${getHealthState(ship)}%` }} />
-      </div>
+      <Progress className="ship--health" value={getHealthState(ship)} />
     </div>
   </li>;

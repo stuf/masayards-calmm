@@ -3,11 +3,15 @@ import React from 'karet';
 import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 
+import { app, remote } from 'electron';
+import path from 'path';
+import fs from 'fs';
+
 import Fleet from './game/fleet';
 import { Fleet as FleetM } from './game/meta';
 
-const mainFleetIn = (atom, fs = FleetM.entitiesIn(atom)) =>
-  U.seq(fs,
+const mainFleetIn = (atom, fleets = FleetM.entitiesIn(atom)) =>
+  U.seq(fleets,
     U.values,
     U.slice(0, 1),
     U.map(f =>
@@ -15,8 +19,8 @@ const mainFleetIn = (atom, fs = FleetM.entitiesIn(atom)) =>
              key={f.nameId}
              view={FleetM.viewIn(f.id, atom)} />));
 
-const restFleetsIn = (atom, fs = FleetM.entitiesIn(atom)) =>
-  U.seq(fs,
+const restFleetsIn = (atom, fleets = FleetM.entitiesIn(atom)) =>
+  U.seq(fleets,
     U.values,
     U.slice(1, Infinity),
     U.map(f =>
@@ -27,15 +31,23 @@ const restFleetsIn = (atom, fs = FleetM.entitiesIn(atom)) =>
 
 const effScreenshot = () => {
   console.log('effScreenshot');
+  const wc = remote.getCurrentWebContents();
+
+  wc.capturePage(image => {
+    const png = image.toPNG();
+    const targetDir = '/Users/stuf/Desktop';
+    const ts = +(new Date());
+    const file = path.join(targetDir, `${ts}.png`);
+    fs.writeFileSync(file, png);
+  });
   return { type: 'EFF_SCREENSHOT' };
 };
 
 type Props = {
-  state: *, // Game state,
-  dispatch: *
+  state: * // Game state,
 };
 
-export default ({ state, dispatch }: Props) =>
+export default ({ state }: Props) =>
   <div className="sectioned">
     <div className="sectioned__row">
       <div className="sectioned__col toolbar__container-col">
@@ -45,7 +57,7 @@ export default ({ state, dispatch }: Props) =>
           <button disabled>Practice</button>
           <button disabled>Maintenance</button>
           <div className="toolbar__spacer" />
-          <button onClick={() => dispatch(effScreenshot())}>Screenshot</button>
+          <button onClick={() => effScreenshot()}>Screenshot</button>
         </div>
       </div>
     </div>

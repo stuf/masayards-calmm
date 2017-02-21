@@ -13,7 +13,6 @@ import Sidebar from './components/sidebar';
 import MainView from './components/main-view';
 import StatusBar from './components/status-bar';
 import * as M from './meta';
-import init, * as Eff from './effects';
 
 const draggableStyles = {
   WebkitAppRegion: 'drag',
@@ -48,8 +47,7 @@ const AppUIContent = ({ atom }: Props) =>
           </div>
 
           <div className="dataview__body">
-            <MainView state={M.Views.gameStateIn(atom)}
-                      dispatch={Eff.dispatchEff(M.Views.effectIn(atom))} />
+            <MainView state={M.Views.gameStateIn(atom)} />
           </div>
         </div>
       </div>

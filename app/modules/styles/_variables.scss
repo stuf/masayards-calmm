@@ -7,6 +7,7 @@ $button-base-pad: $base-pad;
 $button-pad: ($button-base-pad * 0.666) $button-base-pad;
 
 $font-size-small: 0.825rem;
+$font-size-tiny: 0.75rem;
 
 $footer-font-size: $font-size-small;
 
@@ -22,7 +23,7 @@ $divider-color: rgba(0, 0, 0, 0.12);
 
 $primary-button-color: rgba(0, 0, 0, 0.06);
 $primary-button-hover-color: transparentize($primary-button-color, 0.03);
-$primary-button-border-color: darken($primary-button-color, 10%);
+$primary-button-border-color: opacify($primary-button-color, 0.03);
 $primary-button-text-color: $secondary-text-color;
 
 $background-color: #fff;

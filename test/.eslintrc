@@ -18,6 +18,7 @@
     "mocha/no-mocha-arrows": 0,
     "mocha/no-hooks": 0,
     "mocha/no-top-level-hooks": 0,
-    "no-unused-expressions": 0
+    "no-unused-expressions": 0,
+    "no-underscore-dangle": 0
   }
 }

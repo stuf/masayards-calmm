@@ -1,4 +1,4 @@
-/* eslint import/prefer-default-export: 0 */
+/* eslint-disable import/prefer-default-export, no-unused-expressions */
 // @flow
 import React from 'karet';
 
@@ -12,6 +12,7 @@ type WebViewProps = {
 export const WebView = ({ atom }: WebViewProps) => {
   function ref(didMount) {
     let observer;
+    let effectObs;
 
     if (didMount) {
       didMount.addEventListener('dom-ready', eventHandler(atom));
@@ -20,6 +21,7 @@ export const WebView = ({ atom }: WebViewProps) => {
 
     if (observer && !didMount) {
       observer.unsubscribe();
+      effectObs && effectObs.unsubscribe();
     }
   }
 

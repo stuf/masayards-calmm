@@ -1,0 +1,11 @@
+@import '../variables';
+
+.progress-bar {
+  border: solid 0.125rem rgba(0, 0, 0, 0.12);
+}
+
+.progress-bar__indicator {
+  border: solid 1px #fff;
+  background-color: #78909C;
+  height: 100%;
+}

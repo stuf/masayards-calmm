@@ -7,7 +7,7 @@ import { /* setup,*/ render } from '../setup';
 import ProgressBar from '../../../app/modules/app-ui/components/ui/progress-bar';
 
 describe('App UI Components', () => {
-  describe('<ProgressBar />', () => {
+  describe('ProgressBar', () => {
     const values = [
       [0, 100],
       [20, 100],

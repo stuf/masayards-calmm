@@ -17,6 +17,7 @@ import {
 import fs from 'fs';
 import path from 'path';
 import plist from 'plist';
+import { reduce } from 'ramda';
 
 import logger from './logger';
 
@@ -131,6 +132,11 @@ app.on('ready', async () => {
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.show();
     mainWindow.focus();
+
+    mainWindow.webContents.send('app-paths',
+      reduce(
+        (o, p) => ({ ...o, [p]: app.getPath(p) }),
+        {}, ['home', 'desktop', 'temp']));
   });
 
   mainWindow.on('closed', () => {

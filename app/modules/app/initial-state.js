@@ -35,7 +35,13 @@ export type Schema = {
     /**
      * Holds a reference to the game's `webview`
      */
-    webview: *,
+    webview: {
+      /**
+       * ClientRect for the webview where it's located in the view
+       * Used for taking screenshots
+       */
+      rect?: [number, number]
+    },
     config: {
       muteAudio: boolean
     },
@@ -90,7 +96,8 @@ export type Schema = {
   },
   application: {
     networkStatus: string | NetworkState,
-    titleText?: string
+    titleText?: string,
+    paths?: { [path: string]: string }
   },
   config: {
     gameUrl: string
@@ -103,7 +110,9 @@ export type Schema = {
 const schema = {
   game: {
     status: 'disconnected',
-    webview: {},
+    webview: {
+      rect: null
+    },
     config: {
       muteAudio: true
     },
@@ -139,7 +148,8 @@ const schema = {
   },
   /** Application-specific state */
   application: {
-    network: 'offline'
+    network: 'offline',
+    paths: {}
   },
   /** Application configuration */
   config: {
