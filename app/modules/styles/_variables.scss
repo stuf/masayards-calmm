@@ -9,27 +9,36 @@ $button-pad: ($button-base-pad * 0.666) $button-base-pad;
 $font-size-small: 0.825rem;
 $font-size-tiny: 0.75rem;
 
-$footer-font-size: $font-size-small;
+$footer-font-size: $font-size-small !default;
 
 $font-family-system: -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 
-$primary-text-color: rgba(0, 0, 0, 0.87);
-$secondary-text-color: rgba(0, 0, 0, 0.54);
-$hint-text-color: rgba(0, 0, 0, 0.38);
-$divider-color: rgba(0, 0, 0, 0.12);
+$primary-text-color: rgba(0, 0, 0, 0.87) !default;
+$secondary-text-color: rgba(0, 0, 0, 0.54) !default;
+$hint-text-color: rgba(0, 0, 0, 0.38) !default;
+$divider-color: rgba(0, 0, 0, 0.12) !default;
+
+// Generic colors
+$danger-color: #F44336 !default;
+$warning-color: #FF9800 !default;
+$alert-color: #FFEB3B !default;
+$success-color: #4CAF50 !default;
+$info-color: #2196F3 !default;
+
+$success-border-color: darken($success-color, 10%);
 
 $primary-button-color: rgba(0, 0, 0, 0.06);
 $primary-button-hover-color: transparentize($primary-button-color, 0.03);
 $primary-button-border-color: opacify($primary-button-color, 0.03);
 $primary-button-text-color: $secondary-text-color;
 
-$background-color: #fff;
-$secondary-bg-color: #fff;
+$background-color: #fafafa;
+$secondary-bg-color: #e0e0e0;
 
-$primary-border-color: #ededed;
+$primary-border-color: #e0e0e0;
 $primary-border: solid 0.125rem $primary-border-color;
 
 // Sections

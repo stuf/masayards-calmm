@@ -2,10 +2,13 @@
 
 .progress-bar {
   border: solid 0.125rem rgba(0, 0, 0, 0.12);
+  border-radius: $base-radius;
+  padding: 1px;
 }
 
 .progress-bar__indicator {
-  border: solid 1px #fff;
-  background-color: #78909C;
+  border-radius: $base-radius / 2;
+  border: solid 0.0625rem $success-border-color;
+  background-color: $success-color;
   height: 100%;
 }

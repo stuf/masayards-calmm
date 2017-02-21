@@ -1,7 +1,7 @@
 @import '../variables';
 
 .webview__body {
-  background-color: #f0f0f0;
+  background-color: $secondary-bg-color;
   padding: 0.625rem;
   border-bottom: $primary-border;
 }

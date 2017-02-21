@@ -84,6 +84,9 @@ const installExtensions = async () => {
 };
 
 process.on('uncaughtException', err => {
+  console.log(err.name);
+  console.log(err.message);
+  console.log(err.stack);
   logger.error('Process got an uncaught exception', { err });
   logger.error('Logging environment information', {
     config: process.config,
@@ -104,21 +107,8 @@ process.on('warning', w => {
   logger.warn('Process received warning', { name: w.name, message: w.message, stack: w.stack });
 });
 
-
-ipcMain.on('online-status-changed', (event, msg) => {
-  logger.info('Online status changed: %s', msg);
-  const { status } = msg;
-  logger.info('status =', status);
-  if (mainWindow && mainWindow.webContents) {
-    mainWindow.webContents.send('online-status-changed', { status });
-  }
-});
-
 app.on('ready', async () => {
   await installExtensions();
-
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false });
-  onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`);
 
   mainWindow = new BrowserWindow({
     show: false,
@@ -137,6 +127,17 @@ app.on('ready', async () => {
       reduce(
         (o, p) => ({ ...o, [p]: app.getPath(p) }),
         {}, ['home', 'desktop', 'temp']));
+
+    ipcMain.on('online-status', (event, msg) => {
+      const { status } = msg;
+      logger.info('status =', status);
+      if (mainWindow && mainWindow.webContents) {
+        mainWindow.webContents.send('online-status', { status });
+      }
+    });
+
+    onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false });
+    onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`);
   });
 
   mainWindow.on('closed', () => {

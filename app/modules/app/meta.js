@@ -7,7 +7,9 @@ export const State = {
     latest: ['game', 'api', 'latest', L.required({})],
     debuggerAttached: ['application', 'debuggerAttached', L.required(false)],
     firstGameLoad: ['application', 'firstGameLoad', L.required(true)],
-    webView: ['game', 'webview']
+    webView: ['game', 'webview'],
+    gameState: ['game', 'status', L.required('disconnected')],
+    networkState: ['application', 'network', L.required('offline')]
   }),
   gameStatus: ['game', 'status', L.required('disconnected')],
   applicationStatus: ['application', 'network', L.required('offline')],
@@ -15,8 +17,20 @@ export const State = {
   currentEffect: ['effect']
 };
 
-export const resetAppToInitial = (state: *) => state.modify(L.remove(State.initialValues));
+export const resetAppToInitial = (state: *) =>
+  state.modify(L.remove(State.initialValues));
 
-export const setGameState = (state: *, gameState: *) => state.modify(L.set(State.gameStatus, gameState));
+export const setGameState = (state: *, gameState: *) => {
+  console.log('Set game state', gameState);
+  state.modify(L.set(State.gameStatus, gameState));
+};
 
-export const setAppPaths = (state: *, paths: *) => state.modify(L.set(State.appPaths, paths));
+export const setNetworkState = (state: *, networkState: *) => {
+  console.log('Set network state', networkState);
+  state.modify(L.set(State.applicationStatus, networkState));
+};
+
+export const setAppPaths = (state: *, paths: *) => {
+  console.log('Set application paths', paths);
+  state.modify(L.set(State.appPaths, paths));
+};

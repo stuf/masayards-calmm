@@ -7,12 +7,10 @@ import * as C from './controls';
 
 type Props = {
   atom: *,
-  gameAtom?: *,
-  effect?: *
+  gameAtom?: *
 };
 
-export default ({ atom, gameAtom = view('game', atom), effect = view('effect', atom) }: Props) =>
+export default ({ atom, gameAtom = view('game', atom) }: Props) =>
   <div style={{ height: '480px' }}>
-    <C.WebView atom={gameAtom}
-               effect={effect} />
+    <C.WebView atom={gameAtom} />
   </div>;

@@ -8,7 +8,7 @@
     { status: 'online' } :
     { status: 'offline' };
 
-  const updateOnlineStatus = () => ipcRenderer.send('online-status', getOnlineState);
+  const updateOnlineStatus = () => ipcRenderer.send('online-status', getOnlineState());
 
   window.addEventListener('online',  updateOnlineStatus)
   window.addEventListener('offline',  updateOnlineStatus)

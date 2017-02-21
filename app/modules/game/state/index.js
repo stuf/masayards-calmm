@@ -19,7 +19,7 @@ const lenses = {
 
 type EventArgs = { path: string, body: *, postBody: * };
 
-type EventFn = (args: EventArgs, state: *) => void;
+type EventFn = (args: EventArgs, state: *, status: *) => void;
 
 type EventHandlers = { [path: string]: EventFn };
 
@@ -29,7 +29,8 @@ const handlers: EventHandlers = {
   /**
    * Gets the initial game data on start
    */
-  '/api_start2': ({ path, body }: EventArgs = {}, state: *) =>
+  '/api_start2': ({ path, body }: EventArgs = {}, state: *, status: *) => {
+    status.modify(R.always('starting'));
     state.modify(
       L.set(L.pick({
         ships: ['ships', 'base'],
@@ -37,7 +38,8 @@ const handlers: EventHandlers = {
       }), {
         ships: M.collectWithIndex(M.Master.Ships.in('api_mst_ship'), body),
         equipment: M.collectWithIndex(M.Master.Equipment.in('api_mst_slotitem'), body)
-      })),
+      }));
+  },
 
   /**
    * Gets the new state of the player fleets
@@ -130,7 +132,9 @@ const handlers: EventHandlers = {
    * Gets the basic state of the player's profile and relevant data,
    * including fleets, resources and fleets.
    */
-  '/api_port/port': ({ path, body }: EventArgs = {}, state: *) => {
+  '/api_port/port': ({ path, body }: EventArgs = {}, state: *, status: *) => {
+    status.modify(R.always('ready'));
+
     const ships = L.collect(M.Ships.in('api_ship'), body);
     const player = L.get(M.Player.Profile.in('api_basic'), body);
     const shipCount = R.pair(R.length(ships), R.prop('maxShips', player));

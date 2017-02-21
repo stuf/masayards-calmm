@@ -34,7 +34,7 @@ if (process.env.NODE_ENV === 'development') {
 // Ensure any state that should be clean at startup is just that
 M.resetAppToInitial(state);
 
-ipcRenderer.on('online-status-changed', (event, { status }) => M.setGameState(state, status));
+ipcRenderer.on('online-status', (event, { status }) => M.setNetworkState(state, status));
 ipcRenderer.on('app-paths', (event, paths) => M.setAppPaths(state, paths));
 
 const AppStateless = () =>
