@@ -15,7 +15,7 @@ const mainFleetIn = (atom, fleets = FleetM.entitiesIn(atom)) =>
     U.values,
     U.slice(0, 1),
     U.map(f =>
-      <Fleet className="column"
+      <Fleet className="fleet"
              key={f.nameId}
              view={FleetM.viewIn(f.id, atom)} />));
 

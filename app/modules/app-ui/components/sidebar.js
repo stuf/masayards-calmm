@@ -10,12 +10,12 @@ type Props = {
   state?: *
 };
 
-const getRelevantResources = state =>
+const getRelevantResources = (state, [r1, r2] = [0, 4]) =>
   K(ResourcesM.resourcesIn(state), list =>
     <ul className="unstyled player--resources">
       {U.seq(list,
         U.indices,
-        // U.slice(0, 4),
+        U.slice(r1, r2),
         U.mapCached(i => U.view(i, list)),
         U.map(r =>
           <li className={`kvf resource--${r.type}`}>

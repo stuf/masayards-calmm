@@ -4,7 +4,7 @@ import React from 'karet';
 import * as R from 'ramda';
 
 import { setup, render } from '../setup';
-import { Sidebar, StatusBar } from '../../../app/modules/app-ui/components';
+import { Sidebar, StatusBar, TitleBar } from '../../../app/modules/app-ui/components';
 
 describe('Application UI Components', () => {
   let state;
@@ -58,9 +58,14 @@ describe('Application UI Components', () => {
   });
 
   describe('TitleBar', () => {
-    // it('should not derp', () => {
-    //   expect(true).to.be.true;
-    // });
+    let wrapper;
+    beforeEach(() => {
+      wrapper = render(<TitleBar />);
+    });
+
+    it('should render out a title bar component', () => {
+      expect(wrapper.find('nav')).to.be.of.length(2);
+    });
   });
 
   describe('StatusBar', () => {
