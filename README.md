@@ -8,7 +8,7 @@
 
 A Kancolle (艦隊これくしょん) viewer client created with [Electron](https://electron.atom.io) and [Calmm](https://github.com/calmm-js).
 
-![Screenshot](assets/screenshot-v3.png)
+![Screenshot](assets/screenshot-v4.png)
 
 I believe this is a fitting and maybe a little bit unusual of a test case for creating an Electron-based application. There's a whole lot of data that comes from a pretty inconsistent API. Joy!
 
