@@ -12,8 +12,8 @@ const testerDir = path.join(__dirname, 'testers');
 describe('state handler', () => {
   const items = [
     { apiPath: '/api_start2', file: 'api_start2' },
-    { apiPath: '/api_port/port', file: 'api_port-port' }
-    // { apiPath: '/api_req_member/questlist', file: 'api_req_member-questlist' }
+    { apiPath: '/api_port/port', file: 'api_port-port' },
+    { apiPath: '/api_get_member/questlist', file: 'api_get_member-questlist' }
   ];
 
   items.forEach(({ apiPath, file }) => {
