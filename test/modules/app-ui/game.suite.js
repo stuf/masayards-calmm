@@ -1,10 +1,7 @@
 import { expect } from 'chai';
-import { spy } from 'sinon';
 import React from 'karet';
 
 import * as R from 'ramda';
-import * as U from 'karet.util';
-import * as L from 'partial.lenses';
 
 import { Fleet, Ship } from '../../../app/modules/app-ui/components/game';
 import {
@@ -16,14 +13,14 @@ import { setup, render } from '../setup';
 type Tuple<A, B> = [A, B];
 type TupleList<A, B> = Array<Tuple<A, B>>;
 
-describe('Game UI Components', () => {
+describe('game', () => {
   let state;
   beforeEach(() => {
     const s = setup();
     state = s.state;
   });
 
-  describe('<Ship />', () => {
+  describe('Ship', () => {
     const ids: TupleList<number, string> =
       [
         [1, '吹雪'],
@@ -48,7 +45,7 @@ describe('Game UI Components', () => {
     });
   });
 
-  describe('<Fleet />', () => {
+  describe('Fleet', () => {
     const fleetWithId = i => FleetM.viewIn(i, state);
 
     it('should contain the correct number of Ships', () => {

@@ -6,7 +6,7 @@ import * as R from 'ramda';
 import { setup, render } from '../setup';
 import { Sidebar, StatusBar, TitleBar } from '../../../app/modules/app-ui/components';
 
-describe('Application UI Components', () => {
+describe('main', () => {
   let state;
   let fullState;
   beforeEach(() => {
