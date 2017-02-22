@@ -34156,12 +34156,12 @@
     }
   },
   "player": {
-    "id": "578025",
+    "id": "123456",
     "name": "ベガっち",
     "level": 104,
-    "experience": 2953647,
-    "rank": 3,
-    "coins": 90510,
+    "experience": 2345678,
+    "rank": 4,
+    "coins": 90909,
     "flags": {
       "lscIsUnlocked": true
     },

@@ -6,7 +6,7 @@ import { constructionDock, equipment, item } from '../_templates';
 
 const idProp = R.prop('id');
 
-const optic = L.pick({
+export const optic = L.pick({
   equipment: L.pick({
     entities: ['equipment', 'player'],
     lookup: ['lookup', 'equipment', 'player'],
@@ -41,4 +41,6 @@ export default ({ path, body }, state) => {
   };
 
   state.modify(L.set(optic, result));
+
+  return state;
 };

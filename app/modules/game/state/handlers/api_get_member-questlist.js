@@ -19,8 +19,7 @@ export default ({ path, body }, state) => {
 
   const result = { quests, questView };
 
-  console.log('result =>', result);
-  console.log('optic  =>', optic);
-
   state.modify(L.set(optic, result));
+
+  return state;
 };
