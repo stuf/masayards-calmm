@@ -23,7 +23,7 @@ describe('state handler', () => {
     const test = require(path.join(testerDir, file));
     const handler = reqlib(`app/modules/game/state/handlers/${file}`);
 
-    it(apiPath, () => {
+    describe(apiPath, () => {
       test(handler.default(json, state), handler.optic);
     });
   });
