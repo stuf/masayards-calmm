@@ -3,7 +3,13 @@ import * as L from 'partial.lenses';
 
 export default (s, optic, state = s.view(optic).get()) => {
   const p = L.get('player', state);
-  expect(L.get(L.props('id', 'name', 'rank', 'level', 'experience', 'coins'), p)).to.eql({
+
+  const basicProps = ['id', 'name', 'rank', 'level', 'experience', 'coins'];
+  const dockProps = ['constructionDocks', 'reparationDocks', 'fleets'];
+  const activityProps = ['sortiesWon', 'missionsDone', 'missionsSuccess', 'pvpsWon', 'pvpsLost'];
+  const resProps = ['type', 'value'];
+
+  expect(L.get(L.props(...basicProps), p)).to.eql({
     id: '578025',
     name: 'ベガっち',
     rank: 4,
@@ -12,13 +18,13 @@ export default (s, optic, state = s.view(optic).get()) => {
     experience: 2963929
   });
 
-  expect(L.get(L.props('constructionDocks', 'reparationDocks', 'fleets'), p)).to.eql({
+  expect(L.get(L.props(...dockProps), p)).to.eql({
     constructionDocks: 4,
     reparationDocks: 4,
     fleets: 4
   });
 
-  expect(L.get(L.props('sortiesWon', 'missionsDone', 'missionsSuccess', 'pvpsWon', 'pvpsLost'), p)).to.eql({
+  expect(L.get(L.props(...activityProps), p)).to.eql({
     sortiesWon: 12488,
     missionsDone: 12043,
     missionsSuccess: 11919,
@@ -27,7 +33,7 @@ export default (s, optic, state = s.view(optic).get()) => {
   });
 
   const r = L.get('resources', state);
-  expect(L.collect([L.values, L.props('type', 'value')], r)).to.eql([
+  expect(L.collect([L.values, L.props(...resProps)], r)).to.eql([
     { type: 'fuel', value: 98807 },
     { type: 'ammo', value: 98959 },
     { type: 'steel', value: 300000 },

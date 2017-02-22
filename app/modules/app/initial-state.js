@@ -4,6 +4,8 @@
  *
  * @flow
  */
+import * as L from 'partial.lenses';
+
 type GameStatus = 'disconnected' | 'connected';
 type NetworkState = 'offline' | 'online';
 
@@ -15,8 +17,38 @@ type ApiData = {
 };
 
 type Effect = { type: string, payload?: *, error?: * };
-type GameModeEnum = 'idle' | 'in_sortie' | 'in_practice' | 'ship_critical';
+type GameModeEnum = 'disconnected' | 'idle' | 'in_sortie' | 'in_practice' | 'ship_critical';
 type GameMode = GameModeEnum | Array<GameModeEnum>;
+
+type LMap<A> = { [id: string]: A };
+
+type MapData = {
+  areas: *,
+  info: *,
+  music: *
+};
+
+type Quests = { [id: string]: * };
+type QuestView = *;
+
+type EquipmentEntity = *;
+type ShipEntity = *;
+
+type RepairDock = *;
+type ConstructionDock = *;
+type Resource = *;
+type Mission = *;
+type Player = { [key: string]: * };
+
+type Equipment = {
+  base?: LMap<EquipmentEntity>,
+  player?: LMap<EquipmentEntity>
+};
+
+type Ships = {
+  base?: LMap<ShipEntity>,
+  player?: LMap<ShipEntity>
+};
 
 /**
  * @todo Figure out some cleaner way to do this
@@ -64,37 +96,32 @@ export type Schema = {
      */
     state: {
       /**
-       * Overview about the state of the game in relation to the player
+       * What are we currently doing?
        */
-      game: {
-        /**
-         * What are we currently doing?
-         */
-        mode: GameMode
-      },
+      status: GameMode,
       lookup: {
-        ships: {},
-        equipment: {}
+        ships: LMap<number>,
+        equipment: LMap<number>
       },
       /**
        * Player profile
        */
-      player: *,
-      ships?: {
-        base?: {},
-        player?: {}
+      player: Player,
+      furniture?: {
+        base?: LMap<*>,
+        player?: LMap<*>
       },
-      fleets?: {},
-      equipment?: {
-        base?: {},
-        player?: {}
-      },
-      resources?: { [id: string]: * },
-      constructionDocks?: {},
-      repairDocks?: {},
-      quests: {},
+      ships?: Ships,
+      fleets?: LMap<*>,
+      equipment?: Equipment,
+      resources?: LMap<Resource>,
+      constructionDocks?: LMap<ConstructionDock>,
+      repairDocks?: LMap<RepairDock>,
+      quests: Quests,
+      maps: MapData,
+      missions: LMap<Mission>,
       views?: {
-        quests?: *
+        quests?: QuestView
       }
     }
   },
@@ -141,9 +168,10 @@ const schema = {
       constructionDocks: {},
       repairDocks: {},
       quests: {},
-      baseData: {
-        mapAreas: [],
-        mapInfo: []
+      maps: {
+        areas: {},
+        info: {},
+        music: {}
       },
       views: {
         quests: {}
@@ -160,5 +188,13 @@ const schema = {
     gameUrl: 'http://www.dmm.com/netgame/social/-/gadgets/=/app_id=854854/'
   }
 };
+
+// const stateL = {
+//   Game: {}
+// };
+
+// const schemaL = L.pick({
+//   game: L.pick(stateL.Game)
+// });
 
 export default schema;

@@ -105,7 +105,16 @@ export const equipment = {
   alv: 'api_alv'
 };
 
+// Equipment types
+
+export const equipmentType = {
+  id: 'api_id',
+  name: 'api_name',
+  show: ['api_show_flg', L.valueOr(0), N.asBool]
+};
+
 // Ships
+
 export const ship = {
   id: 'api_id',
   sortId: 'api_sortno',
@@ -145,6 +154,17 @@ export const ship = {
 };
 
 export const ships = [L.elems, L.pick(ship)];
+
+// Ship types
+
+export const shipType = {
+  id: 'api_id',
+  sortId: 'api_sortno',
+  kcnt: 'api_kcnt',
+  scnt: 'api_scnt',
+  name: 'api_name',
+  equippableTypes: 'api_equip_type'
+};
 
 // Fleets
 
@@ -199,6 +219,24 @@ export const item = {
   value: 'api_value'
 };
 
+export const itemEntity = {
+  id: 'api_id',
+  useType: 'api_usetype',
+  category: 'api_category',
+  name: 'api_name',
+  description: ['api_description', L.normalize(N.Simple.rejectEmpty)],
+  price: 'api_price'
+};
+
+export const payItemEntity = {
+  id: 'api_id',
+  type: 'api_type',
+  name: 'api_name',
+  description: ['api_description', L.normalize(N.Simple.normalizeLinebreaks)],
+  item: 'api_item',
+  price: 'api_price'
+};
+
 export const items = [L.elems, L.pick(item)];
 
 // Furniture
@@ -208,6 +246,26 @@ export const furniture = {
   type: 'api_furniture_type',
   furnitureNumber: 'api_furniture_no',
   furnitureId: 'api_furniture_id'
+};
+
+export const furnitureEntity = {
+  id: 'api_id',
+  type: 'api_type',
+  number: 'api_no',
+  title: 'api_title',
+  description: 'api_description',
+  rarity: 'api_rarity',
+  price: 'api_price',
+  onSale: 'api_saleflg',
+  seasonal: 'api_season'
+};
+
+export const furnitureGraphic = {
+  id: 'api_id',
+  type: 'api_type',
+  number: 'api_no',
+  filename: 'api_filename',
+  version: 'api_version'
 };
 
 export const furnitureList = [L.elems, L.pick(furniture)];
@@ -271,7 +329,7 @@ export const baseShip = {
   }),
   rarity: 'api_backs',
   name: 'api_name',
-  message: ['api_getmes', L.normalize(N.Simple.normalizeLinebreaks)],
+  message: ['api_getmes', N.normLinebreaks],
   stats: L.pick({
     antiAir: 'api_tyku',
     torpedo: 'api_raig',
@@ -281,23 +339,87 @@ export const baseShip = {
   })
 };
 
-export default {
-  materialTypeList,
-  materials,
-  equipment,
-  ship,
-  ships,
-  fleet,
-  fleets,
-  constructionDock,
-  constructionDocks,
-  repairDock,
-  repairDocks,
-  furniture,
-  furnitureList,
-  basicProfile,
-  messageLog,
-  quest,
-  quests,
-  questList
+// Maps
+
+export const mapArea = {
+  id: 'api_id',
+  name: 'api_name',
+  type: 'api_type'
 };
+
+export const mapInfo = {
+  id: 'api_id',
+  mapAreaId: 'api_maparea_id',
+  number: 'api_no',
+  name: 'api_name',
+  level: 'api_level',
+  operation: L.pick({
+    name: 'api_opetext',
+    description: ['api_infotext', N.normLinebreaks]
+  }),
+  item: 'api_item',
+  health: L.pick({
+    maxHealth: 'api_max_maphp',
+    requiredDefeatCount: 'api_required_defeat_count',
+    // @todo Normalize this
+    sallyFlag: 'api_sally_flag'
+  })
+};
+
+export const mapMusic = {
+  id: 'api_id',
+  mapAreaId: 'api_maparea_id',
+  number: 'api_no',
+  music: L.pick({
+    map: 'api_map_bgm',
+    boss: 'api_boss_bgm'
+  })
+};
+
+// @todo Make consistent use of either `mission` or `expedition`
+export const mission = {
+  id: 'api_id',
+  mapAreaId: 'api_maparea_id',
+  name: 'api_name',
+  details: 'api_details',
+  duration: 'api_time',
+  difficulty: 'api_difficulty',
+  cost: L.pick({
+    fuel: 'api_use_fuel',
+    ammo: 'api_use_bull'
+  }),
+  rewards: L.pick({
+    item1: 'api_win_item1',
+    item2: 'api_win_item2'
+  }),
+  flags: L.pick({
+    isCancelable: 'api_return_flag'
+  })
+};
+
+// export default {
+//   materialTypeList,
+//   materials,
+//   equipment,
+//   equipmentType,
+//   ship,
+//   shipType,
+//   ships,
+//   fleet,
+//   fleets,
+//   constructionDock,
+//   constructionDocks,
+//   repairDock,
+//   repairDocks,
+//   furniture,
+//   furnitureEntity,
+//   furnitureList,
+//   item,
+//   itemEntity,
+//   payItemEntity,
+//   basicProfile,
+//   messageLog,
+//   quest,
+//   quests,
+//   questList
+// };

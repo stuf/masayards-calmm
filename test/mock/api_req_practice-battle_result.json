@@ -1,0 +1,64 @@
+{
+  "path": "/api_req_practice/battle_result",
+  "ts": 1487794810610,
+  "body": {
+    "api_ship_id": [
+      -1,
+      152,
+      150,
+      151,
+      149,
+      297,
+      296
+    ],
+    "api_win_rank": "A",
+    "api_get_exp": 90,
+    "api_member_lv": 104,
+    "api_member_exp": 2964687,
+    "api_get_base_exp": 590,
+    "api_mvp": 1,
+    "api_get_ship_exp": [
+      -1,
+      1770,
+      590,
+      590,
+      590,
+      590,
+      590
+    ],
+    "api_get_exp_lvup": [
+      [
+        566422,
+        584500
+      ],
+      [
+        999719,
+        1000000
+      ],
+      [
+        804472,
+        851500
+      ],
+      [
+        623560,
+        631500
+      ],
+      [
+        1000000
+      ],
+      [
+        927874,
+        1000000
+      ]
+    ],
+    "api_dests": 5,
+    "api_destsf": 1,
+    "api_enemy_info": {
+      "api_user_name": "",
+      "api_level": 107,
+      "api_rank": "少将",
+      "api_deck_name": "第1艦隊"
+    }
+  },
+  "postBody": {}
+}

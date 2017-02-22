@@ -1,0 +1,5242 @@
+{
+  "path": "/api_get_member/slot_item",
+  "ts": 1487794827501,
+  "body": [
+    {
+      "api_id": 27,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 65,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 151,
+      "api_slotitem_id": 2,
+      "api_locked": 1,
+      "api_level": 10
+    },
+    {
+      "api_id": 370,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 373,
+      "api_slotitem_id": 7,
+      "api_locked": 1,
+      "api_level": 1
+    },
+    {
+      "api_id": 380,
+      "api_slotitem_id": 7,
+      "api_locked": 1,
+      "api_level": 1
+    },
+    {
+      "api_id": 394,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 397,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 398,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 399,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 400,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 498,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 520,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 654,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 672,
+      "api_slotitem_id": 26,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 1
+    },
+    {
+      "api_id": 674,
+      "api_slotitem_id": 26,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 1
+    },
+    {
+      "api_id": 736,
+      "api_slotitem_id": 103,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 739,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 755,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 802,
+      "api_slotitem_id": 8,
+      "api_locked": 1,
+      "api_level": 7
+    },
+    {
+      "api_id": 835,
+      "api_slotitem_id": 12,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 881,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 884,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 963,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 966,
+      "api_slotitem_id": 3,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 972,
+      "api_slotitem_id": 22,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 997,
+      "api_slotitem_id": 12,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1019,
+      "api_slotitem_id": 55,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1022,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1024,
+      "api_slotitem_id": 26,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 3
+    },
+    {
+      "api_id": 1046,
+      "api_slotitem_id": 24,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1048,
+      "api_slotitem_id": 8,
+      "api_locked": 1,
+      "api_level": 2
+    },
+    {
+      "api_id": 1049,
+      "api_slotitem_id": 12,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1053,
+      "api_slotitem_id": 12,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1060,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 1
+    },
+    {
+      "api_id": 1071,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1091,
+      "api_slotitem_id": 24,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1093,
+      "api_slotitem_id": 54,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1094,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 2
+    },
+    {
+      "api_id": 1095,
+      "api_slotitem_id": 24,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 4
+    },
+    {
+      "api_id": 1096,
+      "api_slotitem_id": 52,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 1
+    },
+    {
+      "api_id": 1121,
+      "api_slotitem_id": 2,
+      "api_locked": 1,
+      "api_level": 10
+    },
+    {
+      "api_id": 1125,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1128,
+      "api_slotitem_id": 41,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1129,
+      "api_slotitem_id": 41,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1191,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1198,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1205,
+      "api_slotitem_id": 52,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1222,
+      "api_slotitem_id": 17,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1230,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 1
+    },
+    {
+      "api_id": 1231,
+      "api_slotitem_id": 17,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 4
+    },
+    {
+      "api_id": 1239,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1240,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1241,
+      "api_slotitem_id": 60,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1242,
+      "api_slotitem_id": 17,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 6
+    },
+    {
+      "api_id": 1256,
+      "api_slotitem_id": 46,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1264,
+      "api_slotitem_id": 45,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1265,
+      "api_slotitem_id": 47,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1269,
+      "api_slotitem_id": 47,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1274,
+      "api_slotitem_id": 46,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1279,
+      "api_slotitem_id": 8,
+      "api_locked": 0,
+      "api_level": 1
+    },
+    {
+      "api_id": 1287,
+      "api_slotitem_id": 24,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1301,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1302,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1304,
+      "api_slotitem_id": 15,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1305,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1308,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1337,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1340,
+      "api_slotitem_id": 41,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1341,
+      "api_slotitem_id": 41,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1391,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1414,
+      "api_slotitem_id": 46,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1420,
+      "api_slotitem_id": 24,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1421,
+      "api_slotitem_id": 17,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 3
+    },
+    {
+      "api_id": 1424,
+      "api_slotitem_id": 46,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1438,
+      "api_slotitem_id": 92,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1460,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1461,
+      "api_slotitem_id": 47,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1488,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1489,
+      "api_slotitem_id": 24,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1558,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1559,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1574,
+      "api_slotitem_id": 45,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1584,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1604,
+      "api_slotitem_id": 45,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1605,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1610,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1619,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1635,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1652,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1680,
+      "api_slotitem_id": 47,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1681,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1713,
+      "api_slotitem_id": 44,
+      "api_locked": 1,
+      "api_level": 4
+    },
+    {
+      "api_id": 1738,
+      "api_slotitem_id": 58,
+      "api_locked": 1,
+      "api_level": 2
+    },
+    {
+      "api_id": 1739,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1756,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1782,
+      "api_slotitem_id": 45,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1784,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1785,
+      "api_slotitem_id": 46,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1831,
+      "api_slotitem_id": 58,
+      "api_locked": 1,
+      "api_level": 6
+    },
+    {
+      "api_id": 1832,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1883,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 1925,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 1926,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 1927,
+      "api_slotitem_id": 44,
+      "api_locked": 1,
+      "api_level": 3
+    },
+    {
+      "api_id": 1970,
+      "api_slotitem_id": 24,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 3
+    },
+    {
+      "api_id": 1971,
+      "api_slotitem_id": 51,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2011,
+      "api_slotitem_id": 18,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2012,
+      "api_slotitem_id": 52,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 5
+    },
+    {
+      "api_id": 2013,
+      "api_slotitem_id": 17,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 2
+    },
+    {
+      "api_id": 2018,
+      "api_slotitem_id": 18,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 5
+    },
+    {
+      "api_id": 2023,
+      "api_slotitem_id": 24,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2035,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2036,
+      "api_slotitem_id": 28,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2047,
+      "api_slotitem_id": 24,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2057,
+      "api_slotitem_id": 24,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 4
+    },
+    {
+      "api_id": 2059,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2066,
+      "api_slotitem_id": 17,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2067,
+      "api_slotitem_id": 18,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2068,
+      "api_slotitem_id": 35,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2069,
+      "api_slotitem_id": 35,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2080,
+      "api_slotitem_id": 17,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 2
+    },
+    {
+      "api_id": 2081,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 3
+    },
+    {
+      "api_id": 2082,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 4
+    },
+    {
+      "api_id": 2083,
+      "api_slotitem_id": 18,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2096,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2098,
+      "api_slotitem_id": 57,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2121,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 3
+    },
+    {
+      "api_id": 2122,
+      "api_slotitem_id": 24,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 3
+    },
+    {
+      "api_id": 2136,
+      "api_slotitem_id": 24,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 4
+    },
+    {
+      "api_id": 2137,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 3
+    },
+    {
+      "api_id": 2158,
+      "api_slotitem_id": 101,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2159,
+      "api_slotitem_id": 74,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2160,
+      "api_slotitem_id": 102,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2162,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2163,
+      "api_slotitem_id": 35,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2164,
+      "api_slotitem_id": 60,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 4
+    },
+    {
+      "api_id": 2170,
+      "api_slotitem_id": 55,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2177,
+      "api_slotitem_id": 35,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2178,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 3
+    },
+    {
+      "api_id": 2179,
+      "api_slotitem_id": 52,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 6
+    },
+    {
+      "api_id": 2191,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2198,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 3
+    },
+    {
+      "api_id": 2200,
+      "api_slotitem_id": 24,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2205,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 3
+    },
+    {
+      "api_id": 2209,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2210,
+      "api_slotitem_id": 60,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2240,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2246,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 3
+    },
+    {
+      "api_id": 2247,
+      "api_slotitem_id": 57,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2259,
+      "api_slotitem_id": 9,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2260,
+      "api_slotitem_id": 35,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2261,
+      "api_slotitem_id": 8,
+      "api_locked": 0,
+      "api_level": 1
+    },
+    {
+      "api_id": 2262,
+      "api_slotitem_id": 41,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2270,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2271,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2292,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2297,
+      "api_slotitem_id": 63,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2298,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2321,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2322,
+      "api_slotitem_id": 15,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2336,
+      "api_slotitem_id": 7,
+      "api_locked": 1,
+      "api_level": 1
+    },
+    {
+      "api_id": 2389,
+      "api_slotitem_id": 35,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2422,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2425,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2443,
+      "api_slotitem_id": 36,
+      "api_locked": 1,
+      "api_level": 2
+    },
+    {
+      "api_id": 2456,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2491,
+      "api_slotitem_id": 28,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2492,
+      "api_slotitem_id": 27,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2518,
+      "api_slotitem_id": 7,
+      "api_locked": 1,
+      "api_level": 1
+    },
+    {
+      "api_id": 2525,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2534,
+      "api_slotitem_id": 14,
+      "api_locked": 1,
+      "api_level": 7
+    },
+    {
+      "api_id": 2614,
+      "api_slotitem_id": 7,
+      "api_locked": 1,
+      "api_level": 2
+    },
+    {
+      "api_id": 2691,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2692,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2695,
+      "api_slotitem_id": 36,
+      "api_locked": 1,
+      "api_level": 4
+    },
+    {
+      "api_id": 2696,
+      "api_slotitem_id": 12,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2726,
+      "api_slotitem_id": 2,
+      "api_locked": 1,
+      "api_level": 10
+    },
+    {
+      "api_id": 2746,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2747,
+      "api_slotitem_id": 51,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2754,
+      "api_slotitem_id": 35,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2755,
+      "api_slotitem_id": 7,
+      "api_locked": 1,
+      "api_level": 4
+    },
+    {
+      "api_id": 2756,
+      "api_slotitem_id": 12,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2758,
+      "api_slotitem_id": 7,
+      "api_locked": 1,
+      "api_level": 5
+    },
+    {
+      "api_id": 2770,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2773,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2804,
+      "api_slotitem_id": 144,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2805,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2809,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2810,
+      "api_slotitem_id": 15,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2811,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2830,
+      "api_slotitem_id": 2,
+      "api_locked": 1,
+      "api_level": 3
+    },
+    {
+      "api_id": 2850,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2851,
+      "api_slotitem_id": 24,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2853,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2854,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2891,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2902,
+      "api_slotitem_id": 2,
+      "api_locked": 1,
+      "api_level": 10
+    },
+    {
+      "api_id": 2914,
+      "api_slotitem_id": 74,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2915,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 2986,
+      "api_slotitem_id": 146,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2987,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 2988,
+      "api_slotitem_id": 146,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2989,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2990,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 2999,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 3063,
+      "api_slotitem_id": 147,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3064,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 3087,
+      "api_slotitem_id": 74,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3088,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3089,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3130,
+      "api_slotitem_id": 22,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 3131,
+      "api_slotitem_id": 106,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3132,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3133,
+      "api_slotitem_id": 51,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3134,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 3135,
+      "api_slotitem_id": 39,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 3141,
+      "api_slotitem_id": 104,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3142,
+      "api_slotitem_id": 104,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3143,
+      "api_slotitem_id": 35,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3144,
+      "api_slotitem_id": 27,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3291,
+      "api_slotitem_id": 146,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 3292,
+      "api_slotitem_id": 146,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 3318,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 3402,
+      "api_slotitem_id": 71,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3422,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 3429,
+      "api_slotitem_id": 2,
+      "api_locked": 1,
+      "api_level": 10
+    },
+    {
+      "api_id": 3441,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 3461,
+      "api_slotitem_id": 90,
+      "api_locked": 1,
+      "api_level": 7
+    },
+    {
+      "api_id": 3462,
+      "api_slotitem_id": 131,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3463,
+      "api_slotitem_id": 122,
+      "api_locked": 1,
+      "api_level": 1
+    },
+    {
+      "api_id": 3468,
+      "api_slotitem_id": 35,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3469,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 3480,
+      "api_slotitem_id": 24,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 3481,
+      "api_slotitem_id": 18,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 3482,
+      "api_slotitem_id": 22,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 3517,
+      "api_slotitem_id": 120,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3534,
+      "api_slotitem_id": 50,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3535,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3536,
+      "api_slotitem_id": 79,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 6
+    },
+    {
+      "api_id": 3720,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3836,
+      "api_slotitem_id": 58,
+      "api_locked": 1,
+      "api_level": 3
+    },
+    {
+      "api_id": 3837,
+      "api_slotitem_id": 27,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3838,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 3840,
+      "api_slotitem_id": 22,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 3850,
+      "api_slotitem_id": 60,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3863,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 3870,
+      "api_slotitem_id": 24,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 3889,
+      "api_slotitem_id": 17,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 3896,
+      "api_slotitem_id": 55,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 3
+    },
+    {
+      "api_id": 3897,
+      "api_slotitem_id": 17,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 3923,
+      "api_slotitem_id": 17,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 3941,
+      "api_slotitem_id": 17,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 3948,
+      "api_slotitem_id": 26,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 6
+    },
+    {
+      "api_id": 3949,
+      "api_slotitem_id": 18,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 3975,
+      "api_slotitem_id": 60,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 3998,
+      "api_slotitem_id": 52,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4022,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 1
+    },
+    {
+      "api_id": 4026,
+      "api_slotitem_id": 54,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4034,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4039,
+      "api_slotitem_id": 24,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4046,
+      "api_slotitem_id": 55,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4052,
+      "api_slotitem_id": 54,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4053,
+      "api_slotitem_id": 17,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4060,
+      "api_slotitem_id": 54,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4061,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4062,
+      "api_slotitem_id": 24,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4068,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 4075,
+      "api_slotitem_id": 24,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 1
+    },
+    {
+      "api_id": 4079,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4080,
+      "api_slotitem_id": 91,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4091,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 4134,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4156,
+      "api_slotitem_id": 90,
+      "api_locked": 1,
+      "api_level": 1
+    },
+    {
+      "api_id": 4157,
+      "api_slotitem_id": 90,
+      "api_locked": 1,
+      "api_level": 4
+    },
+    {
+      "api_id": 4158,
+      "api_slotitem_id": 28,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4181,
+      "api_slotitem_id": 22,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4183,
+      "api_slotitem_id": 40,
+      "api_locked": 1,
+      "api_level": 2
+    },
+    {
+      "api_id": 4184,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4196,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 4201,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 4249,
+      "api_slotitem_id": 46,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4280,
+      "api_slotitem_id": 129,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4281,
+      "api_slotitem_id": 28,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4282,
+      "api_slotitem_id": 27,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4302,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 6
+    },
+    {
+      "api_id": 4316,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 4317,
+      "api_slotitem_id": 55,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 6
+    },
+    {
+      "api_id": 4338,
+      "api_slotitem_id": 96,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4339,
+      "api_slotitem_id": 99,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 2
+    },
+    {
+      "api_id": 4340,
+      "api_slotitem_id": 98,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4341,
+      "api_slotitem_id": 61,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4342,
+      "api_slotitem_id": 22,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4373,
+      "api_slotitem_id": 7,
+      "api_locked": 1,
+      "api_level": 3
+    },
+    {
+      "api_id": 4374,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4409,
+      "api_slotitem_id": 22,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4410,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 4411,
+      "api_slotitem_id": 55,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4424,
+      "api_slotitem_id": 86,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4454,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 4456,
+      "api_slotitem_id": 51,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4458,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4461,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 4463,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4470,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 4486,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4493,
+      "api_slotitem_id": 55,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4497,
+      "api_slotitem_id": 55,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4526,
+      "api_slotitem_id": 150,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4537,
+      "api_slotitem_id": 22,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4592,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 1
+    },
+    {
+      "api_id": 4593,
+      "api_slotitem_id": 24,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4594,
+      "api_slotitem_id": 51,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4620,
+      "api_slotitem_id": 25,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4680,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4703,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 4717,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 4756,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 4800,
+      "api_slotitem_id": 65,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4801,
+      "api_slotitem_id": 107,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4802,
+      "api_slotitem_id": 106,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4888,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 4920,
+      "api_slotitem_id": 55,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 4935,
+      "api_slotitem_id": 60,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 5
+    },
+    {
+      "api_id": 4937,
+      "api_slotitem_id": 61,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 5021,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 5022,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 5124,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 5236,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 5295,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 3
+    },
+    {
+      "api_id": 5447,
+      "api_slotitem_id": 25,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 5472,
+      "api_slotitem_id": 10,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 5473,
+      "api_slotitem_id": 15,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 5490,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 5532,
+      "api_slotitem_id": 3,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 5629,
+      "api_slotitem_id": 91,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 5630,
+      "api_slotitem_id": 106,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 5631,
+      "api_slotitem_id": 68,
+      "api_locked": 1,
+      "api_level": 6
+    },
+    {
+      "api_id": 5668,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 5669,
+      "api_slotitem_id": 40,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 5683,
+      "api_slotitem_id": 96,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 5684,
+      "api_slotitem_id": 97,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 5685,
+      "api_slotitem_id": 93,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 6
+    },
+    {
+      "api_id": 5747,
+      "api_slotitem_id": 22,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 5778,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 5792,
+      "api_slotitem_id": 14,
+      "api_locked": 1,
+      "api_level": 1
+    },
+    {
+      "api_id": 5835,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 5923,
+      "api_slotitem_id": 43,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 5924,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 5925,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 5940,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 5941,
+      "api_slotitem_id": 26,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 1
+    },
+    {
+      "api_id": 5942,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 5946,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6036,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6071,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 6077,
+      "api_slotitem_id": 125,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6078,
+      "api_slotitem_id": 121,
+      "api_locked": 1,
+      "api_level": 7
+    },
+    {
+      "api_id": 6079,
+      "api_slotitem_id": 106,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6139,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 1
+    },
+    {
+      "api_id": 6140,
+      "api_slotitem_id": 47,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6155,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 6169,
+      "api_slotitem_id": 63,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6170,
+      "api_slotitem_id": 28,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6207,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6238,
+      "api_slotitem_id": 90,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6240,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6244,
+      "api_slotitem_id": 123,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6245,
+      "api_slotitem_id": 115,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 6346,
+      "api_slotitem_id": 36,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 6410,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 6413,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 6416,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 6418,
+      "api_slotitem_id": 36,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 6419,
+      "api_slotitem_id": 36,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 6420,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 6448,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 6452,
+      "api_slotitem_id": 36,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 6470,
+      "api_slotitem_id": 92,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6514,
+      "api_slotitem_id": 65,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6515,
+      "api_slotitem_id": 66,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6558,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 1
+    },
+    {
+      "api_id": 6722,
+      "api_slotitem_id": 3,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 6724,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6798,
+      "api_slotitem_id": 41,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6860,
+      "api_slotitem_id": 123,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6861,
+      "api_slotitem_id": 84,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6862,
+      "api_slotitem_id": 124,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6900,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6911,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6912,
+      "api_slotitem_id": 14,
+      "api_locked": 1,
+      "api_level": 2
+    },
+    {
+      "api_id": 6938,
+      "api_slotitem_id": 147,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 6939,
+      "api_slotitem_id": 147,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7040,
+      "api_slotitem_id": 44,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7041,
+      "api_slotitem_id": 46,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7048,
+      "api_slotitem_id": 36,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7051,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7086,
+      "api_slotitem_id": 21,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7088,
+      "api_slotitem_id": 51,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7106,
+      "api_slotitem_id": 86,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7157,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7246,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7347,
+      "api_slotitem_id": 36,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7410,
+      "api_slotitem_id": 119,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7411,
+      "api_slotitem_id": 74,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7412,
+      "api_slotitem_id": 47,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7413,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7425,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7426,
+      "api_slotitem_id": 63,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7427,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7455,
+      "api_slotitem_id": 63,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7456,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7467,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7472,
+      "api_slotitem_id": 64,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 5
+    },
+    {
+      "api_id": 7622,
+      "api_slotitem_id": 90,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7623,
+      "api_slotitem_id": 90,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7624,
+      "api_slotitem_id": 28,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7669,
+      "api_slotitem_id": 8,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7730,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7738,
+      "api_slotitem_id": 41,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7753,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7823,
+      "api_slotitem_id": 64,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 7853,
+      "api_slotitem_id": 91,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7854,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 7867,
+      "api_slotitem_id": 79,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 5
+    },
+    {
+      "api_id": 7896,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7904,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 7914,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8011,
+      "api_slotitem_id": 12,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8081,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8095,
+      "api_slotitem_id": 79,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 8096,
+      "api_slotitem_id": 9,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8183,
+      "api_slotitem_id": 95,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8209,
+      "api_slotitem_id": 36,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8210,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8211,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8214,
+      "api_slotitem_id": 91,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8215,
+      "api_slotitem_id": 74,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8216,
+      "api_slotitem_id": 125,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8224,
+      "api_slotitem_id": 74,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8227,
+      "api_slotitem_id": 119,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8233,
+      "api_slotitem_id": 12,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8234,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8303,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8304,
+      "api_slotitem_id": 41,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8325,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 8328,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8441,
+      "api_slotitem_id": 8,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8497,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8523,
+      "api_slotitem_id": 8,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8529,
+      "api_slotitem_id": 44,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8568,
+      "api_slotitem_id": 43,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8607,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8616,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8617,
+      "api_slotitem_id": 8,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8678,
+      "api_slotitem_id": 95,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8679,
+      "api_slotitem_id": 8,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8680,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8686,
+      "api_slotitem_id": 8,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8689,
+      "api_slotitem_id": 8,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8813,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8814,
+      "api_slotitem_id": 8,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8816,
+      "api_slotitem_id": 90,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8817,
+      "api_slotitem_id": 90,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8818,
+      "api_slotitem_id": 90,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8852,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8856,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8887,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8901,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8902,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 8919,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8920,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 8958,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9055,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9115,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9175,
+      "api_slotitem_id": 50,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9176,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9177,
+      "api_slotitem_id": 79,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 9181,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9186,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9228,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9273,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9364,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9436,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9446,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9491,
+      "api_slotitem_id": 2,
+      "api_locked": 1,
+      "api_level": 10
+    },
+    {
+      "api_id": 9613,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9639,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9680,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9682,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9688,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9690,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9716,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9721,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9732,
+      "api_slotitem_id": 59,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 9745,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9746,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9791,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9792,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9793,
+      "api_slotitem_id": 43,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9794,
+      "api_slotitem_id": 161,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9810,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9813,
+      "api_slotitem_id": 28,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9814,
+      "api_slotitem_id": 47,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9815,
+      "api_slotitem_id": 27,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9820,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9835,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9872,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9873,
+      "api_slotitem_id": 122,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9874,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9875,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9879,
+      "api_slotitem_id": 92,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9880,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9918,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9924,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9941,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 9995,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 9998,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10012,
+      "api_slotitem_id": 162,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10027,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10047,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10056,
+      "api_slotitem_id": 92,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10135,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10140,
+      "api_slotitem_id": 163,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 10141,
+      "api_slotitem_id": 162,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10157,
+      "api_slotitem_id": 71,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10162,
+      "api_slotitem_id": 2,
+      "api_locked": 1,
+      "api_level": 9
+    },
+    {
+      "api_id": 10173,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10255,
+      "api_slotitem_id": 66,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10304,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10305,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10356,
+      "api_slotitem_id": 46,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10395,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10406,
+      "api_slotitem_id": 105,
+      "api_locked": 1,
+      "api_level": 2
+    },
+    {
+      "api_id": 10407,
+      "api_slotitem_id": 8,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10408,
+      "api_slotitem_id": 74,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10409,
+      "api_slotitem_id": 80,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 5
+    },
+    {
+      "api_id": 10456,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10476,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10499,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10529,
+      "api_slotitem_id": 90,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10530,
+      "api_slotitem_id": 129,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10531,
+      "api_slotitem_id": 74,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10532,
+      "api_slotitem_id": 88,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10562,
+      "api_slotitem_id": 162,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10563,
+      "api_slotitem_id": 163,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 10572,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10573,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10602,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10606,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10616,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10618,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10639,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10641,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10670,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10673,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10772,
+      "api_slotitem_id": 39,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10773,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10826,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10864,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 6
+    },
+    {
+      "api_id": 10898,
+      "api_slotitem_id": 14,
+      "api_locked": 0,
+      "api_level": 4
+    },
+    {
+      "api_id": 10928,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10947,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10965,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 10989,
+      "api_slotitem_id": 131,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10990,
+      "api_slotitem_id": 125,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 10991,
+      "api_slotitem_id": 106,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11015,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 11016,
+      "api_slotitem_id": 106,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11017,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11033,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11046,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11051,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11077,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11078,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11264,
+      "api_slotitem_id": 122,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11265,
+      "api_slotitem_id": 106,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11266,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11289,
+      "api_slotitem_id": 49,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11290,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11295,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11334,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11382,
+      "api_slotitem_id": 49,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11408,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11410,
+      "api_slotitem_id": 27,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11434,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11440,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11448,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11453,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11504,
+      "api_slotitem_id": 50,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11505,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11506,
+      "api_slotitem_id": 26,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 11586,
+      "api_slotitem_id": 49,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11611,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11612,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11618,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11629,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11666,
+      "api_slotitem_id": 49,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11668,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11746,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11747,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11748,
+      "api_slotitem_id": 68,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11790,
+      "api_slotitem_id": 75,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11804,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11816,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 11817,
+      "api_slotitem_id": 168,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 6
+    },
+    {
+      "api_id": 11896,
+      "api_slotitem_id": 126,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 11958,
+      "api_slotitem_id": 49,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12000,
+      "api_slotitem_id": 63,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12001,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12002,
+      "api_slotitem_id": 101,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12088,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 5
+    },
+    {
+      "api_id": 12104,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 12113,
+      "api_slotitem_id": 75,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12117,
+      "api_slotitem_id": 49,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12128,
+      "api_slotitem_id": 174,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12154,
+      "api_slotitem_id": 168,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12302,
+      "api_slotitem_id": 62,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 12325,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12401,
+      "api_slotitem_id": 169,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 5
+    },
+    {
+      "api_id": 12402,
+      "api_slotitem_id": 176,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 1
+    },
+    {
+      "api_id": 12403,
+      "api_slotitem_id": 162,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12421,
+      "api_slotitem_id": 178,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 12427,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12428,
+      "api_slotitem_id": 75,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12446,
+      "api_slotitem_id": 20,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12494,
+      "api_slotitem_id": 78,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12513,
+      "api_slotitem_id": 49,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12606,
+      "api_slotitem_id": 8,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12608,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 12609,
+      "api_slotitem_id": 161,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12610,
+      "api_slotitem_id": 172,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12611,
+      "api_slotitem_id": 127,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12730,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12751,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12752,
+      "api_slotitem_id": 34,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12755,
+      "api_slotitem_id": 9,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12772,
+      "api_slotitem_id": 8,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12780,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12805,
+      "api_slotitem_id": 138,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 1
+    },
+    {
+      "api_id": 12806,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12843,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12844,
+      "api_slotitem_id": 10,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12845,
+      "api_slotitem_id": 34,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 12846,
+      "api_slotitem_id": 8,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12851,
+      "api_slotitem_id": 75,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12852,
+      "api_slotitem_id": 49,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12853,
+      "api_slotitem_id": 10,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12856,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12857,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 12891,
+      "api_slotitem_id": 35,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12924,
+      "api_slotitem_id": 8,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12930,
+      "api_slotitem_id": 10,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12931,
+      "api_slotitem_id": 12,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12985,
+      "api_slotitem_id": 35,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12991,
+      "api_slotitem_id": 35,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 12992,
+      "api_slotitem_id": 9,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13015,
+      "api_slotitem_id": 63,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13016,
+      "api_slotitem_id": 101,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13017,
+      "api_slotitem_id": 74,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13044,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13045,
+      "api_slotitem_id": 41,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13046,
+      "api_slotitem_id": 11,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13092,
+      "api_slotitem_id": 12,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13099,
+      "api_slotitem_id": 12,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13100,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13118,
+      "api_slotitem_id": 75,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13160,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13174,
+      "api_slotitem_id": 162,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13175,
+      "api_slotitem_id": 164,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 13176,
+      "api_slotitem_id": 9,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13181,
+      "api_slotitem_id": 8,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13182,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13183,
+      "api_slotitem_id": 6,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13209,
+      "api_slotitem_id": 174,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13210,
+      "api_slotitem_id": 28,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13218,
+      "api_slotitem_id": 161,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13219,
+      "api_slotitem_id": 172,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13220,
+      "api_slotitem_id": 173,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13221,
+      "api_slotitem_id": 171,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 13266,
+      "api_slotitem_id": 8,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13272,
+      "api_slotitem_id": 91,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13273,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13302,
+      "api_slotitem_id": 8,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13303,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13318,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13323,
+      "api_slotitem_id": 41,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13327,
+      "api_slotitem_id": 25,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 13330,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13331,
+      "api_slotitem_id": 11,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13332,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13334,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13340,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13341,
+      "api_slotitem_id": 11,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13342,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13347,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13354,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13355,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13356,
+      "api_slotitem_id": 39,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13380,
+      "api_slotitem_id": 34,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13407,
+      "api_slotitem_id": 119,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13408,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13409,
+      "api_slotitem_id": 46,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13410,
+      "api_slotitem_id": 44,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13445,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13446,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13447,
+      "api_slotitem_id": 68,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13448,
+      "api_slotitem_id": 168,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13457,
+      "api_slotitem_id": 91,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13458,
+      "api_slotitem_id": 47,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13459,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13478,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13484,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13517,
+      "api_slotitem_id": 39,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13518,
+      "api_slotitem_id": 169,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 2
+    },
+    {
+      "api_id": 13523,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13526,
+      "api_slotitem_id": 39,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13545,
+      "api_slotitem_id": 184,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13560,
+      "api_slotitem_id": 190,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13612,
+      "api_slotitem_id": 15,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13657,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13690,
+      "api_slotitem_id": 3,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13691,
+      "api_slotitem_id": 15,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13701,
+      "api_slotitem_id": 10,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13716,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13718,
+      "api_slotitem_id": 15,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13737,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 1
+    },
+    {
+      "api_id": 13744,
+      "api_slotitem_id": 42,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13745,
+      "api_slotitem_id": 176,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 2
+    },
+    {
+      "api_id": 13763,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13764,
+      "api_slotitem_id": 195,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 1
+    },
+    {
+      "api_id": 13765,
+      "api_slotitem_id": 15,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13766,
+      "api_slotitem_id": 47,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13779,
+      "api_slotitem_id": 10,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13781,
+      "api_slotitem_id": 146,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13782,
+      "api_slotitem_id": 194,
+      "api_locked": 1,
+      "api_level": 0,
+      "api_alv": 7
+    },
+    {
+      "api_id": 13796,
+      "api_slotitem_id": 44,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13820,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13824,
+      "api_slotitem_id": 49,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13883,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13897,
+      "api_slotitem_id": 91,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13898,
+      "api_slotitem_id": 91,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13899,
+      "api_slotitem_id": 125,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 13915,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 13961,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14061,
+      "api_slotitem_id": 168,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14074,
+      "api_slotitem_id": 16,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 5
+    },
+    {
+      "api_id": 14088,
+      "api_slotitem_id": 49,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14089,
+      "api_slotitem_id": 49,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14101,
+      "api_slotitem_id": 39,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14130,
+      "api_slotitem_id": 7,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14131,
+      "api_slotitem_id": 11,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14132,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14136,
+      "api_slotitem_id": 39,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14146,
+      "api_slotitem_id": 23,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14147,
+      "api_slotitem_id": 16,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14148,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14150,
+      "api_slotitem_id": 39,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14165,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14195,
+      "api_slotitem_id": 20,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14196,
+      "api_slotitem_id": 16,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14197,
+      "api_slotitem_id": 49,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14234,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14238,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14239,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14242,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14244,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14245,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14246,
+      "api_slotitem_id": 19,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14249,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14250,
+      "api_slotitem_id": 4,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14251,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14252,
+      "api_slotitem_id": 10,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14254,
+      "api_slotitem_id": 5,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14256,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14257,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14258,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14259,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14260,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14261,
+      "api_slotitem_id": 4,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14262,
+      "api_slotitem_id": 4,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14264,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14265,
+      "api_slotitem_id": 4,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14275,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14280,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14283,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14285,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14286,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14287,
+      "api_slotitem_id": 5,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14288,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14299,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14301,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14302,
+      "api_slotitem_id": 39,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14304,
+      "api_slotitem_id": 4,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14334,
+      "api_slotitem_id": 4,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14360,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14365,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14366,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14367,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14393,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14394,
+      "api_slotitem_id": 39,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14395,
+      "api_slotitem_id": 27,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14413,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14414,
+      "api_slotitem_id": 23,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14415,
+      "api_slotitem_id": 16,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14423,
+      "api_slotitem_id": 5,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14427,
+      "api_slotitem_id": 6,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14428,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14431,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14440,
+      "api_slotitem_id": 4,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14442,
+      "api_slotitem_id": 4,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14443,
+      "api_slotitem_id": 25,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14478,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14479,
+      "api_slotitem_id": 39,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14480,
+      "api_slotitem_id": 27,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14495,
+      "api_slotitem_id": 73,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14502,
+      "api_slotitem_id": 91,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14503,
+      "api_slotitem_id": 46,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 14523,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14525,
+      "api_slotitem_id": 43,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14565,
+      "api_slotitem_id": 4,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14592,
+      "api_slotitem_id": 118,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 14608,
+      "api_slotitem_id": 27,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14609,
+      "api_slotitem_id": 28,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 14610,
+      "api_slotitem_id": 40,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14639,
+      "api_slotitem_id": 49,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14640,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14648,
+      "api_slotitem_id": 28,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 14649,
+      "api_slotitem_id": 30,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 14650,
+      "api_slotitem_id": 45,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14652,
+      "api_slotitem_id": 38,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14684,
+      "api_slotitem_id": 13,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14685,
+      "api_slotitem_id": 75,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14695,
+      "api_slotitem_id": 190,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 14696,
+      "api_slotitem_id": 191,
+      "api_locked": 1,
+      "api_level": 0
+    },
+    {
+      "api_id": 14698,
+      "api_slotitem_id": 4,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14699,
+      "api_slotitem_id": 14,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14735,
+      "api_slotitem_id": 13,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14782,
+      "api_slotitem_id": 145,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14803,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14804,
+      "api_slotitem_id": 13,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14806,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14820,
+      "api_slotitem_id": 2,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14821,
+      "api_slotitem_id": 13,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14824,
+      "api_slotitem_id": 1,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14825,
+      "api_slotitem_id": 37,
+      "api_locked": 0,
+      "api_level": 0
+    },
+    {
+      "api_id": 14826,
+      "api_slotitem_id": 207,
+      "api_locked": 0,
+      "api_level": 0,
+      "api_alv": 1
+    }
+  ],
+  "postBody": {}
+}

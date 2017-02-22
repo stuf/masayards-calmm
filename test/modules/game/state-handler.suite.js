@@ -13,7 +13,8 @@ describe('state handler', () => {
   const items = [
     { apiPath: '/api_start2', file: 'api_start2' },
     { apiPath: '/api_port/port', file: 'api_port-port' },
-    { apiPath: '/api_get_member/questlist', file: 'api_get_member-questlist' }
+    { apiPath: '/api_get_member/questlist', file: 'api_get_member-questlist' },
+    { apiPath: '/api_req_hokyu/charge', file: 'api_req_hokyu-charge' }
   ];
 
   items.forEach(({ apiPath, file }) => {
@@ -23,8 +24,7 @@ describe('state handler', () => {
     const handler = reqlib(`app/modules/game/state/handlers/${file}`);
 
     it(apiPath, () => {
-      const s = handler.default(json, state);
-      test(s, handler.optic);
+      test(handler.default(json, state), handler.optic);
     });
   });
 });

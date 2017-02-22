@@ -1,16 +1,26 @@
 import * as L from 'partial.lenses';
+import * as R from 'ramda';
 
 import { ship, materials } from '../_templates';
-import { collectWithIndex, keysToString } from '../meta';
+import { collectWithIndex } from '../meta';
 
-export default ({ path, body }, state) => {
-  const resources = collectWithIndex(['api_material', L.elems, materials], body);
-  const ships = collectWithIndex(['api_ship', L.elems, L.pick(ship)], body);
-
-  const optic = L.pick({
-    resources: ['resources', L.props(keysToString(resources))],
-    shipEntities: ['ships', 'player', L.props(keysToString(ships))]
+export const optic = ({ resIdLens }) =>
+  L.pick({
+    resources: ['resources'].concat(resIdLens || [])
   });
 
-  state.modify(L.set(optic, { resources, ships }));
+export default ({ path, body }, state) => {
+  const resources = collectWithIndex(['api_material', materials], body);
+  const shipEntities = collectWithIndex(['api_ship', L.elems, L.pick(ship)], body);
+
+  const o = L.pick({
+    resources: ['resources', L.props(...R.keys(resources))],
+    shipEntities: ['ships', 'player', L.props(...R.keys(shipEntities))]
+  });
+
+  const result = { resources, shipEntities };
+
+  state.modify(L.set(o, result));
+
+  return state;
 };
