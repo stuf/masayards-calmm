@@ -1,0 +1,59 @@
+{
+  "path": "/api_get_member/useitem",
+  "ts": 1487774867979,
+  "body": [
+    {
+      "api_id": 10,
+      "api_count": 73
+    },
+    {
+      "api_id": 11,
+      "api_count": 24
+    },
+    {
+      "api_id": 12,
+      "api_count": 9
+    },
+    {
+      "api_id": 52,
+      "api_count": 4
+    },
+    {
+      "api_id": 54,
+      "api_count": 18
+    },
+    {
+      "api_id": 56,
+      "api_count": 2
+    },
+    {
+      "api_id": 57,
+      "api_count": 17
+    },
+    {
+      "api_id": 59,
+      "api_count": 27
+    },
+    {
+      "api_id": 60,
+      "api_count": 12
+    },
+    {
+      "api_id": 62,
+      "api_count": 1
+    },
+    {
+      "api_id": 64,
+      "api_count": 7
+    },
+    {
+      "api_id": 70,
+      "api_count": 3
+    },
+    {
+      "api_id": 74,
+      "api_count": 1
+    }
+  ],
+  "postBody": {}
+}

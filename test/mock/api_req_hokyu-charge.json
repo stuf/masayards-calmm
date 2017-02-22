@@ -1,0 +1,64 @@
+{
+  "path": "/api_req_hokyu/charge",
+  "ts": 1487594957767,
+  "body": {
+    "api_ship": [
+      {
+        "api_id": 161,
+        "api_fuel": 15,
+        "api_bull": 25,
+        "api_onslot": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "api_id": 3818,
+        "api_fuel": 10,
+        "api_bull": 20,
+        "api_onslot": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "api_id": 1797,
+        "api_fuel": 10,
+        "api_bull": 20,
+        "api_onslot": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "api_id": 1514,
+        "api_fuel": 10,
+        "api_bull": 20,
+        "api_onslot": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "api_material": [
+      94633,
+      98001,
+      300000,
+      49920
+    ],
+    "api_use_bou": 0
+  },
+  "postBody": {}
+}

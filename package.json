@@ -96,6 +96,7 @@
   ],
   "homepage": "https://github.com/stuf/masayards-calmm#readme",
   "devDependencies": {
+    "app-root-path": "^2.0.1",
     "asar": "^0.13.0",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",

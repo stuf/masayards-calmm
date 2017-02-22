@@ -91,7 +91,11 @@ export type Schema = {
       },
       resources?: { [id: string]: * },
       constructionDocks?: {},
-      repairDocks?: {}
+      repairDocks?: {},
+      quests: {},
+      views?: {
+        quests?: *
+      }
     }
   },
   application: {
@@ -122,9 +126,7 @@ const schema = {
       data: {}
     },
     state: {
-      game: {
-        mode: 'idle'
-      },
+      status: 'disconnected',
       ships: {
         base: {},
         player: {}
@@ -138,11 +140,13 @@ const schema = {
       resources: {},
       constructionDocks: {},
       repairDocks: {},
-      questList: {},
-      questState: {},
+      quests: {},
       baseData: {
         mapAreas: [],
         mapInfo: []
+      },
+      views: {
+        quests: {}
       }
     }
   },

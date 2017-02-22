@@ -1,0 +1,61 @@
+{
+  "path": "/api_req_mission/result",
+  "ts": 1487774863433,
+  "body": {
+    "api_ship_id": [
+      -1,
+      161,
+      3818,
+      1797,
+      1514
+    ],
+    "api_clear_result": 1,
+    "api_get_exp": 30,
+    "api_member_lv": 104,
+    "api_member_exp": 2963959,
+    "api_get_ship_exp": [
+      150,
+      100,
+      100,
+      100
+    ],
+    "api_get_exp_lvup": [
+      [
+        500099,
+        509000
+      ],
+      [
+        90795,
+        94600
+      ],
+      [
+        282556,
+        285400
+      ],
+      [
+        75893,
+        78000
+      ]
+    ],
+    "api_maparea_name": "鎮守府海域",
+    "api_detail": "敵艦載機襲来に備えて、対空射撃や回避運動の訓練をしよう！",
+    "api_quest_name": "防空射撃演習",
+    "api_quest_level": 3,
+    "api_get_material": [
+      0,
+      0,
+      0,
+      92
+    ],
+    "api_useitem_flag": [
+      4,
+      0
+    ],
+    "api_get_item1": {
+      "api_useitem_id": 10,
+      "api_useitem_name": "家具箱（小）",
+      "api_useitem_count": 1
+    }
+  },
+  "postBody": {}
+}

@@ -5,11 +5,13 @@ import * as U from 'karet.util';
 
 import * as T from './_templates';
 
+export const collectWithIndex = (o, d, idProp = 'id') => R.indexBy(R.prop(idProp), L.collect(o, d));
+
+export const keysToString = R.compose(R.map(R.toString), R.keys);
+
 const pickIn = R.curryN(2, (template, root) => [root, L.elems, L.pick(template)]);
 
 const lookupKindIn = U.curry((t, p) => [p, L.define({}), t]);
-
-export const collectWithIndex = (o, d) => R.indexBy(R.prop('id'), L.collect(o, d));
 
 /**
  * Create a lookup table/map where the key in `a` will have a value given in `b`.
@@ -49,8 +51,8 @@ export const Player = {
 };
 
 export const Quests = {
-  in: root => [root, L.pick(T.questList)],
-  listIn: root => [root, L.pick(T.quest)]
+  in: L.pick(T.questList),
+  listIn: ['api_list', L.pick(T.quest)]
 };
 
 export const Ships = {
