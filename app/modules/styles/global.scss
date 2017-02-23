@@ -4,6 +4,7 @@
 @import 'components/lists';
 @import 'components/navigation';
 @import 'components/titlebar';
+@import 'components/boxlayout';
 @import 'components/topmenu';
 @import 'components/toolbar';
 @import 'components/footer';
@@ -11,8 +12,8 @@
 @import 'components/webview';
 @import 'components/kvf';
 @import 'components/data';
-@import 'components/ship';
 @import 'components/progress';
+@import 'components/game';
 
 * {
   box-sizing: border-box;

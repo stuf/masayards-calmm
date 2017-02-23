@@ -397,6 +397,18 @@ export const mission = {
   })
 };
 
+// Combat
+
+export const combatResult = {
+  experience: L.pick({
+    hq: 'api_get_exp',
+    gain: 'api_get_ship_exp',
+    shipExperience: 'api_get_exp_lvup'
+  }),
+  mvp: 'api_mvp',
+  rank: 'api_win_rank'
+};
+
 // export default {
 //   materialTypeList,
 //   materials,

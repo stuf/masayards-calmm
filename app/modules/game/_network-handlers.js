@@ -6,6 +6,7 @@
  */
 import * as R from 'ramda';
 import * as L from 'partial.lenses';
+import qs from 'querystring';
 
 import * as M from './meta';
 
@@ -82,9 +83,8 @@ const loadingFinished = ({ handlerState, contents, requestId }: *) => {
       console.timeEnd('Time spent (inner)');
       console.log('data =', data);
 
-      const latest = M.Network.views.latestIn(handlerState);
-
-      latest.set(data);
+      handlerState.modify(
+        L.set(M.Network.lenses.latest, data));
 
       console.groupEnd();
     });

@@ -1,0 +1,16 @@
+@import '../variables';
+
+.flex {
+  &__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__col {
+    &.fill-space {
+      flex: 1;
+    }
+  }
+}

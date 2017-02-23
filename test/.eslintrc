@@ -19,6 +19,8 @@
     "mocha/no-hooks": 0,
     "mocha/no-top-level-hooks": 0,
     "no-unused-expressions": 0,
-    "no-underscore-dangle": 0
+    "no-underscore-dangle": 0,
+    "global-require": 0,
+    "import/no-dynamic-require": 0
   }
 }

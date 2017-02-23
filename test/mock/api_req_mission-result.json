@@ -1,61 +1,59 @@
 {
   "path": "/api_req_mission/result",
-  "ts": 1487774863433,
+  "ts": 1487809546630,
   "body": {
     "api_ship_id": [
       -1,
-      161,
-      3818,
-      1797,
-      1514
+      3983,
+      6924,
+      4099,
+      3824
     ],
     "api_clear_result": 1,
-    "api_get_exp": 30,
+    "api_get_exp": 40,
     "api_member_lv": 104,
-    "api_member_exp": 2963959,
+    "api_member_exp": 2964957,
     "api_get_ship_exp": [
-      150,
-      100,
-      100,
-      100
+      60,
+      40,
+      40,
+      40
     ],
     "api_get_exp_lvup": [
       [
-        500099,
-        509000
+        29358,
+        30000
       ],
       [
-        90795,
-        94600
+        49812,
+        52800
       ],
       [
-        282556,
-        285400
+        13979,
+        15300
       ],
       [
-        75893,
-        78000
+        63114,
+        66600
       ]
     ],
     "api_maparea_name": "鎮守府海域",
-    "api_detail": "敵艦載機襲来に備えて、対空射撃や回避運動の訓練をしよう！",
-    "api_quest_name": "防空射撃演習",
+    "api_detail": "輸送船団の安全を図るために、船団に同行して、これを護衛しよう！",
+    "api_quest_name": "海上護衛任務",
     "api_quest_level": 3,
     "api_get_material": [
-      0,
-      0,
-      0,
-      92
+      200,
+      200,
+      20,
+      20
     ],
     "api_useitem_flag": [
-      4,
+      0,
       0
-    ],
-    "api_get_item1": {
-      "api_useitem_id": 10,
-      "api_useitem_name": "家具箱（小）",
-      "api_useitem_count": 1
-    }
+    ]
   },
-  "postBody": {}
+  "postBody": {
+    "api_deck_id": "3",
+    "api_verno": "1"
+  }
 }

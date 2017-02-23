@@ -1,0 +1,30 @@
+{
+  "path": "/api_req_hensei/preset_select",
+  "ts": 1487809830019,
+  "body": {
+    "api_member_id": 578025,
+    "api_id": 1,
+    "api_name": "ごらく部",
+    "api_name_id": "155990645",
+    "api_mission": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "api_flagship": "0",
+    "api_ship": [
+      713,
+      240,
+      8634,
+      627,
+      3708,
+      8680
+    ]
+  },
+  "postBody": {
+    "api_deck_id": "1",
+    "api_preset_no": "4",
+    "api_verno": "1"
+  }
+}

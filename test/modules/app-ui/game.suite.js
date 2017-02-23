@@ -29,7 +29,7 @@ describe('game', () => {
 
     it('should display a Ship component', () => {
       const checkContains = ([id, name]) =>
-        expect(render(<Ship ship={ShipM.getCombined(state, id)} />).find('.ship--name').text())
+        expect(render(<Ship ship={ShipM.getCombined(state, id)} />).find('.ship__name').text())
           .to.contain(name);
 
       R.forEach(checkContains, ids);
@@ -65,7 +65,7 @@ describe('game', () => {
 
     it('should contain the Fleet\'s name', () => {
       const wrapper = render(<Fleet view={fleetWithId(1)} />);
-      expect(wrapper.find('.fleet-name').text()).to.equal('Anti-Bus');
+      expect(wrapper.find('.fleet__name').text()).to.equal('Anti-Bus');
     });
 
     it('should display the Fleet\'s correct state (idle/on expedition/returned)', () => {
@@ -77,7 +77,7 @@ describe('game', () => {
         ];
 
       const checkEq = ([id, str]) =>
-        expect(render(<Fleet view={fleetWithId(id)} />).find('.fleet-state').text())
+        expect(render(<Fleet view={fleetWithId(id)} />).find('.fleet__state').text())
           .to.equal(str);
 
       R.forEach(checkEq, states);

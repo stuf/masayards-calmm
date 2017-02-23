@@ -1,21 +1,25 @@
-@import '../variables';
+@import '../../variables';
 
 // Single ship
 .ship {
-  > .row {
-    display: flex;
-    justify-content: space-between;
+  > .flex__row {
     margin-top: $base-pad;
-
     &:first-child { margin-top: 0; }
   }
 
-  &--name {
+  &__name {
     font-size: 1.25rem;
     font-weight: bold;
     flex-basis: 1;
   }
 
-  &--health { width: 80%; }
+  &__morale {
+    color: $secondary-text-color;
+  }
+
+  &__health {
+    height: 1rem;
+    width: 80%;
+  }
 }
 

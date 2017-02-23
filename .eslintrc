@@ -12,6 +12,7 @@
     "comma-dangle": "off",
     "no-unused-vars": 1,
     "no-console": 0,
+    "indent": 0,
     "generator-star-spacing": "off",
     "import/no-unresolved": ["error", { "ignore": ["electron"] }],
     "import/no-extraneous-dependencies": "off",

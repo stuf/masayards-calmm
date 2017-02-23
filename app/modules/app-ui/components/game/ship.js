@@ -31,12 +31,12 @@ const getHealthState = U.compose(mapHealthState, U.apply(getPercent), healthIn);
 
 export default ({ ship }: Props) =>
   <li className="ship">
-    <div className="row">
-      <div className="ship--name">{nameIn(ship)}</div>
-      <div className="ship--morale">★ {moraleIn(ship)}</div>
+    <div className="flex__row">
+      <div className="flex__col ship__name">{nameIn(ship)}</div>
+      <div className="flex__col ship__morale">★ {moraleIn(ship)}</div>
     </div>
-    <div className="row">
-      <div className="ship--level">{levelIn(ship)}</div>
-      <Progress className="ship--health" value={getHealthState(ship)} />
+    <div className="flex__row">
+      <div className="flex__col ship__level">{levelIn(ship)}</div>
+      <Progress className="flex__col ship__health" value={getHealthState(ship)} />
     </div>
   </li>;

@@ -13,6 +13,7 @@ import Ship from './ship';
 
 type Props = {
   view: *,
+  className?: *,
   fleet?: *,
   getCombined?: *,
   shipIds?: *,
@@ -21,17 +22,20 @@ type Props = {
 
 export default ({
   view,
+  className = 'fleet',
   fleet = U.view('fleet', view),
   shipIds = FleetM.shipIdsIn(view),
   getCombined = ShipM.getCombined(view),
   ships = U.map(getCombined, shipIds),
   ...props
 }: Props) =>
-  <article {...props}>
+  <article className={className} {...props}>
     <div className="item">
       <div className="content">
-        <div className="fleet-name header">{FleetM.nameIn(fleet)}</div>
-        <div className="fleet-state">{FleetM.missionStateIn(fleet)}</div>
+        <div className="flex__row evenly-spaced fleet__header">
+          <div className="flex__col fleet__name header">{FleetM.nameIn(fleet)}</div>
+          <div className="flex__col fleet__state">{FleetM.missionStateIn(fleet)}</div>
+        </div>
         <div className="timeleft">
           {/* <Duration until={M.Fleet.Mission.timeLeftIn(fleet)} /> */}
         </div>

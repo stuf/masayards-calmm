@@ -1,0 +1,10 @@
+@import '../../variables';
+
+.quest {}
+
+.quest {
+  .quest__state {
+    float: right;
+    font-size: $font-size-tiniest;
+  }
+}

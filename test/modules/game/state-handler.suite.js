@@ -1,10 +1,7 @@
-/* eslint-disable global-require, import/no-dynamic-require */
-import { expect } from 'chai';
-import { spy } from 'sinon';
 import { require as reqlib } from 'app-root-path';
 import path from 'path';
 
-import { setup, render } from '../setup';
+import { setup } from '../setup';
 
 const mockDir = path.join('..', '..', 'mock');
 const testerDir = path.join(__dirname, 'testers');

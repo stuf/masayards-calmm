@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import * as L from 'partial.lenses';
+import * as R from 'ramda';
 
 export default (s, optic, state = s.view(optic).get()) => {
   const p = L.get('player', state);
@@ -38,17 +39,18 @@ export default (s, optic, state = s.view(optic).get()) => {
     });
   });
 
-  const r = L.get('resources', state);
   it('should handle the player\'s resource/material state', () => {
-    expect(L.collect([L.values, L.props(...resProps)], r)).to.eql([
-      { type: 'fuel', value: 98807 },
-      { type: 'ammo', value: 98959 },
-      { type: 'steel', value: 300000 },
-      { type: 'bauxite', value: 51426 },
-      { type: 'instantRepair', value: 1721 },
-      { type: 'constructionMaterials', value: 800, },
-      { type: 'instantConstruction', value: 2854, },
-      { type: 'modernizationMaterials', value: 108 }
-    ]);
+    expect(L.collect(['resources',
+                      L.values,
+                      L.props(...resProps),
+                      L.normalize(R.values)], state)).to.eql([
+                        ['fuel', 98807],
+                        ['ammo', 98959],
+                        ['steel', 300000],
+                        ['bauxite', 51426],
+                        ['instantRepair', 1721],
+                        ['constructionMaterials', 800],
+                        ['instantConstruction', 2854],
+                        ['modernizationMaterials', 108]]);
   });
 };

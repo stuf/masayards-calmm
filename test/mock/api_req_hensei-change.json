@@ -1,0 +1,10 @@
+{
+  "path": "/api_req_hensei/change",
+  "ts": 1487809893013,
+  "postBody": {
+    "api_id": "1",
+    "api_ship_idx": "1",
+    "api_verno": "1",
+    "api_ship_id": "8634"
+  }
+}

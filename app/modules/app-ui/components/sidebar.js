@@ -4,6 +4,7 @@ import K, * as U from 'karet.util';
 
 import { Resources as ResourcesM } from './game/meta';
 import Progress from './ui/progress';
+import { Quest } from './game';
 
 type Props = {
   atom: *,
@@ -58,6 +59,17 @@ export default ({ atom, state = U.view(['game', 'state'], atom) }: Props) =>
                 <Progress value="50" className="dock-list__progress" />
               </li>))}
         </ul>
+      </div>
+    </section>
+
+    <section className="sidebar__section section--quests">
+      <div className="header">Quests</div>
+      <div className="body">
+        {U.seq(U.view(['quests', 'list'], state),
+          U.values,
+          U.filter(x => x.state !== 'INCOMPLETE'),
+          U.map(q =>
+            <Quest key={q.id} {...q} />))}
       </div>
     </section>
   </aside>;
