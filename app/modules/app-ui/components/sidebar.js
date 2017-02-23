@@ -26,7 +26,7 @@ const getRelevantResources = (state, [r1, r2] = [0, 4]) =>
     </ul>);
 
 export default ({ atom, state = U.view(['game', 'state'], atom) }: Props) =>
-  <aside className="">
+  <aside className="sidebar">
     <section className="sidebar__section">
       <div className="header">Resources</div>
       <div className="content">

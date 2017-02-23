@@ -1,6 +1,7 @@
 @import '~normalize.css/normalize';
 @import 'variables';
 @import 'views/mainview';
+@import 'components/buttons';
 @import 'components/lists';
 @import 'components/navigation';
 @import 'components/titlebar';
@@ -51,6 +52,8 @@ body {
 .view__sidebar {
   border-left: $primary-border;
   width: 20rem;
+  display: flex;
+  flex-direction: column;
 }
 
 ul {

@@ -23,8 +23,8 @@ describe('game', () => {
   describe('Ship', () => {
     const ids: TupleList<number, string> =
       [
-        [1, '吹雪'],
-        [161, 'Верный']
+        [1, '吹雪', 49],
+        [161, 'Верный', 46]
       ];
 
     it('should display a Ship component', () => {
@@ -35,14 +35,19 @@ describe('game', () => {
       R.forEach(checkContains, ids);
     });
 
-    it('should indicate critical health', () => {
-    });
+    // it('should indicate critical health', () => {
+    // });
 
     it('should indicate morale', () => {
+      const checkMorale = ([id, name, morale]) =>
+        expect(render(<Ship ship={ShipM.getCombined(state, id)} />).find('.ship__morale').text())
+          .to.contain(morale);
+
+      R.forEach(checkMorale, ids);
     });
 
-    it('should indicate low supplies', () => {
-    });
+    // it('should indicate low supplies', () => {
+    // });
   });
 
   describe('Fleet', () => {

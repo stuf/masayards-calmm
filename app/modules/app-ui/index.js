@@ -54,6 +54,9 @@ const AppUIContent = ({ atom }: Props) =>
 
       <div className="view__sidebar">
         <Sidebar atom={atom} />
+        <div className="sidebar__debug">
+          <button disabled className="button button--block button--primary">Debug state »</button>
+        </div>
       </div>
     </div>
 

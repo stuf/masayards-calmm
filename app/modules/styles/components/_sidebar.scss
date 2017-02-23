@@ -1,5 +1,10 @@
 @import '../variables';
 
+.sidebar {
+  flex: 1;
+  // border: solid 1px #f00;
+}
+
 .sidebar__section {
   padding: $base-pad;
   font-size: $font-size-small;
@@ -34,4 +39,10 @@
 .dock-list__progress {
   border: solid 1px #f00;
   flex: 1;
+}
+
+// Debug controls
+.sidebar__debug {
+  // border: solid 1px #f00;
+  padding: $base-pad;
 }

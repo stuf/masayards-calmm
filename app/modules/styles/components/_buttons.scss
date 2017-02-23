@@ -1,0 +1,39 @@
+@import '../variables';
+
+@mixin button-styles($color, $hover-color, $border-color, $text-color) {
+  background-color: $color;
+  border: solid 1px $border-color;
+  color: $text-color;
+  font-family: $font-family-system;
+  padding: $button-pad;
+  cursor: pointer;
+  font-size: $font-size-small;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    &:hover {
+      background-color: $color;
+    }
+  }
+}
+
+.button {
+  border-radius: $base-radius;
+
+  &--primary {
+    @include button-styles($color: $primary-button-color,
+                           $hover-color: $primary-button-hover-color,
+                           $border-color: $primary-button-border-color,
+                           $text-color: $primary-button-text-color);
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+}
