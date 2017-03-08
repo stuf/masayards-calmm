@@ -12,7 +12,8 @@ import {
   BrowserWindow,
   Menu,
   shell,
-  ipcMain
+  ipcMain,
+  TouchBar
 } from 'electron';
 import fs from 'fs';
 import path from 'path';
@@ -20,6 +21,7 @@ import plist from 'plist';
 import { reduce } from 'ramda';
 
 import logger from './logger';
+import { createTouchBar } from './modules/main';
 
 logger.info('Starting application');
 
@@ -114,10 +116,20 @@ app.on('ready', async () => {
     show: false,
     width: 1050,
     height: 970,
-    titleBarStyle: 'hidden-inset'
+    titleBarStyle: 'hidden-inset',
+    webPreferences: {
+      experimentalFeatures: true
+    }
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
+
+  const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar;
+  const tb = new TouchBar([
+    new TouchBarLabel({ label: 'jorma' })
+  ]);
+
+  mainWindow.setTouchBar(createTouchBar(TouchBar));
 
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.show();
